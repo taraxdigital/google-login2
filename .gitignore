@@ -1,0 +1,5 @@
+# ////google - login
+
+/vendor/
+composer.lock
+config.php
