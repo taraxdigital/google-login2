@@ -76,9 +76,11 @@ include_once("vistas/header2.php");
                 </ul>
             </div>
         </section>
+        <!-- // -->
+         
         <section class="modern-section">
             <div class="container">
-                <h2 class="section-title">Descubre lo Extraordinario</h2>
+                <h2 class="section-title">La revolución digital</h2>
                 <p class="section-description">
                     Explorando nuevas fronteras en diseño y tecnología
                 </p>
@@ -129,6 +131,24 @@ include_once("vistas/header2.php");
                 </div>
             </div>
         </section>
+        <section class="modern-section">
+  <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
+  <div class="image-block">
+    <img src="image1.jpg" alt="Innovación que Impulsa el Futuro">
+    <h3 class="block-title">Marketing impulsado por IA</h3>
+    <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
+  </div>
+  <div class="image-block">
+    <img src="image2.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+    <h3 class="block-title">Diseño y Funcionalidad </h3>
+    <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
+  </div>
+  <div class="image-block">
+    <img src="image3.jpg" alt="Tecnología para una Vida Inteligente">
+    <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
+    <p class="block-description">Integración con IoT para marketing en tiempo real</p>
+  </div>
+</section>
         <section id="home" class="hero">
             <h2>Conquista el Mundo Digital</h2>
             <p>Descubre. Investiga. Aprende.</p>
