@@ -179,6 +179,22 @@ nav ul {
   }
 }
 
+.falling-element {
+  position: absolute;
+  top: -50px;
+  animation: fall 3s linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-50px); }
+  100% { transform: translateY(250px); }
+}
+/* Posiciones iniciales de los elementos */
+.element1 { left: 10%; animation-delay: 0s; }
+.element2 { left: 30%; animation-delay: 0.5s; }
+.element3 { left: 50%; animation-delay: 1s; }
+.element4 { left: 70%; animation-delay: 1.5s; }
+.element5 { left: 90%; animation-delay: 2s; }
+
 
 /* .live {
   display: flex;
