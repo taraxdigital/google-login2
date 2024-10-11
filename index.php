@@ -134,18 +134,27 @@ include_once("vistas/header2.php");
         <section class="modern-section">
   <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
   <div class="image-block">
-    <img src="image1.jpg" alt="Innovación que Impulsa el Futuro">
-    <h3 class="block-title">Marketing impulsado por IA</h3>
+  <h3 class="block-title">Marketing impulsado por IA</h3>
+    <img src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
+   
     <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
   </div>
   <div class="image-block">
-    <img src="image2.jpg" alt="Diseño y Funcionalidad sin Compromisos">
-    <h3 class="block-title">Diseño y Funcionalidad </h3>
+  <h3 class="block-title">Diseño y Funcionalidad </h3>
+    <img src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+   
     <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
   </div>
   <div class="image-block">
-    <img src="image3.jpg" alt="Tecnología para una Vida Inteligente">
-    <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
+  <h3 class="block-title">La mejor música por bpm</h3>
+    <img src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
+    
+    <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
+  </div>
+  <div class="image-block">
+  <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
+    <img src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
+   
     <p class="block-description">Integración con IoT para marketing en tiempo real</p>
   </div>
 </section>
@@ -162,6 +171,29 @@ include_once("vistas/header2.php");
                 <div class="music-item">Del Lab a la Mesa</div>
             </div>
         </section>
+        <div class="contento">
+              <div class="column left">
+                <h3>De la forma más efectiva posible</h3>
+                <ul>
+                  <li>
+                    <p>✅Domina el mundo digital con nosotros.</p>
+                    <p>✅Expertos en Google Adwords: cada clic cuenta.</p>
+                    <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
+                    <p>
+                      ✅Guardianes de Search Console: tu sitio siempre arriba.
+                    </p>
+                    <p>
+                      ✅Diseño UX/UI cautivador: usuarios que no quieren irse.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="column right">
+                <div class="text-entry">
+                  <img id="imagen1" src="img/chulilla.jpg" alt="" />
+                </div>
+              </div>
+            </div>
 
         <section id="playlists">
             <h2>Nuestros Destacados</h2>
