@@ -46,10 +46,13 @@
     <div class="falling-element element1">🫀</div>
         <div class="falling-element element2">💡</div>
         <div class="falling-element element3">🏆</div>
+        <div class="falling-element element3">🍀</div>
+        <div class="falling-element element3">🚀</div>
         <div class="falling-element element4">🌟</div>
-        <div class="falling-element element5">📱</div>
-        <div class="falling-element element5">🙂</div>
-        <div class="falling-element element5">🤖</div>
+        <div class="falling-element element5">🎧</div>
+        <div class="falling-element element6">📱</div>
+        <div class="falling-element element7">🙂</div>
+        <div class="falling-element element8">🤖</div>
         
       
 

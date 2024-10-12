@@ -193,7 +193,10 @@ nav ul {
 .element2 { left: 30%; animation-delay: 0.5s; }
 .element3 { left: 50%; animation-delay: 1s; }
 .element4 { left: 70%; animation-delay: 1.5s; }
-.element5 { left: 90%; animation-delay: 2s; }
+.element5 { left: 90%; animation-delay: 1.6s; }
+.element6 { left: 90%; animation-delay: 1.8; }
+.element7 { left: 100%; animation-delay: 2s; }
+.element8 { left: 5%; animation-delay: 2s; }
 
 .login-container {
   display: flex;

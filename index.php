@@ -108,7 +108,7 @@ $videoData = [
 <?php
 // Simulamos obtener datos de una base de datos o un archivo de configuración
 $prezData = [
-    'title' => 'Presentación Destacada: Innovación en los últimos años.',
+    'title' => 'Novedades de los últimos años.',
     'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
     'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
 ];
