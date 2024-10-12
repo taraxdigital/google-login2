@@ -77,7 +77,53 @@ include_once("vistas/header2.php");
             </div>
         </section>
         <!-- // -->
-         
+        <?php
+// Simulamos obtener datos de una base de datos o un archivo de configuración
+$videoData = [
+    'title' => 'Video Destacado: Innovación Tecnológica',
+    'description' => 'Descubre las últimas tendencias en tecnología y cómo están cambiando nuestro mundo.',
+    'src' => 'videos/tech_innovation.mp4', // Asegúrate de que esta ruta sea correcta
+    'poster' => 'images/video_poster.jpg' // Imagen de vista previa del video
+];
+?>
+
+<!-- Sección de Video -->
+<section class="video-section">
+    <div class="container">
+        <h2 class="section-title"><?php echo htmlspecialchars($videoData['title']); ?></h2>
+        <p class="section-description"><?php echo htmlspecialchars($videoData['description']); ?></p>
+        <div class="video-container">
+            <video id="videoPlayer" src="img/video.mp4" poster="<?php echo htmlspecialchars($videoData['poster']); ?>"></video>
+            <div class="video-controls">
+                <button id="playPauseBtn">Reproducir</button>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+            </div>
+        </div>
+    </div>
+</section>
+<?php
+// Simulamos obtener datos de una base de datos o un archivo de configuración
+$prezData = [
+    'title' => 'Presentación Destacada: Innovación en los últimos años.',
+    'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
+    'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
+];
+?>
+
+<!-- Sección de Prezi -->
+<section class="prezi-section">
+    <div class="container">
+        <h2 class="section-title"><?php echo htmlspecialchars($prezData['title']); ?></h2>
+        <p class="section-description"><?php echo htmlspecialchars($prezData['description']); ?></p>
+        <div class="prezi-container">
+            <?php echo $prezData['embed']; ?>
+        </div>
+    </div>
+</section>
         <section class="modern-section">
             <div class="container">
                 <h2 class="section-title">La revolución digital</h2>
@@ -104,6 +150,7 @@ include_once("vistas/header2.php");
                 <a href="#" class="cta-button">Explora Más</a>
             </div>
         </section>
+        
         <section class="digital-marketing-section">
             <div class="containera">
                 <div class="content-wrapper">

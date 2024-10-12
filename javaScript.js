@@ -92,4 +92,71 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(entry);
     });
   });
-  
+  // Estado del reproductor
+let isPlaying = false;
+let volume = 1.0;
+let currentTime = 0;
+
+// Elementos del DOM
+const videoPlayer = document.getElementById('videoPlayer');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+const progressBar = document.getElementById('progressBar');
+const currentTimeDisplay = document.getElementById('currentTime');
+const durationDisplay = document.getElementById('duration');
+
+// Función para reproducir o pausar el video
+function togglePlayPause() {
+    if (videoPlayer.paused) {
+        videoPlayer.play();
+        playPauseBtn.textContent = 'Pausar';
+        isPlaying = true;
+    } else {
+        videoPlayer.pause();
+        playPauseBtn.textContent = 'Reproducir';
+        isPlaying = false;
+    }
+}
+
+// Función para actualizar el volumen
+function updateVolume() {
+    volume = volumeSlider.value;
+    videoPlayer.volume = volume;
+}
+
+// Función para actualizar la barra de progreso
+function updateProgressBar() {
+    const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+    progressBar.style.width = `${progress}%`;
+    currentTimeDisplay.textContent = formatTime(videoPlayer.currentTime);
+}
+
+// Función para formatear el tiempo en minutos:segundos
+function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+// Función para saltar a una posición en el video
+function seek(event) {
+    const seekPosition = (event.offsetX / event.target.clientWidth) * videoPlayer.duration;
+    videoPlayer.currentTime = seekPosition;
+}
+
+// Event Listeners
+playPauseBtn.addEventListener('click', togglePlayPause);
+volumeSlider.addEventListener('input', updateVolume);
+videoPlayer.addEventListener('timeupdate', updateProgressBar);
+progressBar.parentElement.addEventListener('click', seek);
+
+// Inicializar la duración del video cuando los metadatos estén cargados
+videoPlayer.addEventListener('loadedmetadata', () => {
+    durationDisplay.textContent = formatTime(videoPlayer.duration);
+});
+
+// Actualizar el botón de reproducción cuando el video termine
+videoPlayer.addEventListener('ended', () => {
+    playPauseBtn.textContent = 'Reproducir';
+    isPlaying = false;
+});
