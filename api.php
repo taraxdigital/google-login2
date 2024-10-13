@@ -3,8 +3,8 @@
 include 'config.php';
 
 // Tus credenciales de Spotify
-$client_id = CLIENT_ID;
-$client_secret = CLIENT_SECRET;
+// /////////////$client_id = CLIENT_ID;
+//////////////// $client_secret = CLIENT_SECRET;
 
 // Función para obtener el token de acceso
 function getAccessToken($client_id, $client_secret) {
@@ -49,11 +49,11 @@ function searchTracks($query, $access_token) {
 }
 
 // Obtener el token de acceso
-$access_token = getAccessToken($client_id, $client_secret);
+///////////////////////////////// $access_token = getAccessToken($client_id, $client_secret);
 
 // Buscar pistas
 $search_query = 'Armin van Buuren';
-$results = searchTracks($search_query, $access_token);
+///////////////////////// $results = searchTracks($search_query, $access_token);
 
 // Mostrar resultados
 if (isset($results['tracks']['items'])) {

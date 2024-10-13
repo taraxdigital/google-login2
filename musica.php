@@ -13,7 +13,9 @@ include 'config.php';
       <div class="container">
        
 
-      
+      <div id="list">
+        <h1>Lista dj</h1>
+      </div>
   
 
 

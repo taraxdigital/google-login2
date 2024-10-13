@@ -8,6 +8,7 @@ include_once("vistas/header2.php");
 <main>
     <!-- Contenido principal -->
     <div class="container">
+        
 
         <h1>Tendencias-top</h1>
         <section class="primero">
@@ -35,47 +36,7 @@ include_once("vistas/header2.php");
                 </div>
             </div>
         </section>
-        <section>
-            <div class="modal-social-links">
-                <ul class="footer-section-socialmedia">
-                    <!--
-   -->
-                    <li id="fb" class="footer-section-socialmedia-entry">
-                        <a href="https://www.facebook.com" target="_blank"><i
-                                class="fa-brands fa-facebook"
-                                title="face"
-                                aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <!--
-   -->
-                    <li id="sp" class="footer-section-socialmedia-entry">
-                        <a href="https://open.spotify.com" target="_blank"><i
-                                class="fa-brands fa-spotify"
-                                title="spotify"
-                                aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <!--
-   -->
-                    <li id="tw" class="footer-section-socialmedia-entry">
-                        <a href="https://github.com" target="_blank"><i
-                                class="fa-brands fa-github"
-                                title="github"
-                                aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <!--
-   -->
-                    <li id="ins" class="footer-section-socialmedia-entry">
-                        <a
-                            href="https://www.instagram.com"
-                            target="_blank"
-                            style="border-radius: 0"><i class="fa-brands fa-square-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+       
         <!-- // -->
         <?php
 // Simulamos obtener datos de una base de datos o un archivo de configuración
@@ -108,7 +69,7 @@ $videoData = [
 <?php
 // Simulamos obtener datos de una base de datos o un archivo de configuración
 $prezData = [
-    'title' => 'Novedades de los últimos años.',
+    'title' => 'Novedades de en los últimos años.',
     'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
     'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
 ];
