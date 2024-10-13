@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/ico.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link
       rel="stylesheet"
@@ -50,6 +50,7 @@
         <div class="falling-element element3">🚀</div>
         <div class="falling-element element4">🌟</div>
         <div class="falling-element element5">🎧</div>
+        <div class="falling-element element5">☎️</div>
         <div class="falling-element element6">📱</div>
         <div class="falling-element element7">🙂</div>
         <div class="falling-element element8">🤖</div>
