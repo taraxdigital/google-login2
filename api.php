@@ -2,9 +2,8 @@
 
 include 'config.php';
 
-// Tus credenciales de Spotify
-// /////////////$client_id = CLIENT_ID;
-//////////////// $client_secret = CLIENT_SECRET;
+$client_id = ID_CLIENTE;
+$client_secret = SECRETO_CLIENTE;
 
 // Función para obtener el token de acceso
 function getAccessToken($client_id, $client_secret) {
