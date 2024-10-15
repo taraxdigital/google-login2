@@ -68,6 +68,8 @@ $videoData = [
 </section>
 <?php
 // Simulamos obtener datos de una base de datos o un archivo de configuración
+
+
 $prezData = [
     'title' => 'Novedades de en los últimos años.',
     'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
@@ -211,7 +213,26 @@ $prezData = [
                 <div class="playlist">Workout</div>
             </div>
         </section>
-
+<section>
+<div class="contiene" id="contacto">
+        <h2>Contáctanos</h2>
+        <form action="#" method="post">
+            <div class="input-group">
+                <input type="text" id="nombre" required>
+                <label for="nombre">Nombre</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <textarea id="mensaje" rows="5" required></textarea>
+                <label for="mensaje">Mensaje</label>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
         <section id="events">
             <h2>Próximos Eventos</h2>
             <div class="event-list">

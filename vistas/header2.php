@@ -15,6 +15,8 @@
             <a href="alimentacion.php" onclick="seleccionar()">Alimentación</a>
           </li>
           <li><a href="tecnologia.php" onclick="seleccionar()">Tecnología</a></li>
+     
+          <a href="#contacto" class="icon" id ="boton">&#9742;</a>
         </ul>
       </nav>
       <div class="nav-responsive" onclick="mostrarOcultarMenu()">

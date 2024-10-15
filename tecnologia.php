@@ -90,7 +90,10 @@ include_once("vistas/header2.php");
     <h4>Descubrimiento de un Nuevo Planeta</h4>
     <p>Astrónomos del Instituto de Tecnología de Massachusetts (MIT) anunciaron el descubrimiento de un nuevo planeta que orbita alrededor de una estrella en la constelación de Andrómeda.</p>
 </ul>
+
 </section>
+
+               
 <section class="coze">
         <h2 class="coze-title">Inteligencia artificial en las imágenes.</h2>
         <p class="coze-paragraph">¡Cómo la Inteligencia Artificial agiliza el trabajo con imágenes:!</p><br>
