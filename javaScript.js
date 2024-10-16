@@ -174,7 +174,10 @@ const cozeImage = document.querySelector('.coze-image');
 cozeImage.addEventListener('click', () => {
     alert('¡Has hecho clic en la imagen de Coze!');
 });
-
+///////////
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM cargado");
+});
 
 ////////////
 window.addEventListener('DOMContentLoaded', (event) => {

@@ -1,5 +1,5 @@
 <div class="logo-container">
-        <img class="logo" src="img/ok.png" alt="Logo de la empresa" />
+        <img class="logo" src="img/nuevo3.png" alt="Logo de la empresa" />
       </div>
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
       <nav class="nav" id="nav">

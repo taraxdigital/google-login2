@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="img/frame.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/nuevo.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link
       rel="stylesheet"

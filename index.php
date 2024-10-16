@@ -8,7 +8,7 @@ include_once("vistas/header2.php");
 <main>
     <!-- Contenido principal -->
     <div class="container">
-        
+
 
         <h1>Tendencias-top</h1>
         <section class="primero">
@@ -36,57 +36,86 @@ include_once("vistas/header2.php");
                 </div>
             </div>
         </section>
-       
+
         <!-- // -->
         <?php
-// Simulamos obtener datos de una base de datos o un archivo de configuración
-$videoData = [
-    'title' => 'Video Destacado: Innovación Tecnológica',
-    'description' => 'Descubre las últimas tendencias en tecnología y cómo están cambiando nuestro mundo.',
-    'src' => 'videos/tech_innovation.mp4', // Asegúrate de que esta ruta sea correcta
-    'poster' => 'images/video_poster.jpg' // Imagen de vista previa del video
-];
-?>
 
-<!-- Sección de Video -->
-<section class="video-section">
-    <div class="container">
-        <h2 class="section-title"><?php echo htmlspecialchars($videoData['title']); ?></h2>
-        <p class="section-description"><?php echo htmlspecialchars($videoData['description']); ?></p>
-        <div class="video-container">
-            <video id="videoPlayer" src="img/video.mp4" poster="<?php echo htmlspecialchars($videoData['poster']); ?>"></video>
-            <div class="video-controls">
-                <button id="playPauseBtn">Reproducir</button>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
-                <div class="progress-container">
-                    <div id="progressBar"></div>
+        // Simulamos obtener datos de una base de datos o un archivo de configuración
+        $videoData = [
+            'title' => 'Video Destacado: Innovación Tecnológica',
+            'description' => 'Descubre las últimas tendencias en tecnología y cómo están cambiando nuestro mundo.',
+            'src' => 'videos/tech_innovation.mp4', // Asegúrate de que esta ruta sea correcta
+            'poster' => 'images/video_poster.jpg' // Imagen de vista previa del video
+        ];
+        ?>
+        <section>
+
+        </section>
+        <!-- Sección de Video -->
+        <section class="video-section">
+            <div class="container">
+                <h2 class="section-title"><?php echo htmlspecialchars($videoData['title']); ?></h2>
+                <p class="section-description"><?php echo htmlspecialchars($videoData['description']); ?></p>
+                <div class="video-container">
+                    <video id="videoPlayer" src="img/video.mp4" poster="<?php echo htmlspecialchars($videoData['poster']); ?>"></video>
+                    <div class="video-controls">
+                        <button id="playPauseBtn">Reproducir</button>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                        <div class="progress-container">
+                            <div id="progressBar"></div>
+                        </div>
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                    </div>
                 </div>
-                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
             </div>
-        </div>
+        </section>
+        <?php
+        // Simulamos obtener datos de una base de datos o un archivo de configuración
+
+
+        $prezData = [
+            'title' => 'Novedades de en los últimos años.',
+            'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
+            'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
+        ];
+        ?>
+        <div class="infographic">
+        <h1>Innovaciones Tecnológicas y Científicas del 2024</h1>
+        <section class="section" id="ia">
+            <h2>Inteligencia Artificial</h2>
+            <p>El 80% de las empresas están implementando IA en sus operaciones.</p>
+            <div class="image-container">
+                <img src="img/infogr.jpg" alt="Gráfico de Exploración Espacial" />
+            </div>
+        </section>
+        <section class="section" id="biotecnologia">
+            <h2>Biotecnología</h2>
+            <p>Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
+            <div class="image-container">
+                <img src="img/Medicina-personalizada.png" alt="Gráfico de Exploración Espacial" />
+            </div>
+        </section>
+        <section class="section" id="energia">
+            <h2>Energías Renovables</h2>
+            <p>El 50% de la electricidad global provendrá de fuentes renovables para 2030.</p>
+            <div class="image-container">
+                <img src="img/renovables.jpg" alt="Gráfico de Exploración Espacial" />
+            </div>
+        </section>
+       
     </div>
-</section>
-<?php
-// Simulamos obtener datos de una base de datos o un archivo de configuración
-
-
-$prezData = [
-    'title' => 'Novedades de en los últimos años.',
-    'description' => 'Explora nuestra presentación interactiva sobre las últimas tendencias .',
-    'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
-];
-?>
-
-<!-- Sección de Prezi -->
-<section class="prezi-section">
-    <div class="container">
-        <h2 class="section-title"><?php echo htmlspecialchars($prezData['title']); ?></h2>
-        <p class="section-description"><?php echo htmlspecialchars($prezData['description']); ?></p>
-        <div class="prezi-container">
-            <?php echo $prezData['embed']; ?>
-        </div>
-    </div>
-</section>
+  
+        
+        <!-- Sección de Prezi -->
+        <section class="prezi-section">
+            <div class="container">
+                <h2 class="section-title"><?php echo htmlspecialchars($prezData['title']); ?></h2>
+                <p class="section-description"><?php echo htmlspecialchars($prezData['description']); ?></p>
+                <div class="prezi-container">
+                    <?php echo $prezData['embed']; ?>
+                </div>
+            </div>
+        </section>
         <section class="modern-section">
             <div class="container">
                 <h2 class="section-title">La revolución digital</h2>
@@ -113,7 +142,7 @@ $prezData = [
                 <a href="#" class="cta-button">Explora Más</a>
             </div>
         </section>
-        
+
         <section class="digital-marketing-section">
             <div class="containera">
                 <div class="content-wrapper">
@@ -141,33 +170,81 @@ $prezData = [
                 </div>
             </div>
         </section>
+
+
+        <section>
+            <div class="containera">
+                <h1>La Incorporación de la IA</h1>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Crecimiento de la IA</h3>
+                        <div class="stat-value">120%</div>
+                        <p>Aumento en inversión desde 2020</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Aplicaciones Cotidianas</h3>
+                        <div class="stat-value">75%</div>
+                        <p>De smartphones usan IA</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Previsión para 2030</h3>
+                        <div class="stat-value">$15.7T</div>
+                        <p>Impacto económico global estimado</p>
+                    </div>
+                </div>
+
+                <h2>Crecimiento de la Inversión en IA</h2>
+                <div class="graph">
+                    <div class="bar-chart">
+                        <div class="bar" style="height: 25%"></div>
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 55%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 85%"></div>
+                    </div>
+                    <div class="bar-chart" style="height: auto">
+                        <div class="bar-label">2020<br>$50B</div>
+                        <div class="bar-label">2021<br>$65B</div>
+                        <div class="bar-label">2022<br>$80B</div>
+                        <div class="bar-label">2023<br>$95B</div>
+                        <div class="bar-label">2024<br>$110B</div>
+                    </div>
+                </div>
+
+                <div class="footera">
+                    <p>Fuentes: Informes de industria, estudios de mercado, y proyecciones económicas.</p>
+                    <p>Nota: Los datos presentados son aproximaciones y pueden variar según la fuente.</p>
+                </div>
+            </div>
+        </section>
         <section class="modern-section">
-  <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
-  <div class="image-block">
-  <h3 class="block-title">Marketing impulsado por IA</h3>
-    <img src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
-   
-    <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
-  </div>
-  <div class="image-block">
-  <h3 class="block-title">Diseño y Funcionalidad </h3>
-    <img src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
-   
-    <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
-  </div>
-  <div class="image-block">
-  <h3 class="block-title">La mejor música por bpm</h3>
-    <img src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
-    
-    <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
-  </div>
-  <div class="image-block">
-  <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
-    <img src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
-   
-    <p class="block-description">Integración con IoT para marketing en tiempo real</p>
-  </div>
-</section>
+            <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
+            <div class="image-block">
+                <h3 class="block-title">Marketing impulsado por IA</h3>
+                <img src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
+
+                <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
+            </div>
+            <div class="image-block">
+                <h3 class="block-title">Diseño y Funcionalidad </h3>
+                <img src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+
+                <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
+            </div>
+            <div class="image-block">
+                <h3 class="block-title">La mejor música por bpm</h3>
+                <img src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
+
+                <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
+            </div>
+            <div class="image-block">
+                <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
+                <img src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
+
+                <p class="block-description">Integración con IoT para marketing en tiempo real</p>
+            </div>
+        </section>
         <section id="home" class="hero">
             <h2>Conquista el Mundo Digital</h2>
             <p>Descubre. Investiga. Aprende.</p>
@@ -182,28 +259,28 @@ $prezData = [
             </div>
         </section>
         <div class="contento">
-              <div class="column left">
+            <div class="column left">
                 <h3>De la forma más efectiva posible</h3>
                 <ul>
-                  <li>
-                    <p>✅Domina el mundo digital con nosotros.</p>
-                    <p>✅Expertos en Google Adwords: cada clic cuenta.</p>
-                    <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
-                    <p>
-                      ✅Guardianes de Search Console: tu sitio siempre arriba.
-                    </p>
-                    <p>
-                      ✅Diseño UX/UI cautivador: usuarios que no quieren irse.
-                    </p>
-                  </li>
+                    <li>
+                        <p>✅Domina el mundo digital con nosotros.</p>
+                        <p>✅Expertos en Google Adwords: cada clic cuenta.</p>
+                        <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
+                        <p>
+                            ✅Guardianes de Search Console: tu sitio siempre arriba.
+                        </p>
+                        <p>
+                            ✅Diseño UX/UI cautivador: usuarios que no quieren irse.
+                        </p>
+                    </li>
                 </ul>
-              </div>
-              <div class="column right">
-                <div class="text-entry">
-                  <img id="imagen1" src="img/chulilla.jpg" alt="" />
-                </div>
-              </div>
             </div>
+            <div class="column right">
+                <div class="text-entry">
+                    <img id="imagen1" src="img/chulilla.jpg" alt="" />
+                </div>
+            </div>
+        </div>
 
         <section id="playlists">
             <h2>Nuestros Destacados</h2>
@@ -213,26 +290,43 @@ $prezData = [
                 <div class="playlist">Workout</div>
             </div>
         </section>
-<section>
-<div class="contiene" id="contacto">
-        <h2>Contáctanos</h2>
-        <form action="#" method="post">
-            <div class="input-group">
-                <input type="text" id="nombre" required>
-                <label for="nombre">Nombre</label>
+        <div class="form-container">
+        <h2>Formulario de Registro</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required>
             </div>
-            <div class="input-group">
-                <input type="email" id="email" required>
-                <label for="email">Email</label>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="input-group">
-                <textarea id="mensaje" rows="5" required></textarea>
-                <label for="mensaje">Mensaje</label>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
             </div>
-            <button type="submit">Enviar</button>
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" min="18" max="120" required>
+            </div>
+            <div class="form-group">
+                <label for="ocupacion">Ocupación</label>
+                <select id="ocupacion" name="ocupacion" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="empleado">Empleado</option>
+                    <option value="autonomo">Autónomo</option>
+                    <option value="desempleado">Desempleado</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los términos y condiciones</label>
+            </div>
+            <button type="submit">Registrarse</button>
         </form>
     </div>
-</section>
         <section id="events">
             <h2>Próximos Eventos</h2>
             <div class="event-list">
