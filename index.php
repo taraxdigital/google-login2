@@ -290,6 +290,7 @@ include_once("vistas/header2.php");
                 <div class="playlist">Workout</div>
             </div>
         </section>
+        <section>
         <div class="form-container">
         <h2>Formulario de Registro</h2>
         <form action="#" method="POST">
@@ -327,6 +328,7 @@ include_once("vistas/header2.php");
             <button type="submit">Registrarse</button>
         </form>
     </div>
+    </section>
         <section id="events">
             <h2>Próximos Eventos</h2>
             <div class="event-list">
