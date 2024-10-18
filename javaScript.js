@@ -223,3 +223,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log(item);
     }
 });
+document.getElementById("parallax").style.backgroundImage =
+  "url('img/2(1).png')";
+
+window.addEventListener("scroll", function () {
+  let parallax = document.getElementById("parallax");
+  let scrolPosition = window.scrollY;
+
+  parallax.style.backgroundPositionY = scrolPosition * 0.7 + "px";
+});

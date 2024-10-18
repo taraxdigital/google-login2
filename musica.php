@@ -73,6 +73,230 @@ if (isset($results['items'])) {
 } else {
     echo "No se encontraron resultados.";
 }
-
+?>
+<table>
+  <thead>
+    <tr>
+      <th>Artista</th>
+      <th>Año de Nacimiento</th>
+      <th>Género Musical</th>
+      <th>Tema Más Conocido</th>
+      <th>Año de Lanzamiento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Astrix</td>
+      <td>1975</td>
+      <td>Psytrance</td>
+      <td>"Deep Jungle Walk"</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <td>Vini Vici</td>
+      <td>1989</td>
+      <td>Psytrance</td>
+      <td>"The Calling"</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <td>Paul van Dyk</td>
+      <td>1971</td>
+      <td>Trance</td>
+      <td>"For an Angel"</td>
+      <td>1994</td>
+    </tr>
+    <tr>
+      <td>Tiësto</td>
+      <td>1969</td>
+      <td>EDM/Trance</td>
+      <td>"Adagio for Strings"</td>
+      <td>2005</td>
+    </tr>
+    <tr>
+      <td>Dimitri Vegas</td>
+      <td>1982</td>
+      <td>EDM</td>
+      <td>"Mammoth"</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <td>Axwell /\ Ingrosso</td>
+      <td>1982/1985</td>
+      <td>EDM</td>
+      <td>"Sun Is Shining"</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <td>Armin van Buuren</td>
+      <td>1976</td>
+      <td>Trance</td>
+      <td>"This Is What It Feels Like"</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <td>Ferry Corsten</td>
+      <td>1973</td>
+      <td>Trance</td>
+      <td>"Punk"</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <td>Above & Beyond</td>
+      <td>2000</td>
+      <td>Trance</td>
+      <td>"Sun & Moon"</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <td>Gareth Emery</td>
+      <td>1980</td>
+      <td>Trance</td>
+      <td>"Concrete Angel"</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <td>Infected Mushroom</td>
+      <td>1996</td>
+      <td>Psytrance</td>
+      <td>"Becoming Insane"</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <td>Shpongle</td>
+      <td>1998</td>
+      <td>Psytrance</td>
+      <td>"Divine Moments of Truth"</td>
+      <td>1998</td>
+    </tr>
+    <tr>
+      <td>Markus Schulz</td>
+      <td>1975</td>
+      <td>Trance</td>
+      <td>"The New World"</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <td>Solarstone</td>
+      <td>1970</td>
+      <td>Trance</td>
+      <td>"Solarcoaster"</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <td>Cosmic Gate</td>
+      <td>1999</td>
+      <td>Trance</td>
+      <td>"Exploration of Space"</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <td>Aly & Fila</td>
+      <td>1980/1981</td>
+      <td>Trance</td>
+      <td>"We Control the Sunlight"</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <td>Emma Hewitt</td>
+      <td>1986</td>
+      <td>Trance</td>
+      <td>"Colours"</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <td>Orjan Nilsen</td>
+      <td>1982</td>
+      <td>EDM</td>
+      <td>"Between the Rays"</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <td>John O'Callaghan</td>
+      <td>1983</td>
+      <td>Trance</td>
+      <td>"Big Sky"</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <td>Signum</td>
+      <td>1995</td>
+      <td>Trance</td>
+      <td>"What Ya Got 4 Me"</td>
+      <td>2005</td>
+    </tr>
+    <tr>
+      <td>Gareth Emery</td>
+      <td>1980</td>
+      <td>Trance</td>
+      <td>"U"</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <td>Alan Walker</td>
+      <td>1997</td>
+      <td>EDM</td>
+      <td>"Faded"</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <td>Laidback Luke</td>
+      <td>1976</td>
+      <td>EDM</td>
+      <td>"Turbulence"</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <td>Steve Aoki</td>
+      <td>1977</td>
+      <td>EDM</td>
+      <td>"Boneless"</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <td>Zedd</td>
+      <td>1989</td>
+      <td>EDM</td>
+      <td>"Clarity"</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <td>Kaskade</td>
+      <td>1971</td>
+      <td>EDM</td>
+      <td>"I Remember"</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <td>Deadmau5</td>
+      <td>1981</td>
+      <td>EDM</td>
+      <td>"Ghosts 'n' Stuff"</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <td>Calvin Harris</td>
+      <td>1984</td>
+      <td>EDM</td>
+      <td>"Summer"</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <td>David Guetta</td>
+      <td>1967</td>
+      <td>EDM</td>
+      <td>"Titanium"</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <td>Tiësto</td>
+      <td>1969</td>
+      <td>EDM/Trance</td>
+      <td>"Red Lights"</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+<?php
 include_once("vistas/footer.php");
 ?>

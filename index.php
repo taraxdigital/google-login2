@@ -51,8 +51,16 @@ include_once("vistas/header2.php");
         <section>
 
         </section>
+        
+      <!-- div parallax -->
+      <div id="parallax" class="parallax">
+        <div class="content">
+          <h2>Somos tu socio en revolución digital.</h2>
+          <p>Contáctanos: lleva tu negocio al siguiente nivel</p>
+        </div>
+      </div>
         <!-- Sección de Video -->
-        <section class="video-section">
+        <!-- <section class="video-section">
             <div class="container">
                 <h2 class="section-title"><?php echo htmlspecialchars($videoData['title']); ?></h2>
                 <p class="section-description"><?php echo htmlspecialchars($videoData['description']); ?></p>
@@ -68,7 +76,7 @@ include_once("vistas/header2.php");
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <?php
         // Simulamos obtener datos de una base de datos o un archivo de configuración
 
@@ -79,32 +87,29 @@ include_once("vistas/header2.php");
             'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
         ];
         ?>
-        <div class="infographic">
-        <h1>Innovaciones Tecnológicas y Científicas del 2024</h1>
-        <section class="section" id="ia">
+    
+    <div class="contaC">
+        <div class="column">
+            <img src="img/INTELIGENCIA-ARTIFICIAL.jpg" alt="Inteligencia Artificial" class="image">
             <h2>Inteligencia Artificial</h2>
-            <p>El 80% de las empresas están implementando IA en sus operaciones.</p>
-            <div class="image-container">
-                <img src="img/infogr.jpg" alt="Gráfico de Exploración Espacial" />
-            </div>
-        </section>
-        <section class="section" id="biotecnologia">
-            <h2>Biotecnología</h2>
-            <p>Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
-            <div class="image-container">
-                <img src="img/Medicina-personalizada.png" alt="Gráfico de Exploración Espacial" />
-            </div>
-        </section>
-        <section class="section" id="energia">
+            <p>La inteligencia artificial (IA) es la capacidad de una máquina para realizar tareas que normalmente requieren inteligencia humana, como el aprendizaje, la resolución de problemas y la toma de decisiones.
+            El 80% de las empresas están implementando IA en sus operaciones.
+            </p>
+        </div>
+        <div class="column">
+            <img src="img/renovables.jpg" alt="Energías Renovables" class="image">
             <h2>Energías Renovables</h2>
-            <p>El 50% de la electricidad global provendrá de fuentes renovables para 2030.</p>
-            <div class="image-container">
-                <img src="img/renovables.jpg" alt="Gráfico de Exploración Espacial" />
-            </div>
-        </section>
-       
+            <p>Las energías renovables son fuentes de energía que se renuevan de forma natural, como la energía solar, la energía eólica, la energía hidroeléctrica y la energía geotérmica. 
+                El 50% de la electricidad global provendrá de fuentes renovables para 2030. </p>
+        </div>
+        <div class="column">
+            <img src="img/BIOTECNOLOGIA.png" alt="Biotecnología" class="image">
+            <h2>Biotecnología</h2>
+            <p>La biotecnología es la aplicación de principios científicos y tecnológicos a organismos vivos, sistemas vivos o sus derivados para la creación de productos y procesos para usos específicos.
+                 Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
+        </div>
+     
     </div>
-  
         
         <!-- Sección de Prezi -->
         <section class="prezi-section">
@@ -161,7 +166,7 @@ include_once("vistas/header2.php");
                             <li>Análisis de datos y optimización de conversiones</li>
                         </ul>
                     </div>
-                    <div class="image-content">
+                    <div class=".rotate-scale-up">
                         <img
                             src="img/p6.jpg"
                             alt="Estrategias de Marketing Digital"
@@ -311,13 +316,13 @@ include_once("vistas/header2.php");
                 <input type="number" id="edad" name="edad" min="18" max="120" required>
             </div>
             <div class="form-group">
-                <label for="ocupacion">Ocupación</label>
+                <label for="ocupacion">Servicios</label>
                 <select id="ocupacion" name="ocupacion" required>
                     <option value="">Seleccione una opción</option>
-                    <option value="estudiante">Estudiante</option>
-                    <option value="empleado">Empleado</option>
-                    <option value="autonomo">Autónomo</option>
-                    <option value="desempleado">Desempleado</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="imagen">Imágenes</option>
+                    <option value="video">Videos</option>
+                    <option value="podcats">Podcats</option>
                     <option value="otro">Otro</option>
                 </select>
             </div>

@@ -94,13 +94,14 @@ include_once("vistas/header2.php");
 </section>
 
                
-<section class="coze">
+<section><div class="coze">
         <h2 class="coze-title">Inteligencia artificial en las imágenes.</h2>
         <p class="coze-paragraph">¡Cómo la Inteligencia Artificial agiliza el trabajo con imágenes:!</p><br>
         <p>✅  Eliminación automática de fondos</p><br>
         <p>✅  Generación automática de descripciones</p><br>
         <p>✅  Mejora de la calidad de las imágenes</p><br>
         <img class="coze-image" src="img/md.jpg" alt="Imagen de Coze">
+        </div>
     </section>
     <?php
 include_once("vistas/footer.php");
