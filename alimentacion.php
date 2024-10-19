@@ -7,7 +7,7 @@ include_once("vistas/header2.php");
 ?>
 
     <main>
-      <div class="container">
+      <div class="conta">
         <section id="home" class="hero">
           <h1>Pura Energía Vital</h1>
           <p>Come sano, vive sano.</p>
@@ -39,7 +39,7 @@ include_once("vistas/header2.php");
     <nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc d-none d-lg-block shadow-sm ">
         
 
-            <div id="o_main_nav" class="o_main_nav container">
+            <div id="o_main_nav" class="o_main_nav conta">
                 
     <a data-name="Navbar Logo" href="/" class="navbar-brand logo me-4">
             
@@ -130,7 +130,7 @@ include_once("vistas/header2.php");
         <li class="">
             <div data-oe-model="ir.ui.view" data-oe-id="625" data-oe-field="arch" data-oe-xpath="/data/xpath/li/div[1]" class="oe_structure oe_structure_solo ">
                 <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
-                    <div class="container">
+                    <div class="conta">
                         <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta">Contáctenos</a>
                     </div>
                 </section>
@@ -143,7 +143,7 @@ include_once("vistas/header2.php");
     <nav data-name="Navbar" aria-label="Mobile" class="navbar  navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm ">
         
 
-        <div class="o_main_nav container flex-wrap justify-content-between">
+        <div class="o_main_nav conta flex-wrap justify-content-between">
             
     <a data-name="Navbar Logo" href="/" class="navbar-brand logo ">
             
@@ -241,7 +241,7 @@ include_once("vistas/header2.php");
         <li class="">
             <div data-oe-model="ir.ui.view" data-oe-id="625" data-oe-field="arch" data-oe-xpath="/data/xpath/li/div[1]" class="oe_structure oe_structure_solo ">
                 <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
-                    <div class="container">
+                    <div class="conta">
                         <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta w-100">Contáctenos</a>
                     </div>
                 </section>
@@ -258,7 +258,7 @@ include_once("vistas/header2.php");
                 <main>
                     
         <div id="wrap" class="oe_structure" data-oe-model="ir.ui.view" data-oe-id="541" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]"><section class="s_banner pt96 pb96 o_colored_level" data-snippet="s_banner" data-name="Banner">
-        <div class="container">
+        <div class="conta">
             <div class="row o_grid_mode" data-row-count="10">
                 
                 <div class="o_grid_item_image g-height-10 d-lg-block d-none o_snippet_mobile_invisible g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 2;grid-area: 1 / 7 / 11 / 13">
@@ -294,7 +294,7 @@ En este espacio digital, exploraremos el fascinante mundo de la alimentación y 
         Los fundamentos de la alimentación.</h2>
         </div>
     </section><section class="s_text_image o_cc o_cc1 pt16 pb16 o_colored_level" data-snippet="s_text_image" data-name="Texto - Imagen">
-        <div class="container">
+        <div class="conta">
             <div class="row align-items-center">
                 <div class="col-lg-5 pt16 pb16 o_colored_level">
                     <h2 class="h3-fs">
@@ -314,7 +314,7 @@ En este espacio digital, exploraremos el fascinante mundo de la alimentación y 
             </div>
         </div>
     </section><section class="s_text_image o_cc o_cc1 pt48 pb72 o_colored_level" data-snippet="s_image_text" data-name="Texto - Imagen">
-        <div class="container">
+        <div class="conta">
             <div class="row align-items-center">
                 <div class="col-lg-6 pt16 pb16 o_colored_level">
                     <img src="/web/image/348-10cfd5ca/la-importancia-de-la-nutricion-en-la-salud-1.svg" alt="" class="img img-fluid mx-auto rounded o_we_custom_image" data-shape="web_editor/pattern/pattern_labyrinth" data-shape-colors="o-color-3;o-color-5;;o-color-1;" data-mimetype="image/svg+xml" data-original-id="346" data-original-src="/web/image/346-ad5b025a/la-importancia-de-la-nutricion-en-la-salud-1.png" data-mimetype-before-conversion="image/png" data-original-mimetype="image/webp" data-resize-width="690" data-file-name="la-importancia-de-la-nutricion-en-la-salud-1.svg" loading="lazy"/>
@@ -333,7 +333,7 @@ En este espacio digital, exploraremos el fascinante mundo de la alimentación y 
         </div>
     </section><section class="s_numbers_showcase pb80 o_colored_level o_cc o_cc4 pt88" data-oe-shape-data="{&#34;shape&#34;:&#34;web_editor/Origins/04_001&#34;,&#34;colors&#34;:{&#34;c3&#34;: &#34;#FFFFFF&#34;},&#34;flip&#34;:[&#34;y&#34;]}" data-snippet="s_numbers_showcase" data-name="Numbers Showcase">
         <div class="o_we_shape o_web_editor_Origins_04_001" style="background-image: url(&#39;/web_editor/shape/web_editor/Origins/04_001.svg?c3=o-color-4&amp;flip=y&#39;);"></div>
-        <div class="container">
+        <div class="conta">
             <div class="row o_grid_mode" data-row-count="8" style="gap: 24px;">
                 <div class="o_grid_item g-height-8 g-col-lg-4 col-lg-4 o_colored_level" style="--grid-item-padding-y: 16px; --grid-item-padding-x: 16px; grid-area: 1 / 1 / 9 / 5; z-index: 1;">
                     <h2>Explora las estadísticas.</h2>
@@ -362,7 +362,7 @@ En este espacio digital, exploraremos el fascinante mundo de la alimentación y 
             </div>
         </div>
     </section><section class="s_three_columns o_cc pt32 pb32 o_colored_level o_cc1" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columnas">
-        <div class="container">
+        <div class="conta">
             <div class="row d-flex align-items-stretch">
                 <div data-name="Card" class="col-lg-4 pt16 pb16">
                     <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
@@ -413,7 +413,7 @@ Revuelto de huevo con espárragos:
             </div>
         </div>
     </section><section class="s_image_text_box pt80 o_colored_level pb128" data-snippet="s_image_text_box" data-name="Image Text Box">
-        <div class="container">
+        <div class="conta">
             <div class="row o_grid_mode" data-row-count="12" style="column-gap: 24px;">
                 
                 <div class="o_grid_item o_cc o_cc2 rounded o_colored_level g-col-lg-6 g-height-12 col-lg-6" style="grid-area: 1 / 7 / 13 / 13; z-index: 2; --grid-item-padding-y: 140px; --grid-item-padding-x: 48px;">
@@ -453,7 +453,7 @@ Revuelto de huevo con espárragos:
         </div>
     </section><section class="s_cta_card o_cc pt48 pb56 o_cc3 o_colored_level" data-oe-shape-data="{&#39;shape&#39;:&#39;web_editor/Blobs/12&#39;,&#39;showOnMobile&#39;: true}" data-snippet="s_cta_card" data-name="Card Call to Action">
         <div class="o_we_shape o_web_editor_Blobs_12 o_shape_show_mobile o_footer_extra_shape_mapping"></div>
-        <div class="container">
+        <div class="conta">
             <div class="row align-items-center">
                 <div class="col-lg-8 o_colored_level">
                     <h2>
@@ -475,7 +475,7 @@ Revuelto de huevo con espárragos:
             </div>
         </div>
     </section><section class="s_accordion_image pt56 pb56 o_cc o_cc1 o_colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
-        <div class="container">
+        <div class="conta">
             <div class="row align-items-start">
                 <div class="col-lg-6 pt16 o_colored_level">
                     <h2 class="h3-fs">
@@ -528,7 +528,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
                 <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
                     <div id="footer" class="oe_structure oe_structure_solo" data-oe-id="1387" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch">
             <section class="s_text_block pt32 pb16" data-snippet="s_text_block" data-name="Text">
-                <div class="container">
+                <div class="conta">
                     <div class="row">
                         <div class="col-lg-3 pt16 pb16 o_colored_level">
                             <p class="mb-2">¿Cómo podemos ayudar?</p>
@@ -564,7 +564,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
                 </div>
             </section>
             <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
-                <div class="container">
+                <div class="conta">
                     <div class="row align-items-center">
                         
                         <div class="col-lg-10 pb16 text-end o_colored_level">
