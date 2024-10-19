@@ -110,7 +110,13 @@ include_once("vistas/header2.php");
         </div>
      
     </div>
-        
+    <div class="ai-section">
+        <h2>Generación de Imágenes y Videos con IA en 2024</h2>
+        <p>
+            En 2024, la inteligencia artificial (IA) continúa transformando la generación de imágenes y videos, con avances significativos en realismo y control creativo. Adobe ha lanzado nuevas herramientas como Firefly, que permite generar videos a partir de texto e imágenes, mejorando la edición y la integración de estas tecnologías en su ecosistema Creative Cloud. A su vez, los modelos de texto a imagen están alcanzando niveles de detalle que hacen difícil diferenciar las imágenes generadas por IA de las reales, y las interfaces se están volviendo más accesibles para usuarios sin experiencia técnica. El uso de medios sintéticos, como los deepfakes, sigue en expansión, presentando tanto oportunidades creativas como desafíos éticos. Las colaboraciones entre humanos y IA están redefiniendo el proceso creativo, permitiendo a los artistas combinar su visión con la potencia de la IA para producir piezas innovadoras. Además, la integración de estas tecnologías en redes sociales y marketing permite a las marcas personalizar contenido y mejorar la interacción con sus audiencias. La ética y transparencia en la generación de contenido se han convertido en prioridades, con iniciativas para asegurar que los contenidos generados sean trazables y auténticos.
+        </p>
+    </div>
+    
         <!-- Sección de Prezi -->
         <section class="prezi-section">
             <div class="container">
