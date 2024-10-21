@@ -143,172 +143,149 @@ include_once("vistas/header2.php");
             </div>
         </div>
     </section> -->
-    
-    <section class="s_text_image o_cc o_cc1 pt48 pb72 o_colored_level" data-snippet="s_image_text" data-name="Texto - Imagen">
-        <div class="conta">
-            <div class="row align-items-center">
-                <div class="col-lg-6 pt16 pb16 o_colored_level">
-                    <img src="/web/image/348-10cfd5ca/la-importancia-de-la-nutricion-en-la-salud-1.svg" alt="" class="img img-fluid mx-auto rounded o_we_custom_image" data-shape="web_editor/pattern/pattern_labyrinth" data-shape-colors="o-color-3;o-color-5;;o-color-1;" data-mimetype="image/svg+xml" data-original-id="346" data-original-src="/web/image/346-ad5b025a/la-importancia-de-la-nutricion-en-la-salud-1.png" data-mimetype-before-conversion="image/png" data-original-mimetype="image/webp" data-resize-width="690" data-file-name="la-importancia-de-la-nutricion-en-la-salud-1.svg" loading="lazy"/>
+    <section class="cuarta_seccion">
+    <div class="cuarta_contenedor">
+        <div class="cuarta_fila">
+            <div class="cuarta_columna_imagen">
+                <img src="img/comidaCorazon.png" alt="Nutrición saludable" class="cuarta_imagen"/>
+            </div>
+            <div class="cuarta_columna_texto">
+                <h2 class="cuarta_titulo">La nutrición, un pilar fundamental para una vida saludable y plena.</h2>
+                <div class="cuarta_contenido">
+                    <p><strong>Los macronutrientes y micronutrientes:</strong> Explica en detalle qué son y cuáles son sus funciones.</p>
+                    <p><strong>El metabolismo:</strong> Describe cómo el cuerpo transforma los alimentos en energía.</p>
+                    <p><strong>La importancia de una dieta equilibrada:</strong> Enfatiza la variedad de alimentos y las porciones adecuadas.</p>
+                    <p><strong>Los trastornos alimentarios:</strong> Aborda los problemas más comunes y sus consecuencias.</p>
                 </div>
-                <div class="col-lg-5 offset-lg-1 pt16 pb16 o_colored_level">
-                    <h2 class="h3-fs"><strong>La nutrición,&nbsp;un pilar fundamental para una vida saludable y plena.
-
-</strong></h2>
-        <p><br/></p>
-                    <p><strong>Los macronutrientes y micronutrientes:</strong> Explica en detalle qué son y cuáles son sus funciones.</p><p><strong>El metabolismo:</strong> Describe cómo el cuerpo transforma los alimentos en energía.</p><p><strong>La importancia de una dieta equilibrada:</strong> Enfatiza la variedad de alimentos y las porciones adecuadas.</p><p><strong>Los trastornos alimentarios:</strong> Aborda los problemas más comunes y sus consecuencias.</p><p>
-
-</p>
-                    <p><a href="#" class="btn btn-secondary">Descubre más </a></p>
-                </div>
+                <a href="#" class="cuarta_boton">Descubre más</a>
             </div>
         </div>
-    </section><section class="s_numbers_showcase pb80 o_colored_level o_cc o_cc4 pt88" data-oe-shape-data="{&#34;shape&#34;:&#34;web_editor/Origins/04_001&#34;,&#34;colors&#34;:{&#34;c3&#34;: &#34;#FFFFFF&#34;},&#34;flip&#34;:[&#34;y&#34;]}" data-snippet="s_numbers_showcase" data-name="Numbers Showcase">
-        <div class="o_we_shape o_web_editor_Origins_04_001" style="background-image: url(&#39;/web_editor/shape/web_editor/Origins/04_001.svg?c3=o-color-4&amp;flip=y&#39;);"></div>
-        <div class="conta">
-            <div class="row o_grid_mode" data-row-count="8" style="gap: 24px;">
-                <div class="o_grid_item g-height-8 g-col-lg-4 col-lg-4 o_colored_level" style="--grid-item-padding-y: 16px; --grid-item-padding-x: 16px; grid-area: 1 / 1 / 9 / 5; z-index: 1;">
-                    <h2>Explora las estadísticas.</h2>
-                    <p><br/></p>
-                    <p class="lead">Estudios científicos de la última década.</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Más información</a></p>
-                </div>
-                <div class="o_grid_item g-height-4 g-col-lg-4 col-lg-4 o_cc o_cc1 rounded o_colored_level" style="--grid-item-padding-y: 32px; --grid-item-padding-x: 32px; grid-area: 1 / 5 / 5 / 9; z-index: 2;">
-                    <h3 class="display-3-fs">12k</h3>
-                    <p><br/></p>
-                    <h4>Número de personas que han mejorado su salud y bienestar general mediante la adopción de una dieta saludable.</h4>
-                </div>
-                <div class="o_grid_item g-height-4 g-col-lg-4 col-lg-4 o_cc o_cc5 rounded o_colored_level" style="--grid-item-padding-y: 32px; --grid-item-padding-x: 32px; grid-area: 1 / 9 / 5 / 13; z-index: 3;">
-                    <h3 class="display-3-fs">45%</h3>
-                    <p><br/></p>
-                    <h4>El porcentaje de personas que han experimentado una reducción de enfermedades crónicas.</h4>
-                </div>
-                <div class="o_grid_item g-height-4 g-col-lg-8 col-lg-8 o_cc o_cc3 rounded o_colored_level" style="--grid-item-padding-y: 32px; --grid-item-padding-x: 32px; grid-area: 5 / 5 / 9 / 13; z-index: 4;">
-                    <h3 class="display-3-fs">8+</h3>
-                    <p><br/></p>
-                    <pre>El número promedio de años añadidos a la esperanza de vida, al seguir una dieta y un estilo de vida saludables.</pre><p>
+    </div>
+</section>
+<section class="cinco-seccion">
+    <div class="cinco-forma"></div>
+    <div class="cinco-contenedor">
+        <div class="cinco-grid">
+            <!-- Primer bloque - Texto principal -->
+            <div class="cinco-bloque cinco-bloque-principal">
+                <h2 class="cinco-titulo">Explora las estadísticas.</h2>
+                <p class="cinco-subtitulo">Estudios científicos de la última década.</p>
+                <a href="#" class="cinco-boton">Más información</a>
+            </div>
 
-</p>
-                    <p><br/></p>
-                </div>
+            <!-- Segundo bloque - 12k -->
+            <div class="cinco-bloque cinco-bloque-dato">
+                <h3 class="cinco-numero">12k</h3>
+                <h4 class="cinco-descripcion">Número de personas que han mejorado su salud y bienestar general mediante la adopción de una dieta saludable.</h4>
+            </div>
+
+            <!-- Tercer bloque - 45% -->
+            <div class="cinco-bloque cinco-bloque-dato-oscuro">
+                <h3 class="cinco-numero">45%</h3>
+                <h4 class="cinco-descripcion">El porcentaje de personas que han experimentado una reducción de enfermedades crónicas.</h4>
+            </div>
+
+            <!-- Cuarto bloque - 8+ -->
+            <div class="cinco-bloque cinco-bloque-largo">
+                <h3 class="cinco-numero">8+</h3>
+                <pre class="cinco-texto-pre">El número promedio de años añadidos a la esperanza de vida, al seguir una dieta y un estilo de vida saludables.</pre>
             </div>
         </div>
-    </section><section class="s_three_columns o_cc pt32 pb32 o_colored_level o_cc1" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columnas">
-        <div class="conta">
-            <div class="row d-flex align-items-stretch">
-                <div data-name="Card" class="col-lg-4 pt16 pb16">
-                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_1" alt="" loading="lazy" data-mimetype="image/jpeg" data-original-id="80" data-original-src="/web/image/website.library_image_11" data-mimetype-before-conversion="image/jpeg"/>
+    </div>
+</section>
+<section class="seis pt32 pb32" data-vxml="001" data-vcss="001" data-snippet="seis" data-name="Columnas">
+        <div class="seis-conta">
+            <div class="seis-row d-flex align-items-stretch">
+                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
+                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
+                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
+                            <img class="seis-card-img card-img-top" src="img/quinoa.jpeg" alt="Ensalada de quinoa" loading="lazy" data-mimetype="img/quinoa.jpeg" data-original-id="80" data-original-src="/web/image/website.library_image_11" data-mimetype-before-conversion="img/quinoa.jpeg"/>
                         </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">
- Ensalada de quinoa con pollo a la plancha y aguacate:
-
-</h5>
-                            <p><strong>Quinoa:</strong> Cocina la quinoa según las instrucciones del paquete.</p><p><strong>Pollo:</strong> Sazona las pechugas de pollo con sal, pimienta y tus especias favoritas. Cocínalas a la plancha hasta que estén doradas por ambos lados.</p><p><strong>Aguacate:</strong> Corta el aguacate en cubos.</p><p><strong>Ensalada:</strong> Mezcla la quinoa cocida con el pollo desmenuzado, el aguacate, tomates cherry cortados por la mitad, espinacas frescas y un aderezo ligero de limón, aceite de oliva y mostaza.</p><p>
-
-</p>
+                        <div class="seis-card-body">
+                            <h5 class="seis-card-title">
+                                Ensalada de quinoa con pollo a la plancha y aguacate:
+                            </h5>
+                            <p><strong>Quinoa:</strong> Cocina la quinoa según las instrucciones del paquete.</p>
+                            <p><strong>Pollo:</strong> Sazona las pechugas de pollo con sal, pimienta y tus especias favoritas. Cocínalas a la plancha hasta que estén doradas por ambos lados.</p>
+                            <p><strong>Aguacate:</strong> Corta el aguacate en cubos.</p>
+                            <p><strong>Ensalada:</strong> Mezcla la quinoa cocida con el pollo desmenuzado, el aguacate, tomates cherry cortados por la mitad, espinacas frescas y un aderezo ligero de limón, aceite de oliva y mostaza.</p>
                         </div>
                     </div>
                 </div>
-                <div data-name="Card" class="col-lg-4 pt16 pb16">
-                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_2" alt="" loading="lazy" data-mimetype="image/jpeg" data-original-id="81" data-original-src="/web/image/website.library_image_13" data-mimetype-before-conversion="image/jpeg"/>
+                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
+                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
+                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
+                            <img class="seis-card-img card-img-top" src="img/receta-salmon-unionmartin-2.jpg" alt="Salmón al horno" loading="lazy" data-mimetype="img/salmon.jpg" data-original-id="81" data-original-src="img/receta-salmon-unionmartin-2.jpg" data-mimetype-before-conversion="img/salmon.jpg"/>
                         </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">
-Salmón al horno con verduras:
-
-</h5>
-                            <p><strong>Verduras:</strong> Precalienta el horno. Corta calabacín, zanahoria y cebolla en rodajas. Rocíalas con aceite de oliva, sal y pimienta.</p><p><strong>Salmón:</strong> Sazona los filetes de salmón con sal, pimienta y tus hierbas favoritas. Coloca el salmón sobre las verduras en una bandeja para horno.</p><p><strong>Hornear:</strong> Hornea durante 20-25 minutos a 180°C, o hasta que el salmón esté cocido y las verduras estén tiernas.</p>
+                        <div class="seis-card-body">
+                            <h5 class="seis-card-title">
+                                Salmón al horno con verduras:
+                            </h5>
+                            <p><strong>Verduras:</strong> Precalienta el horno. Corta calabacín, zanahoria y cebolla en rodajas. Rocíalas con aceite de oliva, sal y pimienta.</p>
+                            <p><strong>Salmón:</strong> Sazona los filetes de salmón con sal, pimienta y tus hierbas favoritas. Coloca el salmón sobre las verduras en una bandeja para horno.</p>
+                            <p><strong>Hornear:</strong> Hornea durante 20-25 minutos a 180°C, o hasta que el salmón esté cocido y las verduras estén tiernas.</p>
                         </div>
                     </div>
                 </div>
-                <div data-name="Card" class="col-lg-4 pt16 pb16">
-                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="o_card_img_wrapper ratio ratio-16x9 mb-0">
-                            <img class="o_card_img card-img-top" src="/web/image/website.s_three_columns_default_image_3" alt="" loading="lazy" data-mimetype="image/jpeg" data-original-id="82" data-original-src="/web/image/website.library_image_07" data-mimetype-before-conversion="image/jpeg"/>
+                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
+                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
+                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
+                            <img class="seis-card-img card-img-top" src="img/revuelto-de-esparragos-trigueros.jpg" alt="Revuelto de huevo" loading="lazy" data-mimetype="image/jpeg" data-original-id="82" data-original-src="img/revuelto-de-esparragos-trigueros.jpg" data-mimetype-before-conversion="image/jpeg"/>
                         </figure>
-                        <div class="card-body">
-                            <h5 class="card-title">
-Revuelto de huevo con espárragos:
-
-</h5>
-                            <p><strong>Espárragos:</strong> Cocina los espárragos al vapor hasta que estén tiernos.</p><p><strong>Huevos:</strong> Bate los huevos con un poco de leche, sal y pimienta.</p><p><strong>Revuelto:</strong> Calienta una sartén con un poco de aceite de oliva. Vierte los huevos batidos y cocina a fuego bajo, removiendo constantemente. Agrega los espárragos cocidos y cocina hasta que los huevos estén cuajados.</p><p>
-
-</p>
+                        <div class="seis-card-body">
+                            <h5 class="seis-card-title">
+                                Revuelto de huevo con espárragos:
+                            </h5>
+                            <p><strong>Espárragos:</strong> Cocina los espárragos al vapor hasta que estén tiernos.</p>
+                            <p><strong>Huevos:</strong> Bate los huevos con un poco de leche, sal y pimienta.</p>
+                            <p><strong>Revuelto:</strong> Calienta una sartén con un poco de aceite de oliva. Vierte los huevos batidos y cocina a fuego bajo, removiendo constantemente. Agrega los espárragos cocidos y cocina hasta que los huevos estén cuajados.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><section class="s_image_text_box pt80 o_colored_level pb128" data-snippet="s_image_text_box" data-name="Image Text Box">
-        <div class="conta">
-            <div class="row o_grid_mode" data-row-count="12" style="column-gap: 24px;">
-                
-                <div class="o_grid_item o_cc o_cc2 rounded o_colored_level g-col-lg-6 g-height-12 col-lg-6" style="grid-area: 1 / 7 / 13 / 13; z-index: 2; --grid-item-padding-y: 140px; --grid-item-padding-x: 48px;">
-                    <h3>Diferentes Dietas y Estilos de Vida:</h3><p><br/></p>
-                    <p></p><ul><li><strong>Dietas vegetarianas y veganas:</strong>
-<ul>
-<li>Beneficios y desafíos.</li>
-<li>Planificación de comidas equilibradas.</li>
-</ul>
-</li>
-<li><strong>Dieta mediterránea:</strong>
-<ul>
-<li>Características y beneficios para la salud cardiovascular.</li>
-<li>Recetas típicas y adaptadas.</li>
-</ul>
-</li>
-<li><strong>Dieta flexitariana:</strong>
-<ul>
-<li>Combinación de alimentos de origen vegetal y animal.</li>
-<li>Flexibilidad y adaptabilidad a diferentes gustos.</li>
-</ul>
-</li>
-<li><strong>Otras dietas:</strong>
-<ul>
-<li>Keto, paleo, etc. (Con enfoque en evidencias científicas y posibles riesgos).</li>
-</ul>
-</li>
-</ul>
-<p>
-
-</p>
-                    <p class="mb-0"><br/></p>
-                </div>
-            <div class="o_grid_item o_grid_item_image g-col-lg-6 g-height-10 o_colored_level col-lg-6" style="z-index: 1; --grid-item-padding-y: 0px; --grid-item-padding-x: 0px; grid-area: 3 / 1 / 13 / 7;">
-                    <img src="/web/image/350-5ee67ca2/cocinillas_22257914_116018277_1706x960.webp" alt="" class="img img-fluid rounded order-lg-0 o_we_custom_image" data-mimetype="image/webp" data-original-id="341" data-original-src="/web/image/341-3e8ec7a3/cocinillas_22257914_116018277_1706x960.webp" data-mimetype-before-conversion="image/webp" data-resize-width="690" loading="lazy"/>
-                </div></div>
-        </div>
-    </section><section class="s_cta_card o_cc pt48 pb56 o_cc3 o_colored_level" data-oe-shape-data="{&#39;shape&#39;:&#39;web_editor/Blobs/12&#39;,&#39;showOnMobile&#39;: true}" data-snippet="s_cta_card" data-name="Card Call to Action">
-        <div class="o_we_shape o_web_editor_Blobs_12 o_shape_show_mobile o_footer_extra_shape_mapping"></div>
-        <div class="conta">
-            <div class="row align-items-center">
-                <div class="col-lg-8 o_colored_level">
-                    <h2>
-¡Empezar es lo más difícil, pero también lo más importante! Cada pequeño paso que des te acerca a una versión más saludable y feliz de ti mismo.&nbsp;&nbsp;</h2>
-                    <p class="lead"><br/></p>
-                </div>
-                <div class="col-lg-4 o_colored_level">
-                    <div class="s_card card o_cc o_cc1 mx-auto shadow o_colored_level" data-snippet="s_card" data-name="Card" data-vxml="001" style="border-width: 0px !important; max-width: 50%">
-                        <div class="card-body p-4">
-                            <h2>¡Tú puedes!</h2>
-                            <br/>
-                            <p><i class="fa fa-check text-o-color-1" role="img"></i>&nbsp; Déjate ayudar.</p>
-                            <p><i class="fa fa-check text-o-color-1" role="img"></i>&nbsp;&nbsp;Juntos, será más fácil.</p>
-                            <p><i class="fa fa-check text-o-color-1" role="img"></i>&nbsp;&nbsp;Da el primer paso.</p>
-                            <a class="btn btn-primary w-100" href="/contactus">Contáctenos</a>
-                        </div>
-                    </div>
-                </div>
+    </section>
+    <section class="siete">
+    <div class="siete">
+        <div class="siete">
+            <div class="siete">
+                <h3>Diferentes Dietas y Estilos de Vida:</h3>
+                <ul>
+                    <li><strong>Dietas vegetarianas y veganas:</strong>
+                        <ul>
+                            <li>Beneficios y desafíos.</li>
+                            <li>Planificación de comidas equilibradas.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dieta mediterránea:</strong>
+                        <ul>
+                            <li>Características y beneficios para la salud cardiovascular.</li>
+                            <li>Recetas típicas y adaptadas.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dieta flexitariana:</strong>
+                        <ul>
+                            <li>Combinación de alimentos de origen vegetal y animal.</li>
+                            <li>Flexibilidad y adaptabilidad a diferentes gustos.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Otras dietas:</strong>
+                        <ul>
+                            <li>Keto, paleo, etc. (Con enfoque en evidencias científicas y posibles riesgos).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="siete">
+                <img src="img/comida.png" alt="Variedad de platos de diferentes dietas" class="siete">
             </div>
         </div>
-    </section><section class="s_accordion_image pt56 pb56 o_cc o_cc1 o_colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
+    </div>
+</section>
+<section class="s_accordion_image clase-nueve- pt56 pb56 clase-nueve-1 clase-nueve-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
         <div class="conta">
             <div class="row align-items-start">
-                <div class="col-lg-6 pt16 o_colored_level">
+                <div class="col-lg-6 pt16 clase-nueve-colored_level">
                     <h2 class="h3-fs">
 El Spinning: Una Revolucionaria Forma de Entrenar.</h2>
                     <p class="lead">
@@ -316,8 +293,8 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
 
 </p>
                     <p><br/></p>
-    <div data-name="Accordion" class="s_accordion">
-        <div id="myCollapse" class="accordion-flush accordion">
+    <div data-name="Accordion" class="s_accordion clase-nueve-accordion">
+        <div id="myCollapse" class="accordion-flush accordion clase-nueve-accordion">
             <div class="accordion-item position-relative z-1" data-name="Accordion Item">
                 <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_1" data-bs-target="#myCollapseTab654353_1" aria-controls="myCollapseTab654353_1"><span class="flex-grow-1">
 Beneficios del Spinning
@@ -347,12 +324,60 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
         </div>
     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 pt16 o_colored_level">
-                    <img src="/web/image/349-89751ec1/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.webp" alt="" class="img img-fluid mx-auto rounded o_we_custom_image" style="width: 100% !important;" data-mimetype="image/webp" data-original-id="343" data-original-src="/web/image/343-382637b3/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="626" loading="lazy"/>
+                <div class="col-lg-5 offset-lg-1 pt16 clase-nueve-colored_level">
+                    <img src="/web/image/349-89751ec1/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.webp" alt="" class="img img-fluid mx-auto rounded clase-nueve-we_custom_image" style="width: 100% !important;" data-mimetype="image/webp" data-original-id="343" data-original-src="/web/image/343-382637b3/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="626" loading="lazy"/>
                 </div>
             </div>
         </div>
-    </section></div>
+    </section>
+    <section class="s_accordion_image clase-diez- pt56 pb56 clase-diez-1 clase-diez-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
+        <div class="conta">
+            <div class="row align-items-start">
+                <div class="col-lg-6 pt16 clase-diez-colored_level">
+                    <h2 class="h3-fs">
+El Spinning: Una Revolucionaria Forma de Entrenar.</h2>
+                    <p class="lead">
+Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos años, se ha convertido en una de las disciplinas más completas y efectivas para mejorar nuestra condición física y mental. 
+
+</p>
+                    <p><br/></p>
+    <div data-name="Accordion" class="s_accordion clase-diez-accordion">
+        <div id="myCollapse" class="accordion-flush accordion clase-diez-accordion">
+            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_1" data-bs-target="#myCollapseTab654353_1" aria-controls="myCollapseTab654353_1"><span class="flex-grow-1">
+Beneficios del Spinning
+
+?</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_1" aria-labelledby="accordion-button654353_1">
+                    <div class="accordion-body">
+                        <p><strong>Quema de calorías:</strong> &nbsp;En una sesión de una hora se pueden quemar entre 400 y 600 calorías.</p><p><strong>Mejora de la condición cardiovascular: F</strong>ortalece el corazón y mejora la circulación sanguínea.</p><p><strong>Aumento de la resistencia: </strong>&nbsp;Ayuda a aumentar la resistencia muscular y cardiovascular</p><p><strong>Reducción del estrés:</strong>&nbsp;Libera endorfinas, las hormonas de la felicidad.</p><p><br/></p><p>
+
+</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_3" data-bs-target="#myCollapseTab654353_3" aria-controls="myCollapseTab654353_3"><span class="flex-grow-1">
+¿Para quién es el spinning?&nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_3" aria-labelledby="accordion-button654353_3">
+                    <div class="accordion-body">
+                        <p>
+El spinning es una actividad apta para personas de todos los niveles de condición física, desde principiantes hasta atletas experimentados. La intensidad de cada sesión puede adaptarse a las necesidades individuales de cada participante.
+
+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 pt16 clase-diez-colored_level">
+                    <img src="img/spinning.jpg" alt="" class="img img-fluid mx-auto rounded clase-diez-we_custom_image" style="width: 100% !important;" data-mimetype="image/webp" data-original-id="343" data-original-src="/web/image/343-382637b3/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="626" loading="lazy"/>
+                </div>
+            </div>
+        </div>
+    </section>
     
         <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div>
                 </main>
