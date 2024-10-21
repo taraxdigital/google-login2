@@ -5,294 +5,123 @@ include_once("vistas/header.php");
 <?php
 include_once("vistas/header2.php");
 ?>
+<body>
+    <header class="segunda-header">
+       
+
+        <div class="segunda-status-section">
+      
+            <a href="#" class="segunda-contact-btn">Contáctenos</a>
+        </div>
+    </header>
+    
 
     <main>
-      <div class="conta">
+      <div class="container">
         <section id="home" class="hero">
           <h1>Pura Energía Vital</h1>
           <p>Come sano, vive sano.</p>
-          <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/t[1]/t[1]/input[1]" name="header_overlay"/>
-                
-                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/t[1]/t[1]/input[1]" name="header_color"/>
-                
-                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/t[1]/t[1]/input[1]" name="header_text_color"/>
-                
-                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/t[1]/t[1]/input[1]" name="header_visible" value="True"/>
-                
-                <input type="hidden" class="o_page_option_data" autocomplete="off" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/t[1]/t[1]/input[1]" name="footer_visible" value="True"/>
-
-
-
-        <div class="o_frontend_to_backend_nav position-fixed d-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="o_frontend_to_backend_icon position-absolute" width="24px" height="24px" viewBox="-7 -7 24 24" preserveAspectRatio="xMinYMin" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/div/{http://www.w3.org/2000/svg}svg[1]">
-                <path fill="#FFF" d="M8 8V1a1 1 0 1 1 2 0v8a1 1 0 0 1-1 1H1a1 1 0 1 1 0-2h7z"></path>
-            </svg>
-            <div class="o_frontend_to_backend_buttons d-flex">
-                <a href="/web" title="Ir a sus aplicaciones de Odoo" class="o_frontend_to_backend_apps_btn fa fa-th d-flex align-items-center justify-content-center text-decoration-none" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/div/div[1]/a[1]"></a>
-                <a href="#" title="Editar este contenido" class="o_frontend_to_backend_edit_btn px-3 d-flex align-items-center justify-content-center text-decoration-none" data-oe-model="ir.ui.view" data-oe-id="543" data-oe-field="arch" data-oe-xpath="/data/xpath[13]/div/div[1]/a[2]">
-                    <img src="/website/static/description/icon.png" alt="" loading="lazy"/>Editor
-                </a>
-            </div>
-        </div><div id="wrapwrap" class="homepage   ">
-                <header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Botón de elementos adicionales" class="   o_header_standard" style="transform:translate(0px,0px); ">
-                    
-    <nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc d-none d-lg-block shadow-sm ">
-        
-
-            <div id="o_main_nav" class="o_main_nav conta">
-                
-    <a data-name="Navbar Logo" href="/" class="navbar-brand logo me-4">
-            
-            <span role="img" data-oe-xpath="/data/xpath/a/span[1]" aria-label="Logo of Tarax-desing.com" title="Tarax-desing.com" data-oe-model="website" data-oe-id="1" data-oe-field="logo" data-oe-type="image" data-oe-expression="website.logo"><img src="/web/image/website/1/logo/Tarax-desing.com?unique=6de8771" class="img img-fluid" width="95" height="40" alt="Tarax-desing.com" loading="lazy"/></span>
-        </a>
-    
-                
-    <ul role="menu" id="top_menu" class="nav navbar-nav top_menu o_menu_loading me-auto">
-        
+      
 
                     
-    <li role="presentation" class="nav-item">
-        <a role="menuitem" href="/" class="nav-link active">
-            <span data-oe-model="website.menu" data-oe-id="5" data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name">Inicio</span>
-        </a>
-    </li>
-    <li role="presentation" class="nav-item">
-        <a role="menuitem" href="/contactus" class="nav-link ">
-            <span data-oe-model="website.menu" data-oe-id="6" data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name">Contáctenos</span>
-        </a>
-    </li>
-                
-    </ul>
-                
-                <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3">
-                    
-        <li class="">
-                <div class="modal fade css_editable_mode_hidden" id="o_search_modal" aria-hidden="true" tabindex="-1">
-                    <div class="modal-dialog modal-lg pt-5">
-                        <div class="modal-content mt-5">
-    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
-            <div role="search" class="input-group ">
-        <input type="search" name="search" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/input[1]" class="search-query form-control oe_search_box  border-0 bg-light" placeholder="Buscar…" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
-        <button type="submit" aria-label="Buscar" title="Buscar" class="btn oe_search_button btn-light">
-            <i class="oi oi-search" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/button[1]/i[1]"></i>
-        </button>
-    </div>
-
-            <input name="order" type="hidden" class="o_search_order_by" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/input[1]" value="name asc"/>
-            
-    
-        </form>
-                        </div>
-                    </div>
-                </div>
-                <a data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Buscar" href="#" data-oe-model="ir.ui.view" data-oe-id="661" data-oe-field="arch" data-oe-xpath="/data/xpath/li/t[1]/a[1]" class="btn rounded-circle p-1 lh-1 o_navlink_background text-reset o_not_editable">
-                    <i class="oi oi-search fa-stack lh-lg"></i>
-                </a>
-        </li>
-                    
-        <li class="">
-                <div data-name="Text" data-oe-model="ir.ui.view" data-oe-id="663" data-oe-field="arch" data-oe-xpath="/data/xpath/li/t[6]/div[1]" class="s_text_block ">
-                    <a href="tel:+1 555-555-5556" class="nav-link o_nav-link_secondary p-2">
-                        <i class="fa fa-1x fa-fw fa-phone me-1"></i>
-                        <span class="o_force_ltr"><small>+1 555-555-5556</small></span>
-                    </a>
-                </div>
-        </li>
-                    
-                    
-        <li data-name="Language Selector" class="o_header_language_selector ">
-        
-        
-        </li>
-                    
-            
-                    
-        
-    <li class="dropdown o_no_autohide_item">
-                <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link border-0">
-                    <span class="">ELENA PERANDRÉS MOLINO</span>
-                </a>
-                <div role="menu" class="dropdown-menu js_usermenu dropdown-menu-end">
-                    <a href="/odoo" role="menuitem" class="dropdown-item ps-3" id="o_backend_user_dropdown_link" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/a[1]">
-                        <i class="fa fa-fw fa-th me-1 small text-primary"></i> Aplicaciones
-                    </a>
-            <a href="/my/home" role="menuitem" class="dropdown-item ps-3" data-oe-id="477" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">
-                <i class="fa fa-fw fa-id-card-o me-1 small text-primary"></i> Mi cuenta
-            </a>
-                    <div id="o_logout_divider" class="dropdown-divider" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/div[1]"></div>
-                    <a role="menuitem" id="o_logout" class="dropdown-item ps-3" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/a[2]" href="/web/session/logout?redirect=/">
-                        <i class="fa fa-fw fa-sign-out me-1 small text-primary"></i> Cerrar sesión
-                    </a>
-                </div>
-            </li>
-        
-                    
-        <li class="">
-            <div data-oe-model="ir.ui.view" data-oe-id="625" data-oe-field="arch" data-oe-xpath="/data/xpath/li/div[1]" class="oe_structure oe_structure_solo ">
-                <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
-                    <div class="conta">
-                        <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta">Contáctenos</a>
-                    </div>
-                </section>
-            </div>
-        </li>
-                </ul>
+     
             </div>
         
-    </nav>
-    <nav data-name="Navbar" aria-label="Mobile" class="navbar  navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm ">
-        
-
-        <div class="o_main_nav conta flex-wrap justify-content-between">
-            
-    <a data-name="Navbar Logo" href="/" class="navbar-brand logo ">
-            
-            <span role="img" data-oe-xpath="/data/xpath/a/span[1]" aria-label="Logo of Tarax-desing.com" title="Tarax-desing.com" data-oe-model="website" data-oe-id="1" data-oe-field="logo" data-oe-type="image" data-oe-expression="website.logo"><img src="/web/image/website/1/logo/Tarax-desing.com?unique=6de8771" class="img img-fluid" width="95" height="40" alt="Tarax-desing.com" loading="lazy"/></span>
-        </a>
-    
-            <ul class="o_header_mobile_buttons_wrap navbar-nav flex-row align-items-center gap-2 mb-0" data-oe-model="ir.ui.view" data-oe-id="550" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]/ul[1]">
-                <li class="o_not_editable">
-                    <button class="nav-link btn me-auto p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#top_menu_collapse_mobile" aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Alternar navegación">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </li>
-            </ul>
-            <div id="top_menu_collapse_mobile" class="offcanvas offcanvas-end o_navbar_mobile">
-                <div class="offcanvas-header justify-content-end o_not_editable" data-oe-model="ir.ui.view" data-oe-id="550" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]/div[1]/div[1]">
-                    <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-                </div>
-                <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100">
-                    <ul class="navbar-nav">
-                        
-        <li class="">
-    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
-            <div role="search" class="input-group ">
-        <input type="search" name="search" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/input[1]" class="search-query form-control oe_search_box  border-0 bg-light" placeholder="Buscar…" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
-        <button type="submit" aria-label="Buscar" title="Buscar" class="btn oe_search_button btn-light">
-            <i class="oi oi-search" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/t[1]/div[1]/button[1]/i[1]"></i>
-        </button>
-    </div>
-
-            <input name="order" type="hidden" class="o_search_order_by" data-oe-model="ir.ui.view" data-oe-id="654" data-oe-field="arch" data-oe-xpath="/data/xpath[3]/form/input[1]" value="name asc"/>
-            
-    
-        </form>
-        </li>
-                        
-    <ul role="menu" class="nav navbar-nav top_menu  ">
-        
-
-                            
-    <li role="presentation" class="nav-item">
-        <a role="menuitem" href="/" class="nav-link active">
-            <span data-oe-model="website.menu" data-oe-id="5" data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name">Inicio</span>
-        </a>
-    </li>
-    <li role="presentation" class="nav-item">
-        <a role="menuitem" href="/contactus" class="nav-link ">
-            <span data-oe-model="website.menu" data-oe-id="6" data-oe-field="name" data-oe-type="char" data-oe-expression="submenu.name">Contáctenos</span>
-        </a>
-    </li>
-                        
-    </ul>
-                        
-        <li class="">
-                <div data-name="Text" data-oe-model="ir.ui.view" data-oe-id="663" data-oe-field="arch" data-oe-xpath="/data/xpath/li/t[6]/div[1]" class="s_text_block mt-2 border-top pt-2 o_border_contrast">
-                    <a href="tel:+1 555-555-5556" class="nav-link o_nav-link_secondary p-2">
-                        <i class="fa fa-1x fa-fw fa-phone me-1"></i>
-                        <span class="o_force_ltr"><small>+1 555-555-5556</small></span>
-                    </a>
-                </div>
-        </li>
-                        
-                    </ul>
-                    <ul class="navbar-nav gap-2 mt-3 w-100">
-                        
-        <li data-name="Language Selector" class="o_header_language_selector ">
-        
-        
-        </li>
-                        
-            
-                        
-        
-    <li class="dropdown dropup o_no_autohide_item">
-                <a href="#" role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link d-flex align-items-center border-0">
-                    <div class="">
-                        <i data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/a[1]/div[1]/i[1]" class="fa fa-1x fa-fw fa-user me-2"></i>
-                    </div>
-                    <span class="me-auto small">ELENA PERANDRÉS MOLINO</span>
-                </a>
-                <div role="menu" class="dropdown-menu js_usermenu w-100">
-                    <a href="/odoo" role="menuitem" class="dropdown-item ps-3" id="o_backend_user_dropdown_link" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/a[1]">
-                        <i class="fa fa-fw fa-th me-1 small text-primary"></i> Aplicaciones
-                    </a>
-            <a href="/my/home" role="menuitem" class="dropdown-item ps-3" data-oe-id="477" data-oe-xpath="/data/xpath/a" data-oe-model="ir.ui.view" data-oe-field="arch">
-                <i class="fa fa-fw fa-id-card-o me-1 small text-primary"></i> Mi cuenta
-            </a>
-                    <div id="o_logout_divider" class="dropdown-divider" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/div[1]"></div>
-                    <a role="menuitem" id="o_logout" class="dropdown-item ps-3" data-oe-model="ir.ui.view" data-oe-id="457" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/li[1]/div[1]/a[2]" href="/web/session/logout?redirect=/">
-                        <i class="fa fa-fw fa-sign-out me-1 small text-primary"></i> Cerrar sesión
-                    </a>
-                </div>
-            </li>
-        
-                        
-        <li class="">
-            <div data-oe-model="ir.ui.view" data-oe-id="625" data-oe-field="arch" data-oe-xpath="/data/xpath/li/div[1]" class="oe_structure oe_structure_solo ">
-                <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
-                    <div class="conta">
-                        <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta w-100">Contáctenos</a>
-                    </div>
-                </section>
-            </div>
-        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    
-    </nav>
-    
-        </header>
+  
                 <main>
                     
-        <div id="wrap" class="oe_structure" data-oe-model="ir.ui.view" data-oe-id="541" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]"><section class="s_banner pt96 pb96 o_colored_level" data-snippet="s_banner" data-name="Banner">
-        <div class="conta">
-            <div class="row o_grid_mode" data-row-count="10">
-                
-                <div class="o_grid_item_image g-height-10 d-lg-block d-none o_snippet_mobile_invisible g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 2;grid-area: 1 / 7 / 11 / 13">
-                    <img src="/web/image/351-61cbe062/1718199411810.svg" alt="" class="img img-fluid mx-auto rounded o_we_custom_image" data-shape="web_editor/composition/composition_oval_line" data-shape-colors=";#34495E;;;" data-mimetype="image/svg+xml" data-original-id="344" data-original-src="/web/image/344-8a8aa175/1718199411810.jpeg" data-mimetype-before-conversion="image/jpeg" data-original-mimetype="image/webp" data-resize-width="690" data-file-name="1718199411810.svg" loading="lazy"/>
-                </div>
-                <div class="o_grid_item g-col-lg-4 g-height-10 o_colored_level col-lg-4" data-name="Box" style="z-index: 1; grid-area: 1 / 1 / 11 / 5;">
-                    <h1 class="display-3 o_default_snippet_text"><strong class="o_default_snippet_text"><span class="o_text_highlight o_translate_inline o_text_highlight_circle_2 o_text_highlight_fill">Alimentación</span></strong></h1><h1 class="display-3 o_default_snippet_text"><strong class="o_default_snippet_text"><span class="o_text_highlight o_translate_inline o_text_highlight_circle_2 o_text_highlight_fill"></span>consciente.</strong></h1>
-    <p class="lead"><br/>
-En este espacio digital, exploraremos el fascinante mundo de la alimentación y su impacto directo en nuestra salud. 
+                    
+   
+   
 
-<br/><br/></p>
-                    <p>
-                        <a class="btn btn-lg btn-primary" href="/contactus">Empezar ahora <span class="fa fa-angle-right ms-2"></span></a>
-                    </p>
-                </div></div>
+    <main class="primera-main">
+        <div class="primera-content">
+            <div class="primera-heading-container">
+                <h1 class="primera-title">Alimentación<br>consciente.</h1>
+                <div class="primera-underline"></div>
+            </div>
+            <p class="primera-description">En este espacio digital, exploraremos el fascinante mundo de la alimentación y su impacto directo en nuestra salud.</p>
+            <a href="#" class="primera-cta">Empezar ahora</a>
         </div>
-    </section><section class="s_color_blocks_2 o_colored_level" data-snippet="s_color_blocks_2" data-name="Cajas grandes">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 o_cc o_cc4 o_colored_level">
-            <p><strong>Acompaña tus platos con una pieza de fruta fresca</strong> para aportar fibra y vitaminas.</p><p><strong>Bebe suficiente agua a lo largo del día</strong> para mantenerte hidratado.</p><p><strong>Varía los ingredientes</strong> para evitar la monotonía y descubrir nuevos sabores.</p><p>
+        <div class="primera-image-container">
+            <img src="img/brocoliCerebro.jpeg" alt="Alimentos saludables en forma de cerebro" class="primera-image">
+        </div>
+    </main>
 
-</p>
+    <div class="primera-status">
+        <span class="primera-status-text">Publicado</span>
+        <div class="primera-status-indicator"></div>
+    </div>
+  <!-- Top Navigation -->
+  
+
+    <!-- Main Header -->
+    
+
+    <!-- Color Blocks Section -->
+    <section class="segunda-color-blocks">
+        <div class="segunda-left-block">
+            <div class="segunda-text-content">
+                <p><strong>Acompaña tus platos con una pieza de fruta fresca</strong> para aportar fibra y vitaminas.</p>
+                <p><strong>Bebe suficiente agua a lo largo del día</strong> para mantenerte hidratado.</p>
+                <p><strong>Varía los ingredientes</strong> para evitar la monotonía y descubrir nuevos sabores.</p>
+            </div>
         </div>
+        <div class="segunda-right-block">
+            <img src="img/ilustracionrelax.jpg" alt="Ilustración de alimentación saludable">
+        </div>
+    </section>
+
+    <!-- Title Section -->
+ 
     <div class="col-lg-6 o_cc o_cc5 pt152 pb152 o_colored_level oe_img_bg o_bg_img_center" style="background-image: url(&#34;/web/image/347-263941b9/Screenshot_101.webp&#34;);" data-mimetype="image/webp" data-original-id="345" data-original-src="/web/image/345-16b7681b/Screenshot_101.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="1003">
                     <div class="o_we_bg_filter bg-black-50"></div>
                 </div>
             </div>
         </div>
-    </section><section class="s_title pt80 o_colored_level pb56" data-vcss="001" data-snippet="s_title" data-name="Título">
-        <div class="container s_allow_columns">
-            <h2 style="text-align: center;">
-        Los fundamentos de la alimentación.</h2>
+    </section>
+    <section class="TERCERA_seccion_titulo TERCERA_padding_top_80 TERCERA_nivel_color TERCERA_padding_bottom_56" data-vcss="001" data-snippet="s_title" data-name="Título">
+    <div class="TERCERA_contenedor TERCERA_permitir_columnas">
+        <h2 class="TERCERA_texto_centrado">
+            Los fundamentos de la alimentación.
+        </h2>
+    </div>
+</section>
+
+<section class="TERCERA_texto_imagen TERCERA_color_fondo TERCERA_color_fondo1 TERCERA_padding_top_16 TERCERA_padding_bottom_16 TERCERA_nivel_color" data-snippet="s_text_image" data-name="Texto - Imagen">
+    <div class="TERCERA_contenedor">
+        <div class="TERCERA_fila TERCERA_alinear_items_centro">
+            <div class="TERCERA_columna_lg_5 TERCERA_padding_top_16 TERCERA_padding_bottom_16 TERCERA_nivel_color">
+                <h2 class="TERCERA_titulo_h3">
+                    ¿Qué es la nutrición y por qué es importante?
+                    <br/>
+                </h2>
+                <p><br/></p>
+                <p>La nutrición es la ciencia que estudia la relación entre los alimentos y los organismos vivos. Se centra en cómo los nutrientes presentes en los alimentos son ingeridos, digeridos, absorbidos, transportados y utilizados por el cuerpo para llevar a cabo una amplia gama de funciones biológicas.</p>
+                <p>Desde el crecimiento y desarrollo hasta la reparación de tejidos y la producción de energía, todos los procesos vitales dependen de una adecuada nutrición. Los nutrientes, como las proteínas, los carbohidratos, las grasas, las vitaminas y los minerales, actúan como los ladrillos y la energía que el cuerpo necesita para construir y mantener sus células y tejidos.</p>
+                <p>Una nutrición óptima es esencial para prevenir enfermedades crónicas como la diabetes, las enfermedades cardiovasculares y ciertos tipos de cáncer. Además, una dieta equilibrada puede mejorar el estado de ánimo, aumentar la energía y fortalecer el sistema inmunológico.</p>
+                <p><a href="#" class="TERCERA_boton TERCERA_boton_secundario">Descubre más</a></p>
+            </div>
+            <div class="TERCERA_columna_lg_6 TERCERA_offset_lg_1 TERCERA_padding_top_16 TERCERA_padding_bottom_16 TERCERA_nivel_color">
+                <img src="img/piramideAlimentos.jpg" 
+                     alt="" 
+                     class="TERCERA_imagen TERCERA_imagen_fluida TERCERA_margen_auto TERCERA_redondeado TERCERA_imagen_personalizada" 
+                     data-shape="web_editor/pattern/pattern_point" 
+                     data-shape-colors="o-color-1;;;;" 
+                     data-mimetype="image/svg+xml" 
+                     data-original-id="339" 
+                     data-original-src="img/piramideAlimentos.jpg" 
+                     data-mimetype-before-conversion="img/piramideAlimentos.jpg" 
+                     data-original-mimetype="" 
+                     data-resize-width="537" 
+                     data-file-name="img/piramideAlimentos.jpg" 
+                     loading="lazy"/>
+            </div>
         </div>
+    </div>
+</section>
+    <!-- <section class="s_title pt80 o_colored_level pb56" data-vcss="001" data-snippet="s_title" data-name="Título">
+       
     </section><section class="s_text_image o_cc o_cc1 pt16 pb16 o_colored_level" data-snippet="s_text_image" data-name="Texto - Imagen">
         <div class="conta">
             <div class="row align-items-center">
@@ -313,7 +142,9 @@ En este espacio digital, exploraremos el fascinante mundo de la alimentación y 
                 </div>
             </div>
         </div>
-    </section><section class="s_text_image o_cc o_cc1 pt48 pb72 o_colored_level" data-snippet="s_image_text" data-name="Texto - Imagen">
+    </section> -->
+    
+    <section class="s_text_image o_cc o_cc1 pt48 pb72 o_colored_level" data-snippet="s_image_text" data-name="Texto - Imagen">
         <div class="conta">
             <div class="row align-items-center">
                 <div class="col-lg-6 pt16 pb16 o_colored_level">
@@ -539,20 +370,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
                             <p class="mb-2">Envíenos un mensaje</p>
                             <h5><a href="mailto:taraxdesing@gmail.com">taraxdesing@gmail.com</a></h5>
                         </div>
-                        <div class="col-lg-3 pt16 pb16 o_colored_level">
-                            <div class="s_social_media text-end no_icon_color o_not_editable" data-snippet="s_social_media" data-name="Social Media">
-                                <p class="s_social_media_title d-block mb-2">Síganos</p>
-                                <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
-                                    <i class="fa fa-twitter m-1 o_editable_media"></i>
-                                </a>
-                                <a href="/website/social/linkedin" class="s_social_media_linkedin" target="_blank">
-                                    <i class="fa fa-linkedin m-1 o_editable_media"></i>
-                                </a>
-                                <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank">
-                                    <i class="fa fa-instagram m-1 o_editable_media"></i>
-                                </a>
-                            </div>
-                        </div>
+                
                     </div>
                 </div>
             </section>
@@ -573,7 +391,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
                                 <li class="list-inline-item">•</li>
                                 <li class="list-inline-item"><a href="#">Sobre nosotros</a></li>
                                 <li class="list-inline-item">•</li>
-                                <li class="list-inline-item"><a href="#">Productos</a></li>
+                                <li class="list-inline-item"><a href="#">Servicios</a></li>
                                 <li class="list-inline-item">•</li>
                                 <li class="list-inline-item"><a href="#">Términos de los Servicios</a></li>
                                     <li class="list-inline-item">•</li>
@@ -588,7 +406,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
                         <div class="container py-3">
                             <div class="row">
                                 <div class="col-sm text-center text-sm-start text-muted">
-                                    <span class="o_footer_copyright_name me-2" data-oe-id="608" data-oe-xpath="/data/xpath/span" data-oe-model="ir.ui.view" data-oe-field="arch">Copyright &copy; Nombre de la empresa</span>
+                                    <span class="o_footer_copyright_name me-2" data-oe-id="608" data-oe-xpath="/data/xpath/span" data-oe-model="ir.ui.view" data-oe-field="arch">Copyright &copy; Tarax.desing</span>
         
         
     </div>
