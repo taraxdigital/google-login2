@@ -194,8 +194,8 @@ include_once("vistas/header2.php");
     </div>
 </section>
 <section class="seis pt32 pb32" data-vxml="001" data-vcss="001" data-snippet="seis" data-name="Columnas">
-        <div class="seis-conta">
-            <div class="seis-row d-flex align-items-stretch">
+        <div class="columns">
+            <div class="seis-row d-flex align-items-stretch columns">
                 <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
                     <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
                         <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
@@ -407,7 +407,7 @@ El spinning es una actividad apta para personas de todos los niveles de condici√
                 </div>
             </section>
             <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
-                <div class="conta">
+                <div class="container">
                     <div class="row align-items-center">
                         
                         <div class="col-lg-10 pb16 text-end o_colored_level">
