@@ -330,10 +330,10 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
     
         <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
-                <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
-                    <div id="footer" class="oe_structure oe_structure_solo" data-oe-id="1387" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch">
+                <!-- <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
+                    <div id="footer" class="oe_structure oe_structure_solo" data-oe-id="1387" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"> -->
             <section class="s_text_block pt32 pb16" data-snippet="s_text_block" data-name="Text">
-                <div class="conta">
+                <div class="container">
                     <div class="row">
                        
                         
