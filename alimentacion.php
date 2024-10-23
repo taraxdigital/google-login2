@@ -74,9 +74,9 @@ include_once("vistas/header2.php");
 
     <!-- Title Section -->
  
-    <div class="col-lg-6 o_cc o_cc5 pt152 pb152 o_colored_level oe_img_bg o_bg_img_center" style="background-image: url(&#34;/web/image/347-263941b9/Screenshot_101.webp&#34;);" data-mimetype="image/webp" data-original-id="345" data-original-src="/web/image/345-16b7681b/Screenshot_101.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="1003">
+    <!-- <div class="col-lg-6 o_cc o_cc5 pt152 pb152 o_colored_level oe_img_bg o_bg_img_center" style="background-image: url(&#34;/web/image/347-263941b9/Screenshot_101.webp&#34;);" data-mimetype="image/webp" data-original-id="345" data-original-src="/web/image/345-16b7681b/Screenshot_101.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="1003">
                     <div class="o_we_bg_filter bg-black-50"></div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -120,29 +120,7 @@ include_once("vistas/header2.php");
         </div>
     </div>
 </section>
-    <!-- <section class="s_title pt80 o_colored_level pb56" data-vcss="001" data-snippet="s_title" data-name="Título">
-       
-    </section><section class="s_text_image o_cc o_cc1 pt16 pb16 o_colored_level" data-snippet="s_text_image" data-name="Texto - Imagen">
-        <div class="conta">
-            <div class="row align-items-center">
-                <div class="col-lg-5 pt16 pb16 o_colored_level">
-                    <h2 class="h3-fs">
-        
-¿Qué es la nutrición y por qué es importante?
-
-&nbsp;<br/></h2>
-                    <p>
-        <br/>
-    </p>
-                    <p>La nutrición es la ciencia que estudia la relación entre los alimentos y los organismos vivos. Se centra en cómo los nutrientes presentes en los alimentos son ingeridos, digeridos, absorbidos, transportados y utilizados por el cuerpo para llevar a cabo una amplia gama de funciones biológicas.</p><p>Desde el crecimiento y desarrollo hasta la reparación de tejidos y la producción de energía, todos los procesos vitales dependen de una adecuada nutrición. Los nutrientes, como las proteínas, los carbohidratos, las grasas, las vitaminas y los minerales, actúan como los ladrillos y la energía que el cuerpo necesita para construir y mantener sus células y tejidos.</p><p>Una nutrición óptima es esencial para prevenir enfermedades crónicas como la diabetes, las enfermedades cardiovasculares y ciertos tipos de cáncer. Además, una dieta equilibrada puede mejorar el estado de ánimo, aumentar la energía y fortalecer el sistema inmunológico.</p>
-                    <p><a href="#" class="btn btn-secondary">Descubre más </a></p>
-                </div>
-                <div class="col-lg-6 offset-lg-1 pt16 pb16 o_colored_level">
-                    <img src="/web/image/352-729e4f92/piramide-alimenticia.svg" alt="" class="img img-fluid mx-auto rounded o_we_custom_image" data-shape="web_editor/pattern/pattern_point" data-shape-colors="o-color-1;;;;" data-mimetype="image/svg+xml" data-original-id="339" data-original-src="/web/image/339-dfdfca40/piramide-alimenticia.webp" data-mimetype-before-conversion="image/webp" data-original-mimetype="image/webp" data-resize-width="537" data-file-name="piramide-alimenticia.svg" loading="lazy"/>
-                </div>
-            </div>
-        </div>
-    </section> -->
+ 
     <section class="cuarta_seccion">
     <div class="cuarta_contenedor">
         <div class="cuarta_fila">
@@ -193,145 +171,109 @@ include_once("vistas/header2.php");
         </div>
     </div>
 </section>
-<section class="seis pt32 pb32" data-vxml="001" data-vcss="001" data-snippet="seis" data-name="Columnas">
-        <div class="columns">
-            <div class="seis-row d-flex align-items-stretch columns">
-                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
-                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
-                            <img class="seis-card-img card-img-top" src="img/quinoa.jpeg" alt="Ensalada de quinoa" loading="lazy" data-mimetype="img/quinoa.jpeg" data-original-id="80" data-original-src="/web/image/website.library_image_11" data-mimetype-before-conversion="img/quinoa.jpeg"/>
-                        </figure>
-                        <div class="seis-card-body">
-                            <h5 class="seis-card-title">
-                                Ensalada de quinoa con pollo a la plancha y aguacate:
-                            </h5>
-                            <p><strong>Quinoa:</strong> Cocina la quinoa según las instrucciones del paquete.</p>
-                            <p><strong>Pollo:</strong> Sazona las pechugas de pollo con sal, pimienta y tus especias favoritas. Cocínalas a la plancha hasta que estén doradas por ambos lados.</p>
-                            <p><strong>Aguacate:</strong> Corta el aguacate en cubos.</p>
-                            <p><strong>Ensalada:</strong> Mezcla la quinoa cocida con el pollo desmenuzado, el aguacate, tomates cherry cortados por la mitad, espinacas frescas y un aderezo ligero de limón, aceite de oliva y mostaza.</p>
-                        </div>
+<div class="seis">
+        <div class="recipes-grid">
+            <!-- Receta 1 -->
+            <article class="recipe-card">
+                <img src="img/quinoa.jpeg" alt="Ensalada de quinoa" class="recipe-image">
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Ensalada de quinoa con pollo a la plancha y aguacate</h2>
+                    <div class="recipe-step">
+                        <p><strong>Quinoa:</strong> Cocina la quinoa según las instrucciones del paquete.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Pollo:</strong> Sazona las pechugas de pollo con sal, pimienta y tus especias favoritas. Cocínalas a la plancha hasta que estén doradas por ambos lados.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Aguacate:</strong> Corta el aguacate en cubos.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Ensalada:</strong> Mezcla la quinoa cocida con el pollo desmenuzado, el aguacate, tomates cherry cortados por la mitad, espinacas frescas y un aderezo ligero de limón, aceite de oliva y mostaza.</p>
                     </div>
                 </div>
-                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
-                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
-                            <img class="seis-card-img card-img-top" src="img/receta-salmon-unionmartin-2.jpg" alt="Salmón al horno" loading="lazy" data-mimetype="img/salmon.jpg" data-original-id="81" data-original-src="img/receta-salmon-unionmartin-2.jpg" data-mimetype-before-conversion="img/salmon.jpg"/>
-                        </figure>
-                        <div class="seis-card-body">
-                            <h5 class="seis-card-title">
-                                Salmón al horno con verduras:
-                            </h5>
-                            <p><strong>Verduras:</strong> Precalienta el horno. Corta calabacín, zanahoria y cebolla en rodajas. Rocíalas con aceite de oliva, sal y pimienta.</p>
-                            <p><strong>Salmón:</strong> Sazona los filetes de salmón con sal, pimienta y tus hierbas favoritas. Coloca el salmón sobre las verduras en una bandeja para horno.</p>
-                            <p><strong>Hornear:</strong> Hornea durante 20-25 minutos a 180°C, o hasta que el salmón esté cocido y las verduras estén tiernas.</p>
-                        </div>
+            </article>
+
+            <!-- Receta 2 -->
+            <article class="recipe-card">
+                <img src="img/receta-salmon-unionmartin-2.jpg" alt="Salmón al horno" class="recipe-image">
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Salmón al horno con verduras</h2>
+                    <div class="recipe-step">
+                        <p><strong>Verduras:</strong> Precalienta el horno. Corta calabacín, zanahoria y cebolla en rodajas. Rocíalas con aceite de oliva, sal y pimienta.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Salmón:</strong> Sazona los filetes de salmón con sal, pimienta y tus hierbas favoritas. Coloca el salmón sobre las verduras en una bandeja para horno.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Hornear:</strong> Hornea durante 20-25 minutos a 180°C, o hasta que el salmón esté cocido y las verduras estén tiernas.</p>
                     </div>
                 </div>
-                <div data-name="Card" class="seis-col seis-col-lg-4 pt16 pb16">
-                    <div class="seis-card seis-card-img-top card h-100 my-0" data-vxml="001" data-snippet="seis-card" data-name="Card" style="border-width: 0px !important;">
-                        <figure class="seis-card-img-wrapper ratio ratio-16x9 mb-0">
-                            <img class="seis-card-img card-img-top" src="img/revuelto-de-esparragos-trigueros.jpg" alt="Revuelto de huevo" loading="lazy" data-mimetype="image/jpeg" data-original-id="82" data-original-src="img/revuelto-de-esparragos-trigueros.jpg" data-mimetype-before-conversion="image/jpeg"/>
-                        </figure>
-                        <div class="seis-card-body">
-                            <h5 class="seis-card-title">
-                                Revuelto de huevo con espárragos:
-                            </h5>
-                            <p><strong>Espárragos:</strong> Cocina los espárragos al vapor hasta que estén tiernos.</p>
-                            <p><strong>Huevos:</strong> Bate los huevos con un poco de leche, sal y pimienta.</p>
-                            <p><strong>Revuelto:</strong> Calienta una sartén con un poco de aceite de oliva. Vierte los huevos batidos y cocina a fuego bajo, removiendo constantemente. Agrega los espárragos cocidos y cocina hasta que los huevos estén cuajados.</p>
-                        </div>
+            </article>
+
+            <!-- Receta 3 -->
+            <article class="recipe-card">
+                <img src="img/revuelto-de-esparragos-trigueros.jpg" alt="Revuelto de huevo" class="recipe-image">
+                <div class="recipe-content">
+                    <h2 class="recipe-title">Revuelto de huevo con espárragos</h2>
+                    <div class="recipe-step">
+                        <p><strong>Espárragos:</strong> Cocina los espárragos al vapor hasta que estén tiernos.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Huevos:</strong> Bate los huevos con un poco de leche, sal y pimienta.</p>
+                    </div>
+                    <div class="recipe-step">
+                        <p><strong>Revuelto:</strong> Calienta una sartén con un poco de aceite de oliva. Vierte los huevos batidos y cocina a fuego bajo, removiendo constantemente. Agrega los espárragos cocidos y cocina hasta que los huevos estén cuajados.</p>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
-    </section>
+    </div>
     <section class="siete">
-    <div class="siete">
-        <div class="siete">
-            <div class="siete">
-                <h3>Diferentes Dietas y Estilos de Vida:</h3>
-                <ul>
-                    <li><strong>Dietas vegetarianas y veganas:</strong>
-                        <ul>
-                            <li>Beneficios y desafíos.</li>
-                            <li>Planificación de comidas equilibradas.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Dieta mediterránea:</strong>
-                        <ul>
-                            <li>Características y beneficios para la salud cardiovascular.</li>
-                            <li>Recetas típicas y adaptadas.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Dieta flexitariana:</strong>
-                        <ul>
-                            <li>Combinación de alimentos de origen vegetal y animal.</li>
-                            <li>Flexibilidad y adaptabilidad a diferentes gustos.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Otras dietas:</strong>
-                        <ul>
-                            <li>Keto, paleo, etc. (Con enfoque en evidencias científicas y posibles riesgos).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="siete">
-                <img src="img/comida.png" alt="Variedad de platos de diferentes dietas" class="siete">
-            </div>
+        <!-- Collage de imágenes -->
+        <div class="image-collage">
+            <img src="img/comida.png" alt="Plato vegetariano">
+       
         </div>
-    </div>
-</section>
-<section class="s_accordion_image clase-nueve- pt56 pb56 clase-nueve-1 clase-nueve-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
-        <div class="conta">
-            <div class="row align-items-start">
-                <div class="col-lg-6 pt16 clase-nueve-colored_level">
-                    <h2 class="h3-fs">
-El Spinning: Una Revolucionaria Forma de Entrenar.</h2>
-                    <p class="lead">
-Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos años, se ha convertido en una de las disciplinas más completas y efectivas para mejorar nuestra condición física y mental. 
 
-</p>
-                    <p><br/></p>
-    <div data-name="Accordion" class="s_accordion clase-nueve-accordion">
-        <div id="myCollapse" class="accordion-flush accordion clase-nueve-accordion">
-            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
-                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_1" data-bs-target="#myCollapseTab654353_1" aria-controls="myCollapseTab654353_1"><span class="flex-grow-1">
-Beneficios del Spinning
-
-?</span></button>
-                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_1" aria-labelledby="accordion-button654353_1">
-                    <div class="accordion-body">
-                        <p><strong>Quema de calorías:</strong> &nbsp;En una sesión de una hora se pueden quemar entre 400 y 600 calorías.</p><p><strong>Mejora de la condición cardiovascular: F</strong>ortalece el corazón y mejora la circulación sanguínea.</p><p><strong>Aumento de la resistencia: </strong>&nbsp;Ayuda a aumentar la resistencia muscular y cardiovascular</p><p><strong>Reducción del estrés:</strong>&nbsp;Libera endorfinas, las hormonas de la felicidad.</p><p><br/></p><p>
-
-</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
-                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_3" data-bs-target="#myCollapseTab654353_3" aria-controls="myCollapseTab654353_3"><span class="flex-grow-1">
-¿Para quién es el spinning?&nbsp;</span></button>
-                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_3" aria-labelledby="accordion-button654353_3">
-                    <div class="accordion-body">
-                        <p>
-El spinning es una actividad apta para personas de todos los niveles de condición física, desde principiantes hasta atletas experimentados. La intensidad de cada sesión puede adaptarse a las necesidades individuales de cada participante.
-
-</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 pt16 clase-nueve-colored_level">
-                    <img src="/web/image/349-89751ec1/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.webp" alt="" class="img img-fluid mx-auto rounded clase-nueve-we_custom_image" style="width: 100% !important;" data-mimetype="image/webp" data-original-id="343" data-original-src="/web/image/343-382637b3/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="626" loading="lazy"/>
-                </div>
-            </div>
+        <!-- Información de dietas -->
+        <div class="diet-info">
+            <h2>Diferentes Dietas y Estilos de Vida:</h2>
+            <ul class="diet-list">
+                <li>
+                    <strong>Dietas vegetarianas y veganas:</strong>
+                    <ul>
+                        <li>Beneficios y desafíos.</li>
+                        <li>Planificación de comidas equilibradas.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Dieta mediterránea:</strong>
+                    <ul>
+                        <li>Características y beneficios para la salud cardiovascular.</li>
+                        <li>Recetas típicas y adaptadas.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Dieta flexitariana:</strong>
+                    <ul>
+                        <li>Combinación de alimentos de origen vegetal y animal.</li>
+                        <li>Flexibilidad y adaptabilidad a diferentes gustos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Otras dietas:</strong>
+                    <ul>
+                        <li>Keto, paleo, etc. (Con enfoque en evidencias científicas y posibles riesgos).</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </section>
+           
+ 
+
     <section class="s_accordion_image clase-diez- pt56 pb56 clase-diez-1 clase-diez-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
-        <div class="conta">
+        <div class="container">
             <div class="row align-items-start">
                 <div class="col-lg-6 pt16 clase-diez-colored_level">
                     <h2 class="h3-fs">
@@ -343,32 +285,39 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
                     <p><br/></p>
     <div data-name="Accordion" class="s_accordion clase-diez-accordion">
         <div id="myCollapse" class="accordion-flush accordion clase-diez-accordion">
-            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
-                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_1" data-bs-target="#myCollapseTab654353_1" aria-controls="myCollapseTab654353_1"><span class="flex-grow-1">
-Beneficios del Spinning
+        Acordeón desplegable con CSS
 
-?</span></button>
-                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_1" aria-labelledby="accordion-button654353_1">
-                    <div class="accordion-body">
-                        <p><strong>Quema de calorías:</strong> &nbsp;En una sesión de una hora se pueden quemar entre 400 y 600 calorías.</p><p><strong>Mejora de la condición cardiovascular: F</strong>ortalece el corazón y mejora la circulación sanguínea.</p><p><strong>Aumento de la resistencia: </strong>&nbsp;Ayuda a aumentar la resistencia muscular y cardiovascular</p><p><strong>Reducción del estrés:</strong>&nbsp;Libera endorfinas, las hormonas de la felicidad.</p><p><br/></p><p>
-
-</p>
-                    </div>
-                </div>
-            </div>
+<!-- HTML -->
+<div class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-button">
+      <span>Beneficios del Spinning</span>
+      <i class="arrow"></i>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-body">
+        <p><strong>Quema de calorías:</strong> En una sesión de una hora se pueden quemar entre 400 y 600 calorías.</p>
+        <p><strong>Mejora de la condición cardiovascular:</strong> Fortalece el corazón y mejora la circulación sanguínea.</p>
+        <p><strong>Aumento de la resistencia:</strong> Ayuda a aumentar la resistencia muscular y cardiovascular</p>
+        <p><strong>Reducción del estrés:</strong> Libera endorfinas, las hormonas de la felicidad.</p>
+      </div>
+    </div>
+  </div>
+</div>
             
-            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
-                <button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed" data-bs-toggle="collapse" aria-expanded="false" id="accordion-button654353_3" data-bs-target="#myCollapseTab654353_3" aria-controls="myCollapseTab654353_3"><span class="flex-grow-1">
-¿Para quién es el spinning?&nbsp;</span></button>
-                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse" role="region" id="myCollapseTab654353_3" aria-labelledby="accordion-button654353_3">
-                    <div class="accordion-body">
-                        <p>
-El spinning es una actividad apta para personas de todos los niveles de condición física, desde principiantes hasta atletas experimentados. La intensidad de cada sesión puede adaptarse a las necesidades individuales de cada participante.
-
-</p>
-                    </div>
-                </div>
-            </div>
+<div class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-button">
+      <span>¿Para quién es el spinning?</span>
+      <i class="arrow"></i>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-body">
+        <p>El spinning es una actividad apta para personas de todos los niveles de condición física, desde principiantes hasta atletas experimentados. La intensidad de cada sesión puede adaptarse a las necesidades individuales de cada participante.</p>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     </div>
                 </div>
@@ -379,17 +328,14 @@ El spinning es una actividad apta para personas de todos los niveles de condici�
         </div>
     </section>
     
-        <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div>
+        <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
                 <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
                     <div id="footer" class="oe_structure oe_structure_solo" data-oe-id="1387" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch">
             <section class="s_text_block pt32 pb16" data-snippet="s_text_block" data-name="Text">
                 <div class="conta">
                     <div class="row">
-                        <div class="col-lg-3 pt16 pb16 o_colored_level">
-                            <p class="mb-2">¿Cómo podemos ayudar?</p>
-                            <h4>Contáctenos en cualquier momento</h4>
-                        </div>
+                       
                         
                         <div class="col-lg-3 pt16 pb16 o_colored_level">
                             <p class="mb-2">Envíenos un mensaje</p>

@@ -32,44 +32,44 @@ const loginButton = document.getElementById('loginButton');
 const loginForm = document.getElementById('loginForm');
 const userInfo = document.getElementById('userInfo');
 
-loginButton.addEventListener('click', () => {
-    loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
-});
+// loginButton.addEventListener('click', () => {
+//     loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+// });
 
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// function login() {
+//     const username = document.getElementById('username').value;
+//     const password = document.getElementById('password').value;
 
-    // En un caso real, aquí se verificarían las credenciales con el servidor
-    // Para este ejemplo, simplemente guardamos el nombre de usuario
-    localStorage.setItem('user', username);
+//     // En un caso real, aquí se verificarían las credenciales con el servidor
+//     // Para este ejemplo, simplemente guardamos el nombre de usuario
+//     localStorage.setItem('user', username);
 
-    updateUserInfo();
-    loginForm.style.display = 'none';
-}
+//     updateUserInfo();
+//     loginForm.style.display = 'none';
+// }
 
-function updateUserInfo() {
-    const user = localStorage.getItem('user');
-    if (user) {
-        userInfo.textContent = `Bienvenido, ${user}`;
-        loginButton.textContent = 'Logout';
-        loginButton.onclick = logout;
-    } else {
-        userInfo.textContent = '';
-        loginButton.textContent = 'Login';
-        loginButton.onclick = () => {
-            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
-        };
-    }
-}
+// function updateUserInfo() {
+//     const user = localStorage.getItem('user');
+//     if (user) {
+//         userInfo.textContent = `Bienvenido, ${user}`;
+//         loginButton.textContent = 'Logout';
+//         loginButton.onclick = logout;
+//     } else {
+//         userInfo.textContent = '';
+//         loginButton.textContent = 'Login';
+//         loginButton.onclick = () => {
+//             loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+//         };
+//     }
+// }
 
-function logout() {
-    localStorage.removeItem('user');
-    updateUserInfo();
-}
+// function logout() {
+//     localStorage.removeItem('user');
+//     updateUserInfo();
+// }
 
-// Actualizar la información del usuario al cargar la página
-updateUserInfo();
+// // Actualizar la información del usuario al cargar la página
+// updateUserInfo();
 document.addEventListener("DOMContentLoaded", function () {
     const textEntries = document.querySelectorAll(".text-entry");
   
@@ -144,36 +144,36 @@ function seek(event) {
     videoPlayer.currentTime = seekPosition;
 }
 
-// Event Listeners
-playPauseBtn.addEventListener('click', togglePlayPause);
-volumeSlider.addEventListener('input', updateVolume);
-videoPlayer.addEventListener('timeupdate', updateProgressBar);
-progressBar.parentElement.addEventListener('click', seek);
+// // Event Listeners
+// playPauseBtn.addEventListener('click', togglePlayPause);
+// volumeSlider.addEventListener('input', updateVolume);
+// videoPlayer.addEventListener('timeupdate', updateProgressBar);
+// progressBar.parentElement.addEventListener('click', seek);
 
 // Inicializar la duración del video cuando los metadatos estén cargados
-videoPlayer.addEventListener('loadedmetadata', () => {
-    durationDisplay.textContent = formatTime(videoPlayer.duration);
-});
+// videoPlayer.addEventListener('loadedmetadata', () => {
+//     durationDisplay.textContent = formatTime(videoPlayer.duration);
+// });
 
-// Actualizar el botón de reproducción cuando el video termine
-videoPlayer.addEventListener('ended', () => {
-    playPauseBtn.textContent = 'Reproducir';
-    isPlaying = false;
-});
+// // Actualizar el botón de reproducción cuando el video termine
+// videoPlayer.addEventListener('ended', () => {
+//     playPauseBtn.textContent = 'Reproducir';
+//     isPlaying = false;
+// });
 
-document.querySelector('.open-modal').addEventListener('click', function() {
-  document.querySelector('.modal').style.display = 'block';
-});
+// document.querySelector('.open-modal').addEventListener('click', function() {
+//   document.querySelector('.modal').style.display = 'block';
+// });
 
 ////
 // Código JavaScript para agregar interactividad a la sección Coze (opcional)
 // Puedes utilizar este espacio para agregar funcionalidad adicional a la sección Coze, como animaciones o eventos de clic.
 
 // Ejemplo de código JavaScript para mostrar un mensaje al hacer clic en la imagen
-const cozeImage = document.querySelector('.coze-image');
-cozeImage.addEventListener('click', () => {
-    alert('¡Has hecho clic en la imagen de Coze!');
-});
+// const cozeImage = document.querySelector('.coze-image');
+// cozeImage.addEventListener('click', () => {
+//     alert('¡Has hecho clic en la imagen de Coze!');
+// });
 ///////////
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM cargado");
@@ -215,7 +215,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             showDetails(item);
         });
 
-        listContainer.appendChild(listItem);
+        // listContainer.appendChild(listItem);
     });
 
     function showDetails(item) {
@@ -223,15 +223,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log(item);
     }
 });
-document.getElementById("parallax").style.backgroundImage =
-  "url('img/2(1).png')";
+// document.getElementById("parallax").style.backgroundImage =
+//   "url('img/2(1).png')";
 
-window.addEventListener("scroll", function () {
-  let parallax = document.getElementById("parallax");
-  let scrolPosition = window.scrollY;
+// window.addEventListener("scroll", function () {
+//   let parallax = document.getElementById("parallax");
+//   let scrolPosition = window.scrollY;
 
-  parallax.style.backgroundPositionY = scrolPosition * 0.7 + "px";
-});
+//   parallax.style.backgroundPositionY = scrolPosition * 0.7 + "px";
+// });
 
 
 // imagen 3
@@ -376,3 +376,8 @@ styleSheet.textContent = estilos;
 document.head.appendChild(styleSheet);
 
 
+document.querySelectorAll('.accordion-button').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('active');
+    });
+  });

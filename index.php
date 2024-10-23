@@ -301,9 +301,9 @@ include_once("vistas/header2.php");
                 <div class="playlist">Workout</div>
             </div>
         </section>
-        <section>
+        <section class="formulario">
         <div class="form-container">
-        <h2>Formulario de Registro</h2>
+        <h2>Nuestros Servicios.</h2>
         <form action="#" method="POST">
             <div class="form-group">
                 <label for="nombre">Nombre completo</label>
@@ -336,7 +336,7 @@ include_once("vistas/header2.php");
                 <input type="checkbox" id="terminos" name="terminos" required>
                 <label for="terminos">Acepto los términos y condiciones</label>
             </div>
-            <button type="submit">Registrarse</button>
+            <button type="submit">Enviar</button>
         </form>
     </div>
     </section>
