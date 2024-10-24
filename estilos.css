@@ -34,6 +34,7 @@ html {
 header {
   position: relative;
   width: 100%;
+  height: 470px;
   background: linear-gradient(65deg, #FF5005, #200A01);
   color: #fff;
   padding: 20px;
@@ -1325,10 +1326,11 @@ h2 {
 }
 
 footer {
-  background: linear-gradient(65deg, #200A01, #FF5005);
+  background: linear-gradient(65deg, #200A01, #1a1a1a);
   color: #000000;
   text-align: center;
   padding: 1rem 0;
+  height: 50%;
 }
 
 @media (max-width: 768px) {
@@ -2859,3 +2861,79 @@ progress {
 .accordion-body strong {
   color: #333;
 }
+/* ////pie */
+.pie {
+  background-color: #f8f9fa;
+  padding: 30px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.navegacion {
+  text-align: right;
+  margin-bottom: 20px;
+  
+}
+
+.navegacion ul {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navegacion ul li {
+  
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.navegacion ul li span {
+  color: white;
+}
+
+.navegacion ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navegacion ul li a:hover {
+  color:var(--color-accent);
+}
+
+.contacto {
+  padding: 20px 0;
+}
+
+.contacto p {
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.contacto h5 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.contacto h5 a {
+  color:var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contacto h5 a:hover {
+  color: #0056b3;
+}
+
+  .navegacion {
+      text-align: center;
+  }
+  
+  .navegacion ul li {
+      margin: 5px;
+  }
+  
+  .contacto {
+      text-align: center;
+  }

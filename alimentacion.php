@@ -330,64 +330,7 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
     
         <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
-                <!-- <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
-                    <div id="footer" class="oe_structure oe_structure_solo" data-oe-id="1387" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"> -->
-            <section class="s_text_block pt32 pb16" data-snippet="s_text_block" data-name="Text">
-                <div class="container">
-                    <div class="row">
-                       
-                        
-                        <div class="col-lg-3 pt16 pb16 o_colored_level">
-                            <p class="mb-2">Envíenos un mensaje</p>
-                            <h5><a href="mailto:taraxdesing@gmail.com">taraxdesing@gmail.com</a></h5>
-                        </div>
-                
-                    </div>
-                </div>
-            </section>
-            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
-                <div class="container allow_columns">
-                    <div class="s_hr pt16 pb16" data-name="Separador">
-                        <hr class="w-100 mx-auto" style="border-color: var(--600);"/>
-                    </div>
-                </div>
-            </section>
-            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
-                <div class="container">
-                    <div class="row align-items-center">
-                        
-                        <div class="col-lg-10 pb16 text-end o_colored_level">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item"><a href="/">Inicio</a></li>
-                                <li class="list-inline-item">•</li>
-                                <li class="list-inline-item"><a href="#">Sobre nosotros</a></li>
-                                <li class="list-inline-item">•</li>
-                                <li class="list-inline-item"><a href="#">Servicios</a></li>
-                                <li class="list-inline-item">•</li>
-                                <li class="list-inline-item"><a href="#">Términos de los Servicios</a></li>
-                                    <li class="list-inline-item">•</li>
-                                    <li class="list-inline-item"><a href="/privacy">Política de privacidad</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
-                        <div class="container py-3">
-                            <div class="row">
-                                <div class="col-sm text-center text-sm-start text-muted">
-                                    <span class="o_footer_copyright_name me-2" data-oe-id="608" data-oe-xpath="/data/xpath/span" data-oe-model="ir.ui.view" data-oe-field="arch">Copyright &copy; Tarax.desing</span>
-        
-        
-    </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        
-      </section>
+       
       <?php
 include_once("vistas/footer.php");
 ?>

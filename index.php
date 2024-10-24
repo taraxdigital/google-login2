@@ -8,6 +8,15 @@ include_once("vistas/header2.php");
 <main>
     <!-- Contenido principal -->
     <div class="container">
+    <div class="row">
+                       
+                        
+                       <div class="boton">
+                           <p class="mb-2">Envienos un mensaje.</p>
+                           <h5><a href="mailto:taraxdesing@gmail.com">taraxdesing@gmail.com</a></h5>
+                       </div>
+               
+                   </div>
 
 
         <h1>Tendencias-top</h1>
@@ -53,12 +62,12 @@ include_once("vistas/header2.php");
         </section>
         
       <!-- div parallax -->
-      <div id="parallax" class="parallax">
+      <!-- <div id="parallax" class="parallax">
         <div class="content">
           <h2>Somos tu socio en revolución digital.</h2>
           <p>Contáctanos: lleva tu negocio al siguiente nivel</p>
         </div>
-      </div>
+      </div> -->
         <!-- Sección de Video -->
         <!-- <section class="video-section">
             <div class="container">
