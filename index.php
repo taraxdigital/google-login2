@@ -8,15 +8,6 @@ include_once("vistas/header2.php");
 <main>
     <!-- Contenido principal -->
     <div class="container">
-    <div class="row">
-                       
-                        
-                       <div class="boton">
-                           <p class="mb-2">Envienos un mensaje.</p>
-                           <h5><a href="mailto:taraxdesing@gmail.com">taraxdesing@gmail.com</a></h5>
-                       </div>
-               
-                   </div>
 
 
         <h1>Tendencias-top</h1>
@@ -61,31 +52,7 @@ include_once("vistas/header2.php");
 
         </section>
         
-      <!-- div parallax -->
-      <!-- <div id="parallax" class="parallax">
-        <div class="content">
-          <h2>Somos tu socio en revolución digital.</h2>
-          <p>Contáctanos: lleva tu negocio al siguiente nivel</p>
-        </div>
-      </div> -->
-        <!-- Sección de Video -->
-        <!-- <section class="video-section">
-            <div class="container">
-                <h2 class="section-title"><?php echo htmlspecialchars($videoData['title']); ?></h2>
-                <p class="section-description"><?php echo htmlspecialchars($videoData['description']); ?></p>
-                <div class="video-container">
-                    <video id="videoPlayer" src="img/video.mp4" poster="<?php echo htmlspecialchars($videoData['poster']); ?>"></video>
-                    <div class="video-controls">
-                        <button id="playPauseBtn">Reproducir</button>
-                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
-                        <div class="progress-container">
-                            <div id="progressBar"></div>
-                        </div>
-                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-                    </div>
-                </div>
-            </div>
-        </section> -->
+      
         <?php
         // Simulamos obtener datos de una base de datos o un archivo de configuración
 
@@ -96,8 +63,40 @@ include_once("vistas/header2.php");
             'embed' => '<iframe src="https://prezi.com/p/embed/TCpAk6hSqUDUVNzrgxMi/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>'
         ];
         ?>
-    
+        <div class="ai-section">
+        <h2>Inteligencia Artificial al servicio de tu creatividad: Explora las últimas herramientas</h2>
+        <p>
+            En 2024, la inteligencia artificial (IA) continúa transformando la generación de imágenes y videos, con avances significativos en realismo y control creativo. Adobe ha lanzado nuevas herramientas como Firefly, que permite generar videos a partir de texto e imágenes, mejorando la edición y la integración de estas tecnologías en su ecosistema Creative Cloud. A su vez, los modelos de texto a imagen están alcanzando niveles de detalle que hacen difícil diferenciar las imágenes generadas por IA de las reales, y las interfaces se están volviendo más accesibles para usuarios sin experiencia técnica. El uso de medios sintéticos, como los deepfakes, sigue en expansión, presentando tanto oportunidades creativas como desafíos éticos. Las colaboraciones entre humanos y IA están redefiniendo el proceso creativo, permitiendo a los artistas combinar su visión con la potencia de la IA para producir piezas innovadoras. Además, la integración de estas tecnologías en redes sociales y marketing permite a las marcas personalizar contenido y mejorar la interacción con sus audiencias. La ética y transparencia en la generación de contenido se han convertido en prioridades, con iniciativas para asegurar que los contenidos generados sean trazables y auténticos.
+        </p>
+    </div>
+    <section class="carousel-section">
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/ia.webp" alt="Imagen 1" />
+            </div>
+            <div class="carousel-item">
+                <img src="img/pcAI.jpeg" alt="Imagen 2" />
+            </div>
+            <div class="carousel-item">
+                <img src="img/perfil.webp" alt="Imagen 3" />
+            </div>
+            <div class="carousel-item">
+                <img src="img/Herramientas-Digitales.png" alt="Imagen 5" />
+            </div>
+            <div class="carousel-item">
+                <img src="img/herramienta.jpg" alt="Imagen 6" />
+            </div>
+        </div>
+        <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
+        <button class="carousel-button next" aria-label="Siguiente">&gt;</button>
+        <div class="carousel-indicators"></div>
+    </div>
+</section>
+      <section>
+    <h2>Incorporación digital en el día a día.</h2>
     <div class="contaC">
+       
         <div class="column">
             <img src="img/INTELIGENCIA-ARTIFICIAL.jpg" alt="Inteligencia Artificial" class="image">
             <h2>Inteligencia Artificial</h2>
@@ -119,13 +118,7 @@ include_once("vistas/header2.php");
         </div>
      
     </div>
-    <div class="ai-section">
-        <h2>Generación de Imágenes y Videos con IA en 2024</h2>
-        <p>
-            En 2024, la inteligencia artificial (IA) continúa transformando la generación de imágenes y videos, con avances significativos en realismo y control creativo. Adobe ha lanzado nuevas herramientas como Firefly, que permite generar videos a partir de texto e imágenes, mejorando la edición y la integración de estas tecnologías en su ecosistema Creative Cloud. A su vez, los modelos de texto a imagen están alcanzando niveles de detalle que hacen difícil diferenciar las imágenes generadas por IA de las reales, y las interfaces se están volviendo más accesibles para usuarios sin experiencia técnica. El uso de medios sintéticos, como los deepfakes, sigue en expansión, presentando tanto oportunidades creativas como desafíos éticos. Las colaboraciones entre humanos y IA están redefiniendo el proceso creativo, permitiendo a los artistas combinar su visión con la potencia de la IA para producir piezas innovadoras. Además, la integración de estas tecnologías en redes sociales y marketing permite a las marcas personalizar contenido y mejorar la interacción con sus audiencias. La ética y transparencia en la generación de contenido se han convertido en prioridades, con iniciativas para asegurar que los contenidos generados sean trazables y auténticos.
-        </p>
-    </div>
-    
+
         <!-- Sección de Prezi -->
         <section class="prezi-section">
             <div class="container">
@@ -279,7 +272,7 @@ include_once("vistas/header2.php");
             </div>
         </section>
         <div class="contento">
-            <div class="column left">
+            <div class="columna left">
                 <h3>De la forma más efectiva posible</h3>
                 <ul>
                     <li>
@@ -295,7 +288,7 @@ include_once("vistas/header2.php");
                     </li>
                 </ul>
             </div>
-            <div class="column right">
+            <div class="columna right">
                 <div class="text-entry">
                     <img id="imagen1" src="img/chulilla.jpg" alt="" />
                 </div>
@@ -305,7 +298,7 @@ include_once("vistas/header2.php");
         <section id="playlists">
             <h2>Nuestros Destacados</h2>
             <div class="playlist-container">
-                <div class="playlist">Blockchain</div>
+                <a href="tecnologia.php#generacion-img"><div class="playlist">Audiovisuales</div></a>
                 <div class="playlist">AR Gafas</div>
                 <div class="playlist">Workout</div>
             </div>

@@ -6,15 +6,6 @@ include_once("vistas/header.php");
 include_once("vistas/header2.php");
 ?>
 <body>
-    <header class="segunda-header">
-       
-
-        <div class="segunda-status-section">
-      
-            <a href="#" class="segunda-contact-btn">Contáctenos</a>
-        </div>
-    </header>
-    
 
     <main>
       <div class="container">
@@ -100,7 +91,7 @@ include_once("vistas/header2.php");
                 <p>La nutrición es la ciencia que estudia la relación entre los alimentos y los organismos vivos. Se centra en cómo los nutrientes presentes en los alimentos son ingeridos, digeridos, absorbidos, transportados y utilizados por el cuerpo para llevar a cabo una amplia gama de funciones biológicas.</p>
                 <p>Desde el crecimiento y desarrollo hasta la reparación de tejidos y la producción de energía, todos los procesos vitales dependen de una adecuada nutrición. Los nutrientes, como las proteínas, los carbohidratos, las grasas, las vitaminas y los minerales, actúan como los ladrillos y la energía que el cuerpo necesita para construir y mantener sus células y tejidos.</p>
                 <p>Una nutrición óptima es esencial para prevenir enfermedades crónicas como la diabetes, las enfermedades cardiovasculares y ciertos tipos de cáncer. Además, una dieta equilibrada puede mejorar el estado de ánimo, aumentar la energía y fortalecer el sistema inmunológico.</p>
-                <p><a href="#" class="TERCERA_boton TERCERA_boton_secundario">Descubre más</a></p>
+                <!-- <p><a href="#" class="TERCERA_boton TERCERA_boton_secundario">Descubre más</a></p> -->
             </div>
             <div class="TERCERA_columna_lg_6 TERCERA_offset_lg_1 TERCERA_padding_top_16 TERCERA_padding_bottom_16 TERCERA_nivel_color">
                 <img src="img/piramideAlimentos.jpg" 
@@ -160,7 +151,7 @@ include_once("vistas/header2.php");
             <!-- Tercer bloque - 45% -->
             <div class="cinco-bloque cinco-bloque-dato-oscuro">
                 <h3 class="cinco-numero">45%</h3>
-                <h4 class="cinco-descripcion">El porcentaje de personas que han experimentado una reducción de enfermedades crónicas.</h4>
+                <h4 class="cinco-descripcion-45">El porcentaje de personas que han experimentado una reducción de enfermedades crónicas.</h4>
             </div>
 
             <!-- Cuarto bloque - 8+ -->

@@ -74,6 +74,12 @@ if (isset($results['items'])) {
     echo "No se encontraron resultados.";
 }
 ?>
+<section class="img-music">
+<div class="imagen-centrada">
+  <img src="img/MUSIC-LIFE-.png" alt="Descripción de la imagen">
+</div>
+</section>
+<div class="category-section">
 <table>
   <thead>
     <tr>
@@ -297,6 +303,7 @@ if (isset($results['items'])) {
     </tr>
   </tbody>
 </table>
+</div>
 <?php
 include_once("vistas/footer.php");
 ?>

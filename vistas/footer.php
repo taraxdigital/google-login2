@@ -4,7 +4,7 @@
     <div class="container">
         <div class="navegacion">
             <ul>
-                <li><a href="/">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li><span>•</span></li>
                 <li><a href="#">Sobre nosotros</a></li>
                 <li><span>•</span></li>

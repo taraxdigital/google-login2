@@ -110,7 +110,7 @@ include_once("vistas/header2.php");
     </div>
 
     <div class="category-section">
-        <h2 class="category-header">Generación de Imágenes</h2>
+        <h2 class="category-header" id="generacion-img">Generación de Imágenes</h2>
         <table>
             <thead>
                 <tr>
