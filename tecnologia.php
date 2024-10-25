@@ -305,7 +305,7 @@ include_once("vistas/header2.php");
     </div>
 
     <div class="category-section">
-        <h2 class="category-header">Recursos y Assets</h2>
+        <h2 class="category-header" id="recursos">Recursos y Assets</h2>
         <table>
             <thead>
                 <tr>
@@ -360,7 +360,7 @@ include_once("vistas/header2.php");
     </div>
 
     <div class="category-section">
-        <h2 class="category-header">Creación de contenido y texto.</h2>
+    <h2 class="category-header" id="contenido">Creación de contenido y texto</h2>
         <table>
             <thead>
                 <tr>
@@ -382,8 +382,8 @@ include_once("vistas/header2.php");
                 </tr>
                 <tr>
                     <td class="platform-cell">Websin.ai</td>
-                    <td class="functionality-cell">genera texto de alta calidad</td>
-                    <td class="use-case-cell">Para blogs, artículos</td>
+                    <td class="functionality-cell">Plataforma de desarrollo de aplicaciones web</td>
+                    <td class="use-case-cell">Tecnología, finanzas, la salud y educación,</td>
                 </tr>
                 <tr>
                     <td class="platform-cell">TTSmaker</td>
@@ -422,7 +422,7 @@ include_once("vistas/header2.php");
                 </tr>
                 <tr>
                     <td class="platform-cell">Greenscreenmemes.com</td>
-                    <td class="functionality-cell">Creación de contenido, investigación y asistencia de escritura </td>
+                    <td class="functionality-cell">Creación de contenido</td>
                     <td class="use-case-cell">redes sociales y publicaciones en línea.</td>
                 </tr>
             </tbody>

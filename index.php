@@ -231,29 +231,37 @@ include_once("vistas/header2.php");
                 </div>
             </div>
         </section>
+        <section id="playlists">
+            <h2>Nuestros Destacados</h2>
+            <div class="playlist-container">
+                <a href="tecnologia.php#generacion-img" target="_blank"><div class="playlist">Audiovisuales</div></a>
+            
+                <a href="tecnologia.php#recursos" target="_blank"><div class="playlist">Recursos</div></a>
+                <a href="tecnologia.php#contenido" target="_blank"><div class="playlist">Crear contenido</div></a>
+        </section>
         <section class="modern-section">
             <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
             <div class="image-block">
                 <h3 class="block-title">Marketing impulsado por IA</h3>
-                <img src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
+                <img class="puff-in-center"   src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
 
                 <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
             </div>
             <div class="image-block">
                 <h3 class="block-title">Diseño y Funcionalidad </h3>
-                <img src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+                <img class="roll-in-left" src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
 
                 <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
             </div>
             <div class="image-block">
                 <h3 class="block-title">La mejor música por bpm</h3>
-                <img src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
+                <img class="puff-in-center" src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
 
                 <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
             </div>
             <div class="image-block">
                 <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
-                <img src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
+                <img class="roll-in-left" src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
 
                 <p class="block-description">Integración con IoT para marketing en tiempo real</p>
             </div>
@@ -295,14 +303,7 @@ include_once("vistas/header2.php");
             </div>
         </div>
 
-        <section id="playlists">
-            <h2>Nuestros Destacados</h2>
-            <div class="playlist-container">
-                <a href="tecnologia.php#generacion-img"><div class="playlist">Audiovisuales</div></a>
-                <div class="playlist">AR Gafas</div>
-                <div class="playlist">Workout</div>
-            </div>
-        </section>
+      
         <section class="formulario">
         <div class="form-container">
         <h2>Nuestros Servicios.</h2>

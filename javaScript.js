@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     textEntries.forEach((entry) => {
       observer.observe(entry);
     });
-  });
+
   // Estado del reproductor
 let isPlaying = false;
 let volume = 1.0;
@@ -175,54 +175,9 @@ function seek(event) {
 //     alert('¡Has hecho clic en la imagen de Coze!');
 // });
 ///////////
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM cargado");
-});
 
 ////////////
-window.addEventListener('DOMContentLoaded', (event) => {
-    const data = [
-        { id: 1, name: "David Guetta", bestTrack: "Titanium", releaseYear: 2011 },
-        { id: 2, name: "Martin Garrix", bestTrack: "Animals", releaseYear: 2013 },
-        { id: 3, name: "Calvin Harris", bestTrack: "One Kiss", releaseYear: 2018 },
-        { id: 4, name: "Marshmello", bestTrack: "Happier", releaseYear: 2018 },
-        { id: 5, name: "The Chainsmokers", bestTrack: "Closer", releaseYear: 2016 },
-        { id: 6, name: "Tiësto", bestTrack: "The Business", releaseYear: 2020 },
-        { id: 7, name: "Diplo", bestTrack: "Lean On", releaseYear: 2015 },
-        { id: 8, name: "Skrillex", bestTrack: "Where Are Ü Now", releaseYear: 2015 },
-        { id: 9, name: "Zedd", bestTrack: "The Middle", releaseYear: 2018 },
-        { id: 10, name: "Kygo", bestTrack: "It Ain't Me", releaseYear: 2017 },
-        { id: 11, name: "Armin van Buuren", bestTrack: "This Is What It Feels Like", releaseYear: 2013 },
-        { id: 12, name: "Steve Aoki", bestTrack: "Just Hold On", releaseYear: 2016 },
-        { id: 13, name: "Avicii", bestTrack: "Wake Me Up", releaseYear: 2013 },
-        { id: 14, name: "Hardwell", bestTrack: "Spaceman", releaseYear: 2012 },
-        { id: 15, name: "Afrojack", bestTrack: "Take Over Control", releaseYear: 2010 },
-        { id: 16, name: "Deadmau5", bestTrack: "Ghosts 'n' Stuff", releaseYear: 2009 },
-        { id: 17, name: "Don Diablo", bestTrack: "On My Mind", releaseYear: 2019 },
-        { id: 18, name: "Oliver Heldens", bestTrack: "Gecko (Overdrive)", releaseYear: 2013 },
-        { id: 19, name: "Alan Walker", bestTrack: "Faded", releaseYear: 2015 },
-        { id: 20, name: "Alesso", bestTrack: "Heroes", releaseYear: 2014 }
-    ];
 
-    const listContainer = document.getElementById('list');
-
-    data.forEach(item => {
-        const listItem = document.createElement('div');
-        listItem.classList.add('item');
-        listItem.textContent = item.name;
-
-        listItem.addEventListener('click', () => {
-            showDetails(item);
-        });
-
-        // listContainer.appendChild(listItem);
-    });
-
-    function showDetails(item) {
-        // Aquí puedes mostrar los demás datos del elemento seleccionado, como el mejor track y el año de lanzamiento.
-        console.log(item);
-    }
-});
 // document.getElementById("parallax").style.backgroundImage =
 //   "url('img/2(1).png')";
 
@@ -336,10 +291,9 @@ const TERCERA_manejadorImagenes = {
     }
 };
 
-// Inicializar cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', () => {
+
     TERCERA_manejadorImagenes.init();
-});
+
 
 // Manejar cambios de tamaño de ventana
 window.addEventListener('resize', () => {
@@ -349,30 +303,10 @@ window.addEventListener('resize', () => {
     });
 });
 
-// Añadir estilos CSS dinámicamente
-const estilos = `
-    .TERCERA_imagen {
-        opacity: 0;
-        transition: opacity 0.3s ease-in;
-    }
-    
-    .TERCERA_imagen_cargada {
-        opacity: 1;
-    }
-    
-    .TERCERA_imagen_error {
-        border: 1px solid #ff0000;
-        background-color: #ffeeee;
-    }
-    
-    .TERCERA_imagen_personalizada {
-        position: relative;
-        overflow: hidden;
-    }
-`;
+
 
 const styleSheet = document.createElement('style');
-styleSheet.textContent = estilos;
+// styleSheet.textContent = estilos;
 document.head.appendChild(styleSheet);
 
 
@@ -454,7 +388,37 @@ document.querySelectorAll('.accordion-button').forEach(button => {
 }
 
 // Inicializar el carrusel cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', () => {
+
     const carouselElement = document.querySelector('.carousel');
     new Carousel(carouselElement);
+
+//ult- alimentación
+const modal = document.getElementById('imageModal');
+const modalTrigger = document.getElementById('modalTrigger');
+const closeButton = document.querySelector('.close-modal');
+
+modalTrigger.addEventListener('click', () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+closeButton.addEventListener('click', closeModal);
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
 });

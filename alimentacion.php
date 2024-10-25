@@ -5,7 +5,7 @@ include_once("vistas/header.php");
 <?php
 include_once("vistas/header2.php");
 ?>
-<body>
+
 
     <main>
       <div class="container">
@@ -261,7 +261,34 @@ include_once("vistas/header2.php");
         </div>
     </section>
            
- 
+
+
+<section>
+    <ul class="sci-list">
+  <li>
+    <h3>La Alimentación como Puente hacia la Paz Mental</h3>
+    <p>La conexión entre lo que comemos y cómo nos sentimos es cada vez más evidente. Numerosos estudios científicos han demostrado que nuestra alimentación tiene un impacto directo en nuestra salud mental, influyendo en nuestro estado de ánimo, niveles de energía y capacidad para manejar el estrés. <br></p>
+  </li>
+  <li>
+    <h3>¿Cómo influye la alimentación en nuestra paz mental?</h3>
+    <p>Neurotransmisores: Muchos alimentos contienen nutrientes esenciales que son precursores de neurotransmisores como la serotonina y la dopamina, conocidos como los "químicos de la felicidad". Estos neurotransmisores regulan el estado de ánimo, el sueño y el apetito.
+Inflamación: Una dieta rica en alimentos procesados y azúcares puede promover la inflamación en el cuerpo, lo que se ha relacionado con trastornos del estado de ánimo como la depresión y la ansiedad.
+Microbioma intestinal: El intestino, a menudo llamado nuestro "segundo cerebro", alberga billones de bacterias que influyen en nuestra salud mental. Una dieta rica en fibra, probióticos y prebióticos alimenta estas bacterias beneficiosas, promoviendo una mejor salud mental. <br></p>
+  </li>
+  <li>
+    <h3>Alimentos que fomentan la paz mental</h3>
+    <p>Pescado graso: Rico en ácidos grasos omega-3, que son esenciales para la salud cerebral.
+Frutos secos y semillas: Contienen magnesio, un mineral que ayuda a relajar los músculos y reducir el estrés.
+Frutas y verduras: Son una excelente fuente de vitaminas, minerales y antioxidantes, que protegen las células del daño y reducen la inflamación.
+Cereales integrales: Proporcionan fibra, que ayuda a regular los niveles de azúcar en la sangre y mejora la digestión.
+Legumbres: Son una fuente de proteínas vegetales, fibra y vitaminas del complejo B, que son importantes para la salud mental.
+Probióticos: Los alimentos fermentados como el yogur, el kéfir y el chucrut contienen probióticos que benefician el microbioma intestinal.</p>
+</ul>
+
+</section>
+
+<h2>Deporte & Salud</h2>
+<img src="img/transparentegit.gif" class="gif" alt="Descripción del GIF" width="200" height="100">
 
     <section class="s_accordion_image clase-diez- pt56 pb56 clase-diez-1 clase-diez-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
         <div class="container">
@@ -276,7 +303,7 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
                     <p><br/></p>
     <div data-name="Accordion" class="s_accordion clase-diez-accordion">
         <div id="myCollapse" class="accordion-flush accordion clase-diez-accordion">
-        Acordeón desplegable con CSS
+      
 
 <!-- HTML -->
 <div class="accordion">
@@ -318,6 +345,23 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
             </div>
         </div>
     </section>
+    <div class="section-container">
+        <div class="section-grid">
+            <div class="section-content">
+                <h2>La Musculación: Más que Quemar Calorías.</h2>
+                <p>La musculación es mucho más que una herramienta para esculpir el cuerpo. Es una inversión en tu salud a largo plazo. Al incorporar ejercicios de fuerza en tu rutina, no solo perderás peso, sino que también mejorarás tu fuerza, resistencia y bienestar general. ¡Así que no lo dudes y comienza a levantar pesas hoy mismo!</p>
+            </div>
+            <img src="img/entrenador.jpg" alt="IA en industrias" class="section-image" id="modalTrigger">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <img src="/path-to-your-image.jpg" alt="IA en industrias" class="modal-image">
+        </div>
+    </div>
     
         <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
