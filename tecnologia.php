@@ -60,11 +60,7 @@ include_once("vistas/header2.php");
                     <td class="functionality-cell">Constructor de sitios web visual</td>
                     <td class="use-case-cell">Desarrollo web sin código</td>
                 </tr>
-                <tr>
-                    <td class="platform-cell">Relume</td>
-                    <td class="functionality-cell">Componentes y templates para web</td>
-                    <td class="use-case-cell">Desarrollo web rápido</td>
-                </tr>
+             
                 <tr>
                     <td class="platform-cell">Recraft</td>
                     <td class="functionality-cell">Herramientas de diseño AI</td>
@@ -238,7 +234,7 @@ include_once("vistas/header2.php");
             <tr>
                     <td class="platform-cell">Mixamo</td>
                     <td class="functionality-cell">Creación de personajes 3D y animación para juegos</td>
-                    <td class="use-case-cell"> aplicaciones y proyectos de realidad aumentada y virtual.</td>
+                    <td class="use-case-cell">Aplicaciones y proyectos de realidad aumentada y virtual.</td>
                 </tr>
                 <tr>
                     <td class="platform-cell">Vmake AI</td>

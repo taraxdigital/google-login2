@@ -40,7 +40,7 @@ include_once("vistas/header2.php");
             <h2 class="section-title">Tu Portal al Futuro</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"Bienvenido a IA Innovación, tu fuente definitiva para las últimas novedades en inteligencia artificial, tecnología alimentaria y música de vanguardia. Como agencia de marketing digital líder, no solo informamos sobre el futuro, lo creamos. Nuestro equipo de expertos diseña sitios web impresionantes que fusionan estética y funcionalidad, llevando tu presencia en línea al siguiente nivel. </p><br>
+                    <p>Bienvenido a <b>IA</b> Innovación, tu fuente definitiva para conocer las últimas novedades, en inteligencia artificial, tecnología, alimentación y música.</p><br><p>Como agencia de marketing digital líder, no solo informamos sobre el futuro, lo creamos. Nuestro equipo de expertos diseña sitios web impresionantes que fusionan estética y funcionalidad, llevando tu presencia en línea al siguiente nivel. </p><br>
                     <h4>Herramientas útiles:</h4>
                     <p> No te quedes atrás y transforma tu estrategia digital con soluciones innovadoras que marcan la diferencia.</p><br>
                 </div>
@@ -169,6 +169,29 @@ include_once("vistas/header2.php");
                 <a href="#" class="cta-button">Explora Más</a>
             </div>
         </section>
+        <div class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-button">
+      <span>Destacados.</span>
+      <i class="arrow"></i>
+    </button>
+    <div class="accordion-content">
+      <div class="accordion-body">
+        <p><strong>Anakin:</strong>  Todo en uno, imprescindible.</p>
+        <p><strong>Visbug:</strong>  Extensión de Crome, para modificar cualquier web.</p>
+        <p><strong>Noise:</strong>  Crea videos, con música de otra plataforma.</p>
+        <p><strong>Issuu:</strong>  Crea tu propio libro.</p>
+        <p><strong>Rezi.AI:</strong> Crea tu cv.</p>
+        <p><strong>Pfpmaker:</strong>  Foto de perfil, para tu cv.</p>
+        <p><strong>Bento:</strong>  Crea tu portfolio.</p>
+        <p><strong>Animista:</strong>  Aplica movimiento en tu css.</p>
+        <p><strong>Retatube:</strong>  Descarga vídeos, de cualquier plataforma.</p>
+        <p><strong>Deepblank:</strong>  Identidad de marca.</p>
+        <p><strong> Myinstants:</strong>   Repositorio de sonidos cortos y memes sonoros..</p>
+      </div>
+    </div>
+  </div>
+</div>
 
         <section class="digital-marketing-section">
             <div class="containera">
@@ -201,7 +224,7 @@ include_once("vistas/header2.php");
 
         <section>
             <div class="containera">
-                <h1>La Incorporación de la IA</h1>
+                <h2>La Incorporación de la IA</h2>
 
                 <div class="stats">
                     <div class="stat-card">
@@ -287,10 +310,10 @@ include_once("vistas/header2.php");
 
         <section id="trending">
             <div class="music-grid">
-                <div class="music-item">Metaverso Musical</div>
+                <div class="music-item">Música para motivarte</div>
                 <div class="music-item">Alimentos Funcionales</div>
-                <div class="music-item">Gen Z</div>
-                <div class="music-item">Del Lab a la Mesa</div>
+                <div class="music-item">La generación Z.</div>
+                <div class="music-item">Del Laboratorio a la Mesa</div>
             </div>
         </section>
         <div class="contento">

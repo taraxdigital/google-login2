@@ -39,10 +39,7 @@ include_once("vistas/header2.php");
         </div>
     </main>
 
-    <div class="primera-status">
-        <span class="primera-status-text">Publicado</span>
-        <div class="primera-status-indicator"></div>
-    </div>
+   
   <!-- Top Navigation -->
   
 

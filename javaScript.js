@@ -28,9 +28,9 @@ function mostrarOcultarMenu() {
 }
 
 // Nuevas funciones para el login
-const loginButton = document.getElementById('loginButton');
-const loginForm = document.getElementById('loginForm');
-const userInfo = document.getElementById('userInfo');
+// const loginButton = document.getElementById('loginButton');
+// const loginForm = document.getElementById('loginForm');
+// const userInfo = document.getElementById('userInfo');
 
 // loginButton.addEventListener('click', () => {
 //     loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
@@ -92,105 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(entry);
     });
 
-  // Estado del reproductor
-let isPlaying = false;
-let volume = 1.0;
-let currentTime = 0;
-
-// Elementos del DOM
-const videoPlayer = document.getElementById('videoPlayer');
-const playPauseBtn = document.getElementById('playPauseBtn');
-const volumeSlider = document.getElementById('volumeSlider');
-const progressBar = document.getElementById('progressBar');
-const currentTimeDisplay = document.getElementById('currentTime');
-const durationDisplay = document.getElementById('duration');
-
-// Función para reproducir o pausar el video
-function togglePlayPause() {
-    if (videoPlayer.paused) {
-        videoPlayer.play();
-        playPauseBtn.textContent = 'Pausar';
-        isPlaying = true;
-    } else {
-        videoPlayer.pause();
-        playPauseBtn.textContent = 'Reproducir';
-        isPlaying = false;
-    }
-}
-
-// Función para actualizar el volumen
-function updateVolume() {
-    volume = volumeSlider.value;
-    videoPlayer.volume = volume;
-}
-
-// Función para actualizar la barra de progreso
-function updateProgressBar() {
-    const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
-    progressBar.style.width = `${progress}%`;
-    currentTimeDisplay.textContent = formatTime(videoPlayer.currentTime);
-}
-
-// Función para formatear el tiempo en minutos:segundos
-function formatTime(timeInSeconds) {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
-
-// Función para saltar a una posición en el video
-function seek(event) {
-    const seekPosition = (event.offsetX / event.target.clientWidth) * videoPlayer.duration;
-    videoPlayer.currentTime = seekPosition;
-}
-
-// // Event Listeners
-// playPauseBtn.addEventListener('click', togglePlayPause);
-// volumeSlider.addEventListener('input', updateVolume);
-// videoPlayer.addEventListener('timeupdate', updateProgressBar);
-// progressBar.parentElement.addEventListener('click', seek);
-
-// Inicializar la duración del video cuando los metadatos estén cargados
-// videoPlayer.addEventListener('loadedmetadata', () => {
-//     durationDisplay.textContent = formatTime(videoPlayer.duration);
-// });
-
-// // Actualizar el botón de reproducción cuando el video termine
-// videoPlayer.addEventListener('ended', () => {
-//     playPauseBtn.textContent = 'Reproducir';
-//     isPlaying = false;
-// });
-
-// document.querySelector('.open-modal').addEventListener('click', function() {
-//   document.querySelector('.modal').style.display = 'block';
-// });
-
-////
-// Código JavaScript para agregar interactividad a la sección Coze (opcional)
-// Puedes utilizar este espacio para agregar funcionalidad adicional a la sección Coze, como animaciones o eventos de clic.
-
-// Ejemplo de código JavaScript para mostrar un mensaje al hacer clic en la imagen
-// const cozeImage = document.querySelector('.coze-image');
-// cozeImage.addEventListener('click', () => {
-//     alert('¡Has hecho clic en la imagen de Coze!');
-// });
-///////////
-
-////////////
-
-// document.getElementById("parallax").style.backgroundImage =
-//   "url('img/2(1).png')";
-
-// window.addEventListener("scroll", function () {
-//   let parallax = document.getElementById("parallax");
-//   let scrolPosition = window.scrollY;
-
-//   parallax.style.backgroundPositionY = scrolPosition * 0.7 + "px";
-// });
-
+ 
 
 // imagen 3
-// Función para manejar la carga de imágenes
+// Función para manejar la carga de imágenes SI QUITO ESTO EL DESPLEGABLE NO SE ABRE-//////////////
 const TERCERA_manejadorImagenes = {
     init: function() {
         // Seleccionar todas las imágenes con la clase TERCERA_imagen
@@ -317,6 +222,13 @@ document.querySelectorAll('.accordion-button').forEach(button => {
   });
 
   ///carrusel
+  // Inicializar el carrusel cuando el DOM esté cargado
+
+  const carouselElement = document.querySelector('.carousel');
+  new Carousel(carouselElement);
+
+
+  ///////////
   class Carousel {
     constructor(element) {
         this.carousel = element;
@@ -387,12 +299,12 @@ document.querySelectorAll('.accordion-button').forEach(button => {
     }
 }
 
-// Inicializar el carrusel cuando el DOM esté cargado
 
-    const carouselElement = document.querySelector('.carousel');
-    new Carousel(carouselElement);
 
-//ult- alimentación
+
+
+
+//ult- alimentación¡¡¡¡PESAS   si lo quito TAMPOCO FUNCIONA EL DESPLEGABLEEEE!!!!!!!!!! DE ALIMENTACION
 const modal = document.getElementById('imageModal');
 const modalTrigger = document.getElementById('modalTrigger');
 const closeButton = document.querySelector('.close-modal');

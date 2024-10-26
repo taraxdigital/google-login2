@@ -25,5 +25,6 @@
       <p>&copy; 2024 Elena</p>
     </footer>
     <script src="./javaScript.js"></script>
+    <script src="alimentacion.js"></script>
   </body>
 </html>
