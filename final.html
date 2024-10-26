@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tendencias</title>
+
+    <link rel="stylesheet" href="estilos.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="img/logo-nuevo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="falling-element element1">🫀</div>
+      <div class="falling-element element2">💡</div>
+      <div class="falling-element element3">🏆</div>
+      <div class="falling-element element3">🍀</div>
+      <div class="falling-element element3">🚀</div>
+      <div class="falling-element element4">🌟</div>
+      <div class="falling-element element5">🎧</div>
+      <div class="falling-element element5">☎️</div>
+      <div class="falling-element element6">📱</div>
+      <div class="falling-element element7">🙂</div>
+      <div class="falling-element element8">🤖</div>
+      <div class="logo-container">
+        <img class="logo" src="img/nuevo3.png" alt="Logo de la empresa" />
+      </div>
+      <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+      <nav class="nav" id="nav">
+        <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+        <ul class="nav-list">
+          <li><a href="index.php" onclick="seleccionar()">Inicio</a></li>
+          <li>
+            <a href="musica.php" target="_blank" onclick="seleccionar()"
+              >Música</a
+            >
+          </li>
+          <li>
+            <a href="alimentacion.php" onclick="seleccionar()">Alimentación</a>
+          </li>
+          <li>
+            <a href="tecnologia.php" onclick="seleccionar()">Tecnología</a>
+          </li>
+
+          <li><a href="#contacto" class="icon" id="boton">&#9742;</a></li>
+        </ul>
+      </nav>
+      <div class="nav-responsive" onclick="mostrarOcultarMenu()"></div>
+    </header>
+    <section>
+      <div class="modal-social-links">
+        <ul class="footer-section-socialmedia">
+          <!--
+       -->
+          <li id="fb" class="footer-section-socialmedia-entry">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i
+                class="fa-brands fa-facebook"
+                title="face"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+          <!--
+       -->
+          <li id="sp" class="footer-section-socialmedia-entry">
+            <a href="https://open.spotify.com" target="_blank"
+              ><i
+                class="fa-brands fa-spotify"
+                title="spotify"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+          <!--
+       -->
+          <li id="tw" class="footer-section-socialmedia-entry">
+            <a href="https://github.com" target="_blank"
+              ><i
+                class="fa-brands fa-github"
+                title="github"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+          <!--
+       -->
+          <li id="ins" class="footer-section-socialmedia-entry">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              style="border-radius: 0"
+              ><i class="fa-brands fa-square-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <main>
+      <div class="container">
+        <img
+          class="caballo"
+          src="img/caballo.jpg"
+          alt="Imagen pequeña"
+          class="small-image"
+        />
+
+        <h1>Tendencias-top</h1>
+        <section class="primero">
+          <div class="">
+            <div class="card">
+              <img class="top" src="img/music.png" alt="últimas tendencias" />
+              <div class="card-text">
+                <h2>Música</h2>
+                <p>Los últimos éxitos musicales en España.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="top" src="img/comida.png" alt="últimas tendencias" />
+              <div class="card-text">
+                <h2>Alimentación</h2>
+                <p>Dieta mediterránea, la más saludable y completa.</p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="top" src="img/px.jpg" alt="últimas tendencias" />
+              <div class="card-text">
+                <h2>Tecnología</h2>
+                <p>Descubre los nuevos avances en inteligencia artificial.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="ai-section">
+            <h2>Inteligencia Artificial al servicio de tu creatividad: Explora las últimas herramientas</h2><br>
+            <p>
+                En 2024, la inteligencia artificial (IA) continúa transformando la generación de imágenes y videos, con avances significativos en realismo y control creativo. Adobe ha lanzado nuevas herramientas como Firefly, que permite generar videos a partir de texto e imágenes, mejorando la edición y la integración de estas tecnologías en su ecosistema Creative Cloud. A su vez, los modelos de texto a imagen están alcanzando niveles de detalle que hacen difícil diferenciar las imágenes generadas por IA de las reales, y las interfaces se están volviendo más accesibles para usuarios sin experiencia técnica. El uso de medios sintéticos, como los deepfakes, sigue en expansión, presentando tanto oportunidades creativas como desafíos éticos. Las colaboraciones entre humanos y IA están redefiniendo el proceso creativo, permitiendo a los artistas combinar su visión con la potencia de la IA para producir piezas innovadoras. Además, la integración de estas tecnologías en redes sociales y marketing permite a las marcas personalizar contenido y mejorar la interacción con sus audiencias. La ética y transparencia en la generación de contenido se han convertido en prioridades, con iniciativas para asegurar que los contenidos generados sean trazables y auténticos.
+            </p><br>
+        </div>
+        <section id="testimonios" class="testimonials">
+            <h2 class="section-title">Tu Portal al Futuro</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Bienvenido a IA Innovación, tu fuente definitiva para las últimas novedades en inteligencia artificial, tecnología alimentaria y música de vanguardia. Como agencia de marketing digital líder, no solo informamos sobre el futuro, lo creamos. Nuestro equipo de expertos diseña sitios web impresionantes que fusionan estética y funcionalidad, llevando tu presencia en línea al siguiente nivel. </p><br>
+                    <h4>Herramientas útiles:</h4>
+                    <p> No te quedes atrás y transforma tu estrategia digital con soluciones innovadoras que marcan la diferencia.</p><br>
+                </div>
+                <div class="testimonial-card">
+                    
+                    <h4>Creación de contenido:</h4>
+                    <p>Te ofrezco las últimas novedades en creación de contenido, utilizando herramientas de inteligencia artificial de vanguardia para generar imágenes y videos impactantes que capturan la esencia de tu marca.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="carousel-section">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/ia.webp" alt="Imagen 1" />
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pcAI.jpeg" alt="Imagen 2" />
+                </div>
+                <div class="carousel-item">
+                    <img src="img/perfil.webp" alt="Imagen 3" />
+                </div>
+                <div class="carousel-item">
+                    <img src="img/Herramientas-Digitales.png" alt="Imagen 5" />
+                </div>
+                <div class="carousel-item">
+                    <img src="img/herramienta.jpg" alt="Imagen 6" />
+                </div>
+            </div>
+            <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
+            <button class="carousel-button next" aria-label="Siguiente">&gt;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
+          <section>
+        <h2>Incorporación digital en el día a día.</h2>
+        <div class="contaC">
+           
+            <div class="column">
+                <img src="img/INTELIGENCIA-ARTIFICIAL.jpg" alt="Inteligencia Artificial" class="image">
+                <h2>Inteligencia Artificial</h2>
+                <p>La inteligencia artificial (IA) es la capacidad de una máquina para realizar tareas que normalmente requieren inteligencia humana, como el aprendizaje, la resolución de problemas y la toma de decisiones.
+                El 80% de las empresas están implementando IA en sus operaciones.
+                </p>
+            </div>
+            <div class="column">
+                <img src="img/renovables.jpg" alt="Energías Renovables" class="image">
+                <h2>Energías Renovables</h2>
+                <p>Las energías renovables son fuentes de energía que se renuevan de forma natural, como la energía solar, la energía eólica, la energía hidroeléctrica y la energía geotérmica. 
+                    El 50% de la electricidad global provendrá de fuentes renovables para 2030. </p>
+            </div>
+            <div class="column">
+                <img src="img/BIOTECNOLOGIA.png" alt="Biotecnología" class="image">
+                <h2>Biotecnología</h2>
+                <p>La biotecnología es la aplicación de principios científicos y tecnológicos a organismos vivos, sistemas vivos o sus derivados para la creación de productos y procesos para usos específicos.
+                     Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
+            </div>
+         
+        </div>
+    
+            <!-- Sección de Prezi -->
+            <section class="prezi-section">
+                <div class="container">
+                    <h2 class="section-title"><?php echo htmlspecialchars($prezData['title']); ?></h2>
+                    <p class="section-description"><?php echo htmlspecialchars($prezData['description']); ?></p>
+                    <div class="prezi-container">
+                        <?php echo $prezData['embed']; ?>
+                    </div>
+                </div>
+            </section>
+            <section class="modern-section">
+                <div class="container">
+                    <h2 class="section-title">La revolución digital</h2>
+                    <p class="section-description">
+                        Explorando nuevas fronteras en diseño y tecnología
+                    </p>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="feature-icon" aria-hidden="true">🚀</i>
+                            <h3>Innovación</h3>
+                            <p>Impulsando el futuro con ideas revolucionarias</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="feature-icon" aria-hidden="true">💡</i>
+                            <h3>Creatividad</h3>
+                            <p>Transformando visiones en realidades tangibles</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="feature-icon" aria-hidden="true">🌿</i>
+                            <h3>Sostenibilidad</h3>
+                            <p>Creando soluciones responsables para un mañana mejor</p>
+                        </div>
+                    </div>
+                    <a href="#" class="cta-button">Explora Más</a>
+                </div>
+            </section>
+    
+            <section class="digital-marketing-section">
+                <div class="containera">
+                    <div class="content-wrapper">
+                        <div class="text-content">
+                            <h2 class="section-title">
+                                Impulsa tu negocio con Marketing Digital
+                            </h2>
+                            <p class="section-description">
+                                Descubre cómo nuestras estrategias de marketing digital pueden
+                                llevar tu empresa al siguiente nivel en el mundo online.
+                            </p>
+                            <ul class="feature-list">
+                                <li>SEO y posicionamiento en buscadores</li>
+                                <li>Campañas de publicidad en redes sociales</li>
+                                <li>Email marketing personalizado</li>
+                                <li>Análisis de datos y optimización de conversiones</li>
+                            </ul>
+                        </div>
+                        <div class=".rotate-scale-up">
+                            <img
+                                src="img/p6.jpg"
+                                alt="Estrategias de Marketing Digital"
+                                class="marketing-image" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+    
+            <section>
+                <div class="containera">
+                    <h1>La Incorporación de la IA</h1>
+    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3>Crecimiento de la IA</h3>
+                            <div class="stat-value">120%</div>
+                            <p>Aumento en inversión desde 2020</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Aplicaciones Cotidianas</h3>
+                            <div class="stat-value">75%</div>
+                            <p>De smartphones usan IA</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Previsión para 2030</h3>
+                            <div class="stat-value">$15.7T</div>
+                            <p>Impacto económico global estimado</p>
+                        </div>
+                    </div>
+    
+                    <h2>Crecimiento de la Inversión en IA</h2>
+                    <div class="graph">
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 25%"></div>
+                            <div class="bar" style="height: 40%"></div>
+                            <div class="bar" style="height: 55%"></div>
+                            <div class="bar" style="height: 70%"></div>
+                            <div class="bar" style="height: 85%"></div>
+                        </div>
+                        <div class="bar-chart" style="height: auto">
+                            <div class="bar-label">2020<br>$50B</div>
+                            <div class="bar-label">2021<br>$65B</div>
+                            <div class="bar-label">2022<br>$80B</div>
+                            <div class="bar-label">2023<br>$95B</div>
+                            <div class="bar-label">2024<br>$110B</div>
+                        </div>
+                    </div>
+    
+                    <div class="footera">
+                        <p>Fuentes: Informes de industria, estudios de mercado, y proyecciones económicas.</p>
+                        <p>Nota: Los datos presentados son aproximaciones y pueden variar según la fuente.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="playlists">
+                <h2>Nuestros Destacados</h2>
+                <div class="playlist-container">
+                    <a href="tecnologia.php#generacion-img" target="_blank"><div class="playlist">Audiovisuales</div></a>
+                
+                    <a href="tecnologia.php#recursos" target="_blank"><div class="playlist">Recursos</div></a>
+                    <a href="tecnologia.php#contenido" target="_blank"><div class="playlist">Crear contenido</div></a>
+            </section>
+            <section class="modern-section">
+                <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
+                <div class="image-block">
+                    <h3 class="block-title">Marketing impulsado por IA</h3>
+                    <img class="puff-in-center"   src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
+    
+                    <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
+                </div>
+                <div class="image-block">
+                    <h3 class="block-title">Diseño y Funcionalidad </h3>
+                    <img class="roll-in-left" src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+    
+                    <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
+                </div>
+                <div class="image-block">
+                    <h3 class="block-title">La mejor música por bpm</h3>
+                    <img class="puff-in-center" src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
+    
+                    <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
+                </div>
+                <div class="image-block">
+                    <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
+                    <img class="roll-in-left" src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
+    
+                    <p class="block-description">Integración con IoT para marketing en tiempo real</p>
+                </div>
+            </section>
+            <section id="home" class="hero">
+                <h2>Conquista el Mundo Digital</h2>
+                <p>Descubre. Investiga. Aprende.</p>
+            </section>
+    
+            <section id="trending">
+                <div class="music-grid">
+                    <div class="music-item">Metaverso Musical</div>
+                    <div class="music-item">Alimentos Funcionales</div>
+                    <div class="music-item">Gen Z</div>
+                    <div class="music-item">Del Lab a la Mesa</div>
+                </div>
+            </section>
+            <div class="contento">
+                <div class="columna left">
+                    <h3>De la forma más efectiva posible</h3>
+                    <ul>
+                        <li>
+                            <p>✅Domina el mundo digital con nosotros.</p>
+                            <p>✅Expertos en Google Adwords: cada clic cuenta.</p>
+                            <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
+                            <p>
+                                ✅Guardianes de Search Console: tu sitio siempre arriba.
+                            </p>
+                            <p>
+                                ✅Diseño UX/UI cautivador: usuarios que no quieren irse.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="columna right">
+                    <div class="text-entry">
+                        <img id="imagen1" src="img/chulilla.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+    
+          
+            <section class="formulario">
+            <div class="form-container">
+            <h2>Nuestros Servicios.</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" min="18" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="ocupacion">Servicios</label>
+                    <select id="ocupacion" name="ocupacion" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="imagen">Imágenes</option>
+                        <option value="video">Videos</option>
+                        <option value="podcats">Podcats</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">Acepto los términos y condiciones</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        </section>
+            <section id="events">
+                <h2>Próximos Eventos</h2>
+                <div class="event-list">
+                    <div class="event">Tecnología talent - 15 Oct</div>
+                    <div class="event">Festival Benicasim - 22 Oct</div>
+                    <div class="event">Visita Bodega - 3 Nov</div>
+                </div>
+            </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

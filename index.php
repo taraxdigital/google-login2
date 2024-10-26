@@ -12,7 +12,7 @@ include_once("vistas/header2.php");
 
         <h1>Tendencias-top</h1>
         <section class="primero">
-            <div class="card-grid">
+          <div class="horizontal">
                 <div class="card">
                     <img class="top" src="img/music.png" alt="últimas tendencias" />
                     <div class="card-text">
@@ -34,6 +34,21 @@ include_once("vistas/header2.php");
                         <p>Descubre los nuevos avances en inteligencia artificial.</p>
                     </div>
                 </div>
+                </div>
+        </section>
+        <section id="testimonios" class="testimonials">
+            <h2 class="section-title">Tu Portal al Futuro</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Bienvenido a IA Innovación, tu fuente definitiva para las últimas novedades en inteligencia artificial, tecnología alimentaria y música de vanguardia. Como agencia de marketing digital líder, no solo informamos sobre el futuro, lo creamos. Nuestro equipo de expertos diseña sitios web impresionantes que fusionan estética y funcionalidad, llevando tu presencia en línea al siguiente nivel. </p><br>
+                    <h4>Herramientas útiles:</h4>
+                    <p> No te quedes atrás y transforma tu estrategia digital con soluciones innovadoras que marcan la diferencia.</p><br>
+                </div>
+                <div class="testimonial-card">
+                    
+                    <h4>Creación de contenido:</h4>
+                    <p>Te ofrezco las últimas novedades en creación de contenido, utilizando herramientas de inteligencia artificial de vanguardia para generar imágenes y videos impactantes que capturan la esencia de tu marca.</p>
+                </div>
             </div>
         </section>
 
@@ -48,9 +63,7 @@ include_once("vistas/header2.php");
             'poster' => 'images/video_poster.jpg' // Imagen de vista previa del video
         ];
         ?>
-        <section>
-
-        </section>
+      
         
       
         <?php
@@ -66,7 +79,8 @@ include_once("vistas/header2.php");
         <div class="ai-section">
         <h2>Inteligencia Artificial al servicio de tu creatividad: Explora las últimas herramientas</h2>
         <p>
-            En 2024, la inteligencia artificial (IA) continúa transformando la generación de imágenes y videos, con avances significativos en realismo y control creativo. Adobe ha lanzado nuevas herramientas como Firefly, que permite generar videos a partir de texto e imágenes, mejorando la edición y la integración de estas tecnologías en su ecosistema Creative Cloud. A su vez, los modelos de texto a imagen están alcanzando niveles de detalle que hacen difícil diferenciar las imágenes generadas por IA de las reales, y las interfaces se están volviendo más accesibles para usuarios sin experiencia técnica. El uso de medios sintéticos, como los deepfakes, sigue en expansión, presentando tanto oportunidades creativas como desafíos éticos. Las colaboraciones entre humanos y IA están redefiniendo el proceso creativo, permitiendo a los artistas combinar su visión con la potencia de la IA para producir piezas innovadoras. Además, la integración de estas tecnologías en redes sociales y marketing permite a las marcas personalizar contenido y mejorar la interacción con sus audiencias. La ética y transparencia en la generación de contenido se han convertido en prioridades, con iniciativas para asegurar que los contenidos generados sean trazables y auténticos.
+        En 2024, la inteligencia artificial (IA) transforma la creación de imágenes y videos con avances en realismo y control creativo. Adobe ha lanzado Firefly, que permite generar videos a partir de texto e imágenes, integrándose en su ecosistema Creative Cloud. Los modelos de texto a imagen logran un nivel de detalle que dificulta distinguir entre imágenes generadas por IA y reales.
+        El uso de medios sintéticos, como deepfakes, presenta oportunidades creativas y desafíos éticos. La colaboración entre humanos y IA redefine el proceso creativo, mientras que estas tecnologías mejoran la personalización del contenido en marketing y redes sociales. Además, la ética y la transparencia son prioridades, promoviendo la trazabilidad y autenticidad en el contenido generado.
         </p>
     </div>
     <section class="carousel-section">
@@ -175,7 +189,7 @@ include_once("vistas/header2.php");
                         </ul>
                     </div>
                     <div class=".rotate-scale-up">
-                        <img
+                        <img class="jello-horizontal"
                             src="img/p6.jpg"
                             alt="Estrategias de Marketing Digital"
                             class="marketing-image" />
