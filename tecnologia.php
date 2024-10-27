@@ -232,6 +232,11 @@ include_once("vistas/header2.php");
             </thead>
             <tbody>
             <tr>
+                    <td class="platform-cell"> Blackbox AI </td>
+                    <td class="functionality-cell">Genera imágenes con código html y css</td>
+                    <td class="use-case-cell">Creación de contenido original.</td>
+                </tr>
+            <tr>
                     <td class="platform-cell">Mixamo</td>
                     <td class="functionality-cell">Creación de personajes 3D y animación para juegos</td>
                     <td class="use-case-cell">Aplicaciones y proyectos de realidad aumentada y virtual.</td>
@@ -240,6 +245,11 @@ include_once("vistas/header2.php");
                     <td class="platform-cell">Vmake AI</td>
                     <td class="functionality-cell">Generación de videos desde texto</td>
                     <td class="use-case-cell">Marketing y social media</td>
+                </tr>
+                <tr>
+                    <td class="platform-cell">LumaLabs</td>
+                    <td class="functionality-cell">Generación de videos de alta calidad</td>
+                    <td class="use-case-cell">Creación de contenido.</td>
                 </tr>
                 <tr>
                     <td class="platform-cell">Fliki.ai</td>

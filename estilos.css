@@ -1010,7 +1010,7 @@ section {
 }
 
 .music-item {
-  background-color: #333;
+  background-color: var(--color-secondary);
   padding: 2rem;
   text-align: center;
   border-radius: 10px;
@@ -1029,7 +1029,8 @@ section {
 }
 
 .playlist {
-  background-color: #292929;
+  background-color:var(--color-secondary);
+
   color: white;
   padding: 2rem;
   margin: 1rem;
@@ -1554,7 +1555,115 @@ footer {
   width: 100%;
   max-width: 400px;
 } */
+.container__cards{
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.cardo{
+  width: 300px;
+  margin: 10px;
+  transition: all 300ms;
+}
+
+.cardo:hover{
+  width: 350px;
+}
+
+.cardo .cover{
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardo .cover img{
+  width: 250px;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 40px;
+  z-index: 1;
+  filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.5));
+  transition: all 400ms;
+}
+
+.cardo:hover .cover img{
+  top: 0px;
+  filter: none;
+}
+
+.cardo .img__back{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  background-size: cover;
+  border-radius: 20px;
+  transition: all 300ms;
+}
+
+.cardo:nth-of-type(1) .img__back{
+  background-image: url(img/bg1.jpg);
+}
+
+.cardo:nth-of-type(2) .img__back{
+  background-image: url(img/bg2.jpg);
+}
+
+.cardo:nth-of-type(3) .img__back{
+  background-image: url(img/bg3.jpg);
+}
+
+.cardo:hover .img__back{
+  bottom: -40px;
+}
+
+.cardo .description{
+  background: white;
+  margin-top: -10px;
+  padding: 20px;
+  border-radius: 0px 0px 20px 20px;
+  transition: all 300ms;
+}
+
+.cardo:hover .description{
+  padding: 40px;
+}
+
+.cardo .description h2{
+  margin-top: 10px;
+}
+
+.cardo .description p{
+  margin-top: 10px;
+}
+
+.cardo .description input{
+  padding: 10px 40px;
+  margin-top: 20px;
+  border: none;
+  background:  var(--color-secondary) ;
+  ;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 300ms;
+}
+
+.cardo .description input:hover{
+  background: var(--color-primary);
+}
+
+/* 
+
+*/
 h2 {
   color: var(--primary-color);
   margin-bottom: 20px;

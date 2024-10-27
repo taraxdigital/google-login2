@@ -192,6 +192,46 @@ include_once("vistas/header2.php");
     </div>
   </div>
 </div>
+<!--  -->
+<div class="container__cards">
+
+<div class="cardo">
+    <div class="cover">
+        <img src="img/p1.png" alt="">
+        <div class="img__back"></div>
+    </div>
+    <div class="description">
+        <h2>Midudev.</h2>
+        <p>Aprende a diseñar tu web</p>
+        <input type="button" value=" Desarrollador">
+    </div>
+</div>
+
+<div class="cardo">
+    <div class="cover">
+        <img src="img/p2.png" alt="">
+        <div class="img__back"></div>
+    </div>
+    <div class="description">
+        <h2>Ruva.</h2>
+        <p>Ponla bonita.</p>
+        <input type="button" value="Diseño gráfico">
+    </div>
+</div>
+
+<div class="cardo">
+    <div class="cover">
+        <img src="img/p3.png" alt="">
+        <div class="img__back"></div>
+    </div>
+    <div class="description">
+        <h2>Romu.</h2>
+        <p>Posiciónala.</p>
+        <input type="button" value="Seo">
+    </div>
+</div>
+
+</div>
 
         <section class="digital-marketing-section">
             <div class="containera">
