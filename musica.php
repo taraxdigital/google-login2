@@ -1,7 +1,7 @@
 <?php
 include_once 'config.php';
 include_once("vistas/header.php");
-echo '<img class="header-image" src="img/dj.png" alt="Imagen principal" />';
+
 include_once("vistas/header2.php");
 
 // Tus credenciales de Spotify (asegúrate de que estas constantes estén definidas en config.php)
@@ -9,6 +9,7 @@ $client_id = ID_CLIENTE;
 $client_secret = SECRETO_CLIENTE;
 
 // Función para obtener el token de acceso
+echo '<img class="header-image" src="img/dj.png" alt="Imagen principal" />';
 function getAccessToken($client_id, $client_secret)
 {
     $ch = curl_init();
@@ -304,6 +305,7 @@ if (isset($results['items'])) {
   </tbody>
 </table>
 </div>
+
 <?php
 include_once("vistas/footer.php");
 ?>

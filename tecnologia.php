@@ -1,12 +1,13 @@
 <?php
 include_once("vistas/header.php");
 ?>
-<img class="header-image" src="img/robot.jpg" alt="Imagen principal" />
+
 <?php
 include_once("vistas/header2.php");
 ?>
  <main>
       <div class="container">
+      <img class="header-image" src="img/robot.jpg" alt="Imagen principal" />
         <section id="home" class="hero">
           <h1>Novedades tecnológicas</h1>
  
@@ -498,7 +499,7 @@ include_once("vistas/header2.php");
         <p>✅  Eliminación automática de fondos</p><br>
         <p>✅  Generación automática de descripciones</p><br>
         <p>✅  Mejora de la calidad de las imágenes</p><br>
-        <img class="coze-image" src="img/md.jpg" alt="Imagen de Coze">
+        <!-- <img class="coze-image" src="img/md.jpg" alt="Imagen de Coze"> -->
         </div>
     </section>
     <?php

@@ -1,13 +1,16 @@
 <?php
 include_once("vistas/header.php");
 ?>
-<img class="header-image" src="img/caballo.png" alt="Imagen principal" />
+
 <?php
 include_once("vistas/header2.php");
 ?>
 <main>
     <!-- Contenido principal -->
     <div class="container">
+
+<img class="header-image" src="img/caballo.png" alt="Imagen principal" />
+
 
 
         <h1>Tendencias-top</h1>
@@ -86,7 +89,7 @@ include_once("vistas/header2.php");
     <section class="carousel-section">
     <div class="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item ">
                 <img src="img/ia.webp" alt="Imagen 1" />
             </div>
             <div class="carousel-item">
@@ -102,15 +105,13 @@ include_once("vistas/header2.php");
                 <img src="img/herramienta.jpg" alt="Imagen 6" />
             </div>
         </div>
-        <button class="carousel-button prev" aria-label="Anterior">&lt;</button>
-        <button class="carousel-button next" aria-label="Siguiente">&gt;</button>
-        <div class="carousel-indicators"></div>
-    </div>
-</section>
-      <section>
+        <button class="carousel-button prev">&lt;</button>
+          <button class="carousel-button next">&gt;</button>
+        </div>
+      </section>
     <h2>Incorporación digital en el día a día.</h2>
     <div class="contaC">
-       
+    <div class="columns-container">
         <div class="column">
             <img src="img/INTELIGENCIA-ARTIFICIAL.jpg" alt="Inteligencia Artificial" class="image">
             <h2>Inteligencia Artificial</h2>
@@ -122,7 +123,7 @@ include_once("vistas/header2.php");
             <img src="img/renovables.jpg" alt="Energías Renovables" class="image">
             <h2>Energías Renovables</h2>
             <p>Las energías renovables son fuentes de energía que se renuevan de forma natural, como la energía solar, la energía eólica, la energía hidroeléctrica y la energía geotérmica. 
-                El 50% de la electricidad global provendrá de fuentes renovables para 2030. </p>
+                El 50% de la electricidad global provendrá de fuentes renovables para 2030.</p>
         </div>
         <div class="column">
             <img src="img/BIOTECNOLOGIA.png" alt="Biotecnología" class="image">
@@ -130,8 +131,8 @@ include_once("vistas/header2.php");
             <p>La biotecnología es la aplicación de principios científicos y tecnológicos a organismos vivos, sistemas vivos o sus derivados para la creación de productos y procesos para usos específicos.
                  Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
         </div>
-     
     </div>
+</div>
 
         <!-- Sección de Prezi -->
         <section class="prezi-section">
@@ -179,6 +180,7 @@ include_once("vistas/header2.php");
       <div class="accordion-body">
         <p><strong>Anakin:</strong>  Todo en uno, imprescindible.</p>
         <p><strong>Visbug:</strong>  Extensión de Crome, para modificar cualquier web.</p>
+        <p><strong>Pika art:</strong>  Movimiento de imágenes increíbles.</p>
         <p><strong>Noise:</strong>  Crea videos, con música de otra plataforma.</p>
         <p><strong>Issuu:</strong>  Crea tu propio libro.</p>
         <p><strong>Rezi.AI:</strong> Crea tu cv.</p>
@@ -251,12 +253,11 @@ include_once("vistas/header2.php");
                             <li>Análisis de datos y optimización de conversiones</li>
                         </ul>
                     </div>
-                    <div class=".rotate-scale-up">
-                        <img class="jello-horizontal"
-                            src="img/p6.jpg"
-                            alt="Estrategias de Marketing Digital"
-                            class="marketing-image" />
-                    </div>
+                    <div class="rotate-scale-up">
+    <img src="img/p6.jpg"
+         alt="Estrategias de Marketing Digital"
+         class="marketing-image jello-horizontal" />
+</div>
                 </div>
             </div>
         </section>
@@ -428,8 +429,11 @@ include_once("vistas/header2.php");
                 <div class="event">Visita Bodega - 3 Nov</div>
             </div>
         </section>
+        
     </div>
 </main>
+<script src="index.js"></script>
 <?php
+
 include_once("vistas/footer.php");
 ?>

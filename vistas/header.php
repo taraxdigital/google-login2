@@ -27,7 +27,7 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="img/nuevo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="css/normalize.css" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"

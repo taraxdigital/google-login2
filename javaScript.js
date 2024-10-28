@@ -221,86 +221,68 @@ document.querySelectorAll('.accordion-button').forEach(button => {
     });
   });
 
+
+
   ///carrusel
   // Inicializar el carrusel cuando el DOM esté cargado
 
   const carouselElement = document.querySelector('.carousel');
   new Carousel(carouselElement);
+// Seleccionar los elementos necesarios
+const carousel = document.querySelector('.carousel-inner');
+const items = document.querySelectorAll('.carousel-item');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
 
+// Variables de control
+let currentIndex = 0;
+const totalItems = items.length;
 
-  ///////////
-  class Carousel {
-    constructor(element) {
-        this.carousel = element;
-        this.inner = element.querySelector('.carousel-inner');
-        this.items = Array.from(element.querySelectorAll('.carousel-item'));
-        this.prevBtn = element.querySelector('.prev');
-        this.nextBtn = element.querySelector('.next');
-        this.indicatorsContainer = element.querySelector('.carousel-indicators');
-        
-        this.currentIndex = 0;
-        this.totalItems = this.items.length;
-        
-        this.setupIndicators();
-        this.setupEventListeners();
-        this.updateIndicators();
-        
-        // Opcional: Auto-play
-        this.startAutoPlay();
-    }
-    
-    setupIndicators() {
-        this.items.forEach((_, index) => {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            indicator.addEventListener('click', () => this.goToSlide(index));
-            this.indicatorsContainer.appendChild(indicator);
-        });
-    }
-    
-    setupEventListeners() {
-        this.prevBtn.addEventListener('click', () => this.prev());
-        this.nextBtn.addEventListener('click', () => this.next());
-        
-        // Detener auto-play al interactuar
-        this.carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
-        this.carousel.addEventListener('mouseleave', () => this.startAutoPlay());
-    }
-    
-    updateIndicators() {
-        const indicators = this.indicatorsContainer.querySelectorAll('.indicator');
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === this.currentIndex);
-        });
-    }
-    
-    goToSlide(index) {
-        this.currentIndex = index;
-        this.inner.style.transform = `translateX(-${index * 100}%)`;
-        this.updateIndicators();
-    }
-    
-    next() {
-        this.currentIndex = (this.currentIndex + 1) % this.totalItems;
-        this.goToSlide(this.currentIndex);
-    }
-    
-    prev() {
-        this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
-        this.goToSlide(this.currentIndex);
-    }
-    
-    startAutoPlay() {
-        this.autoPlayInterval = setInterval(() => this.next(), 5000);
-    }
-    
-    stopAutoPlay() {
-        clearInterval(this.autoPlayInterval);
-    }
+// Función para mostrar el siguiente slide
+function showNextSlide() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
 }
 
+// Función para mostrar el slide anterior
+function showPrevSlide() {
+    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    updateCarousel();
+}
+
+// Función para actualizar la posición del carrusel
+function updateCarousel() {
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+}
+
+// Añadir event listeners a los botones
+nextButton.addEventListener('click', showNextSlide);
+prevButton.addEventListener('click', showPrevSlide);
+
+// Inicializar el carrusel
+updateCarousel();
 
 
+// Añade esto si quieres que el carrusel se mueva automáticamente
+function startAutoplay(interval = 3000) {
+    setInterval(showNextSlide, interval);
+}
+
+// Llama a esta función para iniciar el autoplay
+// startAutoplay();
+
+// Añade esto si quieres permitir la navegación con las flechas del teclado
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        showPrevSlide();
+    } else if (e.key === 'ArrowRight') {
+        showNextSlide();
+    }
+});
+
+
+ 
 
 
 
@@ -333,4 +315,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-});
+})

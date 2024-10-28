@@ -21,16 +21,7 @@
       </nav>
       <div class="nav-responsive" onclick="mostrarOcultarMenu()">
 
-      <!-- <div class="login-container">
-            <span id="userInfo"></span>
-            <button id="loginButton">Login</button>
-        </div> -->
-        <!-- <div id="loginForm">
-        <input type="text" id="username" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="login()">Entrar</button>
-    </div> -->
-        <!-- <i class="fa-solid fa-bars"></i> -->
+
       </div>
     </header>
     <section>

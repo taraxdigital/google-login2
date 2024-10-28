@@ -1,7 +1,7 @@
 <?php
 include_once("vistas/header.php");
 ?>
-<img class="header-image" src="img/comida.png" alt="Imagen principal" />
+
 <?php
 include_once("vistas/header2.php");
 ?>
@@ -9,6 +9,7 @@ include_once("vistas/header2.php");
 
     <main>
       <div class="container">
+        <img class="header-image" src="img/comida.png" alt="Imagen principal" />
         <section id="home" class="hero">
           <h1>Pura Energía Vital</h1>
           <p>Come sano, vive sano.</p>
@@ -48,17 +49,19 @@ include_once("vistas/header2.php");
 
     <!-- Color Blocks Section -->
     <section class="segunda-color-blocks">
-        <div class="segunda-left-block">
-            <div class="segunda-text-content">
-                <p><strong>Acompaña tus platos con una pieza de fruta fresca</strong> para aportar fibra y vitaminas.</p>
-                <p><strong>Bebe suficiente agua a lo largo del día</strong> para mantenerte hidratado.</p>
-                <p><strong>Varía los ingredientes</strong> para evitar la monotonía y descubrir nuevos sabores.</p>
-            </div>
-        </div>
-        <div class="segunda-right-block">
-            <img src="img/ilustracionrelax.jpg" alt="Ilustración de alimentación saludable">
-        </div>
-    </section>
+  <div class="segunda-left-block">
+    <div class="segunda-text-content">
+      <p><strong>Acompaña tus platos con una pieza de fruta fresca</strong> para aportar fibra y vitaminas.</p>
+      <p><strong>Bebe suficiente agua a lo largo del día</strong> para mantenerte hidratado.</p>
+      <p><strong>Varía los ingredientes</strong> para evitar la monotonía y descubrir nuevos sabores.</p>
+    </div>
+  </div>
+  <div class="segunda-right-block">
+    <div class="image-container">
+      <img src="img/ilustracionrelax.jpg" alt="Ilustración de alimentación saludable">
+    </div>
+  </div>
+</section>
 
     <!-- Title Section -->
  
@@ -356,13 +359,13 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
     <div class="modal" id="imageModal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
-            <img src="/path-to-your-image.jpg" alt="IA en industrias" class="modal-image">
+            <img src="img/entrenador.jpg" alt="IA en industrias" class="modal-image">
         </div>
     </div>
     
         <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
-       
+                <script src="alimentacion.js"></script>
       <?php
 include_once("vistas/footer.php");
 ?>
