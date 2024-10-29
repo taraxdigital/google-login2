@@ -15,6 +15,11 @@ include_once("vistas/header2.php");
 
         <h1>Tendencias-top</h1>
         <section class="primero">
+        <audio controls>
+    <source src="img2/Gabry.MP3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
           <div class="horizontal">
                 <div class="card">
                     <img class="top" src="img/music.png" alt="últimas tendencias" />
@@ -320,32 +325,40 @@ include_once("vistas/header2.php");
         <section class="modern-section">
             <h2 class="section-title">Explora el Futuro de la Tecnología</h2>
             <div class="image-block">
-                <h3 class="block-title">Marketing impulsado por IA</h3>
-                <img class="puff-in-center"   src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro">
+                <h3 class="block-title">Marketing DigitalA</h3>
+
+                <a href="https://vilmanunez.com/" target="_blank"><img class="puff-in-center" src="img/p4.jpg" alt="Texto alternativo" width="300" height="200"></a>
+                <img class="puff-in-center"   src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro" width="300" height="200">
 
                 <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
             </div>
             <div class="image-block">
                 <h3 class="block-title">Diseño y Funcionalidad </h3>
-                <img class="roll-in-left" src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos">
+                
+                <a href="https://www.youtube.com/@alejavirivera" target="_blank"><img class="roll-in-left" src="img/alejavi.jpg" alt="Texto alternativo" width="300" height="200"></a>
+
+                <img class="roll-in-left" src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos" width="300" height="200">
 
                 <p class="block-description">Sumérgete en productos que redefinen el estilo y maximizan el rendimiento.</p>
             </div>
             <div class="image-block">
-                <h3 class="block-title">La mejor música por bpm</h3>
-                <img class="puff-in-center" src="img/BPM.png" alt="Tecnología para una Vida Inteligente">
+                <h3 class="block-title">Productividad eficaz.</h3>
+                <a href="https://seosve.com/" target="_blank"><img class="puff-in-center" src="img/noe.png" alt="Texto alternativo" width="300" height="200"></a>
+                <img class="puff-in-center" src="img/tengrai_.png" alt="Tecnología para una Vida Inteligente">
 
-                <p class="block-description">Trabaja eficazmente al ritmo de la música.</p>
+                <p class="block-description">Trabaja eficazmente y aprovecha los últimos recursos.</p>
             </div>
             <div class="image-block">
-                <h3 class="block-title">Marketing de realidad aumentada (RA) y virtual (RV)</h3>
-                <img class="roll-in-left" src="img/chica2.jpg" alt="Tecnología para una Vida Inteligente">
+                <h3 class="block-title">Marketing con IA y tecnología</h3>
+                <a href="https://www.youtube.com/@jasp" target="_blank"><img class="roll-in-left" src="img/raul.jpg" alt="Texto alternativo" width="300" height="200"></a>
+                <img class="roll-in-left" src="img/MVL.png" alt="Tecnología para una Vida Inteligente" width="300" height="200">
 
-                <p class="block-description">Integración con IoT para marketing en tiempo real</p>
+                <p class="block-description">Integración de marketing en tiempo real</p>
             </div>
         </section>
         <section id="home" class="hero">
             <h2>Conquista el Mundo Digital</h2>
+
             <p>Descubre. Investiga. Aprende.</p>
         </section>
 

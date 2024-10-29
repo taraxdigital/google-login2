@@ -45,6 +45,7 @@ include_once("vistas/header2.php");
 
         <!-- Generación de Imágenes -->
          <body>
+            <section>
          <div class="category-section">
         <h2 class="category-header">Herramientas de Desarrollo y Diseño Web</h2>
         <table>
@@ -435,6 +436,7 @@ include_once("vistas/header2.php");
             </tbody>
         </table>
     </div>
+    </section>
                 
         <!-- /// -->
     <section class="servicios-section">
@@ -495,11 +497,17 @@ include_once("vistas/header2.php");
                
 <section><div class="coze">
         <h2 class="coze-title">Inteligencia artificial en las imágenes.</h2>
+        <ul>
+            <li>
         <p class="coze-paragraph">¡Cómo la Inteligencia Artificial agiliza el trabajo con imágenes:!</p><br>
-        <p>✅  Eliminación automática de fondos</p><br>
-        <p>✅  Generación automática de descripciones</p><br>
-        <p>✅  Mejora de la calidad de las imágenes</p><br>
-        <!-- <img class="coze-image" src="img/md.jpg" alt="Imagen de Coze"> -->
+        <p>✅  Realidad aumentada.</p><br>
+        <p>✅  Eliminación automática de fondos.</p><br>
+        <p>✅  Generación automática de descripciones.</p><br>
+        <p>✅  Mejora de la calidad de las imágenes.</p><br>
+        <p>✅  Creación de avatares.</p><br>
+        </li>
+        </ul>
+        <img class="coze-image" src="img/tendencias.png" alt="Imagen de Coze">
         </div>
     </section>
     <?php

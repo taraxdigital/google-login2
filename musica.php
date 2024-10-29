@@ -28,7 +28,7 @@ function getAccessToken($client_id, $client_secret)
 }
 
 // Función para obtener las pistas de una playlist
-function getPlaylistTracks($playlist_id, $access_token, $limit = 20)
+function getPlaylistTracks($playlist_id, $access_token, $limit = 24)
 {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://api.spotify.com/v1/playlists/' . $playlist_id . '/tracks?limit=' . $limit);
@@ -47,7 +47,7 @@ function getPlaylistTracks($playlist_id, $access_token, $limit = 20)
 $access_token = getAccessToken($client_id, $client_secret);
 
 // ID de la playlist "mint" (una popular playlist de música electrónica)
-$playlist_id = '37i9dQZF1DX4dyzvuaRJ0n';
+$playlist_id = '33PyRULhtc4SRrUE1wbbmp';
 
 // Obtener las pistas de la playlist
 $results = getPlaylistTracks($playlist_id, $access_token);
@@ -57,7 +57,7 @@ if (isset($results['items'])) {
     echo "<h2>Top éxitos de música electrónica en Spotify</h2>";
     echo "<div class='track-grid'>";
     foreach ($results['items'] as $index => $item) {
-        if ($index >= 20) break; // Limita a 20 pistas (4x5 grid)
+        if ($index >= 24) break; // Limita a 20 pistas (4x5 grid)
         $track = $item['track'];
         echo "<div class='track-item'>";
         if (!empty($track['album']['images'])) {
@@ -80,6 +80,52 @@ if (isset($results['items'])) {
   <img src="img/MUSIC-LIFE-.png" alt="Descripción de la imagen">
 </div>
 </section>
+
+<!-- ////nueva -->
+<div class="container">
+        <div class="header">
+            <h1>Top 10 DJs Más Influyentes</h1>
+            <button id="btnDJs">Mostrar/Ocultar DJs</button>
+        </div>
+
+        <div id="djs-container">
+            <table id="djs-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Género Musical</th>
+                        <th>Tema Más Conocido</th>
+                        <th>Año de Lanzamiento</th>
+                        <th>Biografía</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody id="djs-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+<!--galeria  -->
+<section class="sietem pt80 pb128" data-snippet="sietem" data-name="Festival de Imágenes">
+        <div class="sietem-conta">
+            <h2 class="sietem-title">Festival de Tomorrowland </h2>
+            <div class="sietem-gallery">
+                <img src="img2/logoTom.jpg"  alt="Festival 1"class="sietem-img" onclick="openModal(this.src)">
+                <img src="img2/tomorrowland.jpg" alt="Festival 2" class="sietem-img" onclick="openModal(this.src)">
+                <img src="img2/matt.jpg" alt="Festival 3" class="sietem-img" onclick="openModal(this.src)">
+                <!-- Añade más imágenes según sea necesario -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal -->
+    <div id="sietemModal" class="sietem-modal">
+        <span class="sietem-close" onclick="closeModal()">&times;</span>
+        <img class="sietem-modal-content" id="sietemModalImg">
+     
+    </div>
+<!--  -->
+<section>
 <div class="category-section">
 <table>
   <thead>
@@ -305,7 +351,8 @@ if (isset($results['items'])) {
   </tbody>
 </table>
 </div>
-
+</section>
+<script src="musica.js"></script>
 <?php
 include_once("vistas/footer.php");
 ?>
