@@ -1,8 +1,10 @@
+
 <?php
 include_once 'config.php';
 include_once("vistas/header.php");
 
 include_once("vistas/header2.php");
+
 
 // Tus credenciales de Spotify (asegúrate de que estas constantes estén definidas en config.php)
 $client_id = ID_CLIENTE;
@@ -104,7 +106,42 @@ if (isset($results['items'])) {
             </table>
         </div>
     </div>
-
+<!-- articulo -->
+<section class="article-section">
+  <h2 class="article-title">Principales características de la música electrónica</h2>
+  <img src="img2/music.jpg" alt="Imagen del artículo" class="article-image">
+  <p class="article-text">La música electrónica se caracteriza por:</p>
+  <ul class="article-list">
+    <li><span class="article-list-item">Sonidos Sintetizados:</span> La base de la música electrónica son los sonidos creados a través de sintetizadores y software musical.</li>
+    <li><span class="article-list-item">Ritmos Electrónicos:</span> Los ritmos son generalmente mecánicos y repetitivos, aunque pueden variar según el subgénero.</li>
+    <li><span class="article-list-item">Producción Digital:</span> La producción musical se realiza principalmente a través de computadoras, utilizando programas de secuenciamiento y mezcla.</li>
+    <li><span class="article-list-item">Diversidad de Subgéneros:</span> Desde el house y el techno hasta el trance y el EDM, la música electrónica ofrece una amplia gama de estilos para todos los gustos.</li>
+  </ul>
+  <h2 class="article-title">Historia y Evolución</h2>
+  <p class="article-text">La música electrónica tiene una rica historia y evolución:</p>
+  <ul class="article-list">
+    <li><span class="article-list-item">Orígenes:</span> Los primeros experimentos con sonido electrónico se remontan a finales del siglo XIX, pero es en la década de 1950 cuando se desarrollan los primeros sintetizadores.</li>
+    <li><span class="article-list-item">Popularización:</span> A partir de los años 60, artistas como Kraftwerk y Tangerine Dream comienzan a explorar las posibilidades de la música electrónica.</li>
+    <li><span class="article-list-item">Escena Rave:</span> En los 80 y 90, la escena rave populariza géneros como el house y el techno, llevando la música electrónica a un público masivo.</li>
+    <li><span class="article-list-item">Era Digital:</span> Con el avance de la tecnología, la producción de música electrónica se vuelve más accesible y la diversidad de estilos aumenta exponencialmente.</li>
+  </ul>
+  <h2 class="article-title">Impacto en la Cultura y la Industria Musical</h2>
+  <p class="article-text">La música electrónica ha tenido un impacto significativo en la cultura y la industria musical:</p>
+  <ul class="article-list">
+    <li><span class="article-list-item">Festivales:</span> Eventos multitudinarios que reúnen a millones de personas cada año.</li>
+    <li><span class="article-list-item">Industria Musical:</span> La música electrónica es una de las industrias más lucrativas a nivel mundial.</li>
+    <li><span class="article-list-item">Influencia Cultural:</span> Ha influenciado otros géneros musicales y la cultura popular en general.</li>
+  </ul>
+  <h2 class="article-title">Subgéneros Destacados</h2>
+  <p class="article-text">Algunos de los subgéneros más destacados de la música electrónica son:</p>
+  <ul class="article-list">
+    <li><span class="article-list-item">House:</span> Caracterizado por ritmos repetitivos y melodías pegadizas.</li>
+    <li><span class="article-list-item">Techno:</span> Sonidos más oscuros y atmosféricos, con énfasis en el ritmo.</li>
+    <li><span class="article-list-item">Trance:</span> Melodías envolventes y atmósferas épicas, con tempos rápidos.</li>
+    <li><span class="article-list-item">EDM:</span> Música electrónica de baile, con estructuras simples y ritmos pegadizos.</li>
+  </ul>
+  <!-- <button class="article-button">Lee más</button> -->
+</section>
 <!--galeria  -->
 <section class="sietem pt80 pb128" data-snippet="sietem" data-name="Festival de Imágenes">
         <div class="sietem-conta">
