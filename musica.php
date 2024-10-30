@@ -148,8 +148,8 @@ if (isset($results['items'])) {
             <h2 class="sietem-title">Festival de Tomorrowland </h2>
             <div class="sietem-gallery">
                 <img src="img2/logoTom.jpg"  alt="Festival 1"class="sietem-img" onclick="openModal(this.src)">
-                <img src="img2/tomorrowland.jpg" alt="Festival 2" class="sietem-img" onclick="openModal(this.src)">
-                <img src="img2/matt.jpg" alt="Festival 3" class="sietem-img" onclick="openModal(this.src)">
+                <img  src="img2/tomorrowland.jpg" alt="Festival 2" class="sietem-img" onclick="openModal(this.src)">
+                <img  src="img2/matt.jpg" alt="Festival 3" class="sietem-img" onclick="openModal(this.src)">
                 <!-- Añade más imágenes según sea necesario -->
             </div>
         </div>

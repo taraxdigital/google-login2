@@ -8,6 +8,7 @@
   --color-primary: #ff5005;
   --color-secondary: #200a01;
   --color-tercero: #292929;
+  --color-azul: #1B80DC;
   --color-accent: #e74c3c;
   --color-background: #f5f5f5;
   --color-text: #ffffff;
@@ -35,7 +36,7 @@ header {
   position: relative;
   width: 100%;
   height: 350px;
-  background:   linear-gradient(5deg, #200a01, #ececec, #1a1a1a);
+  background: linear-gradient(75deg, #1a1a1a,#292929, #1B80DC);
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -54,16 +55,25 @@ header {
 
 
 /* Si necesitas más espacio a la derecha del logo */
+
 .logo-container {
   margin: auto;
   padding: 2rem;
-  margin-right: 20px; /* Ajusta según necesites */
-}
+  margin-right: 20px; 
+} 
 .logo {
-  width: auto; /* El ancho se ajustará automáticamente manteniendo la proporción */
-  height: 120px; /* Altura del logo, ajusta según tus necesidades */
-  margin-right: auto; /* Empuja otros elementos del header hacia la derecha */
-}
+  width: 300px; /* Establece el ancho de la imagen a 200px */
+  height: 150px; /* Establece el alto de la imagen a 150px */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  border-radius: 10px; /* Redondea los ángulos de la imagen */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ } /* Agrega una sombra suave */
+
+/* .logo {
+  width: auto;
+  height: 120px; 
+  margin-right: auto; 
+} */ */
 .nav-list {
   list-style-type: none;
   display: flex;
@@ -3238,6 +3248,7 @@ progress {
 
 #boton-desplegable option {
   background-color: #ff5005;
+
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -3278,14 +3289,25 @@ progress {
 }
 
 .arrow {
-  border: solid #666;
+  border: solid #292929;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
   transition: transform 0.3s;
 }
-
+/* boton acordeon */
+.accordion-button {
+  text-align: center;
+  font-size: 16px; /* Ajusta el tamaño de la fuente a 16px */
+  font-weight: bold; /* Ajusta el peso de la fuente a bold */
+  padding: 10px; /* Agrega un padding interno de 10px */
+  border: none; /* Elimina el borde */
+  background-color: #f0f0f0; /* Establece el color de fondo a #f0f0f0 */
+  border-radius: 5px; /* Redondea los ángulos de la caja */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
+}
+/*  */
 .accordion-button.active .arrow {
   transform: rotate(-135deg);
 }
@@ -3311,14 +3333,13 @@ progress {
 .accordion-body strong {
   color: #333;
 }
-/* ////pie */
-/* .pie {
-  background-color: #f8f9fa;
-  padding: 30px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-} */
+/* vitamina titulo */
+.vtmn{
+  color: var(--color-primary);
+  font-size: 20px; /* Ajusta el tamaño de la fuente a 16px */
+  font-weight:bolder;
+}
+/* /////// */
 .navegacion {
   text-align: right;
   margin-bottom: 20px;
@@ -3445,8 +3466,9 @@ progress {
   padding: 1rem;
   cursor: pointer;
   font-size: 1.6rem;
-  /* transition: background-color 0.3s;
-  z-index: 10; */
+  width: auto;
+  transition: background-color 0.3s;
+  z-index: 10;
 }
 
 .carousel-button:hover {
@@ -3458,6 +3480,8 @@ progress {
 .carousel-button.next {
   right: 10px;
 }
+
+
 .modal {
   display: none;
   position: fixed;
@@ -3652,6 +3676,15 @@ progress {
     opacity: 1;
   }
 }
+
+/* VITAMINA */
+.vitamina {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Agrega 20px de espacio entre el título y el párrafo */
+}
 /* servicios */
 section {
   padding: 5rem 2rem;
@@ -3663,7 +3696,20 @@ section {
   margin-bottom: 3rem;
 }
 /* ////music */
-
+.article-image {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc; /* Marca la imagen con un borde de 1px de color gris claro */
+  border-radius: 5px; /* Redondea los ángulos de la imagen */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra a la imagen */
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Para compatibilidad con Safari */
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Para compatibilidad con Firefox */
+}
+.article-text {
+  margin-top: 40px; /* Agrega 20px de espacio entre la imagen y el párrafo */
+}
 #btnDJs {
   padding: 10px 20px;
   background-color:var(--color-secondary);
@@ -3738,12 +3784,21 @@ section {
   margin-bottom: 2rem;
 }
 
-.sietem-gallery {
+/* .sietem-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+} */
+.sietem-img {
+  width: 300px; /* Establece el ancho de la imagen a 200px */
+  height: 300px; /* Establece el alto de la imagen a 150px */
+  object-fit: cover; /* Ajusta la imagen para que se vea completa en el contenedor */
+  object-position: center; /* Posiciona la imagen en el centro del contenedor */
 }
+/* imagenes galeria music */
 
+
+/*  */
 .sietem-img {
   width: 31%;
   margin-bottom: 1rem;
@@ -3811,18 +3866,39 @@ section {
 }
 /* ///articulo musica
  */
+
  .article-section {
-  background-color: #f7f7f7;
-  padding: 20px;
+  max-width: 1200px; /* Establece un ancho máximo para el contenido */
+  margin: 40px auto; /* Agrega un margen superior y inferior de 40px y un margen izquierdo y derecho de auto */
+  padding: 20px; /* Agrega un padding interno de 20px */
+  box-sizing: border-box; /* Establece el box-sizing en border-box para que el padding se cuente en el ancho y alto total */
+  text-align: justify;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.article-list {
+  list-style: none; /* Elimina los marcadores de lista */
+  padding: 0; /* Elimina el padding interno */
+  margin: 0; /* Elimina el margen interno */
+}
+
+.article-list li {
+  padding: 10px; /* Agrega un padding interno de 10px */
+  border-bottom: 1px solid #ccc; /* Agrega un borde inferior de 1px de color gris claro */
+}
+
+.article-list li:last-child {
+  border-bottom: none; /* Elimina el borde inferior en el último elemento de la lista */
+}
+
+
+
 .article-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: #292929;
 }
 
 .article-text {
@@ -3849,19 +3925,343 @@ section {
   color: #337ab7;
 }
 
-.article-button {
-  background-color: #337ab7;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* podscat */
+
+.podcast-section {
+  padding: 6rem 2rem;
+  border-radius: 20px 10px;
+  margin-bottom: 4rem;
+  /* --color-accent: #e74c3c; */
+  background: linear-gradient(75deg, #1a1a1a,#292929, #1B80DC);
+  color: white;
 }
 
-.article-button:hover {
-  background-color: #23527c;
+.podcast-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.article-img {
-  width: 50%;
-  height: 50%;
+
+.podcast-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.podcast-episode {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.podcast-episode:hover {
+  transform: translateY(-10px);
+}
+
+.episode-number {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.episode-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.episode-description {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.listen-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--secondary);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+}
+
+.listen-button:hover {
+  transform: translateX(5px);
+}
+
+.platform-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.platform-button {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.platform-button:hover {
+  transform: scale(1.05);
+}
+
+.spotify {
+  background: #1DB954;
+}
+
+.apple {
+  background: #FF2D55;
+}
+
+.google {
+  background: #4285F4;
+}
+
+/* partículas */
+/* ++ */
+.growth-section {
+  padding: 8rem 2rem;
+  background: linear-gradient(75deg, #1a1a1a,#292929, #1B80DC);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 10px;
+  margin-bottom: 4rem;
+}
+
+.growth-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.growth-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.growth-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.growth-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.growth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.growth-card:hover::before {
+  transform: translateY(0);
+}
+
+.growth-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.growth-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.growth-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.growth-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--secondary);
+  width: 0%;
+  background-color:#ff5005;
+  transition: width 1.5s ease;
+  border-radius: 4px;
+}
+
+.daily-quote {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.quote-author {
+  color: #ff5005 ;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .growth-title {
+    font-size: 2rem;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+  }
+}
+/* ++ */
+/* libros */
+.books-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(55deg, #1B80DC,#292929, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 10px;
+}
+
+.books-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.books-title {
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.book-cover {
+  width: 200px;
+  height: 300px;
+  margin: 0 auto 1.5rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.book-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.book-info p {
+  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+}
+
+.book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--secondary);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.book-link:hover {
+  transform: translateX(5px);
+  background: white;
+  color:black ;
+}
+
+.book-rating {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  color: gold;
 }

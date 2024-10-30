@@ -203,3 +203,69 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
  });
+
+//  sonido del boton
+
+function playSound() {
+  var audio = document.getElementById("sonido");
+  audio.play();
+}
+
+// ++section
+// Progress bars animation
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-bar');
+  progressBars.forEach(bar => {
+    const target = bar.getAttribute('data-progress');
+    bar.style.width = target + '%';
+  });
+}
+
+// Quotes rotation
+const quotes = [
+  {text: "El éxito no es final, el fracaso no es fatal: es el coraje para continuar lo que cuenta.", author: "Winston Churchill"},
+  {text: "El único modo de hacer un gran trabajo es amar lo que haces.", author: "Steve Jobs"},
+  {text: "Todo lo que puedas imaginar es real.", author: "Pablo Picasso"},
+  {text: "La mejor manera de predecir el futuro es crearlo.", author: "Peter Drucker"}
+];
+
+let currentQuote = 0;
+function rotateQuotes() {
+  const quoteText = document.getElementById('quote-text');
+  const quoteAuthor = document.getElementById('quote-author');
+  
+  currentQuote = (currentQuote + 1) % quotes.length;
+  
+  quoteText.style.opacity = 0;
+  quoteAuthor.style.opacity = 0;
+  
+  setTimeout(() => {
+    quoteText.textContent = quotes[currentQuote].text;
+    quoteAuthor.textContent = "- " + quotes[currentQuote].author;
+    quoteText.style.opacity = 1;
+    quoteAuthor.style.opacity = 1;
+  }, 500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  animateProgressBars();
+  setInterval(rotateQuotes, 5000);
+  
+
+  
+   // Animate progress bars on scroll
+   const observer = new IntersectionObserver((entries) => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting) {
+         animateProgressBars();
+       }
+     });
+   });
+   
+   observer.observe(document.querySelector('.growth-section'));
+ });
+
+
+ 
+ //entradilla
+ 

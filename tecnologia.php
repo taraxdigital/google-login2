@@ -340,7 +340,7 @@ include_once("vistas/header2.php");
                 </tr>
                 <tr>
                     <td class="platform-cell">Dark Design</td>
-                    <td class="functionality-cell">Recursos para diseño oscuro</td>
+                    <td class="functionality-cell">Recursos para diseño</td>
                     <td class="use-case-cell">Interfaces web</td>
                 </tr>
                 <tr>
