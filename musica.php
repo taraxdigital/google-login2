@@ -168,7 +168,7 @@ if (isset($results['items'])) {
   <thead>
     <tr>
       <th>Artista</th>
-      <th>Año de Nacimiento</th>
+      <th class="nacimiento">Año de Nacimiento</th>
       <th>Género Musical</th>
       <th>Tema Más Conocido</th>
       <th>Año de Lanzamiento</th>
@@ -177,7 +177,7 @@ if (isset($results['items'])) {
   <tbody>
     <tr>
       <td>Astrix</td>
-      <td>1975</td>
+      <td class="nacimiento">1975</td>
       <td>Psytrance</td>
       <td>"Deep Jungle Walk"</td>
       <td>2002</td>

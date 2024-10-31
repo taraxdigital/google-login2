@@ -1,7 +1,18 @@
 
       <!-- Pie de página -->
       <footer class="pie">
+     
     <div class="container">
+      <!-- Agregar el botón de scroll en la parte inferior derecha de la página -->
+
+   
+      <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24">
+    <path d="M12 4l-8 8h6v8h4v-8h6z"/>
+  </svg>
+</button>
+
+
         <div class="navegacion">
             <ul>
                 <li><a href="#">Inicio</a></li>
@@ -26,6 +37,7 @@
     </footer>
     
     <script src="header.js"></script>
+    <script src="scroll.js"></script>
  
   </body>
 </html>

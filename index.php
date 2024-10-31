@@ -574,6 +574,7 @@ include_once("vistas/header2.php");
  <!-- ++ -->
 
       </section>
+     
       <!--  -->
         <section class="formulario">
         <div class="form-container">

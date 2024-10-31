@@ -39,13 +39,14 @@ include_once("vistas/header2.php");
             </div>
         </div>
     </section>
-    <section>
+    <!-- <section> -->
     <div class="container">
         <h1>Herramientas de Generación Visual AI 2024</h1>
 
         <!-- Generación de Imágenes -->
          <body>
-            <section>
+        
+                
          <div class="category-section">
         <h2 class="category-header">Herramientas de Desarrollo y Diseño Web</h2>
         <table>
@@ -106,6 +107,7 @@ include_once("vistas/header2.php");
             </tbody>
         </table>
     </div>
+   
 
     <div class="category-section">
         <h2 class="category-header" id="generacion-img">Generación de Imágenes</h2>
@@ -436,7 +438,7 @@ include_once("vistas/header2.php");
             </tbody>
         </table>
     </div>
-    </section>
+    <!-- </section> -->
                 
         <!-- /// -->
     <section class="servicios-section">
@@ -507,9 +509,13 @@ include_once("vistas/header2.php");
         <p>✅  Creación de avatares.</p><br>
         </li>
         </ul>
-        <img class="coze-image" src="img/tendencias.png" alt="Imagen de Coze">
+        
         </div>
     </section>
+    </div>
+    </main>
+ 
     <?php
+    
 include_once("vistas/footer.php");
 ?>

@@ -131,3 +131,4 @@ function closeModal() {
     var modal = document.getElementById("sietemModal");
     modal.style.display = "none";
 }
+

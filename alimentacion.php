@@ -284,11 +284,148 @@ Cereales integrales: Proporcionan fibra, que ayuda a regular los niveles de azú
 Legumbres: Son una fuente de proteínas vegetales, fibra y vitaminas del complejo B, que son importantes para la salud mental.
 Probióticos: Los alimentos fermentados como el yogur, el kéfir y el chucrut contienen probióticos que benefician el microbioma intestinal.</p>
 </ul>
-
+<!-- pag spinning -->
+ 
 </section>
+
+<!--  -->
+
+
+<!-- clauda salud mental -->
+<section class="wellness-section">
+    <div class="containerali">
+      <div class="grid-containerali">
+        <div class="contentali">
+          <h1 class="title">Nutrición para el <span class="accent">Bienestar</span> Mental</h1>
+          <p class="subtitle">Descubre cómo la alimentación consciente puede transformar tu salud física y mental. Una aproximación integral al bienestar que comienza en tu plato.</p>
+          
+          <div class="features">
+            <div class="feature-card">
+              <div class="feature-icon">🧠</div>
+              <h3 class="feature-title">Alimentos para el Cerebro</h3>
+              <p class="feature-text">Nutrientes esenciales que potencian tu claridad mental y estado de ánimo.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">🌱</div>
+              <h3 class="feature-title">Hábitos Saludables</h3>
+              <p class="feature-text">Rutinas que integran alimentación consciente y bienestar emocional.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3 class="feature-title">Energía Natural</h3>
+              <p class="feature-text">Optimiza tus niveles de energía con alimentación balanceada.</p>
+            </div>
+            
+            <div class="feature-card">
+              <div class="feature-icon">🎯</div>
+              <h3 class="feature-title">Objetivos Claros</h3>
+              <p class="feature-text">Plan personalizado para alcanzar tu mejor versión.</p>
+            </div>
+          </div>
+          
+         
+        </div>
+        
+        <div class="image-containerali">
+          <img src="img/amanecer.png" alt="Alimentación saludable" class="main-image">
+          <div class="floating-badge badge-top">
+            <span>🌟</span>
+            <span>Bienestar Integral</span>
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span>💪</span>
+            <span>Energía Vital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
 
 <h2>Deporte & Salud</h2>
 <img src="img/transparentegit.gif" class="gif" alt="Descripción del GIF" width="200" height="100">
+<section>
+<section class="spinning-section">
+  <div class="spinning-container">
+    <h2 class="spinning-title">Spinning & Fitness Journey</h2>
+    
+    <div class="spinning-intro">
+        <h3 style="color: #64b5f6; font-size: 1.8rem; margin-bottom: 1rem;">
+            Transforma tu Cuerpo y Mente con Spinning
+        </h3>
+        <p class="spinning-description">
+            Experimenta una clase de spinning de alta intensidad donde combinarás intervalos, 
+            sprints y escaladas simuladas al ritmo de la música energizante. Nuestras sesiones 
+            de 45 minutos están diseñadas para quemar hasta 600 calorías, mejorar tu resistencia 
+            cardiovascular y fortalecer tus piernas. Cada clase está estructurada en fases: 
+            calentamiento progresivo, intervalos de alta intensidad, recuperación activa y 
+            estiramiento final. ¡Únete a nuestra comunidad y descubre por qué el spinning 
+            es la actividad perfecta para alcanzar tus objetivos fitness!
+        </p>
+    </div>
+
+    <div class="spinning-grid">
+      <div class="spinning-card">
+        <div class="card-content">
+          <h3>Clases Online</h3>
+          <p>Únete a nuestras sesiones virtuales de spinning desde cualquier lugar</p>
+          <div class="stats">
+            <span>45 min</span>
+            <span>500 kcal</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="spinning-card">
+        <div class="card-content">
+          <h3>Entrenamiento Personalizado</h3>
+          <p>Programa adaptado a tu nivel y objetivos</p>
+          <div class="stats">
+            <span>1-on-1</span>
+            <span>Pro Coach</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="spinning-card">
+        <div class="card-content">
+          <h3>Comunidad Fitness</h3>
+          <p>Conecta con otros apasionados del spinning</p>
+          <div class="stats">
+            <span>24/7</span>
+            <span>Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/musicforspinning/"target="_blank" class="social-link instagram">
+        <svg viewBox="0 0 24 24" class="social-icon">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      
+      <a href="https://musicforspinning.com/" target="_blank" class="social-link twitter"><img src="img2/web1.png" alt="">
+     
+      </a>
+      
+
+    
+
+      <a href="https://www.youtube.com/@spinning-music_bySatarax" target="_blank" class="social-link youtube">
+        <svg viewBox="0 0 24 24" class="social-icon">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+</section>
+
 
     <section class="s_accordion_image clase-diez- pt56 pb56 clase-diez-1 clase-diez-colored_level" data-snippet="s_accordion_image" data-name="Accordion Image">
         <div class="container">
@@ -303,7 +440,8 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
                     <p><br/></p>
     <div data-name="Accordion" class="s_accordion clase-diez-accordion">
         <div id="myCollapse" class="accordion-flush accordion clase-diez-accordion">
-      
+      <!-- pag-spinning -->
+       
 
 <!-- HTML -->
 <div class="accordion">
@@ -344,8 +482,14 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
                 </div>
             </div>
         </div>
+        
     </section>
+
+    <!-- 
+    
+     -->
     <div class="section-container">
+        
         <div class="section-grid">
             <div class="section-content">
                 <h2>La Musculación: Más que Quemar Calorías.</h2>
