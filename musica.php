@@ -4,7 +4,112 @@ include_once 'config.php';
 include_once("vistas/header.php");
 
 include_once("vistas/header2.php");
+?>
+<section id="home" class="hero">
+  <h1>Éxitos musicales</h1>
 
+</section>
+<div class="bodyMus">
+  
+<div class="containerMus">
+  <div class="headerMus">
+    <div class="header-left">
+      <svg class="logo" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"/>
+        <path d="M35 35 L35 65 L70 50 Z" fill="currentColor"/>
+      </svg>
+      <h1>BPM Music Sorter</h1>
+    </div>
+    <button onclick="createCustomFolder()">
+      <span class="material-icons">create_new_folder</span>
+      Crear Nueva Carpeta
+    </button>
+  </div>
+
+  <div class="search-container">
+    <div class="filter-container">
+      <select id="searchType" class="filter-select">
+        <option value="track">Nombre de canción</option>
+        <option value="artist">Artista</option>
+        <option value="genre">Género</option>
+        <option value="year">Año</option>
+      </select>
+      <input type="text" class="search-input" placeholder="Buscar canciones..." id="searchInput">
+    </div>
+    <button onclick="searchSongs()">
+      <span class="material-icons">search</span>
+      Buscar
+    </button>
+  </div>
+
+  <div class="folders-grid">
+    <div class="folder">
+      <h3>
+        <div class="bpm-icon">85</div>
+        85-105 BPM
+        <span class="song-count">0 songs</span>
+      </h3>
+      <div class="song-list" id="folder-85-105"></div>
+    </div>
+    
+    <div class="folder">
+      <h3>
+        <div class="bpm-icon">105</div>
+        105-120 BPM
+        <span class="song-count">0 songs</span>
+      </h3>
+      <div class="song-list" id="folder-105-120"></div>
+    </div>
+    
+    <div class="folder">
+      <h3>
+        <div class="bpm-icon">120</div>
+        120-135 BPM
+        <span class="song-count">0 songs</span>
+      </h3>
+      <div class="song-list" id="folder-120-135"></div>
+    </div>
+    
+    <div class="folder">
+      <h3>
+        <div class="bpm-icon">135</div>
+        135-148 BPM
+        <span class="song-count">0 songs</span>
+      </h3>
+      <div class="song-list" id="folder-135-148"></div>
+    </div>
+    
+    <div class="folder">
+      <h3>
+        <div class="bpm-icon">148</div>
+        148+ BPM
+        <span class="song-count">0 songs</span>
+      </h3>
+      <div class="song-list" id="folder-148-plus"></div>
+    </div>
+
+    <div id="custom-folders"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop"></div>
+<div class="custom-folder-modal" id="customFolderModal">
+  <h3>Crear Nueva Carpeta</h3>
+  <input type="text" id="folderNameInput" placeholder="Nombre de la carpeta">
+  <button onclick="saveCustomFolder()">Guardar</button>
+  <button onclick="closeModal()">Cancelar</button>
+</div>
+
+<div class="move-song-modal" id="moveSongModal">
+  <h3>Mover canción a carpeta</h3>
+  <div class="folder-list" id="folderList"></div>
+  <button class="buttonMus" onclick="closeMoveModal()">Cancelar</button>
+</div>
+</div>
+
+
+
+<?php
 
 // Tus credenciales de Spotify (asegúrate de que estas constantes estén definidas en config.php)
 $client_id = ID_CLIENTE;

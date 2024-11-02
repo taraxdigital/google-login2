@@ -1,4 +1,239 @@
-   // Top 10 DJs más conocidos
+const CLIENT_ID = 'your_actual_client_id';
+const CLIENT_SECRET = 'your_actual_client_secret';
+
+let accessToken = null;
+let customFolders = [];
+let currentTrackToMove = null;
+
+function loadCustomFolders() {
+    const saved = localStorage.getItem('customFolders');
+    if (saved) {
+        customFolders = JSON.parse(saved);
+        customFolders.forEach(folder => createCustomFolderElement(folder));
+    }
+}
+
+function saveCustomFoldersToStorage() {
+    localStorage.setItem('customFolders', JSON.stringify(customFolders));
+}
+
+async function getSpotifyToken() {
+    try {
+        const response = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + btoa(CLIENT_ID + ':' + CLIENT_SECRET)
+            },
+            body: 'grant_type=client_credentials'
+        });
+        if (!response.ok) throw new Error('Failed to get token');
+        const data = await response.json();
+        accessToken = data.access_token;
+    } catch (error) {
+        console.error('Error getting token:', error);
+        alert('Error connecting to Spotify. Please try again.');
+    }
+}
+
+async function searchSongs() {
+    try {
+        if (!accessToken) await getSpotifyToken();
+        
+        const searchTerm = encodeURIComponent(document.getElementById('searchInput').value);
+        if (!searchTerm) {
+            alert('Please enter a search term');
+            return;
+        }
+        
+        const searchType = document.getElementById('searchType').value;
+        let endpoint = '';
+        
+        switch(searchType) {
+            case 'track':
+                endpoint = `search?q=${searchTerm}&type=track&limit=50`;
+                break;
+            case 'artist':
+                endpoint = `search?q=artist:${searchTerm}&type=track&limit=50`;
+                break;
+            case 'genre':
+                endpoint = `search?q=genre:${searchTerm}&type=track&limit=50`;
+                break;
+            case 'year':
+                endpoint = `search?q=year:${searchTerm}&type=track&limit=50`;
+                break;
+        }
+        
+        const response = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+        
+        if (!response.ok) throw new Error('Search failed');
+        const data = await response.json();
+        
+        if (!data.tracks || !data.tracks.items.length) {
+            alert('No songs found');
+            return;
+        }
+        
+        clearFolders();
+        
+        for (const track of data.tracks.items) {
+            try {
+const audioFeatures = await getTrackAudioFeatures(track.id);
+if (audioFeatures && audioFeatures.tempo) {
+    sortSongByBPM(track, audioFeatures.tempo);
+}
+
+            } catch (error) {
+                console.error('Error getting audio features:', error);
+            }
+        }
+    } catch (error) {
+        console.error('Search error:', error);
+        alert('Error searching songs. Please try again.');
+    }
+}
+
+function clearFolders() {
+    const folders = document.querySelectorAll('.song-list');
+    folders.forEach(folder => folder.innerHTML = '');
+}
+
+function showMoveModal(trackId) {
+    currentTrackToMove = trackId;
+    const modal = document.getElementById('moveSongModal');
+    const backdrop = document.getElementById('modalBackdrop');
+    const folderList = document.getElementById('folderList');
+    
+    folderList.innerHTML = '';
+    customFolders.forEach(folder => {
+        const div = document.createElement('div');
+        div.className = 'folder-option';
+        div.textContent = folder.name;
+        div.onclick = () => moveTrackToFolder(folder.id);
+        folderList.appendChild(div);
+    });
+    
+    modal.style.display = 'block';
+    backdrop.style.display = 'block';
+}
+
+function closeMoveModal() {
+    document.getElementById('moveSongModal').style.display = 'none';
+    document.getElementById('modalBackdrop').style.display = 'none';
+    currentTrackToMove = null;
+}
+
+function moveTrackToFolder(folderId) {
+    if (!currentTrackToMove) return;
+    
+    const folder = customFolders.find(f => f.id === folderId);
+    if (!folder) return;
+    
+    if (!folder.songs.includes(currentTrackToMove)) {
+        folder.songs.push(currentTrackToMove);
+        
+        const originalSong = document.querySelector(`[data-track-id="${currentTrackToMove}"]`);
+        if (originalSong) {
+            const clonedSong = originalSong.cloneNode(true);
+            document.getElementById(`custom-folder-${folderId}`).appendChild(clonedSong);
+            saveCustomFoldersToStorage();
+        }
+    }
+    
+    closeMoveModal();
+}
+
+function createSongElement(track) {
+    const div = document.createElement('div');
+    div.className = 'song-item';
+    div.setAttribute('data-track-id', track.id);
+    div.innerHTML = `
+        <span>${track.name} - ${track.artists[0].name}</span>
+        <button onclick="showMoveModal('${track.id}')">
+            <span class="material-icons">drive_file_move</span>
+            Mover
+        </button>
+    `;
+    return div;
+}
+
+async function getTrackAudioFeatures(trackId) {
+    const response = await fetch(`https://api.spotify.com/v1/audio-features/${trackId}`, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+    return await response.json();
+}
+
+function sortSongByBPM(track, bpm) {
+    const songElement = createSongElement(track);
+    
+    if (bpm >= 85 && bpm < 105) {
+        document.getElementById('folder-85-105').appendChild(songElement);
+        updateFolderCount('folder-85-105');
+    } else if (bpm >= 105 && bpm < 120) {
+        document.getElementById('folder-105-120').appendChild(songElement);
+        updateFolderCount('folder-105-120');
+    } else if (bpm >= 120 && bpm < 135) {
+        document.getElementById('folder-120-135').appendChild(songElement);
+        updateFolderCount('folder-120-135');
+    } else if (bpm >= 135 && bpm < 148) {
+        document.getElementById('folder-135-148').appendChild(songElement);
+        updateFolderCount('folder-135-148');
+    } else if (bpm >= 148) {
+        document.getElementById('folder-148-plus').appendChild(songElement);
+        updateFolderCount('folder-148-plus');
+    }
+}
+
+function createCustomFolder() {
+    document.getElementById('modalBackdrop').style.display = 'block';
+    document.getElementById('customFolderModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('modalBackdrop').style.display = 'none';
+    document.getElementById('customFolderModal').style.display = 'none';
+}
+
+function saveCustomFolder() {
+    const folderName = document.getElementById('folderNameInput').value;
+    if (folderName.trim()) {
+        const folder = {
+            id: Date.now(),
+            name: folderName,
+            songs: []
+        };
+        customFolders.push(folder);
+        createCustomFolderElement(folder);
+        saveCustomFoldersToStorage();
+        closeModal();
+        document.getElementById('folderNameInput').value = '';
+    }
+}
+
+function createCustomFolderElement(folder) {
+    const div = document.createElement('div');
+    div.className = 'folder';
+    div.innerHTML = `
+        <h3><span class="material-icons">folder</span> ${folder.name}</h3>
+        <div class="song-list" id="custom-folder-${folder.id}"></div>
+    `;
+    document.getElementById('custom-folders').appendChild(div);
+}
+
+window.onload = async () => {
+    await getSpotifyToken();
+    loadCustomFolders();
+};
+ 
+ 
+ // Top 10 DJs más conocidos
    const djsData = [
     {
         nombre: "David Guetta",
