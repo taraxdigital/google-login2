@@ -144,7 +144,7 @@ include_once("vistas/header2.php");
 
             <!-- Segundo bloque - 12k -->
             <div class="cinco-bloque cinco-bloque-dato">
-                <h3 class="cinco-numero">12k</h3>
+                <h3 class="cinco-numero" id="nm">12k</h3>
                 <h4 class="cinco-descripcion">Número de personas que han mejorado su salud y bienestar general mediante la adopción de una dieta saludable.</h4>
             </div>
 

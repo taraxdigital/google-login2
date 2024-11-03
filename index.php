@@ -10,10 +10,27 @@ include_once("vistas/header2.php");
     <div class="container">
 
 <img class="header-image" src="img/caballo.png" alt="Imagen principal" />
+<!-- nuevo inicio -->
+<div style="background: linear-gradient(135deg, #1a0f2e, #2d3748, #1e3a8a); padding: 3rem 0; text-align: center; position: relative; overflow: hidden;">
+    <!-- Efecto de partículas digitales en el fondo -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle, #ffffff 1px, transparent 2px); background-size: 20px 20px;"></div>
+    
+<h1 style="font-size: 3.8rem; margin-bottom: 1.5rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+        La Revolución Digital <br>
+        <span style="color: #60a5fa;">en tu Mano</span>
+    </h1>
+    
+    <p style="font-size: 1.4rem; color: #e2e8f0; max-width: 800px; margin: 0 auto 2rem; line-height: 1.6;">
+        Descubre las últimas innovaciones en IA y mantente a la vanguardia del futuro tecnológico
+    </p>
+    
+    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+       
+    
+    </div>
+</div>
 
-
-
-        <h1>Tendencias-top</h1>
+     
         <section class="primero">
         <audio controls>
     <source src="img2/Gabry.MP3" type="audio/mpeg">

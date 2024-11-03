@@ -1,3 +1,460 @@
+<html><head><base href="https://example.com/music-sorter/">
+<meta charset="UTF-8">
+<title>BPM Music Sorter</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1DB954;
+    --dark: #191414;
+    --light: #FFFFFF;
+    --gray: #282828;
+  }
+
+  body {
+    font-family: 'Circular', Arial, sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+
+  .header {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 50px;
+    margin-right: 20px;
+    fill: var(--primary);
+  }
+
+  .search-container {
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .login-btn {
+    background: transparent;
+    color: var(--light);
+    border: 1px solid var(--primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .login-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .main-content {
+    margin-top: 30px;
+  }
+
+  .login-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 1000;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .login-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background: var(--light);
+  }
+
+  #loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .filter-select {
+    padding: 8px;
+    border-radius: 4px;
+    background: var(--gray);
+    color: var(--light);
+    border: 1px solid var(--primary);
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: var(--light);
+    margin-bottom: 10px;
+  }
+
+  .folders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .folder {
+    position: relative;
+    background: var(--gray);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .folder:hover {
+    transform: translateY(-5px);
+  }
+
+  .folder h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    font-size: 1.2em;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .delete-folder {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #ff4444;
+    padding: 5px;
+    border-radius: 50%;
+  }
+
+  .delete-folder:hover {
+    background: rgba(255,0,0,0.1);
+  }
+
+  .song-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  .song-item {
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .song-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+  }
+
+  .bpm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    font-size: 16px;
+    margin-right: 15px;
+  }
+
+  button {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  button:hover {
+    background: #1ed760;
+  }
+
+  .custom-folder-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 1000;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .move-song-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gray);
+    padding: 30px;
+    border-radius: 12px;
+    z-index: 1000;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .folder-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 10px 0;
+  }
+
+  .folder-option {
+    padding: 8px;
+    margin: 4px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .folder-option:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    justify-content: flex-end;
+  }
+
+  .btn-cancel {
+    background: #666;
+  }
+
+  .btn-cancel:hover {
+    background: #777;
+  }
+
+  .btn-delete {
+    background: #ff4444;
+  }
+
+  .btn-delete:hover {
+    background: #ff6666;
+  }
+
+  .song-count {
+    margin-left: auto;
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar">
+    <button id="loginBtn" class="login-btn" onclick="showLoginModal()">
+      ⚙️ Login
+    </button>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="header-left">
+        <svg class="logo" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8"/>
+          <path d="M35 35 L35 65 L70 50 Z" fill="currentColor"/>
+        </svg>
+        <h1>BPM Music Sorter</h1>
+      </div>
+      <div class="header-right">
+        <button onclick="createCustomFolder()">
+          <span class="material-icons">create_new_folder</span>
+          Crear Nueva Carpeta
+        </button>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <div class="filter-container">
+        <select id="searchType" class="filter-select">
+          <option value="track">Nombre de canción</option>
+          <option value="artist">Artista</option>
+          <option value="genre">Género</option>
+          <option value="year">Año</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Buscar canciones..." id="searchInput">
+      </div>
+      <button onclick="searchSongs()">
+        <span class="material-icons">search</span>
+        Buscar
+      </button>
+    </div>
+
+    <div class="folders-grid">
+      <div class="folder">
+        <h3>
+          <div class="bpm-icon">85</div>
+          85-105 BPM
+          <span class="song-count">0 songs</span>
+        </h3>
+        <div class="song-list" id="folder-85-105"></div>
+      </div>
+
+      <div class="folder">
+        <h3>
+          <div class="bpm-icon">105</div>
+          105-120 BPM
+          <span class="song-count">0 songs</span>
+        </h3>
+        <div class="song-list" id="folder-105-120"></div>
+      </div>
+
+      <div class="folder">
+        <h3>
+          <div class="bpm-icon">120</div>
+          120-135 BPM
+          <span class="song-count">0 songs</span>
+        </h3>
+        <div class="song-list" id="folder-120-135"></div>
+      </div>
+
+      <div class="folder">
+        <h3>
+          <div class="bpm-icon">135</div>
+          135-148 BPM
+          <span class="song-count">0 songs</span>
+        </h3>
+        <div class="song-list" id="folder-135-148"></div>
+      </div>
+
+      <div class="folder">
+        <h3>
+          <div class="bpm-icon">148</div>
+          148+ BPM
+          <span class="song-count">0 songs</span>
+        </h3>
+        <div class="song-list" id="folder-148-plus"></div>
+      </div>
+
+      <div id="custom-folders"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop"></div>
+<div class="custom-folder-modal" id="customFolderModal">
+  <h3>Crear Nueva Carpeta</h3>
+  <input type="text" id="folderNameInput" placeholder="Nombre de la carpeta">
+  <div class="modal-buttons">
+    <button onclick="saveCustomFolder()">
+      <span class="material-icons">save</span>
+      Guardar
+    </button>
+    <button class="btn-cancel" onclick="closeModal()">
+      <span class="material-icons">close</span>
+      Cancelar
+    </button>
+  </div>
+</div>
+
+<div class="login-modal" id="loginModal">
+  <h3>Login</h3>
+  <form id="loginForm" onsubmit="handleLogin(event)">
+    <input type="email" id="emailInput" placeholder="Email" required>
+    <input type="password" id="passwordInput" placeholder="Password" required>
+    <div class="modal-buttons">
+      <button type="submit">
+        <span class="material-icons">login</span>
+        Login
+      </button>
+      <button type="button" class="btn-cancel" onclick="closeLoginModal()">
+        <span class="material-icons">close</span>
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="move-song-modal" id="moveSongModal">
+  <h3>Mover canción a carpeta</h3>
+  <div class="folder-list" id="folderList"></div>
+  <button onclick="closeMoveModal()">Cancelar</button>
+</div>
+
+<script>
 const CLIENT_ID = 'your_actual_client_id';
 const CLIENT_SECRET = 'your_actual_client_secret';
 
@@ -367,140 +824,5 @@ window.onload = async () => {
     await getSpotifyToken();
     loadCustomFolders();
 };
- 
- 
- // Top 10 DJs más conocidos
-   const djsData = [
-    {
-        nombre: "David Guetta",
-        genero_musical: "House",
-        tema_mas_conocido: "Titanium",
-        año_de_lanzamiento: 2000,
-        biografia: "Uno de los DJs más populares del mundo, con sets energéticos y hits comerciales",
-        imagen: "img2/guetta.jpg"
-    },
-    {
-        nombre: "Tiësto",
-        genero_musical: "Trance/EDM",
-        tema_mas_conocido: "Red Lights",
-        año_de_lanzamiento: 1990,
-        biografia: "Leyenda del trance, sigue siendo una figura influyente en la escena electrónica",
-        imagen: "img2/tiesto.jpg"
-    },
-    {
-        nombre: "Martin Garrix",
-        genero_musical: "EDM",
-        tema_mas_conocido: "Animals",
-        año_de_lanzamiento: 2012,
-        biografia: "Joven prodigio que ha revolucionado la escena EDM con su sonido característico",
-        imagen: "img2/martin.jpg"
-    },
-    {
-        nombre: "Hardwell",
-        genero_musical: "Big Room",
-        tema_mas_conocido: "Spaceman",
-        año_de_lanzamiento: 2009,
-        biografia: "Pionero del sonido big room, ha tenido un gran impacto en la escena",
-        imagen: "img2/hardwell.jpg"
-    },
-    {
-        nombre: "Armin van Buuren",
-        genero_musical: "Trance",
-        tema_mas_conocido: "This Is What It Feels Like",
-        año_de_lanzamiento: 1995,
-        biografia: "Un clásico de Tomorrowland, siempre presente con su sonido trance melódico",
-        imagen: "img2/armin.jpg"
-    },
-    {
-        nombre: "Dimitri Vegas & Like Mike",
-        genero_musical: "Electro House",
-        tema_mas_conocido: "The Hum",
-        año_de_lanzamiento: 2005,
-        biografia: "Dúo belga conocido por sus sets llenos de energía y producciones pegadizas",
-        imagen: "img2/dimitri.jpg"
-    },
-    {
-        nombre: "Marshmello",
-        genero_musical: "Future Bass",
-        tema_mas_conocido: "Alone",
-        año_de_lanzamiento: 2016,
-        biografia: "DJ enmascarado conocido por su sonido distintivo y energético",
-        imagen: "img2/marsmello.jpeg"
-    },
-    {
-        nombre: "Afrojack",
-        genero_musical: "Electro House",
-        tema_mas_conocido: "Take Over Control",
-        año_de_lanzamiento: 2007,
-        biografia: "Productor holandés conocido por sus colaboraciones y remixes de alto perfil",
-        imagen: "img2/afrojack.jpg"
-    },
-    {
-        nombre: "Alesso",
-        genero_musical: "Electro House",
-        tema_mas_conocido: "Heroes",
-        año_de_lanzamiento: 2010,
-        biografia: "DJ sueco conocido por sus colaboraciones con grandes artistas",
-        imagen: "img2/alesso.jpg"
-    },
-    {
-        nombre: "Carl Cox",
-        genero_musical: "Techno",
-        tema_mas_conocido: "I Want You (Forever)",
-        año_de_lanzamiento: 1980,
-        biografia: "Ícono de la música electrónica, con una carrera que abarca décadas",
-        imagen: "img2/carl.png"
-    }
-];
-
-// Función para llenar la tabla con los datos
-function llenarTabla() {
-    const tbody = document.getElementById('djs-tbody');
-    tbody.innerHTML = ''; // Limpiar la tabla primero
-
-    djsData.forEach(dj => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${dj.nombre}</td>
-            <td>${dj.genero_musical}</td>
-            <td>${dj.tema_mas_conocido || '-'}</td>
-            <td>${dj.año_de_lanzamiento}</td>
-            <td>${dj.biografia}</td>
-            <td><img src="${dj.imagen}" alt="${dj.nombre}" class="dj-image"></td>
-        `;
-        tbody.appendChild(row);
-    });
-}
-
-// Evento para mostrar/ocultar la tabla
-document.getElementById('btnDJs').addEventListener('click', function() {
-    const container = document.getElementById('djs-container');
-    if (container.style.display === 'none' || container.style.display === '') {
-        container.style.display = 'block';
-        llenarTabla(); // Llenar la tabla cuando se muestra
-    } else {
-        container.style.display = 'none';
-    }
-});
-
-// Llenar la tabla inicialmente
-llenarTabla();
-
-
-// imágenes galería///
-function openModal(src) {
-    var modal = document.getElementById("sietemModal");
-    var modalImg = document.getElementById("sietemModalImg");
-    var captionText = document.getElementById("sietemCaption");
-    
-    modal.style.display = "block";
-    modalImg.src = src;
-    captionText.innerHTML = src.split('/').pop();
-}
-
-function closeModal() {
-    var modal = document.getElementById("sietemModal");
-    modal.style.display = "none";
-}
-
-// funcion- registro-
+</script>
+</body></html>

@@ -104,9 +104,11 @@ header {
   width: 200px; /* Ancho fijo de 200 píxeles */
   height: auto; /* Mantiene la proporción de la imagen */
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
+
+
   object-fit: cover;
-  border: 5px solid white;
+  border: 5px solid rgb(0, 0, 0);
 }
 
 /* Si necesitas más espacio a la derecha del logo */
@@ -320,7 +322,12 @@ nav ul {
 .cinco-descripcion-45 {
   color: white;
 }
-
+.cinco-numero{
+  color: white;
+}
+#nm{
+  color: black;
+}
 h4 {
   color: var(--color-secondary);
 }
@@ -394,6 +401,7 @@ h4 {
   background-color: #f8f9fa;
   font-family: "Arial", sans-serif;
 }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1519,7 +1527,7 @@ h2 {
 .track-item h3 {
   font-size: 1.2em;
   margin: 10px 0;
-  color: var(--color-secondary);
+  color:#b3b3b3;
 }
 
 .track-item p {
@@ -1948,6 +1956,7 @@ table {
 
 th,
 td {
+  color:black ;
   border: 2px solid #ddd;
   padding: 10px;
   text-align: left;
@@ -3965,14 +3974,14 @@ section {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #292929;
+  color:white ;
 }
 
 .article-text {
   font-size: 16px;
   font-weight: normal;
   margin-bottom: 20px;
-  color: var(--color-secondary);
+  color: white;
 }
 
 .article-list {
@@ -5043,188 +5052,3 @@ section {
 }
 
 /* perplexity  music */
-.bodyMus {
-  font-family: 'Circular', Arial, sans-serif;
-  background: #b3b3b3;
-  color: #fff;
-  margin: 0;
-  padding: 20px;
-}
-
-.containerMus {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.headerMus {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  background: var(--gray);
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.header-leftMus {
-  display: flex;
-  align-items: center;
-}
-
-.logoMus {
-  height: 50px;
-  margin-right: 20px;
-  fill: var(--primary);
-}
-
-.search-container {
-  background: var(--gray);
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #6d6d6d;
-  margin-bottom: 20px;
-}
-
-.filter-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.filter-select {
-  padding: 8px;
-  border-radius: 4px;
-  background: var(--gray);
-  color: var(--light);
-  border: 1px solid var(--primary);
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #6d6d6d;
-  border-radius: 4px;
-  background: var(--light);
-  margin-bottom: 10px;
-}
-
-.folders-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.folder {
-  position: relative;
-  background: linear-gradient(145deg, var(--gray), #323232);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.folder:hover {
-  transform: translateY(-5px);
-}
-
-.folder h3 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.song-list {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.song-item {
-  background: rgba(255,255,255,0.05);
-  margin: 5px 0;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.song-item:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateX(5px);
-}
-
-.bpm-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: var(--primary);
-  border-radius: 50%;
-  font-size: 18px;
-}
-
-.buttonMus {
-  background: var(--primary);
-  color: var(--light);
-  border: 1px solid #ddd;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-button:hover {
-  background: #1ed760;
-}
-
-.custom-folder-modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--gray);
-  padding: 20px;
-  border-radius: 8px;
-  z-index: 1000;
-}
-
-.modal-backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 999;
-}
-
-.move-song-modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--gray);
-  padding: 20px;
-  border-radius: 8px;
-  z-index: 1000;
-}
-
-.folder-list {
-  max-height: 300px;
-  overflow-y: auto;
-  margin: 10px 0;
-}
-
-.folder-option {
-  padding: 8px;
-  margin: 4px 0;
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.folder-option:hover {
-  background: rgba(255,255,255,0.2);
-}
