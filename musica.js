@@ -1,8 +1,8 @@
 
 // ///
 
-const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
-const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
+const CLIENT_ID = "";
+const CLIENT_SECRET = "";
 
 let accessToken = null;
 let customFolders = [];
