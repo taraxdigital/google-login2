@@ -9,16 +9,7 @@ include_once("vistas/header2.php");
     <!-- Contenido principal -->
     <div class="container">
 
-    <section class="tech-transition-section-bold">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    
-    <div class="neon-container">
-        <img class="neon-image" src="img/caballo.png" alt="Imagen principal de un caballo en estilo minimalista con efectos de neón" width="400" height="400" />
-    </div>
-</section>
+ 
 <!-- nuevo inicio -->
 <div style="background: linear-gradient(135deg, #1a0f2e, #2d3748, #1e3a8a); padding: 3rem 0; text-align: center; position: relative; overflow: hidden;">
     <!-- Efecto de partículas digitales en el fondo -->
@@ -649,6 +640,16 @@ include_once("vistas/header2.php");
                 <div class="event">Visita Bodega - 3 Nov</div>
             </div>
         </section>
+        <section class="tech-transition-section-bold">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <div class="neon-container">
+        <img class="neon-image" src="img/caballo.png" alt="Imagen principal de un caballo en estilo minimalista con efectos de neón" width="400" height="400" />
+    </div>
+</section>
         
     </div>
 </main>
