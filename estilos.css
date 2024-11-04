@@ -100,15 +100,17 @@ header {
 }
 
 .header-image {
-  position: relative;
+
   width: 200px; /* Ancho fijo de 200 píxeles */
   height: auto; /* Mantiene la proporción de la imagen */
   display: block;
-  margin: 10px auto;
-
-
+  margin: 40px auto;
   object-fit: cover;
   border: 5px solid rgb(0, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tech-section {
@@ -127,14 +129,7 @@ header {
   background-color: #f7f7f7; /* color de fondo secundario */
 }
 
-.header-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%; /* ajusta el tamaño de la imagen */
-  height: auto;
-}
+
 /* caballo inicio */
 .tech-transition-section-bold {
   position: relative;
@@ -2101,9 +2096,9 @@ tr:nth-child(even) {
   box-shadow: 0 2px 10px rgba(231, 76, 60, 0.4);
   overflow: hidden;
 }
-table {
+/* table {
   border-collapse: collapse;
-}
+} */
 
 tbody tr {
   border-bottom: 1px solid #ccc;
