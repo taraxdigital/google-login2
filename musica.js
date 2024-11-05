@@ -1,12 +1,14 @@
 
-// ///
 
-const CLIENT_ID = "";
-const CLIENT_SECRET = "";
+
+const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
+const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
+
 
 let accessToken = null;
 let customFolders = [];
 let currentTrackToMove = null;
+let player = null;
 
 function loadCustomFolders() {
   const saved = localStorage.getItem("customFolders");
@@ -51,18 +53,14 @@ async function searchSongs() {
       alert("Por favor ingrese un término de búsqueda");
       return;
     }
-
     const searchButton = document.querySelector(".search-container button");
     searchButton.disabled = true;
     searchButton.innerHTML =
       '<span class="material-icons">hourglass_empty</span> Buscando...';
-
     if (!accessToken) await getSpotifyToken();
-
     const searchTerm = encodeURIComponent(searchInput.value);
     const searchType = document.getElementById("searchType").value;
     let endpoint = "";
-
     switch (searchType) {
       case "track":
         endpoint = `search?q=${searchTerm}&type=track&limit=20`;
@@ -77,13 +75,11 @@ async function searchSongs() {
         endpoint = `search?q=year:${searchTerm}&type=track&limit=20`;
         break;
     }
-
     const response = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
     if (!response.ok) throw new Error("Search failed");
     const data = await response.json();
     console.log(data);
@@ -91,13 +87,12 @@ async function searchSongs() {
       alert("No songs found");
       return;
     }
-
     clearFolders();
-
     for (const track of data.tracks.items) {
       try {
         const audioFeatures = await getTrackAudioFeatures(track.id);
         if (audioFeatures && audioFeatures.tempo) {
+          //todo guardar datosssssssssssssssssssssssss///////////////
           console.log(audioFeatures);
           sortSongByBPM(track, audioFeatures.tempo);
         }
@@ -126,7 +121,6 @@ function showMoveModal(trackId) {
   const modal = document.getElementById("moveSongModal");
   const backdrop = document.getElementById("modalBackdrop");
   const folderList = document.getElementById("folderList");
-
   folderList.innerHTML = "";
   customFolders.forEach((folder) => {
     const div = document.createElement("div");
@@ -135,7 +129,6 @@ function showMoveModal(trackId) {
     div.onclick = () => moveTrackToFolder(folder.id);
     folderList.appendChild(div);
   });
-
   modal.style.display = "block";
   backdrop.style.display = "block";
 }
@@ -145,18 +138,14 @@ function closeMoveModal() {
   document.getElementById("modalBackdrop").style.display = "none";
   currentTrackToMove = null;
 }
-// ç
 
-// 
 function moveTrackToFolder(folderId) {
   if (!currentTrackToMove) return;
-
   const folder = customFolders.find((f) => f.id === folderId);
   if (!folder) return;
 
   if (!folder.songs.includes(currentTrackToMove)) {
     folder.songs.push(currentTrackToMove);
-
     const originalSong = document.querySelector(
       `[data-track-id="${currentTrackToMove}"]`
     );
@@ -164,16 +153,12 @@ function moveTrackToFolder(folderId) {
       const clonedSong = originalSong.cloneNode(true);
       const targetFolder = document.getElementById(`custom-folder-${folderId}`);
       targetFolder.appendChild(clonedSong);
-
       const moveButton = clonedSong.querySelector("button");
       moveButton.onclick = () => showMoveModal(currentTrackToMove);
-
       saveCustomFoldersToStorage();
     }
-
     updateFolderCount(`custom-folder-${folderId}`);
   }
-
   closeMoveModal();
 }
 
@@ -182,14 +167,19 @@ function createSongElement(track) {
   div.className = "song-item";
   div.setAttribute("data-track-id", track.id);
   div.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-            <span>${track.name} - ${track.artists[0].name}</span>
-            <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-                <span class="material-icons">drive_file_move</span>
-                Mover
-            </button>
-        </div>
-    `;
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+      <span>${track.name} - ${track.artists[0].name}</span>
+      <div>
+        <button onclick="event.stopPropagation(); playTrack('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+          <span class="material-icons">play_arrow</span>
+        </button>
+        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">play_arrow</span>
+          Mover
+        </button>
+      </div>
+    </div>
+  `;
   return div;
 }
 
@@ -209,7 +199,6 @@ function sortSongByBPM(track, bpm) {
   console.log(track);
   console.log(bpm);
   const songElement = createSongElement(track);
-
   if (bpm >= 85 && bpm < 105) {
     document.getElementById("folder-85-105").appendChild(songElement);
     updateFolderCount("folder-85-105");
@@ -229,17 +218,11 @@ function sortSongByBPM(track, bpm) {
 }
 
 function updateFolderCount(id) {
-    const songList = document.getElementById(id);
-    const songCount = songList.closest(".folder").querySelector(".song-count");
-    
-    // Convertimos el texto a número
-    let contador = parseInt(songCount.textContent);
-    
-    // Incrementamos el contador
-    contador = contador + 1;
-    
-    // Actualizamos el span con el nuevo valor
-    songCount.textContent = contador + " songs";
+  const songList = document.getElementById(id);
+  const songCount = songList.closest(".folder").querySelector(".song-count");
+  let contador = parseInt(songCount.textContent);
+  contador = contador + 1;
+  songCount.textContent = contador + " songs";
 }
 
 function createCustomFolder() {
@@ -275,18 +258,26 @@ function createCustomFolderElement(folder) {
   div.className = "folder";
   div.id = `folder-container-${folder.id}`;
   div.innerHTML = `
-        <h3>
-            <span class="material-icons">folder</span> 
-            ${folder.name}
-            <button class="delete-folder" onclick="deleteFolder(${folder.id})">
-                <span class="material-icons">delete</span>
-            </button>
-               <span class="song-count">0 songs</span>
-        </h3>
-     
-        <div class="song-list" id="custom-folder-${folder.id}"></div>
-    `;
+    <h3 onclick="toggleFolder(${folder.id})">
+      <span class="material-icons">folder</span>
+      ${folder.name}
+      <button class="delete-folder" onclick="event.stopPropagation(); deleteFolder(${folder.id})">
+        <span class="material-icons">delete</span>
+      </button>
+      <span class="song-count">0 songs</span>
+    </h3>
+    <div class="song-list" id="custom-folder-${folder.id}" style="display: none;"></div>
+  `;
   document.getElementById("custom-folders").appendChild(div);
+}
+
+function toggleFolder(folderId) {
+  const folderContent = document.getElementById(`custom-folder-${folderId}`);
+  if (folderContent.style.display === "none") {
+    folderContent.style.display = "block";
+  } else {
+    folderContent.style.display = "none";
+  }
 }
 
 function deleteFolder(folderId) {
@@ -297,7 +288,6 @@ function deleteFolder(folderId) {
     if (folderElement) {
       folderElement.remove();
     }
-
     customFolders = customFolders.filter((f) => f.id !== folderId);
     saveCustomFoldersToStorage();
   }
@@ -319,28 +309,22 @@ function closeLoginModal() {
 
 async function handleLogin(event) {
   event.preventDefault();
-
   const email = document.getElementById("emailInput").value;
   const password = document.getElementById("passwordInput").value;
-
   try {
     const user = {
       email: email,
       name: email.split("@")[0],
     };
-
     isLoggedIn = true;
     currentUser = user;
-
     const loginBtn = document.getElementById("loginBtn");
     loginBtn.innerHTML = `
       <span class="material-icons">account_circle</span>
       ${user.name}
     `;
     loginBtn.onclick = handleLogout;
-
     closeLoginModal();
-
     localStorage.setItem("user", JSON.stringify(user));
   } catch (error) {
     console.error("Login error:", error);
@@ -351,21 +335,30 @@ async function handleLogin(event) {
 function handleLogout() {
   isLoggedIn = false;
   currentUser = null;
-
   const loginBtn = document.getElementById("loginBtn");
   loginBtn.innerHTML = `
     <span class="material-icons">account_circle</span>
     Login
   `;
   loginBtn.onclick = showLoginModal;
-
   localStorage.removeItem("user");
+}
+
+function playTrack(trackId, previewUrl) {
+  if (player) {
+    player.pause();
+  }
+  if (previewUrl) {
+    player = new Audio(previewUrl);
+    player.play();
+  } else {
+    alert("Lo siento, no hay una vista previa disponible para esta canción.");
+  }
 }
 
 window.onload = async () => {
   await getSpotifyToken();
   loadCustomFolders();
-
   const savedUser = localStorage.getItem("user");
   if (savedUser) {
     currentUser = JSON.parse(savedUser);
@@ -398,12 +391,90 @@ document
   .addEventListener("click", function (e) {
     e.stopPropagation();
   });
+///          abajo  boton pausa//
+let play = null;
+let currentlyPlayingTrackId = null;
 
-window.onload = async () => {
-  await getSpotifyToken();
-  loadCustomFolders();
-};
+function createSongElement(track) {
+  const div = document.createElement("div");
+  div.className = "song-item";
+  div.setAttribute("data-track-id", track.id);
+  div.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+      <span>${track.name} - ${track.artists[0].name}</span>
+      <div>
+        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+          <span class="material-icons" id="playPauseIcon-${track.id}">play_arrow</span>
+        </button>
+        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">drive_file_move</span>
+          Mover
+        </button>
+      </div>
+    </div>
+  `;
+  return div;
+}
 
+function togglePlayPause(trackId, previewUrl) {
+  if (currentlyPlayingTrackId === trackId && player && !player.paused) {
+    pauseTrack();
+  } else {
+    playTrack(trackId, previewUrl);
+  }
+}
+
+function playTrack(trackId, previewUrl) {
+  if (player) {
+    player.pause();
+  }
+  if (previewUrl) {
+    player = new Audio(previewUrl);
+    player.play();
+    currentlyPlayingTrackId = trackId;
+    updatePlayPauseIcon(trackId, true);
+  } else {
+    alert("Lo siento, no hay una vista previa disponible para esta canción.");
+  }
+}
+
+function pauseTrack() {
+  if (player) {
+    player.pause();
+    updatePlayPauseIcon(currentlyPlayingTrackId, false);
+    currentlyPlayingTrackId = null;
+  }
+}
+
+function updatePlayPauseIcon(trackId, isPlaying) {
+  const icon = document.getElementById(`playPauseIcon-${trackId}`);
+  if (icon) {
+    icon.textContent = isPlaying ? "pause" : "play_arrow";
+  }
+}
+
+// Asegúrate de que esta función se llame cuando se cambie de página o se cierre la aplicación
+function cleanupAudio() {
+  if (player) {
+    player.pause();
+    player = null;
+  }
+  currentlyPlayingTrackId = null;
+}
+
+// Añade este evento al final del archivo
+window.addEventListener('beforeunload', cleanupAudio);
+/**
+ * abajo añadir carpetas creadas
+ */
+// 
+
+
+// Asegúrate de llamar a esta función cuando la página se cargue
+window.addEventListener('load', loadCustomFolders);
+
+
+////////////////////////
 // Top 10 DJs más conocidos
 const djsData = [
   {

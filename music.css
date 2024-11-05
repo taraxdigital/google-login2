@@ -373,3 +373,40 @@ article{
   .material-icons{
     cursor:pointer;
   }
+  /* ////
+   */
+   .custom-folder {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .custom-folder h3 {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-folder .song-list {
+    padding: 10px;
+  }
+  
+  .folder-icon {
+    margin-right: 10px;
+  }
+  
+  .delete-folder {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .song-count {
+    margin-left: 10px;
+    font-size: 0.8em;
+    color: #666;
+  }

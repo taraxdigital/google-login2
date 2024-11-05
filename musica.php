@@ -7,11 +7,12 @@ include_once("vistas/header2.php");
 ?>
 <link rel="stylesheet" href="music.css">
 <div class="container">
-  <div class="top-bar">
-    <button id="loginBtn" class="login-btn" onclick="showLoginModal()">
-      ⚙️ Login
-    </button>
-  </div>
+  
+<div class="top-bar">
+  <button id="loginBtn" class="login-btn" onclick="showLoginModal()">
+    ⚙️ Login
+  </button>
+</div>
 
   <div class="main-content">
     <div class="header">
@@ -95,7 +96,9 @@ include_once("vistas/header2.php");
       <div id="custom-folders"></div>
     </div>
   </div>
+  
 </div>
+
 
 <div class="modal-backdrop" id="modalBackdrop"></div>
 <div class="custom-folder-modal" id="customFolderModal">
