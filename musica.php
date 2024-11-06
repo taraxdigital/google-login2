@@ -75,7 +75,7 @@ include_once("vistas/header2.php");
     <div class="folders-grid">
       <div class="folder">
         <h3>
-          <div class="bpm-icon">85</div>
+          <div class="bpm-icon">Slow</div>
           85-105 BPM
           <span class="song-count">0 songs</span>
         </h3>
@@ -84,7 +84,7 @@ include_once("vistas/header2.php");
 
       <div class="folder">
         <h3>
-          <div class="bpm-icon">105</div>
+          <div class="bpm-icon">Medium</div>
           105-120 BPM
           <span class="song-count">0 songs</span>
         </h3>
@@ -93,7 +93,7 @@ include_once("vistas/header2.php");
 
       <div class="folder">
         <h3>
-          <div class="bpm-icon">120</div>
+          <div class="bpm-icon">Fast</div>
           120-135 BPM
           <span class="song-count">0 songs</span>
         </h3>
@@ -102,7 +102,7 @@ include_once("vistas/header2.php");
 
       <div class="folder">
         <h3>
-          <div class="bpm-icon">135</div>
+          <div class="bpm-icon">Very Fast</div>
           135-148 BPM
           <span class="song-count">0 songs</span>
         </h3>
@@ -111,7 +111,7 @@ include_once("vistas/header2.php");
 
       <div class="folder">
         <h3>
-          <div class="bpm-icon">148</div>
+          <div class="bpm-icon">Extreme</div>
           148+ BPM
           <span class="song-count">0 songs</span>
         </h3>
