@@ -39,3 +39,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 })
+/////////imagen spin abajo
+// Selecciona la imagen
+const spinningImage = document.querySelector('.spin img');
+
+// Crea la animación usando GSAP
+gsap.to(spinningImage, {
+  rotation: 720, // Rota 720 grados (2 vueltas completas)
+  duration: 5, // Duración de la animación en segundos
+  repeat: 0, // No repetir la animación
+  ease: "linear" // Easing lineal para una rotación suave
+});

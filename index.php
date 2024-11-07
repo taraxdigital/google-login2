@@ -154,6 +154,7 @@ include_once("vistas/header2.php");
                  Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
         </div>
     </div>
+    
 </div>
 
         <!-- Sección de Prezi -->

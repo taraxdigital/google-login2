@@ -264,6 +264,7 @@ include_once("vistas/header2.php");
 
 
 <section>
+  
     <ul class="sci-list">
   <li>
     <h3>La Alimentación como Puente hacia la Paz Mental</h3>
@@ -285,7 +286,7 @@ Legumbres: Son una fuente de proteínas vegetales, fibra y vitaminas del complej
 Probióticos: Los alimentos fermentados como el yogur, el kéfir y el chucrut contienen probióticos que benefician el microbioma intestinal.</p>
 </ul>
 <!-- pag spinning -->
- 
+
 </section>
 
 <!--  -->
@@ -323,10 +324,19 @@ Probióticos: Los alimentos fermentados como el yogur, el kéfir y el chucrut co
               <h3 class="feature-title">Objetivos Claros</h3>
               <p class="feature-text">Plan personalizado para alcanzar tu mejor versión.</p>
             </div>
+            
           </div>
+
+
           
          
         </div>
+        <sectiona>
+  <div  class="a" style="float: left; width: 100px; height: 100px; margin: 10px;">
+    <img class="a" src="img/vegetales.png" alt="Imagen">
+  </div>
+  <!-- Contenido de la sección -->
+</sectiona>
         
         <div class="image-containerali">
           <img src="img/amanecer.png" alt="Alimentación saludable" class="main-image">
@@ -456,7 +466,7 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
         <p><strong>Mejora de la condición cardiovascular:</strong> Fortalece el corazón y mejora la circulación sanguínea.</p>
         <p><strong>Aumento de la resistencia:</strong> Ayuda a aumentar la resistencia muscular y cardiovascular</p>
         <p><strong>Reducción del estrés:</strong> Libera endorfinas, las hormonas de la felicidad.</p>
-      </div>
+      </div>S
     </div>
   </div>
 </div>
@@ -477,7 +487,7 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
         </div>
     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 pt16 clase-diez-colored_level">
+                <div class="spin">
                     <img src="img/spinning.jpg" alt="" class="img img-fluid mx-auto rounded clase-diez-we_custom_image" style="width: 100% !important;" data-mimetype="image/webp" data-original-id="343" data-original-src="/web/image/343-382637b3/colocar-personas-trabajando-clase-spinning-gimnasio_1134-72724.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="626" loading="lazy"/>
                 </div>
             </div>
@@ -509,7 +519,9 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
     
         <!-- <div id="o_shared_blocks" class="oe_unremovable" data-oe-id="597" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch"></div> -->
                 </main>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
                 <script src="alimentacion.js"></script>
+
       <?php
 include_once("vistas/footer.php");
 ?>
