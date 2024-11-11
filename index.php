@@ -597,7 +597,7 @@ include_once("vistas/header2.php");
         <section class="formulario">
         <div class="form-container">
         <h2>Nuestros Servicios.</h2>
-        <form action="#" method="POST">
+        <form action="form-handler.php" method="POST">
             <div class="form-group">
                 <label for="nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -631,8 +631,12 @@ include_once("vistas/header2.php");
             </div>
             <button type="submit">Enviar</button>
         </form>
+        </section>
     </div>
-    </section>
+    </div>
+    <!-- </section>///////////
+  
+      -->
         <section id="events">
             <h2>Próximos Eventos</h2>
             <div class="event-list">
@@ -652,7 +656,7 @@ include_once("vistas/header2.php");
     </div>
 </section>
         
-    </div>
+   
 </main>
 <script src="index.js"></script>
 <?php
