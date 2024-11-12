@@ -7,15 +7,21 @@ include_once("vistas/header2.php");
 ?>
  <main>
       <div class="container">
+  
       <img class="header-image" src="img/robot.jpg" alt="Imagen principal" />
         <section id="home" class="hero">
           <h1>Novedades tecnológicas</h1>
- 
+    
       </section>
-     
+  
+    
  <section class="tecnologia-section">
+
         <div class="container">
+     
+
             <div class="row">
+    
                 <div class="col tecnologia-content">
                     <h2>Innovación Tecnológica</h2>
                     <p>Descubre cómo la tecnología está transformando nuestro mundo. Desde inteligencia artificial hasta realidad virtual, estamos en la cúspide de una revolución digital que está redefiniendo la forma en que vivimos, trabajamos y nos conectamos.</p><br>
@@ -37,14 +43,26 @@ include_once("vistas/header2.php");
                     <img src="img/iphone.png" alt="Tecnología innovadora">
                 </div>
             </div>
+    
         </div>
+      
     </section>
+    
     <!-- <section> -->
     <div class="container">
+   
         <h1>Herramientas de Generación Visual AI 2024</h1>
 
         <!-- Generación de Imágenes -->
          <body>
+         <sectionv>
+        <div class="video-container">
+            <video id="myVideo" width="320" height="240" controls>
+                <source src="img/city-vmake.mp4" type="video/mp4">
+                Tu navegador no soporta este formato de video.
+            </video>
+        </div>
+    </sectionv>
         
                 
          <div class="category-section">
@@ -514,7 +532,7 @@ include_once("vistas/header2.php");
     </section>
     </div>
     </main>
- 
+    <script src="tecnologia.js"></script>
     <?php
     
 include_once("vistas/footer.php");

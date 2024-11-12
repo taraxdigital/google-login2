@@ -19,17 +19,17 @@ $metodo = Utilidades::getParameterValue($parametros, 'metodo');
 switch($method){
     case 'GET':
 
-          $respuesta = getAllTemas($pelicula);
+          $respuesta = getAllTemas($tema);
 
         echo json_encode($respuesta);
         break;
     case 'POST':
       if($metodo == 'nuevo'){
-        setTema($pelicula);
+        setTema($tema);
       }
       if($metodo == 'actualizar'){
         if($id){
-          updateTema($pelicula, $id);
+          updateTema($tema, $id);
         }else{
           http_response_code(400);
           echo json_encode(['error' => 'ID no proporcionado']);
@@ -37,7 +37,7 @@ switch($method){
       }
       if($metodo == 'eliminar'){
         if($id){
-          deleteTema($pelicula, $id);
+          deleteTema($tema, $id);
         }else{
           http_response_code(400);
           echo json_encode(['error' => 'ID no proporcionado']);

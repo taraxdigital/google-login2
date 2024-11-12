@@ -49,6 +49,7 @@ include_once("vistas/header2.php");
         <h1>BPM Music Sorter</h1>
       </div>
       <div class="header-right">
+        
         <button onclick="createCustomFolder()">
           <span class="material-icons">create_new_folder</span>
           Crear Nueva Carpeta
@@ -269,8 +270,26 @@ if (isset($results['items'])) {
 <!-- articulo -->
 <section class="article-section">
   <h2 class="article-title">Principales características de la música electrónica</h2>
-  <img src="img2/music.jpg" alt="Imagen del artículo" class="article-image">
-  <p class="article-text">La música electrónica se caracteriza por:</p>
+  <img  src  ="img2/music.jpg" alt="Imagen del artículo" class="article-image">
+  <p class="article-text"></p>
+  <div class="imagen-container">
+        <img class="nuevo" src="img/b.png" alt="Descripción de la imagen">
+    </div>
+    <p>
+    Tal como la conocemos hoy, es el resultado de décadas de experimentación, innovación tecnológica y evolución cultural. Sus raíces se remontan a finales del siglo XIX con la invención del fonógrafo y los primeros experimentos con sonido grabado. Sin embargo, no fue hasta mediados del siglo XX cuando la electrónica comenzó a jugar un papel fundamental en la creación musical.
+
+Los pioneros y los primeros experimentos.
+        <br>
+        <br>
+        Década de los 60: La música electrónica comienza a fusionarse con el pop y el rock, dando lugar a nuevos sonidos y experimentando con estructuras musicales no convencionales. Artistas como The Beatles y The Velvet Underground pioneran en esta fusión.
+Década de los 70: La música electrónica se consolida como género independiente, con subgéneros como el krautrock y la música ambiental. Artistas como Kraftwerk y Pink Floyd exploran las posibilidades expresivas de los sintetizadores.
+Década de los 80: El synth-pop y la música dance dominan la escena, popularizados por bandas como Depeche Mode y New Order. La invención de MIDI revoluciona la producción musical electrónica.
+Década de los 90: Surge el fenómeno del rave y la EDM, con subgéneros como el house, techno y trance. Artistas como Daft Punk y The Prodigy se convierten en iconos de la escena.
+Siglo XXI: La música electrónica se democratiza gracias a la tecnología, dando lugar a una gran diversidad de subgéneros y facilitando la creación musical. <br>.
+    </p>
+    <div class="imagen-container">
+        <img class="nuevo" src="img/ba.png" alt="Descripción de la imagen">
+    </div>
   <ul class="article-list">
     <li><span class="article-list-item">Sonidos Sintetizados:</span> La base de la música electrónica son los sonidos creados a través de sintetizadores y software musical.</li>
     <li><span class="article-list-item">Ritmos Electrónicos:</span> Los ritmos son generalmente mecánicos y repetitivos, aunque pueden variar según el subgénero.</li>

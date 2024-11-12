@@ -38,6 +38,7 @@ include_once("vistas/header2.php");
         <div class="primera-image-container">
             <img src="img/brocoliCerebro.jpeg" alt="Alimentos saludables en forma de cerebro" class="primera-image">
         </div>
+        
     </main>
 
    
@@ -76,6 +77,12 @@ include_once("vistas/header2.php");
         <h2 class="TERCERA_texto_centrado">
             Los fundamentos de la alimentación.
         </h2>
+     
+  <p class="article-text"></p>
+  <div class="imagen-container">
+        <img class="nuevo" src="img/alimen.png" alt="Descripción de la imagen">
+    </div>
+   
     </div>
 </section>
 
@@ -492,9 +499,12 @@ Una modalidad de ciclismo indoor que ha ganado gran popularidad en los últimos 
                 </div>
             </div>
         </div>
-        
+       
+   
     </section>
-
+   
+  
+    
     <!-- 
     
      -->

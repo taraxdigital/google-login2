@@ -69,6 +69,7 @@ header, footer {
 
 h1, h2, h3 {
   color: var(--color-secondary);
+  text-align: center;
 }
 
 a {
@@ -5229,3 +5230,47 @@ section {
 }
 
 
+/* styles.css video tecnologia*/
+ .sectionv {
+  text-align: center;
+  margin: 150px auto;
+} 
+
+
+/* styles.css */
+
+  .video-container {
+    position: relative;
+    justify-content: center;
+  
+    width: 60%;
+    margin: 0 auto;
+    background-color: rgba(200, 200, 200, 0.1); /* Fondo blanco con 50% de opacidad */
+    background: linear-gradient(to right, #f00, #ff0);
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    text-align: center;
+
+}
+
+video {
+  display: inline-block;
+  width: 100%; /* Que el video ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción */
+}
+/* img alimentación */
+
+.imagen-container {
+  text-align: center;
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  margin: 0 auto; /* Margenes automático para centrar horizontalmente */
+}
+
+.nuevo{
+  max-width: 100%; /* La imagen no superará el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+p {
+  margin-left: 40px;
+  margin-right: 40px;
+}

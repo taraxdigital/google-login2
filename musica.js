@@ -1,9 +1,6 @@
-
-
-
 const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
 const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
-
+const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
 
 let accessToken = null;
 let customFolders = [];
@@ -36,7 +33,7 @@ async function getSpotifyToken() {
       throw new Error("Failed to get token");
     }
     const data = await response.json();
-    console.log(data);
+
     accessToken = data.access_token;
 
     setTimeout(getSpotifyToken, (data.expires_in - 60) * 1000);
@@ -82,7 +79,7 @@ async function searchSongs() {
     });
     if (!response.ok) throw new Error("Search failed");
     const data = await response.json();
-    console.log(data);
+
     if (!data.tracks || !data.tracks.items.length) {
       alert("No songs found");
       return;
@@ -92,8 +89,6 @@ async function searchSongs() {
       try {
         const audioFeatures = await getTrackAudioFeatures(track.id);
         if (audioFeatures && audioFeatures.tempo) {
-          //todo guardar datosssssssssssssssssssssssss///////////////
-          console.log(audioFeatures);
           sortSongByBPM(track, audioFeatures.tempo);
         }
       } catch (error) {
@@ -180,6 +175,7 @@ function createSongElement(track) {
       </div>
     </div>
   `;
+
   return div;
 }
 
@@ -196,8 +192,7 @@ async function getTrackAudioFeatures(trackId) {
 }
 
 function sortSongByBPM(track, bpm) {
-  console.log(track);
-  console.log(bpm);
+  guardarDatosBd(track, bpm);
   const songElement = createSongElement(track);
   if (bpm >= 85 && bpm < 105) {
     document.getElementById("folder-85-105").appendChild(songElement);
@@ -215,6 +210,32 @@ function sortSongByBPM(track, bpm) {
     document.getElementById("folder-148-plus").appendChild(songElement);
     updateFolderCount("folder-148-plus");
   }
+}
+
+function guardarDatosBd(track, tempo) {
+  console.log("track", track);
+  const titulo = track.name;
+  const artista = track.artists[0].name;
+  const id_spotify = track.id;
+  const preview_url = track.preview_url;
+
+  fetch(`${API_URL_TEMAS}?metodo=nuevo`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ titulo, artista, id_spotify, preview_url, tempo }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (!parseInt(result["id"])) {
+        erroresApi = Object.values(result["id"]);
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
 }
 
 function updateFolderCount(id) {
@@ -463,18 +484,17 @@ function cleanupAudio() {
 }
 
 // Añade este evento al final del archivo
-window.addEventListener('beforeunload', cleanupAudio);
+window.addEventListener("beforeunload", cleanupAudio);
 /**
  * abajo añadir carpetas creadas
  */
-// 
-
+//
 
 // Asegúrate de llamar a esta función cuando la página se cargue
-window.addEventListener('load', loadCustomFolders);
+window.addEventListener("load", loadCustomFolders);
+////////////////////////////////////////////////////////////////login abajo  /////////////////////
 
-
-////////////////////////
+/////////////////////////////////////////////
 // Top 10 DJs más conocidos
 const djsData = [
   {
@@ -613,9 +633,4 @@ function openModal(src) {
   captionText.innerHTML = src.split("/").pop();
 }
 
-function closeModal() {
-  var modal = document.getElementById("sietemModal");
-  modal.style.display = "none";
-}
-
-// funcion- registro-
+// funcion- carpeta nueva modal abajo-

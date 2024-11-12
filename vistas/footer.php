@@ -29,7 +29,7 @@
         
         <div class="contacto">
             <p>Envíenos un mensaje</p>
-            <h5><a href="mailto:taraxdesing@gmail.com">taraxdesing@gmail.com</a></h5>
+            <h5><a href="mailto:info@taraxdesing.com">info@taraxdesing.com</a></h5>
         </div>
     </div>
 
