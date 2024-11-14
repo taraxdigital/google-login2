@@ -61,7 +61,11 @@ include_once("vistas/header2.php");
                 <source src="img/city-vmake.mp4" type="video/mp4">
                 Tu navegador no soporta este formato de video.
             </video>
+           
         </div>
+        <div class="containere">
+        <img src="img/herramientas.png" alt="Tu imagen">
+    </div>
     </sectionv>
         
                 
@@ -529,6 +533,33 @@ include_once("vistas/header2.php");
         </ul>
         
         </div>
+    </section>
+   
+    <section id="seguridad">
+        <h2>La Ciberseguridad: Un Escudo Esencial en el Mundo Digital
+        Seguridad</h2>
+
+        <p>En la era digital, nuestros datos son uno de nuestros activos más valiosos. Desde información personal hasta datos empresariales confidenciales, todo se encuentra almacenado y transmitido a través de sistemas informáticos. Sin embargo, esta creciente dependencia de la tecnología también nos expone a una serie de riesgos, como los ciberataques. <br> Al tomar medidas preventivas y estar al tanto de las últimas amenazas, podemos proteger nuestros datos personales y profesionales y disfrutar de un entorno en línea más seguro.</p>
+        <img src="img/candado.jpg" alt="Ícono de candado">
+        <p>¿Por qué es importante la ciberseguridad?
+
+Protección de datos personales: Evita el robo de identidad y el uso no autorizado de información privada.
+Seguridad empresarial: Garantiza la continuidad de las operaciones y protege la reputación de las empresas.
+Prevención de pérdidas económicas: Minimiza los costos asociados a los ciberataques, como la recuperación de datos y la reparación de sistemas dañados.
+Principales amenazas cibernéticas:
+
+Ransomware: Un tipo de malware que cifra los archivos de un sistema y exige un rescate para restaurarlos.
+Phishing: Técnica de ingeniería social que utiliza el engaño para obtener información confidencial, como contraseñas.
+Malware: Software malicioso diseñado para dañar o tomar el control de un sistema.
+Cómo protegerse de los ciberataques:
+
+Contraseñas fuertes: Crea contraseñas únicas y complejas para cada cuenta.
+Actualizaciones de software: Mantén tus sistemas operativos y aplicaciones actualizados con los últimos parches de seguridad.
+Copia de seguridad: Realiza copias de seguridad periódicas de tus datos importantes.
+Desconfianza de enlaces y archivos desconocidos: Evita hacer clic en enlaces sospechosos o descargar archivos de fuentes no confiables.
+Verificación en dos pasos: Activa la autenticación de dos factores para agregar una capa adicional de seguridad a tus cuentas.
+Uso de herramientas de seguridad: Instala antivirus, cortafuegos y otras herramientas de seguridad.</p>
+
     </section>
     </div>
     </main>

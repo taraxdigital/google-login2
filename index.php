@@ -5,6 +5,7 @@ include_once("vistas/header.php");
 <?php
 include_once("vistas/header2.php");
 ?>
+<canvas id="particleCanvas"></canvas>
 <main>
     <!-- Contenido principal -->
     <div class="container">
@@ -18,6 +19,9 @@ include_once("vistas/header2.php");
 <h1 style="font-size: 3.8rem; margin-bottom: 1.5rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
         La Revolución Digital <br>
         <span style="color: #60a5fa;">en tu Mano</span>
+        <div class="imagen-container">
+        <img class="nuevo" src="img/selec.png" alt="Descripción de la imagen">
+    </div>
     </h1>
     
     <p style="font-size: 1.4rem; color: #e2e8f0; max-width: 800px; margin: 0 auto 2rem; line-height: 1.6;">

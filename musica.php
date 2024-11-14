@@ -267,6 +267,14 @@ if (isset($results['items'])) {
             </table>
         </div>
     </div>
+    <section>
+        <h2>Mixmeister.</h2>
+        <p>Mixmeister es un software diseñado para crear mezclas de música de forma sencilla y efectiva, ideal para sesiones de ejercicio o actividades físicas.</p>
+        <div class="imagenes">
+            <img src="img/mm.png" alt="Imagen izquierda">
+            <img src="img/Mixmeister.png" alt="Imagen derecha">
+        </div>
+    </section>
 <!-- articulo -->
 <section class="article-section">
   <h2 class="article-title">Principales características de la música electrónica</h2>

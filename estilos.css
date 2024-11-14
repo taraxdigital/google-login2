@@ -119,6 +119,15 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/* ///////////////particulas fondo- abj */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 /* main{
   position: relative;
   min-height: 100vh;
@@ -5274,3 +5283,32 @@ p {
   margin-left: 40px;
   margin-right: 40px;
 }
+/* ///tecnología herramientas */
+.containere {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura al 100% de la viewport */
+}
+
+img {
+  max-width: 500px;
+  max-height: 500px; 
+}
+
+/* seguridad abajo */
+/* styles.css */
+#seguridad {
+  text-align: center;
+  padding: 50px;
+  color:black;
+
+}
+
+#seguridad img {
+  width: 300px;
+  margin-top: 20px;
+  border: #1a1a1a;
+}
+
+  /* ... */
