@@ -744,4 +744,65 @@ function openModal(src) {
   captionText.innerHTML = src.split("/").pop();
 }
 
-// funcion- carpeta nueva modal abajo-
+// boton login abajo-//////////////
+function showLoginModal() {
+  document.getElementById('loginModal').style.display = 'block';
+}
+
+function closeLoginModal() {
+  document.getElementById('loginModal').style.display = 'none';
+}
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const message = document.getElementById('message');
+
+  // Limpiar mensajes de error
+  emailError.textContent = '';
+  passwordError.textContent = '';
+  message.textContent = '';
+
+  // Validar formato de email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+      emailError.textContent = 'Formato de email no válido.';
+      return;
+  }
+
+  // Enviar datos al servidor
+  fetch('login.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+          message.textContent = 'Login exitoso. Redirigiendo...';
+          // Redirigir a otra página o hacer algo más
+          setTimeout(() => {
+              window.location.href = 'dashboard.html'; // Cambia a tu página de destino
+          }, 2000);
+      } else {
+          message.textContent = data.message;
+      }
+  })
+  .catch(error => {
+      message.textContent = 'Error en la conexión.';
+  });
+});
+
+// Cerrar el modal al hacer clic fuera de él
+window.onclick = function(event) {
+  const modal = document.getElementById('loginModal');
+  if (event.target === modal) {
+      closeLoginModal();
+  }
+};

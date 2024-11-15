@@ -5,14 +5,35 @@ include_once("vistas/header.php");
 
 include_once("vistas/header2.php");
 
+
 ?>
 <link rel="stylesheet" href="music.css">
 <div class="container">
-  <div class="top-bar">
-    <button id="loginBtn" class="login-btn" onclick="showLoginModal()">
-      ⚙️ Login
+<button id="loginBtn" class="login-btn" onclick="showLoginModal()">
+        ⚙️ Login
     </button>
-  </div>
+
+    <!-- Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                    <span class="error" id="passwordError"></span>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+                <div class="message" id="message"></div>
+            </form>
+        </div>
+    </div>
 
 
 
@@ -118,23 +139,7 @@ include_once("vistas/header2.php");
   </div>
 </div>
 
-<div class="login-modal" id="loginModal">
-  <h3>Login</h3>
-  <form id="loginForm" onsubmit="handleLogin(event)">
-    <input type="email" id="emailInput" placeholder="Email" required>
-    <input type="password" id="passwordInput" placeholder="Password" required>
-    <div class="modal-buttons">
-      <button type="submit">
-        <span class="material-icons">login</span>
-        Login
-      </button>
-      <button type="button" class="btn-cancel" onclick="closeLoginModal()">
-        <span class="material-icons">close</span>
-        Cancelar
-      </button>
-    </div>
-  </form>
-</div>
+
 
 <div class="move-song-modal" id="moveSongModal">
   <h3>Mover canción a carpeta</h3>

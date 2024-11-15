@@ -119,36 +119,88 @@ article{
 
   .main-content {
     margin-top: 30px;
+    .login-btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
   }
-
-  /* .login-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--gray);
-    padding: 30px;
-    border-radius: 12px;
-    z-index: 1000;
-    width: 400px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  
+  .login-btn:hover {
+      background-color: #218838;
   }
-
-  .login-modal input {
-    width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border: 1px solid var(--primary);
-    border-radius: 8px;
-    background: var(--light);
+  
+  /* Estilos del Modal */
+  .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed; /* Fijo */
+      z-index: 1; /* Encima de otros elementos */
+      left: 0;
+      top: 0;
+      width: 100%; /* Ancho completo */
+      height: 100%; /* Alto completo */
+      overflow: auto; /* Habilitar scroll si es necesario */
+      background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
   }
-
-  #loginForm {
-    display: flex;
-    flex-direction: column;
-  } */
-
+  
+  .modal-content {
+      background-color: white;
+      margin: 15% auto; /* 15% desde la parte superior y centrado */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px; /* Ancho del modal */
+      border-radius: 5px;
+  }
+  
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  .form-group {
+      margin-bottom: 15px;
+  }
+  
+  input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+  }
+  
+  button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+      background-color: #218838;
+  }
+  
+  .error {
+      color: red;
+      font-size: 0.9em;
+  }
+  
+  .message {
+      margin-top: 10px;
+      font-size: 1em;
+  }
   .filter-container {
     display: flex;
     gap: 20px;
