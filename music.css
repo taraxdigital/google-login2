@@ -82,12 +82,6 @@ article{
     display: flex;
     align-items: center;
   }
-/* 
-  .logo {
-    height: 50px;
-    margin-right: 20px;
-    fill: var(--primary);
-  } */
 
   .search-container {
     background: var(--gray);
@@ -116,19 +110,7 @@ article{
     height: 80px;
     transition: all 0.2s ease;
   }
-  /* .login-btn {
-    background: transparent;
-    
-    color: var(--light);
-    border: 1px solid var(--primary);
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  } */
+  
 
   .login-btn:hover {
     background: var(--primary);
@@ -139,7 +121,7 @@ article{
     margin-top: 30px;
   }
 
-  .login-modal {
+  /* .login-modal {
     display: none;
     position: fixed;
     top: 50%;
@@ -165,7 +147,7 @@ article{
   #loginForm {
     display: flex;
     flex-direction: column;
-  }
+  } */
 
   .filter-container {
     display: flex;
@@ -385,45 +367,3 @@ article{
   .material-icons{
     cursor:pointer;
   }
-  /* ////////// login/ */
-  
-
-
-/* .login-btn {
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-} */
-
-/* .login-btn:hover {
-    background:var(--color-primary);
-} */
-/* styles.css */
-/* styles.css */
-section {
-  text-align: center;
-  margin: 50px auto;
-  width: 80%;
-}
-
-.imagenes {
-  display: flex;
-  flex-wrap: wrap; /* Permite que las imágenes se envuelvan a la siguiente línea si no caben */
-  justify-content: center; /* Centra las imágenes horizontalmente */
-}
-
-.imagenes img {
-  width: 45%; /* Ajusta el ancho de las imágenes según tus necesidades */
-  margin: 10px; /* Añade un margen para separar las imágenes */
-}
-/* Para hacer que las imágenes se muestren una debajo de la otra en pantallas pequeñas */
-@media (max-width: 768px) {
-  .imagenes {
-      flex-direction: column;
-  }
-}

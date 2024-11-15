@@ -1,23 +1,67 @@
 const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
 const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
 const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
+const API_URL_CARPETAS = "http://localhost/google-login/prueba/carpetas.php";
 
 let accessToken = null;
 let customFolders = [];
+let listaTemas = [];
+let temasBuscados = []
 let currentTrackToMove = null;
 let player = null;
 
 function loadCustomFolders() {
-  const saved = localStorage.getItem("customFolders");
-  if (saved) {
-    customFolders = JSON.parse(saved);
-    customFolders.forEach((folder) => createCustomFolderElement(folder));
-  }
+  // cargar las carpetas desde la base de datos
+  fetch(`${API_URL_CARPETAS}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      folders = result;
+      if (folders) {
+        console.log(folders);
+        customFolders = folders.map((folder) => ({ ...folder, songs: [] }));
+        customFolders.forEach((folder) => createCustomFolderElement(folder));
+        loadCustomTemas()
+      }
+      if (!parseInt(result["id"])) {
+        erroresApi = Object.values(result["id"]);
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
 }
 
-function saveCustomFoldersToStorage() {
-  localStorage.setItem("customFolders", JSON.stringify(customFolders));
+function loadCustomTemas (){
+  fetch(`${API_URL_TEMAS}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      listaTemas = result;
+      if (listaTemas) {
+        //todo meter cada cancion en su carpeta
+        console.log('listaTemas',listaTemas)
+      }
+      if (!parseInt(result["id"])) {
+        erroresApi = Object.values(result["id"]);
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
 }
+
+// function saveCustomFoldersToStorage() {
+//   localStorage.setItem("customFolders", JSON.stringify(customFolders));
+// }
 
 async function getSpotifyToken() {
   try {
@@ -117,6 +161,7 @@ function showMoveModal(trackId) {
   const backdrop = document.getElementById("modalBackdrop");
   const folderList = document.getElementById("folderList");
   folderList.innerHTML = "";
+  console.log("customFolders", customFolders);
   customFolders.forEach((folder) => {
     const div = document.createElement("div");
     div.className = "folder-option";
@@ -149,12 +194,17 @@ function moveTrackToFolder(folderId) {
       const targetFolder = document.getElementById(`custom-folder-${folderId}`);
       targetFolder.appendChild(clonedSong);
       const moveButton = clonedSong.querySelector("button");
+      console.log("currentTrack", currentTrackToMove);
       moveButton.onclick = () => showMoveModal(currentTrackToMove);
-      saveCustomFoldersToStorage();
+      console.log('temasbuscados', temasBuscados)
+      const tema = temasBuscados.filter((item) => item.id_spotify == currentTrackToMove)
+      guardarDatosBd(tema);
+      
     }
     updateFolderCount(`custom-folder-${folderId}`);
   }
   closeMoveModal();
+
 }
 
 function createSongElement(track) {
@@ -192,28 +242,38 @@ async function getTrackAudioFeatures(trackId) {
 }
 
 function sortSongByBPM(track, bpm) {
-  guardarDatosBd(track, bpm);
+
+  temasBuscados.push[
+    {
+      id:0, titulo:track.name, artista:track.artists[0].name, id_spotify:track.id, preview_url:track.preview_url, tempo: bpm
+    }
+  ]
+  id_carpeta = 1;
   const songElement = createSongElement(track);
   if (bpm >= 85 && bpm < 105) {
     document.getElementById("folder-85-105").appendChild(songElement);
     updateFolderCount("folder-85-105");
   } else if (bpm >= 105 && bpm < 120) {
+    id_carpeta = 2;
     document.getElementById("folder-105-120").appendChild(songElement);
     updateFolderCount("folder-105-120");
   } else if (bpm >= 120 && bpm < 135) {
+    id_carpeta = 3;
     document.getElementById("folder-120-135").appendChild(songElement);
     updateFolderCount("folder-120-135");
   } else if (bpm >= 135 && bpm < 148) {
+    id_carpeta = 4;
     document.getElementById("folder-135-148").appendChild(songElement);
     updateFolderCount("folder-135-148");
   } else if (bpm >= 148) {
+    id_carpeta = 5;
     document.getElementById("folder-148-plus").appendChild(songElement);
     updateFolderCount("folder-148-plus");
   }
 }
 
-function guardarDatosBd(track, tempo) {
-  console.log("track", track);
+function guardarDatosBd(track) {
+  console.log("tema", track);
   const titulo = track.name;
   const artista = track.artists[0].name;
   const id_spotify = track.id;
@@ -224,7 +284,14 @@ function guardarDatosBd(track, tempo) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ titulo, artista, id_spotify, preview_url, tempo }),
+    body: JSON.stringify({
+      titulo,
+      artista,
+      id_spotify,
+      preview_url,
+      tempo,
+      id_carpeta,
+    }),
   })
     .then((response) => response.json())
     .then((result) => {
@@ -262,19 +329,60 @@ function saveCustomFolder() {
   const folderName = document.getElementById("folderNameInput").value;
   if (folderName.trim()) {
     const folder = {
-      id: Date.now(),
+      fecha: Date.now(),
       name: folderName,
       songs: [],
     };
-    customFolders.push(folder);
-    createCustomFolderElement(folder);
-    saveCustomFoldersToStorage();
-    closeModal();
-    document.getElementById("folderNameInput").value = "";
+
+    const name = folder.name;
+    const fecha = folder.fecha;
+
+    fetch(`${API_URL_CARPETAS}?metodo=nuevo`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, fecha }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        folder.id = result.id;
+        customFolders.push(folder);
+        createCustomFolderElement(folder);
+        //saveCustomFoldersToStorage();
+        closeModal();
+        document.getElementById("folderNameInput").value = "";
+        if (!parseInt(result["id"])) {
+          erroresApi = Object.values(result["id"]);
+        }
+      })
+      .catch((error) => {
+        console.log("Error: ", JSON.stringify(error));
+      });
   }
 }
 
+function eliminarCarpetabd(id) {
+  fetch(`${API_URL_CARPETAS}?metodo=eliminar&id=${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (!parseInt(result["id"])) {
+        erroresApi = Object.values(result["id"]);
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
+}
+
 function createCustomFolderElement(folder) {
+  console.log("folder de la base", folder);
   const div = document.createElement("div");
   div.className = "folder";
   div.id = `folder-container-${folder.id}`;
@@ -302,15 +410,18 @@ function toggleFolder(folderId) {
 }
 
 function deleteFolder(folderId) {
+  console.log("idCarpeta", folderId);
   if (confirm("¿Estás seguro de que quieres eliminar esta carpeta?")) {
     const folderElement = document.getElementById(
       `folder-container-${folderId}`
     );
     if (folderElement) {
       folderElement.remove();
+
+      eliminarCarpetabd(folderId);
     }
     customFolders = customFolders.filter((f) => f.id !== folderId);
-    saveCustomFoldersToStorage();
+    //saveCustomFoldersToStorage();
   }
 }
 
@@ -491,7 +602,7 @@ window.addEventListener("beforeunload", cleanupAudio);
 //
 
 // Asegúrate de llamar a esta función cuando la página se cargue
-window.addEventListener("load", loadCustomFolders);
+//window.addEventListener("load", loadCustomFolders);
 ////////////////////////////////////////////////////////////////login abajo  /////////////////////
 
 /////////////////////////////////////////////

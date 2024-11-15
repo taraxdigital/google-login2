@@ -17,29 +17,7 @@ include_once("vistas/header2.php");
 
 
   <div class="main-content">
-    <!-- /// -->
-     <!-- Modal de login (oculto por defecto) -->
-
-
-<!-- Nuevo contenido para la identificación de canciones y análisis de BPM -->
-<!-- <div class="audio-player">
-    <div class="song-info">
-        <div class="song-title">Nombre de la canción</div>
-        <div class="artist-name">Nombre del artista</div>
-    </div>
-    <div class="controls">
-        <button class="btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
-        <button class="btn" id="playBtn"><i class="fas fa-play"></i></button>
-        <button class="btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
-    </div>
-    <div class="progress-bar">
-        <div class="progress" id="progress"></div>
-    </div>
-    <button onclick="startListening()">Identificar Canción</button>
-    <div id="songInfo"></div>
-    <div id="resultadoBPM"></div>
-</div> -->
-     <!--  -->
+    
     <div class="header">
       <div class="header-left">
         <svg class="logo" viewBox="0 0 100 100">

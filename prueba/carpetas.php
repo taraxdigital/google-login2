@@ -1,11 +1,11 @@
 <?php
 
-require_once 'tema.php';
+require_once 'carpeta.php';
 require_once 'utilidades.php';
 
 header('Content-Type: application/json');
 
-$tema = new Tema();
+$carpeta = new Carpeta();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -18,26 +18,16 @@ $metodo = Utilidades::getParameterValue($parametros, 'metodo');
 
 switch($method){
     case 'GET':
-
-          $respuesta = getAllTemas($tema);
-
+        $respuesta = getAllCarpetas($carpeta);
         echo json_encode($respuesta);
         break;
     case 'POST':
       if($metodo == 'nuevo'){
-        setTema($tema);
-      }
-      if($metodo == 'actualizar'){
-        if($id){
-          updateTema($tema, $id);
-        }else{
-          http_response_code(400);
-          echo json_encode(['error' => 'ID no proporcionado']);
-        }
+        setCarpeta($carpeta);
       }
       if($metodo == 'eliminar'){
         if($id){
-          deleteTema($tema, $id);
+          deleteCarpeta($carpeta, $id);
         }else{
           http_response_code(400);
           echo json_encode(['error' => 'ID no proporcionado']);
@@ -50,14 +40,15 @@ switch($method){
   }
 
 
-  function getAllTemas($tema){
-    return $tema->getAll();
+  function getAllCarpetas($carpeta){
+    return $carpeta->getAll();
   }
 
-  function setTema($tema){
+
+  function setCarpeta($carpeta){
     $data = json_decode(file_get_contents('php://input'), true);
-    if(isset($data['titulo']) && isset($data['artista']) && isset($data['id_spotify']) && isset($data['preview_url']) && isset($data['tempo']) && isset($data['id_carpeta'])){
-      $id = $tema->create($data['titulo'], $data['artista'], $data['id_spotify'], $data['preview_url'], $data['tempo'], $data['id_carpeta']);
+    if( isset($data['name']) && isset($data['fecha'])){
+      $id = $carpeta->create($data['name'], $data['fecha']);
       echo json_encode(['id' => $id]);
     }else{
       echo json_encode(['Error' => 'Datos insuficientes']);
@@ -65,8 +56,8 @@ switch($method){
   }
 
 
-  function deleteTema($tema, $id)
+  function deleteCarpeta($carpeta, $id)
 {
-    $affected = $tema->delete($id);
+    $affected = $carpeta->delete($id);
     echo json_encode(['affected' => $affected]);
 }
