@@ -561,9 +561,47 @@ Verificación en dos pasos: Activa la autenticación de dos factores para agrega
 Uso de herramientas de seguridad: Instala antivirus, cortafuegos y otras herramientas de seguridad.</p>
 
     </section>
+    <section>
+    <div class="level-indicator">Era: <span id="levelDisplay">Antigua</span></div>
+  
+  <div class="game-container">    
+    <h1>🏛️ Historia Timeline - Viaje por el Tiempo</h1>
+    
+    <div class="progress-container">
+      <div class="level-badge" id="levelBadge">📚 Época Antigua</div>
+      <div class="progress-bar">
+        <div id="progress" class="progress" style="width: 0%"></div>
+      </div>
+    </div>
+    
+    <div class="timeline" id="timeline">
+      <div class="era-marker" style="top: 0">4000 AC</div>
+      <div class="era-marker" style="top: 25%">2000 AC</div>
+      <div class="era-marker" style="top: 50%">0</div>
+      <div class="era-marker" style="top: 75%">1000 DC</div>
+      <div class="era-marker" style="bottom: 0">2000 DC</div>
+    </div>
+    
+    <div class="challenge-box">
+      <div class="time-period" id="timePeriod">3000 AC - Antiguo Egipto</div>
+      <h3 id="challenge-title">Pregunta #1</h3>
+      <p id="challenge-description"></p>
+      <div class="historical-context" id="historicalContext"></div>
+      <div class="options-container" id="optionsContainer"></div>
+      <div class="result-feedback" id="resultFeedback"></div>
+    </div>
+
+    <div class="emoji-feedback" id="feedback">🤔</div>
+    <button class="btn" id="checkBtn">Verificar Respuesta</button>
+  </div>
+
+
+
+    </section>
     </div>
     </main>
     <script src="tecnologia.js"></script>
+    
     <?php
     
 include_once("vistas/footer.php");

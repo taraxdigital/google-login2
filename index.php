@@ -598,46 +598,9 @@ include_once("vistas/header2.php");
       </section>
      
       <!--  -->
-        <section class="formulario">
-        <div class="form-container">
-        <h2>Nuestros Servicios.</h2>
-        <form action="form-handler.php" method="POST">
-            <div class="form-group">
-                <label for="nombre">Nombre completo</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
-            </div>
-            <div class="form-group">
-                <label for="edad">Edad</label>
-                <input type="number" id="edad" name="edad" min="18" max="120" required>
-            </div>
-            <div class="form-group">
-                <label for="ocupacion">Servicios</label>
-                <select id="ocupacion" name="ocupacion" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="imagen">Imágenes</option>
-                    <option value="video">Videos</option>
-                    <option value="podcats">Podcats</option>
-                    <option value="otro">Otro</option>
-                </select>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="terminos" name="terminos" required>
-                <label for="terminos">Acepto los términos y condiciones</label>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-        </section>
+      
     </div>
-    </div>
+    
     <!-- </section>///////////
   
       -->

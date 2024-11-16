@@ -204,6 +204,7 @@ header {
 }
 
 .neon-image {
+  border-radius: 50%;
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 0 15px   #0127a3cc) 
@@ -1650,7 +1651,7 @@ li {
 }
 
 h2 {
-  font-family: merienda;
+  font-family: Playwrite;
   text-align: center;
   color: var(--color-secondary);
   font-size: 2.5em;
@@ -5312,3 +5313,204 @@ img {
 }
 
   /* ... */
+  .game-container {
+    max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* h1-game {
+  text-align: center;
+  color: #00fff2;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(0, 255, 242, 0.5);
+} */
+
+.level-indicator {
+  position:static;
+  top: 20px;
+  right: 20px;
+  background: #4a4ae6;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(74, 74, 230, 0.3);
+}
+
+.progress-container {
+  margin: 2rem 0;
+}
+
+.level-badge {
+  background: #4a4ae6;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  background: linear-gradient(90deg, #4a4ae6, #00fff2);
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 50px 0;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #4a4ae6;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px rgba(74, 74, 230, 0.5);
+}
+
+.era-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background:var(--color-primary) ;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.historical-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 2rem auto;
+  border: 4px solid #4a4ae6;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 30px rgba(74, 74, 230, 0.3);
+}
+
+.challenge-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.option-btn {
+  background: rgba(74, 74, 230, 0.2);
+  border: 2px solid #4a4ae6;
+  padding: 15px;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.option-btn:hover {
+  background: rgba(74, 74, 230, 0.4);
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(74, 74, 230, 0.3);
+}
+
+.option-btn.selected {
+  background: #4a4ae6;
+  color: white;
+  box-shadow: 0 0 25px rgba(74, 74, 230, 0.5);
+}
+
+.historical-context {
+  background: rgba(0, 255, 242, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  font-style: italic;
+  border-left: 4px solid #00fff2;
+  border-right: 4px solid #00fff2;
+}
+
+.time-period {
+  color:var(--color-primary) ;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+.btn {
+  background: #4a4ae6;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #5d5df7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(74, 74, 230, 0.4);
+}
+
+.emoji-feedback {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+  height: 50px;
+}
+
+.result-feedback {
+  background: rgba(74, 74, 230, 0.15);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  display: none;
+}
+
+.result-feedback.correct {
+  border-left: 4px solid #4CAF50;
+  display: block;
+}
+
+.result-feedback.incorrect {
+  border-left: 4px solid #f44336;
+  display: block;
+} 
