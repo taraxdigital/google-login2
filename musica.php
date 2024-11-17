@@ -333,7 +333,9 @@ Siglo XXI: La música electrónica se democratiza gracias a la tecnología, dand
     </div>
 <!--  -->
 <section>
+<h2>Artistas más reconocidos.</h2>
 <div class="category-section">
+
 <table>
   <thead>
     <tr>

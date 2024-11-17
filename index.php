@@ -364,6 +364,7 @@ include_once("vistas/header2.php");
 
         <section>
             <div class="containera">
+              
                 <h2>La Incorporación de la IA</h2>
 
                 <div class="stats">
@@ -484,7 +485,7 @@ include_once("vistas/header2.php");
             <div class="image-block">
                 <h3 class="block-title">Marketing DigitalA</h3>
 
-                <a href="https://vilmanunez.com/" target="_blank"><img class="puff-in-center" src="img/p4.jpg" alt="Texto alternativo" width="300" height="200"></a>
+                <a id="imagen-p4" href="https://vilmanunez.com/" target="_blank"><img class="puff-in-center" src="img/p4.jpg" alt="Texto alternativo" width="300" height="200"></a>
                 <img class="puff-in-center"   src="img/Leonardo_Lightning_XL_una_mujer_diseadora_Web_DoubleExposure_3.jpg" alt="Innovación que Impulsa el Futuro" width="300" height="200">
 
                 <p class="block-description">Análisis predictivo de tendencias y comportamiento del consumidor.</p>
@@ -492,7 +493,7 @@ include_once("vistas/header2.php");
             <div class="image-block">
                 <h3 class="block-title">Diseño y Funcionalidad </h3>
                 
-                <a href="https://www.youtube.com/@alejavirivera" target="_blank"><img class="roll-in-left" src="img/alejavi.jpg" alt="Texto alternativo" width="300" height="200"></a>
+                <a id="imagen-p4" href="https://www.youtube.com/@alejavirivera" target="_blank"><img class="roll-in-left" src="img/alejavi.jpg" alt="Texto alternativo" width="300" height="200"></a>
 
                 <img class="roll-in-left" src="img/cerebro.jpg" alt="Diseño y Funcionalidad sin Compromisos" width="300" height="200">
 
@@ -500,14 +501,14 @@ include_once("vistas/header2.php");
             </div>
             <div class="image-block">
                 <h3 class="block-title">Productividad eficaz.</h3>
-                <a href="https://seosve.com/" target="_blank"><img class="puff-in-center" src="img/noe.png" alt="Texto alternativo" width="300" height="200"></a>
+                <a id="imagen-p4" href="https://seosve.com/" target="_blank"><img class="puff-in-center" src="img/noe.png" alt="Texto alternativo" width="300" height="200"></a>
                 <img class="puff-in-center" src="img/tengrai_.png" alt="Tecnología para una Vida Inteligente">
 
                 <p class="block-description">Trabaja eficazmente y aprovecha los últimos recursos.</p>
             </div>
             <div class="image-block">
                 <h3 class="block-title">Marketing con IA y tecnología</h3>
-                <a href="https://www.youtube.com/@jasp" target="_blank"><img class="roll-in-left" src="img/raul.jpg" alt="Texto alternativo" width="300" height="200"></a>
+                <a id="imagen-p4" href="https://www.youtube.com/@jasp" target="_blank"><img class="roll-in-left" src="img/raul.jpg" alt="Texto alternativo" width="300" height="200"></a>
                 <img class="roll-in-left" src="img/MVL.png" alt="Tecnología para una Vida Inteligente" width="300" height="200">
 
                 <p class="block-description">Integración de marketing en tiempo real</p>
@@ -532,9 +533,9 @@ include_once("vistas/header2.php");
                 <h3>De la forma más efectiva posible</h3>
                 <ul>
                     <li>
-                        <p>✅Domina el mundo digital con nosotros.</p>
-                        <p>✅Expertos en Google Adwords: cada clic cuenta.</p>
-                        <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
+                        <p style="text-align: left;">✅Domina el mundo digital con nosotros.</p>
+                        <p style="text-align: left;">✅Expertos en Google Adwords: cada clic cuenta.</p>
+                        <p style="text-align: left;">✅Maestros en Analytics: entendemos a tu audiencia.</p>
                         <p>
                             ✅Guardianes de Search Console: tu sitio siempre arriba.
                         </p>

@@ -519,29 +519,15 @@ include_once("vistas/header2.php");
 </section>
 
                
-<section><div class="coze">
-        <h2 class="coze-title">Inteligencia artificial en las imágenes.</h2>
-        <ul>
-            <li>
-        <p class="coze-paragraph">¡Cómo la Inteligencia Artificial agiliza el trabajo con imágenes:!</p><br>
-        <p>✅  Realidad aumentada.</p><br>
-        <p>✅  Eliminación automática de fondos.</p><br>
-        <p>✅  Generación automática de descripciones.</p><br>
-        <p>✅  Mejora de la calidad de las imágenes.</p><br>
-        <p>✅  Creación de avatares.</p><br>
-        </li>
-        </ul>
-        
-        </div>
-    </section>
+ 
    
     <section id="seguridad">
         <h2>La Ciberseguridad: Un Escudo Esencial en el Mundo Digital
         Seguridad</h2>
 
-        <p>En la era digital, nuestros datos son uno de nuestros activos más valiosos. Desde información personal hasta datos empresariales confidenciales, todo se encuentra almacenado y transmitido a través de sistemas informáticos. Sin embargo, esta creciente dependencia de la tecnología también nos expone a una serie de riesgos, como los ciberataques. <br> Al tomar medidas preventivas y estar al tanto de las últimas amenazas, podemos proteger nuestros datos personales y profesionales y disfrutar de un entorno en línea más seguro.</p>
+        <p style="text-align: left;">En la era digital, nuestros datos son uno de nuestros activos más valiosos. Desde información personal hasta datos empresariales confidenciales, todo se encuentra almacenado y transmitido a través de sistemas informáticos. Sin embargo, esta creciente dependencia de la tecnología también nos expone a una serie de riesgos, como los ciberataques. <br> Al tomar medidas preventivas y estar al tanto de las últimas amenazas, podemos proteger nuestros datos personales y profesionales y disfrutar de un entorno en línea más seguro.</p>
         <img src="img/candado.jpg" alt="Ícono de candado">
-        <p>¿Por qué es importante la ciberseguridad?
+        <p style="text-align: left;" >¿Por qué es importante la ciberseguridad?
 
 Protección de datos personales: Evita el robo de identidad y el uso no autorizado de información privada.
 Seguridad empresarial: Garantiza la continuidad de las operaciones y protege la reputación de las empresas.
@@ -562,6 +548,11 @@ Uso de herramientas de seguridad: Instala antivirus, cortafuegos y otras herrami
 
     </section>
     <section>
+        <h2>Diseña tus propios juegos</h2>
+       
+        <p>Con Websim.ai</p>
+        <hr>
+
     <div class="level-indicator">Era: <span id="levelDisplay">Antigua</span></div>
   
   <div class="game-container">    
