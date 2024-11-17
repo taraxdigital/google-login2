@@ -535,7 +535,7 @@ include_once("vistas/header2.php");
                     <li>
                         <p style="text-align: left;">✅Domina el mundo digital con nosotros.</p>
                         <p style="text-align: left;">✅Expertos en Google Adwords: cada clic cuenta.</p>
-                        <p style="text-align: left;">✅Maestros en Analytics: entendemos a tu audiencia.</p>
+                        <p>✅Maestros en Analytics: entendemos a tu audiencia.</p>
                         <p>
                             ✅Guardianes de Search Console: tu sitio siempre arriba.
                         </p>
