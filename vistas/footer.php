@@ -23,7 +23,7 @@
                 <li><span>•</span></li>
                 <li><a href="#">Términos de los Servicios</a></li>
                 <li><span>•</span></li>
-                <li><a href="/privacy">Política de privacidad</a></li>
+                <li><a href="/privacy">Políticas de privacidad</a></li>
             </ul>
         </div>
         
