@@ -31,7 +31,7 @@ class Tema{
 
     public function delete($id){
       
-        $this->db->query("DELETE FROM tema WHERE id = ?", [$id[0]]);
+        $this->db->query("DELETE FROM tema WHERE id = ?", [$id]);
         return $this->db->query("SELECT ROW_COUNT() as affected")->fetch_assoc()['affected'];
     }
 }

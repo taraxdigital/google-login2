@@ -1,17 +1,19 @@
+//creo que estas claves eran para loguearse con google
 const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
 const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
+
 const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
 const API_URL_CARPETAS = "http://localhost/google-login/prueba/carpetas.php";
 
 let accessToken = null;
 let customFolders = [];
 let listaTemas = [];
-let temasBuscados = []
+let temasBuscados = [];
 let currentTrackToMove = null;
 let player = null;
 
 function loadCustomFolders() {
-  // cargar las carpetas desde la base de datos
+  // cargar las carpetas del usuario desde la base de datos
   fetch(`${API_URL_CARPETAS}`, {
     method: "GET",
     headers: {
@@ -25,10 +27,7 @@ function loadCustomFolders() {
         console.log(folders);
         customFolders = folders.map((folder) => ({ ...folder, songs: [] }));
         customFolders.forEach((folder) => createCustomFolderElement(folder));
-        loadCustomTemas()
-      }
-      if (!parseInt(result["id"])) {
-        erroresApi = Object.values(result["id"]);
+        loadCustomTemas();
       }
     })
     .catch((error) => {
@@ -36,7 +35,8 @@ function loadCustomFolders() {
     });
 }
 
-function loadCustomTemas (){
+//cargar las canciones del usuario desde la base de datos
+function loadCustomTemas() {
   fetch(`${API_URL_TEMAS}`, {
     method: "GET",
     headers: {
@@ -47,21 +47,15 @@ function loadCustomTemas (){
     .then((result) => {
       listaTemas = result;
       if (listaTemas) {
-        //todo meter cada cancion en su carpeta
-        console.log('listaTemas',listaTemas)
-      }
-      if (!parseInt(result["id"])) {
-        erroresApi = Object.values(result["id"]);
+        //meter cada cancion en su carpeta
+        console.log("listaTemas", listaTemas);
+        guardarTemaUsuario();
       }
     })
     .catch((error) => {
       console.log("Error: ", JSON.stringify(error));
     });
 }
-
-// function saveCustomFoldersToStorage() {
-//   localStorage.setItem("customFolders", JSON.stringify(customFolders));
-// }
 
 async function getSpotifyToken() {
   try {
@@ -151,8 +145,18 @@ async function searchSongs() {
 }
 
 function clearFolders() {
-  const folders = document.querySelectorAll(".song-list");
-  folders.forEach((folder) => (folder.innerHTML = ""));
+  //vaciar la lista de temas buscados
+  temasBuscados.length = 0;
+  const folders = document.querySelectorAll(".folder .song-list");
+  console.log("folders", folders);
+  folders.forEach((folder) => {
+    const folderId = folder.id;
+    if (!folderId.includes("custom")) {
+      updateFolderCount(folderId, true);
+      folder.innerHTML = "";
+    }
+  });
+  //actualizar el número de temas de cada folder
 }
 
 function showMoveModal(trackId) {
@@ -196,17 +200,206 @@ function moveTrackToFolder(folderId) {
       const moveButton = clonedSong.querySelector("button");
       console.log("currentTrack", currentTrackToMove);
       moveButton.onclick = () => showMoveModal(currentTrackToMove);
-      console.log('temasbuscados', temasBuscados)
-      const tema = temasBuscados.filter((item) => item.id_spotify == currentTrackToMove)
-      guardarDatosBd(tema);
-      
+
+      //guardar tema en bd
+      const tema = temasBuscados.filter(
+        (item) => item.id_spotify == currentTrackToMove
+      );
+      guardarDatosBd(tema[0], folderId);
     }
     updateFolderCount(`custom-folder-${folderId}`);
   }
   closeMoveModal();
-
 }
 
+function guardarTemaUsuario() {
+  //guarda cada tema del usuario en su carpeta correspondiente
+  customFolders.forEach((folder) => {
+    listaTemas.forEach((tema) => {
+      if (tema.id_carpeta === folder.id) {
+        folder.songs.push(tema);
+        mostrarTemaUsuario(tema);
+      }
+    });
+  });
+}
+///////////
+function mostrarTemaUsuario(track) {
+  console.log("temausuario", track);
+  const idCarpeta = "custom-folder-" + track.id_carpeta;
+  console.log("idCarpeta", idCarpeta);
+
+  const songElement = document.createElement("div");
+  songElement.className = "song-item";
+  songElement.setAttribute("data-track-id", track.id);
+
+  songElement.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+      <span>${track.titulo} - ${track.artista}</span>
+      <div>
+        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+          <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
+        </button>
+        <button onclick="event.stopPropagation(); showBPM('${track.tempo}')" style="margin-left: 10px;">
+          <span class="material-icons">info</span>
+          BPM
+        </button>
+        <button onclick="event.stopPropagation(); moveTrack('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">move_to_inbox</span>
+          Mover
+        </button>
+        <button onclick="event.stopPropagation(); deleteTrack('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">delete</span>
+          Eliminar
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById(idCarpeta).appendChild(songElement);
+  updateFolderCount(idCarpeta);
+}
+
+function togglePlayPause(trackId, previewUrl) {
+  if (currentlyPlayingTrackId === trackId) {
+    // Si la canción ya está sonando, pausamos
+    if (player) {
+      player.pause();
+      currentlyPlayingTrackId = null;
+      document.getElementById(`playPauseIcon-${trackId}`).innerText =
+        "play_arrow"; // Cambiar icono a play
+    }
+  } else {
+    // Si hay otra canción sonando, la pausamos
+    if (player) {
+      player.pause();
+      document.getElementById(
+        `playPauseIcon-${currentlyPlayingTrackId}`
+      ).innerText = "play_arrow"; // Cambiar icono de la canción anterior a play
+    }
+
+    // Reproducimos la nueva canción
+    player = new Audio(previewUrl);
+    player.play();
+    currentlyPlayingTrackId = trackId;
+    document.getElementById(`playPauseIcon-${trackId}`).innerText = "pause"; // Cambiar icono a pause
+  }
+}
+function moveTrack(trackId) {
+  // Lógica para mover la canción a otra carpeta
+  alert(`Mover la canción con ID: ${trackId}`);
+  // Aquí puedes agregar el código para mover la canción a otra carpeta.
+}
+
+// function deleteTrack(trackId) {
+
+//   const songElement = document.querySelector(`.song-item[data-track-id='${trackId}']`);
+//   if (songElement) {
+//     songElement.remove();
+//     alert(`Canción con ID: ${trackId} eliminada.`);
+//   }
+// }
+/////////
+
+///////////////
+
+async function deleteTrack(trackId) {
+
+  tema = listaTemas.find(tema => tema.id == trackId)
+  idCarpeta = tema.id_carpeta
+
+  try {
+    // Mostrar un diálogo de confirmación
+    const confirmar = confirm(
+      "¿Estás seguro de que deseas eliminar esta canción?"
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    // Realizar la petición DELETE al servidor
+    const response = await fetch(
+      `${API_URL_TEMAS}?metodo=eliminar&id=${trackId}`,
+      {
+        method: "POST",
+      }
+    );
+    // Si la eliminación en el servidor fue exitosa, eliminar de la UI
+    const songElement = document.querySelector(
+      `.song-item[data-track-id='${trackId}']`
+    );
+    if (songElement) {
+      // Si la canción estaba reproduciéndose, detenerla
+      if (currentlyPlayingTrackId === trackId && player) {
+        player.pause();
+        currentlyPlayingTrackId = null;
+      }
+
+      // Eliminar el elemento del DOM
+      songElement.remove();
+
+      // Actualizar el contador de la carpeta
+      const folderId = songElement.closest(`[id="custom-folder-${idCarpeta}"]`);
+      updateFolderCount(folderId);
+
+      // Mostrar mensaje de éxito
+      mostrarNotificacion("Canción eliminada correctamente", "success");
+    }
+  } catch (error) {
+    console.error("Error al eliminar la canción:", error);
+    mostrarNotificacion("Error al eliminar la canción", "error");
+  }
+}
+
+function moveTrack(trackId) {
+  // Implementar lógica para mover la canción
+  alert(`Mover la canción con ID: ${trackId}`);
+}
+
+function showBPM(bpm) {
+  alert(`El BPM de esta canción es: ${bpm}`);
+}
+
+// Función auxiliar para mostrar notificaciones
+function mostrarNotificacion(mensaje, tipo) {
+  // Implementar según el sistema de notificaciones que uses
+  // Por ejemplo, podrías usar una librería como toastr o una implementación propia
+  if (tipo === "error") {
+    alert("Error: " + mensaje);
+  } else {
+    alert(mensaje);
+  }
+}
+
+function showBPM(bpm) {
+  alert(`El BPM de esta canción es: ${bpm}`);
+}
+// function mostrarTemaUsuario(track){
+//   console.log('temausuario', track)
+//   const idCarpeta = 'custom-folder-' + track.id_carpeta;
+//   console.log('idCarpeta',idCarpeta)
+//   const songElement = document.createElement("div");
+//   songElement.className = "song-item";
+//   songElement.setAttribute("data-track-id", track.id);
+//   songElement.innerHTML = `
+//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+//       <span>${track.titulo} - ${track.artista}</span>
+//       <div>
+//         <button onclick="event.stopPropagation(); playTrack('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+//           <span class="material-icons playPause">play_arrow</span>
+//         </button>
+//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+//           <span class="material-icons">play_arrow</span>
+//           Mover
+//         </button>
+//       </div>
+//     </div>
+//   `;
+//   document.getElementById(idCarpeta).appendChild(songElement);
+//   updateFolderCount(idCarpeta);
+
+// }
 function createSongElement(track) {
   const div = document.createElement("div");
   div.className = "song-item";
@@ -215,19 +408,43 @@ function createSongElement(track) {
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
       <span>${track.name} - ${track.artists[0].name}</span>
       <div>
-        <button onclick="event.stopPropagation(); playTrack('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
-          <span class="material-icons">play_arrow</span>
+        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+          <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
         </button>
-        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-          <span class="material-icons">play_arrow</span>
-          Mover
+        <button onclick="event.stopPropagation(); showBPM('${track.tempo}')" style="margin-left: 10px;">
+          <span class="material-icons">info</span>
+          BPM
         </button>
+          <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+        <span class="material-icons">drive_file_move</span>
+         Mover
+       </button>
       </div>
     </div>
   `;
-
   return div;
 }
+// function createSongElement(track) {
+//   const div = document.createElement("div");
+//   div.className = "song-item";
+//   div.setAttribute("data-track-id", track.id);
+//   div.innerHTML = `
+//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+//       <span>${track.name} - ${track.artists[0].name}</span>
+//       <div>
+//         <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+//           <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
+//         </button>
+//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+//           <span class="material-icons">drive_file_move</span>
+//           Mover
+//         </button>
+//       </div>
+//     </div>
+//   `;
+
+//   return div;
+// }
 
 async function getTrackAudioFeatures(trackId) {
   const response = await fetch(
@@ -242,12 +459,15 @@ async function getTrackAudioFeatures(trackId) {
 }
 
 function sortSongByBPM(track, bpm) {
+  temasBuscados.push({
+    id: 0,
+    titulo: track.name,
+    artista: track.artists[0].name,
+    id_spotify: track.id,
+    preview_url: track.preview_url,
+    tempo: bpm,
+  });
 
-  temasBuscados.push[
-    {
-      id:0, titulo:track.name, artista:track.artists[0].name, id_spotify:track.id, preview_url:track.preview_url, tempo: bpm
-    }
-  ]
   id_carpeta = 1;
   const songElement = createSongElement(track);
   if (bpm >= 85 && bpm < 105) {
@@ -272,44 +492,56 @@ function sortSongByBPM(track, bpm) {
   }
 }
 
-function guardarDatosBd(track) {
-  console.log("tema", track);
-  const titulo = track.name;
-  const artista = track.artists[0].name;
-  const id_spotify = track.id;
-  const preview_url = track.preview_url;
-
+// guardar temas en bd
+function guardarDatosBd(track, id_carpeta) {
   fetch(`${API_URL_TEMAS}?metodo=nuevo`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      titulo,
-      artista,
-      id_spotify,
-      preview_url,
-      tempo,
+      titulo: track.titulo,
+      artista: track.artista,
+      id_spotify: track.id_spotify,
+      preview_url: track.preview_url,
+      tempo: track.tempo,
       id_carpeta,
     }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      // Primero vemos la respuesta completa como texto
+      return response.text().then((text) => {
+        console.log("Respuesta del servidor:", text);
+        // Si la respuesta no es OK, lanzamos un error
+        if (!response.ok) {
+          throw new Error(`Error HTTP ${response.status}: ${text}`);
+        }
+        // Si llegamos aquí, intentamos parsear como JSON
+        try {
+          return JSON.parse(text);
+        } catch (e) {
+          throw new Error(`Error al parsear JSON: ${text}`);
+        }
+      });
+    })
     .then((result) => {
-      console.log(result);
-      if (!parseInt(result["id"])) {
-        erroresApi = Object.values(result["id"]);
-      }
+      track.id = result.id;
     })
     .catch((error) => {
-      console.log("Error: ", JSON.stringify(error));
+      console.error("Error completo:", error);
+      console.error("Mensaje:", error.message);
     });
 }
 
-function updateFolderCount(id) {
+function updateFolderCount(id, resetear = false) {
   const songList = document.getElementById(id);
   const songCount = songList.closest(".folder").querySelector(".song-count");
   let contador = parseInt(songCount.textContent);
-  contador = contador + 1;
+  if (resetear) {
+    contador = 0;
+  } else {
+    contador = contador + 1;
+  }
   songCount.textContent = contador + " songs";
 }
 
@@ -327,16 +559,18 @@ function closeModal() {
 
 function saveCustomFolder() {
   const folderName = document.getElementById("folderNameInput").value;
+  const fecha = new Date(Date.now());
+  const fechaFormateada = fecha.toISOString().slice(0, 10);
   if (folderName.trim()) {
     const folder = {
-      fecha: Date.now(),
+      fecha: fechaFormateada,
       name: folderName,
       songs: [],
     };
 
     const name = folder.name;
     const fecha = folder.fecha;
-
+    console.log(folder);
     fetch(`${API_URL_CARPETAS}?metodo=nuevo`, {
       method: "POST",
       headers: {
@@ -349,7 +583,6 @@ function saveCustomFolder() {
         folder.id = result.id;
         customFolders.push(folder);
         createCustomFolderElement(folder);
-        //saveCustomFoldersToStorage();
         closeModal();
         document.getElementById("folderNameInput").value = "";
         if (!parseInt(result["id"])) {
@@ -382,7 +615,6 @@ function eliminarCarpetabd(id) {
 }
 
 function createCustomFolderElement(folder) {
-  console.log("folder de la base", folder);
   const div = document.createElement("div");
   div.className = "folder";
   div.id = `folder-container-${folder.id}`;
@@ -424,6 +656,7 @@ function deleteFolder(folderId) {
     //saveCustomFoldersToStorage();
   }
 }
+///////////////////////////////login abajo
 
 let isLoggedIn = false;
 let currentUser = null;
@@ -476,18 +709,6 @@ function handleLogout() {
   localStorage.removeItem("user");
 }
 
-function playTrack(trackId, previewUrl) {
-  if (player) {
-    player.pause();
-  }
-  if (previewUrl) {
-    player = new Audio(previewUrl);
-    player.play();
-  } else {
-    alert("Lo siento, no hay una vista previa disponible para esta canción.");
-  }
-}
-
 window.onload = async () => {
   await getSpotifyToken();
   loadCustomFolders();
@@ -527,26 +748,27 @@ document
 let play = null;
 let currentlyPlayingTrackId = null;
 
-function createSongElement(track) {
-  const div = document.createElement("div");
-  div.className = "song-item";
-  div.setAttribute("data-track-id", track.id);
-  div.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-      <span>${track.name} - ${track.artists[0].name}</span>
-      <div>
-        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
-          <span class="material-icons" id="playPauseIcon-${track.id}">play_arrow</span>
-        </button>
-        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-          <span class="material-icons">drive_file_move</span>
-          Mover
-        </button>
-      </div>
-    </div>
-  `;
-  return div;
-}
+//Está duplicada la función
+// function createSongElement(track) {
+//   const div = document.createElement("div");
+//   div.className = "song-item";
+//   div.setAttribute("data-track-id", track.id);
+//   div.innerHTML = `
+//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+//       <span>${track.name} - ${track.artists[0].name}</span>
+//       <div>
+//         <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+//           <span class="material-icons" id="playPauseIcon-${track.id}">play_arrow</span>
+//         </button>
+//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+//           <span class="material-icons">drive_file_move</span>
+//           Mover
+//         </button>
+//       </div>
+//     </div>
+//   `;
+//   return div;
+// }
 
 function togglePlayPause(trackId, previewUrl) {
   if (currentlyPlayingTrackId === trackId && player && !player.paused) {
@@ -555,6 +777,7 @@ function togglePlayPause(trackId, previewUrl) {
     playTrack(trackId, previewUrl);
   }
 }
+///////////////////////////funcion playTrack
 
 function playTrack(trackId, previewUrl) {
   if (player) {
@@ -579,6 +802,10 @@ function pauseTrack() {
 }
 
 function updatePlayPauseIcon(trackId, isPlaying) {
+  const iconos = document.querySelectorAll(".material-icons.playPause");
+  iconos.forEach((icono) => {
+    icono.textContent = "play_arrow";
+  });
   const icon = document.getElementById(`playPauseIcon-${trackId}`);
   if (icon) {
     icon.textContent = isPlaying ? "pause" : "play_arrow";
@@ -746,63 +973,222 @@ function openModal(src) {
 
 // boton login abajo-//////////////
 function showLoginModal() {
-  document.getElementById('loginModal').style.display = 'block';
+  document.getElementById("loginModal").style.display = "block";
 }
 
 function closeLoginModal() {
-  document.getElementById('loginModal').style.display = 'none';
+  document.getElementById("loginModal").style.display = "none";
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const message = document.getElementById("message");
+
+    // Limpiar mensajes de error
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    message.textContent = "";
+
+    // Validar formato de email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      emailError.textContent = "Formato de email no válido.";
+      return;
+    }
+
+    // Enviar datos al servidor
+    fetch("login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          message.textContent = "Login exitoso. Redirigiendo...";
+          // Redirigir a otra página o hacer algo más
+          setTimeout(() => {
+            window.location.href = "dashboard.html"; // Cambia a tu página de destino
+          }, 2000);
+        } else {
+          message.textContent = data.message;
+        }
+      })
+      .catch((error) => {
+        message.textContent = "Error en la conexión.";
+      });
+  });
+
+// Cerrar el modal al hacer clic fuera de él
+window.onclick = function (event) {
+  const modal = document.getElementById("loginModal");
+  if (event.target === modal) {
+    closeLoginModal();
+  }
+};
+////////////////////////////login nuevo de claude dia lunes 18 noviembre- abajo//////////
+function openModal() {
+  document.getElementById('loginModal').style.display = 'flex';
+  showLogin(); // Por defecto muestra login
+}
+
+function closeModal() {
+  document.getElementById('loginModal').style.display = 'none';
+  limpiarFormularios();
+}
+
+function limpiarFormularios() {
+  document.getElementById('errorContainer').textContent = '';
+  document.querySelectorAll('input').forEach(input => input.value = '');
+}
+
+// Funciones para cambiar entre formularios
+function showLogin() {
+  document.getElementById('loginForm').style.display = 'block';
+  document.getElementById('registroForm').style.display = 'none';
+  document.getElementById('recuperacionForm').style.display = 'none';
+}
+
+function showRegistro() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('registroForm').style.display = 'block';
+  document.getElementById('recuperacionForm').style.display = 'none';
+}
+
+function showRecuperacion() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('registroForm').style.display = 'none';
+  document.getElementById('recuperacionForm').style.display = 'block';
+}
+
+// Validaciones
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+function validatePassword(password) {
+  return password.length >= 8;
+}
+
+function mostrarError(mensaje) {
+  const errorContainer = document.getElementById('errorContainer');
+  errorContainer.textContent = mensaje;
+}
+
+// Funciones de autenticación
+async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const emailError = document.getElementById('emailError');
-  const passwordError = document.getElementById('passwordError');
-  const message = document.getElementById('message');
 
-  // Limpiar mensajes de error
-  emailError.textContent = '';
-  passwordError.textContent = '';
-  message.textContent = '';
-
-  // Validar formato de email
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-      emailError.textContent = 'Formato de email no válido.';
+  if (!validateEmail(email)) {
+      mostrarError('Email inválido');
       return;
   }
 
-  // Enviar datos al servidor
-  fetch('login.php', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.success) {
-          message.textContent = 'Login exitoso. Redirigiendo...';
-          // Redirigir a otra página o hacer algo más
-          setTimeout(() => {
-              window.location.href = 'dashboard.html'; // Cambia a tu página de destino
-          }, 2000);
-      } else {
-          message.textContent = data.message;
-      }
-  })
-  .catch(error => {
-      message.textContent = 'Error en la conexión.';
-  });
-});
-
-// Cerrar el modal al hacer clic fuera de él
-window.onclick = function(event) {
-  const modal = document.getElementById('loginModal');
-  if (event.target === modal) {
-      closeLoginModal();
+  if (!validatePassword(password)) {
+      mostrarError('Contraseña debe tener al menos 8 caracteres');
+      return;
   }
-};
+
+  try {
+      const response = await fetch('login.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+          // Redirigir o actualizar interfaz
+          window.location.href = 'dashboard.php';
+      } else {
+          mostrarError(data.message);
+      }
+  } catch (error) {
+      mostrarError('Error de conexión');
+  }
+}
+
+async function registro() {
+  const nombre = document.getElementById('registroNombre').value;
+  const email = document.getElementById('registroEmail').value;
+  const password = document.getElementById('registroPassword').value;
+
+  if (nombre.trim() === '') {
+      mostrarError('Nombre es requerido');
+      return;
+  }
+
+  if (!validateEmail(email)) {
+      mostrarError('Email inválido');
+      return;
+  }
+
+  if (!validatePassword(password)) {
+      mostrarError('Contraseña debe tener al menos 8 caracteres');
+      return;
+  }
+
+  try {
+      const response = await fetch('registro.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ nombre, email, password })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+          mostrarError('Registro exitoso. Inicia sesión.');
+          showLogin();
+      } else {
+          mostrarError(data.message);
+      }
+  } catch (error) {
+      mostrarError('Error de conexión');
+  }
+}
+
+async function recuperarContrasena() {
+  const email = document.getElementById('recuperacionEmail').value;
+
+  if (!validateEmail(email)) {
+      mostrarError('Email inválido');
+      return;
+  }
+
+  try {
+      const response = await fetch('recuperar.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+          mostrarError('Se ha enviado un enlace de recuperación a tu correo');
+      } else {
+          mostrarError(data.message);
+      }
+  } catch (error) {
+      mostrarError('Error de conexión');
+  }
+}

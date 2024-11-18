@@ -106,7 +106,7 @@ article{
     gap: 8px;
     font-size: 18px;
     padding: 0;
-    width:150px; /* establece un tamaño fijo para el botón */
+    width:150px;
     height: 80px;
     transition: all 0.2s ease;
   }
@@ -116,22 +116,19 @@ article{
     background: var(--primary);
     border-color: var(--primary);
   }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888
+  }
 
   .main-content {
     margin-top: 30px;
-    .login-btn {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+
   }
-  
-  .login-btn:hover {
-      background-color: #218838;
-  }
-  
+
+
   /* Estilos del Modal */
   .modal {
       display: none; /* Oculto por defecto */
@@ -332,7 +329,6 @@ article{
 
 
   .custom-folder-modal {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -345,8 +341,11 @@ article{
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   }
 
-  .modal-backdrop {
+  #customFolderModal {
     display: none;
+  }
+
+  .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -354,6 +353,10 @@ article{
     height: 100%;
     background: rgba(0,0,0,0.5);
     z-index: 999;
+  }
+
+  #modalBackdrop {
+    display: none;
   }
 
   .move-song-modal {
@@ -419,3 +422,47 @@ article{
   .material-icons{
     cursor:pointer;
   }
+
+  /* Contenedor de la canción */
+.song-item {
+  background-color: #f9f9f9; /* Color de fondo claro */
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 5px; /* Bordes redondeados */
+  margin: 10px 0; /* Espaciado vertical entre canciones */
+  padding: 10px; /* Espaciado interno */
+  display: flex; /* Usar flexbox para alinear elementos */
+  justify-content: space-between; /* Espaciado entre título y botones */
+  align-items: center; /* Centrar verticalmente */
+}
+
+
+
+/* Estilo para el texto del título y artista */
+.song-item span {
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para los botones */
+.song-item button {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 8px 12px; /* Espaciado interno */
+  margin-left: 5px; /* Espaciado entre botones */
+  cursor: pointer; /* Cambiar cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el mouse */
+.song-item button:hover {
+  background-color: #45a049; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo para los iconos dentro de los botones */
+.material-icons {
+  vertical-align: middle; /* Alinear iconos con el texto */
+}
+
+

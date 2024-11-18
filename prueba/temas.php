@@ -27,14 +27,6 @@ switch($method){
       if($metodo == 'nuevo'){
         setTema($tema);
       }
-      if($metodo == 'actualizar'){
-        if($id){
-          updateTema($tema, $id);
-        }else{
-          http_response_code(400);
-          echo json_encode(['error' => 'ID no proporcionado']);
-        }
-      }
       if($metodo == 'eliminar'){
         if($id){
           deleteTema($tema, $id);
@@ -67,6 +59,7 @@ switch($method){
 
   function deleteTema($tema, $id)
 {
-    $affected = $tema->delete($id);
+    $idString = strval($id);
+    $affected = $tema->delete($idString);
     echo json_encode(['affected' => $affected]);
 }

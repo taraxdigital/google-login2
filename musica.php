@@ -9,31 +9,108 @@ include_once("vistas/header2.php");
 ?>
 <link rel="stylesheet" href="music.css">
 <div class="container">
-<button id="loginBtn" class="login-btn" onclick="showLoginModal()">
+<button id="loginBtn" class="login-btn" onclick="openModal()">
         ⚙️ Login
     </button>
 
-    <!-- Modal -->
+    <!-- Modal de Login -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            
+            <div id="errorContainer" class="error-message"></div>
+
+            <div id="loginForm">
+                <h2>Iniciar Sesión</h2>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
-                    <span class="error" id="emailError"></span>
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="tu-email@ejemplo.com"
+                        required
+                    >
                 </div>
                 <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" required>
-                    <span class="error" id="passwordError"></span>
+                    <label for="password">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Contraseña"
+                        required
+                    >
                 </div>
-                <button type="submit">Iniciar Sesión</button>
-                <div class="message" id="message"></div>
-            </form>
+                <button class="login-submit" onclick="login()">Iniciar Sesión</button>
+                
+                <div class="switch-form">
+                    <a href="#" onclick="showRegistro()">¿No tienes cuenta? Regístrate</a>
+                    <br>
+                    <a href="#" onclick="showRecuperacion()">Olvidé mi contraseña</a>
+                </div>
+            </div>
+
+            <div id="registroForm" style="display:none;">
+                <h2>Registro</h2>
+                <div class="form-group">
+                    <label for="registroNombre">Nombre</label>
+                    <input 
+                        type="text" 
+                        id="registroNombre" 
+                        name="registroNombre" 
+                        placeholder="Tu nombre"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="registroEmail">Email</label>
+                    <input 
+                        type="email" 
+                        id="registroEmail" 
+                        name="registroEmail" 
+                        placeholder="tu-email@ejemplo.com"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="registroPassword">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="registroPassword" 
+                        name="registroPassword" 
+                        placeholder="Contraseña"
+                        required
+                    >
+                </div>
+                <button class="login-submit" onclick="registro()">Registrarse</button>
+                
+                <div class="switch-form">
+                    <a href="#" onclick="showLogin()">¿Ya tienes cuenta? Iniciar Sesión</a>
+                </div>
+            </div>
+
+            <div id="recuperacionForm" style="display:none;">
+                <h2>Recuperar Contraseña</h2>
+                <div class="form-group">
+                    <label for="recuperacionEmail">Email</label>
+                    <input 
+                        type="email" 
+                        id="recuperacionEmail" 
+                        name="recuperacionEmail" 
+                        placeholder="tu-email@ejemplo.com"
+                        required
+                    >
+                </div>
+                <button class="login-submit" onclick="recuperarContrasena()">Recuperar Contraseña</button>
+                
+                <div class="switch-form">
+                    <a href="#" onclick="showLogin()">Volver a Iniciar Sesión</a>
+                </div>
+            </div>
         </div>
     </div>
+    
 
 
 
