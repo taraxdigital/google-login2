@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><span>•</span></li>
-                <li><a href="politica-de-cookies.html" target="_blank">Política de Cookies</a></li>
+                <li><a href="politica-de-cookies.php" target="_blank">Política de Cookies</a></li>
                 <li><span>•</span></li>
                 <li><a href="#">Servicios</a></li>
                 <li><span>•</span></li>

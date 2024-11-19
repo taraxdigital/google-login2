@@ -1,3 +1,12 @@
+<?php
+include_once 'config.php';
+include_once("vistas/header.php");
+
+include_once("vistas/header2.php");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

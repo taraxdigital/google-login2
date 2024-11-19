@@ -128,6 +128,7 @@ header {
   height: 100%;
   z-index: -1;
 }
+
 /* main{
   position: relative;
   min-height: 100vh;
@@ -151,6 +152,7 @@ header {
     background-position: 0% 50%;
   }
 }
+
 /* main ::before{
   content: "";
   position: absolute;
@@ -3703,6 +3705,7 @@ progress {
 }
 
 .carousel-item {
+  
   min-width: 100%;
   padding: 0 10px;
 }

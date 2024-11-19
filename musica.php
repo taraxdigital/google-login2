@@ -14,14 +14,15 @@ include_once("vistas/header2.php");
     </button>
 
     <!-- Modal de Login -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div id="loginModal" class="modalLogin">
+        <div class="modal-content-login">
+            <span class="modal-close-login" onclick="closeModal()">&times;</span>
             
-            <div id="errorContainer" class="error-message"></div>
+            <div id="emailError" class="error-message"></div>
+            <div id="message" class="error-message"></div>
 
-            <div id="loginForm">
-                <h2>Iniciar Sesión</h2>
+            <form id="loginForm" onsubmit="login(event)">
+                <h2 class="btn-login">Iniciar Sesión</h2>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input 
@@ -41,18 +42,19 @@ include_once("vistas/header2.php");
                         placeholder="Contraseña"
                         required
                     >
+                    <div id="passwordError" class="error-message"></div>
                 </div>
-                <button class="login-submit" onclick="login()">Iniciar Sesión</button>
+                <button type="submit" class="login-submit">Iniciar Sesión</button>
                 
                 <div class="switch-form">
                     <a href="#" onclick="showRegistro()">¿No tienes cuenta? Regístrate</a>
                     <br>
                     <a href="#" onclick="showRecuperacion()">Olvidé mi contraseña</a>
                 </div>
-            </div>
+            </form>
 
             <div id="registroForm" style="display:none;">
-                <h2>Registro</h2>
+                <h2 class="btn-login">Registro</h2>
                 <div class="form-group">
                     <label for="registroNombre">Nombre</label>
                     <input 
@@ -91,7 +93,7 @@ include_once("vistas/header2.php");
             </div>
 
             <div id="recuperacionForm" style="display:none;">
-                <h2>Recuperar Contraseña</h2>
+                <h2 class="btn-login" >Recuperar Contraseña</h2>
                 <div class="form-group">
                     <label for="recuperacionEmail">Email</label>
                     <input 

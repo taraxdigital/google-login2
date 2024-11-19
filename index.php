@@ -8,10 +8,11 @@ include_once("vistas/header2.php");
 <canvas id="particleCanvas"></canvas>
 <main>
     <!-- Contenido principal -->
-    <div class="container">
+   
 
  
 <!-- nuevo inicio -->
+ 
 <div style="background: linear-gradient(135deg, #1a0f2e, #2d3748, #1e3a8a); padding: 3rem 0; text-align: center; position: relative; overflow: hidden;">
     <!-- Efecto de partículas digitales en el fondo -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle, #ffffff 1px, transparent 2px); background-size: 20px 20px;"></div>
@@ -33,7 +34,7 @@ include_once("vistas/header2.php");
     
     </div>
 </div>
-
+<div class="container">
      
         <section class="primero">
         <audio controls>
@@ -238,7 +239,7 @@ include_once("vistas/header2.php");
     <div class="description">
         <h2>Midudev.</h2>
         <p>Aprende a diseñar tu web</p>
-        <input type="button" value=" Desarrollador">
+        <a href="https://www.youtube.com/@midudev" target="_blank"><input type="button" value="DESARROLLADOR"></a>
     </div>
 </div>
 
@@ -250,7 +251,7 @@ include_once("vistas/header2.php");
     <div class="description">
         <h2>Ruva.</h2>
         <p>Ponla bonita.</p>
-        <input type="button" value="Diseño gráfico">
+        <a href="https://www.youtube.com/@ruvadg" target="_blank"><input type="button" value="DISEÑO GRÁFICO"></a>
     </div>
 </div>
 
@@ -262,7 +263,7 @@ include_once("vistas/header2.php");
     <div class="description">
         <h2>Romu.</h2>
         <p>Posiciónala.</p>
-        <input type="button" value="Seo">
+        <a href="https://www.youtube.com/@RomualdFonsTV" target="_blank"><input type="button" value="SEO"></a>
     </div>
 </div>
 
