@@ -64,6 +64,7 @@ include_once("vistas/header2.php");
                         <p>Descubre los nuevos avances en inteligencia artificial.</p>
                     </div>
                 </div>
+               
                 </div>
         </section>
         <section id="testimonios" class="testimonials">
@@ -114,6 +115,7 @@ include_once("vistas/header2.php");
         </p>
     </div>
     <section class="carousel-section">
+   
     <div class="carousel">
         <div class="carousel-inner">
             <div class="carousel-item ">
@@ -132,11 +134,13 @@ include_once("vistas/header2.php");
                 <img src="img/herramienta.jpg" alt="Imagen 6" />
             </div>
         </div>
+       
         <button class="carousel-button prev">&lt;</button>
           <button class="carousel-button next">&gt;</button>
         </div>
       </section>
     <h2>Incorporación digital en el día a día.</h2>
+   
     <div class="contaC">
     <div class="columns-container">
         <div class="column">
@@ -159,7 +163,7 @@ include_once("vistas/header2.php");
                  Se espera que la medicina personalizada crezca un 25% en los próximos 5 años.</p>
         </div>
     </div>
-    
+  
 </div>
 
         <!-- Sección de Prezi -->
@@ -226,7 +230,8 @@ include_once("vistas/header2.php");
 <!--  -->
 <div class="vitamina">
 <h2>Gente Vitamina</h2>
-<p class="vtmn">Te ayudan a crecer.</p>
+<!-- <p class="vtmn">Te ayudan a crecer.</p> -->
+<h3 class="texto-efecto">Te ayudan a crecer.</h3>
 </div>
 <div class="container__cards">
 
@@ -517,8 +522,10 @@ include_once("vistas/header2.php");
         </section>
         <section id="home" class="hero">
             <h2>Conquista el Mundo Digital</h2>
+           
 
             <p>Descubre. Investiga. Aprende.</p>
+           
         </section>
 
         <section id="trending">

@@ -5533,3 +5533,15 @@ p{
   text-align: center;
   margin: 2rem auto;
 }
+.texto-efecto {
+  background-image: linear-gradient(to right, #feeb1cfc, #ff99cc, #c30865);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}

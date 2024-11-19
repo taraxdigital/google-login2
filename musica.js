@@ -658,92 +658,92 @@ function deleteFolder(folderId) {
 }
 ///////////////////////////////login abajo
 
-let isLoggedIn = false;
-let currentUser = null;
+// let isLoggedIn = false;
+// let currentUser = null;
 
-function showLoginModal() {
-  document.getElementById("loginModal").style.display = "block";
-  document.getElementById("modalBackdrop").style.display = "block";
-}
+// function showLoginModal() {
+//   document.getElementById("loginModal").style.display = "block";
+//   document.getElementById("modalBackdrop").style.display = "block";
+// }
 
-function closeLoginModal() {
-  document.getElementById("loginModal").style.display = "none";
-  document.getElementById("modalBackdrop").style.display = "none";
-  document.getElementById("loginForm").reset();
-}
+// function closeLoginModal() {
+//   document.getElementById("loginModal").style.display = "none";
+//   document.getElementById("modalBackdrop").style.display = "none";
+//   document.getElementById("loginForm").reset();
+// }
 
-async function handleLogin(event) {
-  event.preventDefault();
-  const email = document.getElementById("emailInput").value;
-  const password = document.getElementById("passwordInput").value;
-  try {
-    const user = {
-      email: email,
-      name: email.split("@")[0],
-    };
-    isLoggedIn = true;
-    currentUser = user;
-    const loginBtn = document.getElementById("loginBtn");
-    loginBtn.innerHTML = `
-      <span class="material-icons">account_circle</span>
-      ${user.name}
-    `;
-    loginBtn.onclick = handleLogout;
-    closeLoginModal();
-    localStorage.setItem("user", JSON.stringify(user));
-  } catch (error) {
-    console.error("Login error:", error);
-    alert("Error logging in. Please try again.");
-  }
-}
+// async function handleLogin(event) {
+//   event.preventDefault();
+//   const email = document.getElementById("emailInput").value;
+//   const password = document.getElementById("passwordInput").value;
+//   try {
+//     const user = {
+//       email: email,
+//       name: email.split("@")[0],
+//     };
+//     isLoggedIn = true;
+//     currentUser = user;
+//     const loginBtn = document.getElementById("loginBtn");
+//     loginBtn.innerHTML = `
+//       <span class="material-icons">account_circle</span>
+//       ${user.name}
+//     `;
+//     loginBtn.onclick = handleLogout;
+//     closeLoginModal();
+//     localStorage.setItem("user", JSON.stringify(user));
+//   } catch (error) {
+//     console.error("Login error:", error);
+//     alert("Error logging in. Please try again.");
+//   }
+// }
 
-function handleLogout() {
-  isLoggedIn = false;
-  currentUser = null;
-  const loginBtn = document.getElementById("loginBtn");
-  loginBtn.innerHTML = `
-    <span class="material-icons">account_circle</span>
-    Login
-  `;
-  loginBtn.onclick = showLoginModal;
-  localStorage.removeItem("user");
-}
+// function handleLogout() {
+//   isLoggedIn = false;
+//   currentUser = null;
+//   const loginBtn = document.getElementById("loginBtn");
+//   loginBtn.innerHTML = `
+//     <span class="material-icons">account_circle</span>
+//     Login
+//   `;
+//   loginBtn.onclick = showLoginModal;
+//   localStorage.removeItem("user");
+// }
 
-window.onload = async () => {
-  await getSpotifyToken();
-  loadCustomFolders();
-  const savedUser = localStorage.getItem("user");
-  if (savedUser) {
-    currentUser = JSON.parse(savedUser);
-    isLoggedIn = true;
-    const loginBtn = document.getElementById("loginBtn");
-    loginBtn.innerHTML = `
-      <span class="material-icons">account_circle</span>
-      ${currentUser.name}
-    `;
-    loginBtn.onclick = handleLogout;
-  }
-};
+// window.onload = async () => {
+//   await getSpotifyToken();
+//   loadCustomFolders();
+//   const savedUser = localStorage.getItem("user");
+//   if (savedUser) {
+//     currentUser = JSON.parse(savedUser);
+//     isLoggedIn = true;
+//     const loginBtn = document.getElementById("loginBtn");
+//     loginBtn.innerHTML = `
+//       <span class="material-icons">account_circle</span>
+//       ${currentUser.name}
+//     `;
+//     loginBtn.onclick = handleLogout;
+//   }
+// };
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-});
+// document.addEventListener("keydown", function (event) {
+//   if (event.key === "Escape") {
+//     closeModal();
+//   }
+// });
 
-document.getElementById("modalBackdrop").addEventListener("click", closeModal);
+// document.getElementById("modalBackdrop").addEventListener("click", closeModal);
 
-document
-  .getElementById("customFolderModal")
-  .addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
+// document
+//   .getElementById("customFolderModal")
+//   .addEventListener("click", function (e) {
+//     e.stopPropagation();
+//   });
 
-document
-  .getElementById("moveSongModal")
-  .addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
+// document
+//   .getElementById("moveSongModal")
+//   .addEventListener("click", function (e) {
+//     e.stopPropagation();
+//   });
 ///          abajo  boton pausa//
 let play = null;
 let currentlyPlayingTrackId = null;
@@ -972,301 +972,301 @@ function openModal(src) {
 }
 
 // boton login abajo-//////////////
-function showLoginModal() {
-  document.getElementById("loginModal").style.display = "block";
-}
+// function showLoginModal() {
+//   document.getElementById("loginModal").style.display = "block";
+// }
 
-function closeLoginModal() {
-  document.getElementById("loginModal").style.display = "none";
-}
-
-
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const emailError = document.getElementById("emailError");
-    const passwordError = document.getElementById("passwordError");
-    const message = document.getElementById("message");
-
-    // Limpiar mensajes de error
-    emailError.textContent = "";
-    passwordError.textContent = "";
-    message.textContent = "";
-
-    //Validar formato de email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      emailError.textContent = "Formato de email no válido.";
-      return;
-    }
-
-    // Enviar datos al servidor
-    fetch("login.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          message.textContent = "Login exitoso. Redirigiendo...";
-          // Redirigir a otra página o hacer algo más
-          setTimeout(() => {
-            window.location.href = "dashboard.html"; // Cambia a tu página de destino
-          }, 2000);
-        } else {
-          message.textContent = data.message;
-        }
-      })
-      .catch((error) => {
-        message.textContent = "Error en la conexión.";
-      });
-  });
+// function closeLoginModal() {
+//   document.getElementById("loginModal").style.display = "none";
+// }
 
 
+// document
+//   .getElementById("loginForm")
+//   .addEventListener("submit", function (event) {
+//     event.preventDefault();
 
-// Cerrar el modal al hacer clic fuera de él
-window.onclick = function (event) {
-  const modal = document.getElementById("loginModal");
-  if (event.target === modal) {
-    closeLoginModal();
-  }
-};
+//     const email = document.getElementById("email").value;
+//     const password = document.getElementById("password").value;
+//     const emailError = document.getElementById("emailError");
+//     const passwordError = document.getElementById("passwordError");
+//     const message = document.getElementById("message");
+
+//     // Limpiar mensajes de error
+//     emailError.textContent = "";
+//     passwordError.textContent = "";
+//     message.textContent = "";
+
+//     //Validar formato de email
+//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!emailPattern.test(email)) {
+//       emailError.textContent = "Formato de email no válido.";
+//       return;
+//     }
+
+//     // Enviar datos al servidor
+//     fetch("login.php", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ email, password }),
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (data.success) {
+//           message.textContent = "Login exitoso. Redirigiendo...";
+//           // Redirigir a otra página o hacer algo más
+//           setTimeout(() => {
+//             window.location.href = "dashboard.html"; // Cambia a tu página de destino
+//           }, 2000);
+//         } else {
+//           message.textContent = data.message;
+//         }
+//       })
+//       .catch((error) => {
+//         message.textContent = "Error en la conexión.";
+//       });
+//   });
+
+
+
+// // Cerrar el modal al hacer clic fuera de él
+// window.onclick = function (event) {
+//   const modal = document.getElementById("loginModal");
+//   if (event.target === modal) {
+//     closeLoginModal();
+//   }
+// };
 ////////////////////////////login nuevo de claude dia lunes 18 noviembre- abajo//////////
-function openModal() {
-  document.getElementById('loginModal').style.display = 'flex';
-  showLogin(); // Por defecto muestra login
-}
+// function openModal() {
+//   document.getElementById('loginModal').style.display = 'flex';
+//   showLogin(); // Por defecto muestra login
+// }
 
-function closeModal() {
-  document.getElementById('loginModal').style.display = 'none';
-  limpiarFormularios();
-}
+// function closeModal() {
+//   document.getElementById('loginModal').style.display = 'none';
+//   limpiarFormularios();
+// }
 
-function limpiarFormularios() {
-  document.getElementById('errorContainer').textContent = '';
-  document.getElementById('errorContainer').style.display = 'none';
-  document.querySelectorAll('input').forEach(input => input.value = '');
-}
+// function limpiarFormularios() {
+//   document.getElementById('errorContainer').textContent = '';
+//   document.getElementById('errorContainer').style.display = 'none';
+//   document.querySelectorAll('input').forEach(input => input.value = '');
+// }
 
-// Funciones para cambiar entre formularios
-function showLogin() {
-  document.getElementById('loginForm').style.display = 'block';
-  document.getElementById('registroForm').style.display = 'none';
-  document.getElementById('recuperacionForm').style.display = 'none';
-}
+// // Funciones para cambiar entre formularios
+// function showLogin() {
+//   document.getElementById('loginForm').style.display = 'block';
+//   document.getElementById('registroForm').style.display = 'none';
+//   document.getElementById('recuperacionForm').style.display = 'none';
+// }
 
-function showRegistro() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('registroForm').style.display = 'block';
-  document.getElementById('recuperacionForm').style.display = 'none';
-}
+// function showRegistro() {
+//   document.getElementById('loginForm').style.display = 'none';
+//   document.getElementById('registroForm').style.display = 'block';
+//   document.getElementById('recuperacionForm').style.display = 'none';
+// }
 
-function showRecuperacion() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('registroForm').style.display = 'none';
-  document.getElementById('recuperacionForm').style.display = 'block';
-}
+// function showRecuperacion() {
+//   document.getElementById('loginForm').style.display = 'none';
+//   document.getElementById('registroForm').style.display = 'none';
+//   document.getElementById('recuperacionForm').style.display = 'block';
+// }
 
-// Validaciones
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
+// // Validaciones
+// function validateEmail(email) {
+//   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   return re.test(email);
+// }
 
-function validatePassword(password) {
-  return password.length >= 8;
-}
-
-
-function mostrarError(mensaje, isSuccess = false) {
-  const errorContainer = document.getElementById('errorContainer');
-  errorContainer.textContent = mensaje;
-  errorContainer.style.display = 'block';
-  errorContainer.style.color = isSuccess ? '#4CAF50' : '#ff0000';
-  if (isSuccess) {
-      setTimeout(() => {
-          errorContainer.style.display = 'none';
-      }, 1000);
-  } else {
-      setTimeout(() => {
-          errorContainer.style.display = 'none';
-      }, 3000);
-  }
-}
+// function validatePassword(password) {
+//   return password.length >= 8;
+// }
 
 
-// Funciones de autenticación
-async function login(event) {
-  event.preventDefault(); // Prevenir el comportamiento por defecto
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value.trim();
-   // Validar campos vacíos
-   if (!email || !password) {
-    mostrarError('Por favor, complete todos los campos');
-    return;
-   }
+// function mostrarError(mensaje, isSuccess = false) {
+//   const errorContainer = document.getElementById('errorContainer');
+//   errorContainer.textContent = mensaje;
+//   errorContainer.style.display = 'block';
+//   errorContainer.style.color = isSuccess ? '#4CAF50' : '#ff0000';
+//   if (isSuccess) {
+//       setTimeout(() => {
+//           errorContainer.style.display = 'none';
+//       }, 1000);
+//   } else {
+//       setTimeout(() => {
+//           errorContainer.style.display = 'none';
+//       }, 3000);
+//   }
+// }
 
-  if (!validateEmail(email)) {
-      mostrarError('Email inválido');
-      return;
-  }
 
-  if (!validatePassword(password)) {
-      mostrarError('Contraseña debe tener al menos 8 caracteres');
-      return;
-  }
+// // Funciones de autenticación
+// async function login(event) {
+//   event.preventDefault(); // Prevenir el comportamiento por defecto
+//   const email = document.getElementById('email').value.trim();
+//   const password = document.getElementById('password').value.trim();
+//    // Validar campos vacíos
+//    if (!email || !password) {
+//     mostrarError('Por favor, complete todos los campos');
+//     return;
+//    }
 
-  try {
-      const response = await fetch('login.php', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-                'Accept': 'application/json'
-          },
-          body: JSON.stringify({ email, password }),
-           credentials: 'same-origin'
-      });
-      if (!response.ok) {
-        throw new Error('Error en la conexión');
-    }
+//   if (!validateEmail(email)) {
+//       mostrarError('Email inválido');
+//       return;
+//   }
 
-      const data = await response.json();
+//   if (!validatePassword(password)) {
+//       mostrarError('Contraseña debe tener al menos 8 caracteres');
+//       return;
+//   }
 
-      if (data.success) {
-        localStorage.setItem('userName', data.nombre);
-        mostrarError('Login exitoso',true);
-        setTimeout(() => {
-            window.location.href = 'dashboard.php';
-        }, 1000);
+//   try {
+//       const response = await fetch('login.php', {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json',
+//                 'Accept': 'application/json'
+//           },
+//           body: JSON.stringify({ email, password }),
+//            credentials: 'same-origin'
+//       });
+//       if (!response.ok) {
+//         throw new Error('Error en la conexión');
+//     }
+
+//       const data = await response.json();
+
+//       if (data.success) {
+//         localStorage.setItem('userName', data.nombre);
+//         mostrarError('Login exitoso',true);
+//         setTimeout(() => {
+//             window.location.href = 'dashboard.php';
+//         }, 1000);
         
        
-      } else {
-          mostrarError(data.message || 'Error en el inicio de sesión');
-      }
-  } catch (error) {
-    console.error('Error:', error);
-    mostrarError('Error de conexión al servidor');
-  }
-}
+//       } else {
+//           mostrarError(data.message || 'Error en el inicio de sesión');
+//       }
+//   } catch (error) {
+//     console.error('Error:', error);
+//     mostrarError('Error de conexión al servidor');
+//   }
+// }
 
-async function registro() {
-  const nombre = document.getElementById('registroNombre').value;
-  const email = document.getElementById('registroEmail').value;
-  const password = document.getElementById('registroPassword').value;
+// async function registro() {
+//   const nombre = document.getElementById('registroNombre').value;
+//   const email = document.getElementById('registroEmail').value;
+//   const password = document.getElementById('registroPassword').value;
 
-  if (nombre.trim() === '') {
-      mostrarError('Nombre es requerido');
-      return;
-  }
+//   if (nombre.trim() === '') {
+//       mostrarError('Nombre es requerido');
+//       return;
+//   }
 
-  if (!validateEmail(email)) {
-      mostrarError('Email inválido');
-      return;
-  }
+//   if (!validateEmail(email)) {
+//       mostrarError('Email inválido');
+//       return;
+//   }
 
-  if (!validatePassword(password)) {
-      mostrarError('Contraseña debe tener al menos 8 caracteres');
-      return;
-  }
+//   if (!validatePassword(password)) {
+//       mostrarError('Contraseña debe tener al menos 8 caracteres');
+//       return;
+//   }
 
-  try {
-      const response = await fetch('registro.php', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ nombre, email, password })
-      });
+//   try {
+//       const response = await fetch('registro.php', {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify({ nombre, email, password })
+//       });
 
-      const data = await response.json();
+//       const data = await response.json();
 
-      if (data.success) {
-          mostrarError('Registro exitoso. Inicia sesión.');
-          showLogin();
-      } else {
-          mostrarError(data.message);
-      }
-  } catch (error) {
-      mostrarError('Error de conexión');
-  }
-}
+//       if (data.success) {
+//           mostrarError('Registro exitoso. Inicia sesión.');
+//           showLogin();
+//       } else {
+//           mostrarError(data.message);
+//       }
+//   } catch (error) {
+//       mostrarError('Error de conexión');
+//   }
+// }
 
-async function recuperarContrasena() {
-  const email = document.getElementById('recuperacionEmail').value;
+// async function recuperarContrasena() {
+//   const email = document.getElementById('recuperacionEmail').value;
 
-  if (!validateEmail(email)) {
-      mostrarError('Email inválido');
-      return;
-  }
+//   if (!validateEmail(email)) {
+//       mostrarError('Email inválido');
+//       return;
+//   }
 
-  try {
-      const response = await fetch('recuperar.php', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email })
-      });
+//   try {
+//       const response = await fetch('recuperar.php', {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify({ email })
+//       });
 
-      const data = await response.json();
+//       const data = await response.json();
 
-      if (data.success) {
-          mostrarError('Se ha enviado un enlace de recuperación a tu correo');
-      } else {
-          mostrarError(data.message);
-      }
-  } catch (error) {
-      mostrarError('Error de conexión');
-  }
-}
-/////////////////////////////////////////////reset password
-function resetPassword() {
-  const token = document.getElementById('token').value;
-  const newPassword = document.getElementById('newPassword').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
-  const messageDiv = document.getElementById('message');
+//       if (data.success) {
+//           mostrarError('Se ha enviado un enlace de recuperación a tu correo');
+//       } else {
+//           mostrarError(data.message);
+//       }
+//   } catch (error) {
+//       mostrarError('Error de conexión');
+//   }
+// }
+// /////////////////////////////////////////////reset password
+// function resetPassword() {
+//   const token = document.getElementById('token').value;
+//   const newPassword = document.getElementById('newPassword').value;
+//   const confirmPassword = document.getElementById('confirmPassword').value;
+//   const messageDiv = document.getElementById('message');
 
-  if (newPassword !== confirmPassword) {
-      messageDiv.innerHTML = '<p style="color:red;">Las contraseñas no coinciden</p>';
-      return false;
-  }
+//   if (newPassword !== confirmPassword) {
+//       messageDiv.innerHTML = '<p style="color:red;">Las contraseñas no coinciden</p>';
+//       return false;
+//   }
 
-  if (newPassword.length < 8) {
-      messageDiv.innerHTML = '<p style="color:red;">La contraseña debe tener al menos 8 caracteres</p>';
-      return false;
-  }
+//   if (newPassword.length < 8) {
+//       messageDiv.innerHTML = '<p style="color:red;">La contraseña debe tener al menos 8 caracteres</p>';
+//       return false;
+//   }
 
-  fetch('procesar-reset.php', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 
-          token: token, 
-          newPassword: newPassword 
-      })
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.success) {
-          messageDiv.innerHTML = '<p style="color:green;">Contraseña restablecida exitosamente</p>';
-          setTimeout(() => {
-              window.location.href = 'login.html';
-          }, 2000);
-      } else {
-          messageDiv.innerHTML = `<p style="color:red;">${data.message}</p>`;
-      }
-  })
-  .catch(error => {
-      messageDiv.innerHTML = '<p style="color:red;">Error de conexión</p>';
-  });
+//   fetch('procesar-reset.php', {
+//       method: 'POST',
+//       headers: {
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({ 
+//           token: token, 
+//           newPassword: newPassword 
+//       })
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//       if (data.success) {
+//           messageDiv.innerHTML = '<p style="color:green;">Contraseña restablecida exitosamente</p>';
+//           setTimeout(() => {
+//               window.location.href = 'login.html';
+//           }, 2000);
+//       } else {
+//           messageDiv.innerHTML = `<p style="color:red;">${data.message}</p>`;
+//       }
+//   })
+//   .catch(error => {
+//       messageDiv.innerHTML = '<p style="color:red;">Error de conexión</p>';
+//   });
 
-  return false;
-}
+//   return false;
+// }
