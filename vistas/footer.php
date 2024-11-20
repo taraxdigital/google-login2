@@ -15,15 +15,16 @@
 
         <div class="navegacion">
             <ul>
+                <li><span>•</span></li>
                 <li><a href="#">Inicio</a></li>
                 <li><span>•</span></li>
                 <li><a href="politica-de-cookies.php" target="_blank">Política de Cookies</a></li>
                 <li><span>•</span></li>
-                <li><a href="#">Servicios</a></li>
+                <li><a href="aviso-legal.php" target="_blank">Aviso legal</a></li>
                 <li><span>•</span></li>
-                <li><a href="#">Términos de los Servicios</a></li>
-                <li><span>•</span></li>
-                <li><a href="/privacy">Políticas de privacidad</a></li>
+                <li><a href="politica-privacidad.php" target="_blank">Políticas de privacidad</a></li>
+              
+              
             </ul>
         </div>
         

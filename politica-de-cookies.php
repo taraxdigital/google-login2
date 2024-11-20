@@ -17,8 +17,8 @@ include_once("vistas/header2.php");
 </head>
 <body>
     <h1>Cookies</h1>
-    <article>
-        <p>
+       <p<article>
+     >
            
 
 Política de Cookies de DISEÑOS TARAX

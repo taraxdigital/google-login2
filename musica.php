@@ -330,7 +330,7 @@ if (isset($results['items'])) {
         </div>
     </div>
     <section>
-        <h2>Mixmeister.</h2>
+    <h2><a class="texto" href="https://www.youtube.com/watch?v=MYZbapwyYdI&ab_channel=%F0%9D%90%8Cusicfor%F0%9D%90%92pinning%E3%83%84" target="_blank">Mixmeister</a></h2>
         <p>Mixmeister es un software diseñado para crear mezclas de música de forma sencilla y efectiva, ideal para sesiones de ejercicio o actividades físicas.</p>
         <div class="imagenes">
             <img src="img/mm.png" alt="Imagen izquierda">
