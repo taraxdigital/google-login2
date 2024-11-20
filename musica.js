@@ -972,6 +972,65 @@ function openModal(src) {
 }
 
 // boton login abajo-//////////////
+
+
+////////////////////////////////
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'flex';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+function showRecoveryModal() {
+  closeModal('loginModal');
+  openModal('recoveryModal');
+}
+
+function showRegisterModal() {
+  closeModal('loginModal');
+  openModal('registerModal');
+}
+// /////////////////////////////
+// function openModal() {
+//   document.getElementById('loginModal').style.display = 'block';
+// }
+
+// function closeModal(modalId) {
+//   document.getElementById(modalId).style.display = 'none';
+// }
+
+// function showRecoveryModal() {
+//   document.getElementById('loginModal').style.display = 'none';
+//   document.getElementById('recoveryModal').style.display = 'block';
+// }
+
+// function showRegisterModal() {
+//   document.getElementById('loginModal').style.display = 'none';
+//   document.getElementById('registerModal').style.display = 'block';
+// }
+
+// Cerrar modales al hacer clic fuera de ellos
+window.onclick = function(event) {
+  let modals = document.getElementsByClassName('modal');
+  for(let modal of modals) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+}
+
+// Ocultar mensajes después de 3 segundos
+document.addEventListener('DOMContentLoaded', function() {
+  let mensaje = document.querySelector('.mensaje');
+  if(mensaje) {
+      setTimeout(function() {
+          mensaje.style.display = 'none';
+      }, 3000);
+  }
+});
+
 // function showLoginModal() {
 //   document.getElementById("loginModal").style.display = "block";
 // }
