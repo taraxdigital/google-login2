@@ -22,6 +22,9 @@ require_once 'data/usuariobd.php';
 
 ?>
 <link rel="stylesheet" href="music.css">
+
+
+
 <div class="container">
 <!-- Botón de login -->
 <button id="loginBtn" class="login-btn" onclick="openModal('loginModal')">

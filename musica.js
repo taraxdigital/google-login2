@@ -1,6 +1,6 @@
-//creo que estas claves eran para loguearse con google
-const CLIENT_ID = "50f02085a2684d309a7d8616453a0784";
-const CLIENT_SECRET = "73222ab24f704a2b998498e685876dbb";
+
+const CLIENT_ID = "-";
+const CLIENT_SECRET = "-";
 
 const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
 const API_URL_CARPETAS = "http://localhost/google-login/prueba/carpetas.php";
@@ -259,7 +259,139 @@ function mostrarTemaUsuario(track) {
   document.getElementById(idCarpeta).appendChild(songElement);
   updateFolderCount(idCarpeta);
 }
+// incorporación bolt/////////////////////abajo
+// Single source of truth for audio playback
+const AudioPlayer = {
+  player: null,
+  currentTrackId: null,
 
+  play(trackId, previewUrl) {
+    if (!previewUrl) {
+      alert("No preview available for this track");
+      return;
+    }
+
+    if (this.player) {
+      this.player.pause();
+    }
+
+    this.player = new Audio(previewUrl);
+    this.player.play();
+    this.currentTrackId = trackId;
+    this.updateIcon(trackId, true);
+  },
+
+  pause() {
+    if (this.player) {
+      this.player.pause();
+      this.updateIcon(this.currentTrackId, false);
+      this.currentTrackId = null;
+    }
+  },
+
+  toggle(trackId, previewUrl) {
+    if (this.currentTrackId === trackId && this.player && !this.player.paused) {
+      this.pause();
+    } else {
+      this.play(trackId, previewUrl);
+    }
+  },
+
+  updateIcon(trackId, isPlaying) {
+    const icon = document.getElementById(`playPauseIcon-${trackId}`);
+    if (icon) {
+      icon.textContent = isPlaying ? "pause" : "play_arrow";
+    }
+  },
+
+  cleanup() {
+    if (this.player) {
+      this.player.pause();
+      this.player = null;
+    }
+    this.currentTrackId = null;
+  }
+};
+/////////////también bolt  mejorar errores api abjj//
+class APIClient {
+  static async request(url, options = {}) {
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          ...options.headers
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('API Error:', error);
+      throw error;
+    }
+  }
+
+  static async saveSong(track, folderId) {
+    return this.request(`${API_URL_TEMAS}?metodo=nuevo`, {
+      method: 'POST',
+      body: JSON.stringify({
+        titulo: track.titulo,
+        artista: track.artista,
+        id_spotify: track.id_spotify,
+        preview_url: track.preview_url,
+        tempo: track.tempo,
+        id_carpeta: folderId
+      })
+    });
+  }
+}
+////////bolt mejorar ventana modal  abj
+const ModalManager = {
+  show(modalId) {
+    const modal = document.getElementById(modalId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (modal && backdrop) {
+      modal.style.display = 'block';
+      backdrop.style.display = 'block';
+    }
+  },
+
+  hide(modalId) {
+    const modal = document.getElementById(modalId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (modal && backdrop) {
+      modal.style.display = 'none';
+      backdrop.style.display = 'none';
+    }
+  },
+
+  init() {
+    // Close modals when clicking outside
+    document.getElementById('modalBackdrop')?.addEventListener('click', () => {
+      document.querySelectorAll('.modales').forEach(modal => {
+        this.hide(modal.id);
+      });
+    });
+
+    // Close modals with escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modales').forEach(modal => {
+          this.hide(modal.id);
+        });
+      }
+    });
+  }
+};
+
+
+
+////////////////////////////fin de bolt    dia 17 marzo 25
 function togglePlayPause(trackId, previewUrl) {
   if (currentlyPlayingTrackId === trackId) {
     // Si la canción ya está sonando, pausamos
