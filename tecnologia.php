@@ -413,7 +413,7 @@ include_once("vistas/header2.php");
                     <td class="use-case-cell">Redes sociales y blogs.</td>
                 </tr>
                 <tr>
-                    <td class="platform-cell">Websim.ai</td>
+                    <td class="platform-cell">Websin.ai</td>
                     <td class="functionality-cell">Plataforma de desarrollo de aplicaciones web</td>
                     <td class="use-case-cell">Tecnología, finanzas, la salud y educación,</td>
                 </tr>

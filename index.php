@@ -10,6 +10,7 @@ include_once("vistas/header2.php");
     <!-- Contenido principal -->
    
 
+<<<<<<< Updated upstream
  
 <!-- nuevo inicio -->
  
@@ -36,6 +37,13 @@ include_once("vistas/header2.php");
 </div>
 <div class="container">
      
+=======
+<img class="header-image" src="img/caballo.png" alt="Imagen principal" />
+
+
+
+        <h1>Tendencias-top</h1>
+>>>>>>> Stashed changes
         <section class="primero">
         <audio controls>
     <source src="img2/Gabry.MP3" type="audio/mpeg">
