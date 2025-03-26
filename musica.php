@@ -1,29 +1,12 @@
-
 <?php
 session_start();
 include_once 'config.php';
 include_once("vistas/header.php");
-
 include_once("vistas/header2.php");
 require_once 'data/usuariobd.php';
-
-
-// if(isset($_SESSION['session_id'])){
-//   $usuarioBD = new UsuarioBD();
-//   $sesion = $usuarioBD->verificarSesion($_SESSION['session_id']);
-//   $usuario = $sesion['usuario'];
-// }
-  
-
-// if (isset($sesion['success']) && !$sesion['success']) {
-//     session_destroy();
-// }
-
-
 ?>
 <link rel="stylesheet" href="music.css">
-
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="container">
 <!-- Botón de login -->
@@ -108,9 +91,10 @@ require_once 'data/usuariobd.php';
       </button>
     </div>
 
-    <div class="folders-grid">
+    <div class="folders-grid" id="bpm-folders">
       <div class="folder">
-        <h3>
+        <h3 onclick="toggleFolder('85-105')">
+          <span class="material-icons">folder</span>
           <div class="bpm-icon">Slow</div>
           85-105 BPM
           <span class="song-count">0 songs</span>
@@ -119,7 +103,8 @@ require_once 'data/usuariobd.php';
       </div>
 
       <div class="folder">
-        <h3>
+        <h3 onclick="toggleFolder('105-120')">
+          <span class="material-icons">folder</span>
           <div class="bpm-icon">Medium</div>
           105-120 BPM
           <span class="song-count">0 songs</span>
@@ -128,7 +113,8 @@ require_once 'data/usuariobd.php';
       </div>
 
       <div class="folder">
-        <h3>
+        <h3 onclick="toggleFolder('120-135')">
+          <span class="material-icons">folder</span>
           <div class="bpm-icon">Fast</div>
           120-135 BPM
           <span class="song-count">0 songs</span>
@@ -137,7 +123,8 @@ require_once 'data/usuariobd.php';
       </div>
 
       <div class="folder">
-        <h3>
+        <h3 onclick="toggleFolder('135-148')">
+          <span class="material-icons">folder</span>
           <div class="bpm-icon">Very Fast</div>
           135-148 BPM
           <span class="song-count">0 songs</span>
@@ -146,7 +133,8 @@ require_once 'data/usuariobd.php';
       </div>
 
       <div class="folder">
-        <h3>
+        <h3 onclick="toggleFolder('148-plus')">
+          <span class="material-icons">folder</span>
           <div class="bpm-icon">Extreme</div>
           148+ BPM
           <span class="song-count">0 songs</span>
@@ -159,8 +147,10 @@ require_once 'data/usuariobd.php';
   </div>
 </div>
 
+<div id="notificaciones-container"></div>
+
 <div class="modal-backdrop" id="modalBackdrop"></div>
-<div class="custom-folder-modal" id="customFolderModal">
+<div class="custom-folder-modal modales" id="customFolderModal">
   <h3>Crear Nueva Carpeta</h3>
   <input type="text" id="folderNameInput" placeholder="Nombre de la carpeta">
   <div class="modal-buttons">
@@ -175,95 +165,14 @@ require_once 'data/usuariobd.php';
   </div>
 </div>
 
-
-
-<div class="move-song-modal" id="moveSongModal">
+<div class="move-song-modal modales" id="moveSongModal">
   <h3>Mover canción a carpeta</h3>
   <div class="folder-list" id="folderList"></div>
   <button onclick="closeMoveModal()">Cancelar</button>
 </div>
 
 
-<?php
-
-// Tus credenciales de Spotify (asegúrate de que estas constantes estén definidas en config.php)
-$client_id = ID_CLIENTE;
-$client_secret = SECRETO_CLIENTE;
-
-// Función para obtener el token de acceso
-echo '<img class="header-image" src="img/dj.png" alt="Imagen principal" />';
-function getAccessToken($client_id, $client_secret)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://accounts.spotify.com/api/token');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, 'grant_type=client_credentials');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Basic ' . base64_encode($client_id . ':' . $client_secret),
-    ]);
-
-    $result = curl_exec($ch);
-    curl_close($ch);
-
-    return json_decode($result, true)['access_token'];
-}
-
-// Función para obtener las pistas de una playlist
-function getPlaylistTracks($playlist_id, $access_token, $limit = 24)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.spotify.com/v1/playlists/' . $playlist_id . '/tracks?limit=' . $limit);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer ' . $access_token,
-    ]);
-
-    $result = curl_exec($ch);
-    curl_close($ch);
-
-    return json_decode($result, true);
-}
-
-// Obtener el token de acceso
-$access_token = getAccessToken($client_id, $client_secret);
-
-// ID de la playlist "mint" (una popular playlist de música electrónica)
-$playlist_id = '33PyRULhtc4SRrUE1wbbmp';
-
-// Obtener las pistas de la playlist
-$results = getPlaylistTracks($playlist_id, $access_token);
-
-// Mostrar resultados
-if (isset($results['items'])) {
-    echo "<h2>Top éxitos de música electrónica en Spotify</h2>";
-    echo "<div class='track-grid'>";
-    foreach ($results['items'] as $index => $item) {
-        if ($index >= 24) break; // Limita a 20 pistas (4x5 grid)
-        $track = $item['track'];
-        echo "<div class='track-item'>";
-        if (!empty($track['album']['images'])) {
-            echo "<img src='" . $track['album']['images'][0]['url'] . "' alt='" . $track['name'] . "' />";
-        } else {
-            echo "<div class='no-image'>No image available</div>";
-        }
-        echo "<h3>" . $track['name'] . "</h3>";
-        echo "<p>" . implode(', ', array_map(function($artist) { return $artist['name']; }, $track['artists'])) . "</p>";
-        echo "<a href='" . $track['external_urls']['spotify'] . "' target='_blank'>Listen on Spotify</a>";
-        echo "</div>";
-    }
-    echo "</div>";
-} else {
-    echo "No se encontraron resultados.";
-}
-?>
-<section class="img-music">
-<div class="imagen-centrada">
-  <img src="img/MUSIC-LIFE-.png" alt="Descripción de la imagen">
-</div>
-</section>
-
-<!-- ////nueva -->
+<!-- /////nueva abajo -->
 <div class="container">
         <div class="header">
             <h1>Top 10 DJs Más Influyentes</h1>
@@ -325,7 +234,439 @@ Siglo XXI: La música electrónica se democratiza gracias a la tecnología, dand
   </ul>
   <h2 class="article-title">Historia y Evolución</h2>
   <p class="article-text">La música electrónica tiene una rica historia y evolución:</p>
-  <ul class="article-list">
+  <ul class="article-list">https://github.com/TU_USUARIO/bpm-music-sorterhttps://github.com/TU_USUARIO/bpm-music-sorterconst CLIENT_ID = "9581c45310fa4db3b34f244a447f28b0";
+const CLIENT_SECRET = "b8ad9e41a8bc46dc968c7b479d9c36a5";
+
+const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
+const API_URL_CARPETAS = "http://localhost/google-login/prueba/carpetas.php";
+
+let accessToken = null;
+let customFolders = [];
+let listaTemas = [];
+let temasBuscados = [];
+let currentTrackToMove = null;
+
+// Consolidated AudioPlayer object
+const AudioPlayer = {
+  player: null,
+  currentTrackId: null,
+
+  play(trackId, previewUrl) {
+    if (!previewUrl) {
+      alert("No preview available for this track");
+      return;
+    }
+
+    if (this.player) {
+      this.player.pause();
+    }
+
+    this.player = new Audio(previewUrl);
+    this.player.play();
+    this.currentTrackId = trackId;
+    this.updateIcon(trackId, true);
+  },
+
+  pause() {
+    if (this.player) {
+      this.player.pause();
+      this.updateIcon(this.currentTrackId, false);
+      this.currentTrackId = null;
+    }
+  },
+
+  toggle(trackId, previewUrl) {
+    if (this.currentTrackId === trackId && this.player && !this.player.paused) {
+      this.pause();
+    } else {
+      this.play(trackId, previewUrl);
+    }
+  },
+
+  updateIcon(trackId, isPlaying) {
+    const icon = document.getElementById(`playPauseIcon-${trackId}`);
+    if (icon) {
+      icon.textContent = isPlaying ? "pause" : "play_arrow";
+    }
+  },
+
+  cleanup() {
+    if (this.player) {
+      this.player.pause();
+      this.player = null;
+    }
+    this.currentTrackId = null;
+  }
+};
+
+// API Client for better error handling
+class APIClient {
+  static async request(url, options = {}) {
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          ...options.headers
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('API Error:', error);
+      throw error;
+    }
+  }
+
+  static async saveSong(track, folderId) {
+    return this.request(`${API_URL_TEMAS}?metodo=nuevo`, {
+      method: 'POST',
+      body: JSON.stringify({
+        titulo: track.titulo,
+        artista: track.artista,
+        id_spotify: track.id_spotify,
+        preview_url: track.preview_url,
+        tempo: track.tempo,
+        id_carpeta: folderId
+      })
+    });
+  }
+}
+
+// Modal Manager for better modal handling
+const ModalManager = {
+  show(modalId) {
+    const modal = document.getElementById(modalId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (modal && backdrop) {
+      modal.style.display = 'block';
+      backdrop.style.display = 'block';
+    }
+  },
+
+  hide(modalId) {
+    const modal = document.getElementById(modalId);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (modal && backdrop) {
+      modal.style.display = 'none';
+      backdrop.style.display = 'none';
+    }
+  },
+
+  init() {
+    // Close modals when clicking outside
+    document.getElementById('modalBackdrop')?.addEventListener('click', () => {
+      document.querySelectorAll('.modales').forEach(modal => {
+        this.hide(modal.id);
+      });
+    });
+
+    // Close modals with escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modales').forEach(modal => {
+          this.hide(modal.id);
+        });
+      }
+    });
+  }
+};
+
+function loadCustomFolders() {
+  // cargar las carpetas del usuario desde la base de datos
+  fetch(`${API_URL_CARPETAS}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      folders = result;
+      if (folders) {
+        console.log(folders);
+        customFolders = folders.map((folder) => ({ ...folder, songs: [] }));
+        customFolders.forEach((folder) => createCustomFolderElement(folder));
+        loadCustomTemas();
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
+}
+
+//cargar las canciones del usuario desde la base de datos
+function loadCustomTemas() {
+  fetch(`${API_URL_TEMAS}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      listaTemas = result;
+      if (listaTemas) {
+        //meter cada cancion en su carpeta
+        console.log("listaTemas", listaTemas);
+        guardarTemaUsuario();
+      }
+    })
+    .catch((error) => {
+      console.log("Error: ", JSON.stringify(error));
+    });
+}
+
+async function getSpotifyToken() {
+  try {
+    const response = await fetch("https://accounts.spotify.com/api/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET),
+      },
+      body: "grant_type=client_credentials",
+    });
+    if (!response.ok) {
+      throw new Error("Failed to get token");
+    }
+    const data = await response.json();
+
+    accessToken = data.access_token;
+
+    setTimeout(getSpotifyToken, (data.expires_in - 60) * 1000);
+  } catch (error) {
+    console.error("Error getting token:", error);
+    alert("Error conectando con Spotify. Por favor intente nuevamente.");
+  }
+}
+
+async function searchSongs() {
+  try {
+    const searchInput = document.getElementById("searchInput");
+    if (!searchInput.value.trim()) {
+      alert("Por favor ingrese un término de búsqueda");
+      return;
+    }
+    const searchButton = document.querySelector(".search-container button");
+    searchButton.disabled = true;
+    searchButton.innerHTML =
+      '<span class="material-icons">hourglass_empty</span> Buscando...';
+    if (!accessToken) await getSpotifyToken();
+    const searchTerm = encodeURIComponent(searchInput.value);
+    const searchType = document.getElementById("searchType").value;
+    let endpoint = "";
+    switch (searchType) {
+      case "track":
+        endpoint = `search?q=${searchTerm}&type=track&limit=20`;
+        break;
+      case "artist":
+        endpoint = `search?q=artist:${searchTerm}&type=track&limit=20`;
+        break;
+      case "genre":
+        endpoint = `search?q=genre:${searchTerm}&type=track&limit=20`;
+        break;
+      case "year":
+        endpoint = `search?q=year:${searchTerm}&type=track&limit=20`;
+        break;
+    }
+    const response = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    if (!response.ok) throw new Error("Search failed");
+    const data = await response.json();
+
+    if (!data.tracks || !data.tracks.items.length) {
+      alert("No songs found");
+      return;
+    }
+    clearFolders();
+    for (const track of data.tracks.items) {
+      try {
+        const audioFeatures = await getTrackAudioFeatures(track.id);
+        if (audioFeatures && audioFeatures.tempo) {
+          sortSongByBPM(track, audioFeatures.tempo);
+        }
+      } catch (error) {
+        console.error("Error getting audio features:", error);
+      }
+    }
+  } catch (error) {
+    console.error("Search error:", error);
+    alert("Error al buscar canciones. Por favor intente nuevamente.");
+  } finally {
+    const searchButton = document.querySelector(".search-container button");
+    searchButton.disabled = false;
+    searchButton.innerHTML =
+      '<span class="material-icons">search</span> Buscar';
+  }
+}
+
+function clearFolders() {
+  //vaciar la lista de temas buscados
+  temasBuscados.length = 0;
+  const folders = document.querySelectorAll(".folder .song-list");
+  console.log("folders", folders);
+  folders.forEach((folder) => {
+    const folderId = folder.id;
+    if (!folderId.includes("custom")) {
+      updateFolderCount(folderId, true);
+      folder.innerHTML = "";
+    }
+  });
+}
+
+function showMoveModal(trackId) {
+  currentTrackToMove = trackId;
+  const modal = document.getElementById("moveSongModal");
+  const backdrop = document.getElementById("modalBackdrop");
+  const folderList = document.getElementById("folderList");
+  folderList.innerHTML = "";
+  console.log("customFolders", customFolders);
+  customFolders.forEach((folder) => {
+    const div = document.createElement("div");
+    div.className = "folder-option";
+    div.textContent = folder.name;
+    div.onclick = () => moveTrackToFolder(folder.id);
+    folderList.appendChild(div);
+  });
+  modal.style.display = "block";
+  backdrop.style.display = "block";
+}
+
+function closeMoveModal() {
+  document.getElementById("moveSongModal").style.display = "none";
+  document.getElementById("modalBackdrop").style.display = "none";
+  currentTrackToMove = null;
+}
+
+function moveTrackToFolder(folderId) {
+  if (!currentTrackToMove) return;
+  const folder = customFolders.find((f) => f.id === folderId);
+  if (!folder) return;
+
+  if (!folder.songs.includes(currentTrackToMove)) {
+    folder.songs.push(currentTrackToMove);
+    const originalSong = document.querySelector(
+      `[data-track-id="${currentTrackToMove}"]`
+    );
+    if (originalSong) {
+      const clonedSong = originalSong.cloneNode(true);
+      const targetFolder = document.getElementById(`custom-folder-${folderId}`);
+      targetFolder.appendChild(clonedSong);
+      const moveButton = clonedSong.querySelector("button");
+      console.log("currentTrack", currentTrackToMove);
+      moveButton.onclick = () => showMoveModal(currentTrackToMove);
+
+      //guardar tema en bd
+      const tema = temasBuscados.filter(
+        (item) => item.id_spotify == currentTrackToMove
+      );
+      guardarDatosBd(tema[0], folderId);
+    }
+    updateFolderCount(`custom-folder-${folderId}`);
+  }
+  closeMoveModal();
+}
+
+function guardarTemaUsuario() {
+  //guarda cada tema del usuario en su carpeta correspondiente
+  customFolders.forEach((folder) => {
+    listaTemas.forEach((tema) => {
+      if (tema.id_carpeta === folder.id) {
+        folder.songs.push(tema);
+        mostrarTemaUsuario(tema);
+      }
+    });
+  });
+}
+
+function mostrarTemaUsuario(track) {
+  console.log("temausuario", track);
+  const idCarpeta = "custom-folder-" + track.id_carpeta;
+  console.log("idCarpeta", idCarpeta);
+
+  const songElement = document.createElement("div");
+  songElement.className = "song-item";
+  songElement.setAttribute("data-track-id", track.id);
+
+  songElement.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
+      <span>${track.titulo} - ${track.artista}</span>
+      <div class="song-bpm">BPM: ${Math.round(track.tempo || 0)}</div>
+      <div>
+        <button onclick="event.stopPropagation(); AudioPlayer.toggle('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+          <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
+        </button>
+        <button onclick="event.stopPropagation(); showBPM('${track.tempo}')" style="margin-left: 10px;">
+          <span class="material-icons">info</span>
+          BPM
+        </button>
+        <button onclick="event.stopPropagation(); moveTrack('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">move_to_inbox</span>
+          Mover
+        </button>
+        <button onclick="event.stopPropagation(); deleteTrack('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">delete</span>
+          Eliminar
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById(idCarpeta).appendChild(songElement);
+  updateFolderCount(idCarpeta);
+}
+
+// Improved function to toggle play/pause using AudioPlayer
+function togglePlayPause(trackId, previewUrl) {
+  AudioPlayer.toggle(trackId, previewUrl);
+}
+
+// Improved function to show BPM with category information
+function showBPM(bpm) {
+  const roundedBpm = Math.round(bpm);
+  let category = "";
+  
+  if (bpm < 85) {
+    category = "Tempo lento";
+  } else if (bpm >= 85 && bpm < 105) {
+    category = "Tempo moderado";
+  } else if (bpm >= 105 && bpm < 120) {
+    category = "Tempo medio";
+  } else if (bpm >= 120 && bpm < 135) {
+    category = "Tempo rápido";
+  } else if (bpm >= 135 && bpm < 148) {
+    category = "Tempo muy rápido";
+  } else {
+    category = "Tempo extremadamente rápido";
+  }
+  
+  alert(`BPM: ${roundedBpm}\nCategoría: ${category}\n\nBPM (Beats Per Minute) indica el tempo de la canción.`);
+}
+
+async function deleteTrack(trackId) {
+  tema = listaTemas.find(tema => tema.id == trackId);
+  idCarpeta = tema.id_carpeta;
+
+  try {
+    // Mostrar un diálogo de confirmación
+    const confirmar = confirm(
+      "¿Estás seguro de que deseas eliminar esta canción?"
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    // Realizar
     <li><span class="article-list-item">Orígenes:</span> Los primeros experimentos con sonido electrónico se remontan a finales del siglo XIX, pero es en la década de 1950 cuando se desarrollan los primeros sintetizadores.</li>
     <li><span class="article-list-item">Popularización:</span> A partir de los años 60, artistas como Kraftwerk y Tangerine Dream comienzan a explorar las posibilidades de la música electrónica.</li>
     <li><span class="article-list-item">Escena Rave:</span> En los 80 y 90, la escena rave populariza géneros como el house y el techno, llevando la música electrónica a un público masivo.</li>

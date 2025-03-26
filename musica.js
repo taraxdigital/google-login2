@@ -1,9 +1,10 @@
 
-const CLIENT_ID = "-";
-const CLIENT_SECRET = "-";
+const CLIENT_ID = "9581c45310fa4db3b34f244a447f28b0";
+const CLIENT_SECRET = "b8ad9e41a8bc46dc968c7b479d9c36a5";
 
-const API_URL_TEMAS = "http://localhost/google-login/prueba/temas.php";
-const API_URL_CARPETAS = "http://localhost/google-login/prueba/carpetas.php";
+// Actualizar las URLs para que coincidan con la estructura de carpetas actual
+const API_URL_TEMAS = "http://localhost/google-login2/prueba/temas.php";
+const API_URL_CARPETAS = "http://localhost/google-login2/prueba/carpetas.php";
 
 let accessToken = null;
 let customFolders = [];
@@ -11,6 +12,14 @@ let listaTemas = [];
 let temasBuscados = [];
 let currentTrackToMove = null;
 let player = null;
+let currentlyPlayingTrackId = null;
+
+// Inicializar cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+    loadCustomFolders();
+    // Inicializar el gestor de modales
+    ModalManager.init();
+});
 
 function loadCustomFolders() {
   // cargar las carpetas del usuario desde la base de datos
@@ -35,153 +44,7 @@ function loadCustomFolders() {
     });
 }
 
-//cargar las canciones del usuario desde la base de datos
-function loadCustomTemas() {
-  fetch(`${API_URL_TEMAS}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      listaTemas = result;
-      if (listaTemas) {
-        //meter cada cancion en su carpeta
-        console.log("listaTemas", listaTemas);
-        guardarTemaUsuario();
-      }
-    })
-    .catch((error) => {
-      console.log("Error: ", JSON.stringify(error));
-    });
-}
-
-async function getSpotifyToken() {
-  try {
-    const response = await fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET),
-      },
-      body: "grant_type=client_credentials",
-    });
-    if (!response.ok) {
-      throw new Error("Failed to get token");
-    }
-    const data = await response.json();
-
-    accessToken = data.access_token;
-
-    setTimeout(getSpotifyToken, (data.expires_in - 60) * 1000);
-  } catch (error) {
-    console.error("Error getting token:", error);
-    alert("Error conectando con Spotify. Por favor intente nuevamente.");
-  }
-}
-
-async function searchSongs() {
-  try {
-    const searchInput = document.getElementById("searchInput");
-    if (!searchInput.value.trim()) {
-      alert("Por favor ingrese un término de búsqueda");
-      return;
-    }
-    const searchButton = document.querySelector(".search-container button");
-    searchButton.disabled = true;
-    searchButton.innerHTML =
-      '<span class="material-icons">hourglass_empty</span> Buscando...';
-    if (!accessToken) await getSpotifyToken();
-    const searchTerm = encodeURIComponent(searchInput.value);
-    const searchType = document.getElementById("searchType").value;
-    let endpoint = "";
-    switch (searchType) {
-      case "track":
-        endpoint = `search?q=${searchTerm}&type=track&limit=20`;
-        break;
-      case "artist":
-        endpoint = `search?q=artist:${searchTerm}&type=track&limit=20`;
-        break;
-      case "genre":
-        endpoint = `search?q=genre:${searchTerm}&type=track&limit=20`;
-        break;
-      case "year":
-        endpoint = `search?q=year:${searchTerm}&type=track&limit=20`;
-        break;
-    }
-    const response = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    if (!response.ok) throw new Error("Search failed");
-    const data = await response.json();
-
-    if (!data.tracks || !data.tracks.items.length) {
-      alert("No songs found");
-      return;
-    }
-    clearFolders();
-    for (const track of data.tracks.items) {
-      try {
-        const audioFeatures = await getTrackAudioFeatures(track.id);
-        if (audioFeatures && audioFeatures.tempo) {
-          sortSongByBPM(track, audioFeatures.tempo);
-        }
-      } catch (error) {
-        console.error("Error getting audio features:", error);
-      }
-    }
-  } catch (error) {
-    console.error("Search error:", error);
-    alert("Error al buscar canciones. Por favor intente nuevamente.");
-  } finally {
-    const searchButton = document.querySelector(".search-container button");
-    searchButton.disabled = false;
-    searchButton.innerHTML =
-      '<span class="material-icons">search</span> Buscar';
-  }
-}
-
-function clearFolders() {
-  //vaciar la lista de temas buscados
-  temasBuscados.length = 0;
-  const folders = document.querySelectorAll(".folder .song-list");
-  console.log("folders", folders);
-  folders.forEach((folder) => {
-    const folderId = folder.id;
-    if (!folderId.includes("custom")) {
-      updateFolderCount(folderId, true);
-      folder.innerHTML = "";
-    }
-  });
-  //actualizar el número de temas de cada folder
-}
-
-function showMoveModal(trackId) {
-  currentTrackToMove = trackId;
-  const modal = document.getElementById("moveSongModal");
-  const backdrop = document.getElementById("modalBackdrop");
-  const folderList = document.getElementById("folderList");
-  folderList.innerHTML = "";
-  console.log("customFolders", customFolders);
-  customFolders.forEach((folder) => {
-    const div = document.createElement("div");
-    div.className = "folder-option";
-    div.textContent = folder.name;
-    div.onclick = () => moveTrackToFolder(folder.id);
-    folderList.appendChild(div);
-  });
-  modal.style.display = "block";
-  backdrop.style.display = "block";
-}
-
-function closeMoveModal() {
-  document.getElementById("moveSongModal").style.display = "none";
-  document.getElementById("modalBackdrop").style.display = "none";
-  currentTrackToMove = null;
-}
+// ... existing code ...
 
 function moveTrackToFolder(folderId) {
   if (!currentTrackToMove) return;
@@ -212,39 +75,188 @@ function moveTrackToFolder(folderId) {
   closeMoveModal();
 }
 
-function guardarTemaUsuario() {
-  //guarda cada tema del usuario en su carpeta correspondiente
-  customFolders.forEach((folder) => {
-    listaTemas.forEach((tema) => {
-      if (tema.id_carpeta === folder.id) {
-        folder.songs.push(tema);
-        mostrarTemaUsuario(tema);
-      }
+// ... existing code ...
+
+// Corregir la función togglePlayPause para usar AudioPlayer
+function togglePlayPause(trackId, previewUrl) {
+  AudioPlayer.toggle(trackId, previewUrl);
+}
+
+// Corregir la función deleteFolder que tenía un error de sintaxis
+function deleteFolder(folderId) {
+  console.log("idCarpeta", folderId);
+  if (confirm("¿Estás seguro de que quieres eliminar esta carpeta?")) {
+    const folderElement = document.getElementById(
+      `folder-container-${folderId}`
+    );
+    if (folderElement) {
+      folderElement.remove();
+      eliminarCarpetabd(folderId);
+    }
+    customFolders = customFolders.filter((f) => f.id !== folderId);
+  }
+}
+
+// Corregir las funciones de modal para que coincidan con el HTML
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'block';
+  document.getElementById('modalBackdrop').style.display = 'block';
+}
+
+function closeModal(modalId) {
+  if (modalId) {
+    document.getElementById(modalId).style.display = 'none';
+  } else {
+    // Si no se proporciona un ID, cerrar todos los modales
+    document.querySelectorAll('.modales').forEach(modal => {
+      modal.style.display = 'none';
     });
+  }
+  document.getElementById('modalBackdrop').style.display = 'none';
+  
+  // Limpiar el input del nombre de carpeta si es el modal de carpeta personalizada
+  if (modalId === 'customFolderModal' || !modalId) {
+    document.getElementById('folderNameInput').value = '';
+  }
+}
+
+function showRecoveryModal() {
+  closeModal('loginModal');
+  openModal('recoveryModal');
+}
+
+function showRegisterModal() {
+  closeModal('loginModal');
+  openModal('registerModal');
+}
+
+// Asegurarse de que el evento de cierre de ventana esté correctamente configurado
+window.addEventListener("beforeunload", function() {
+  AudioPlayer.cleanup();
+});
+
+// Inicializar la tabla de DJs cuando se cargue la página
+document.addEventListener('DOMContentLoaded', function() {
+  llenarTabla();
+  
+  // Configurar el botón para mostrar/ocultar DJs
+  document.getElementById("btnDJs")?.addEventListener("click", function() {
+    const container = document.getElementById("djs-container");
+    if (container.style.display === "none" || container.style.display === "") {
+      container.style.display = "block";
+      llenarTabla();
+    } else {
+      container.style.display = "none";
+    }
+  });
+});function moveTrackToFolder(folderId) {
+  if (!currentTrackToMove) return;
+  const folder = customFolders.find((f) => f.id === folderId);
+  if (!folder) return;
+
+  if (!folder.songs.includes(currentTrackToMove)) {
+    folder.songs.push(currentTrackToMove);
+    const originalSong = document.querySelector(
+      `[data-track-id="${currentTrackToMove}"]`
+    );
+    if (originalSong) {
+      const clonedSong = originalSong.cloneNode(true);
+      const targetFolder = document.getElementById(`custom-folder-${folderId}`);
+      if (targetFolder) {
+        targetFolder.appendChild(clonedSong);
+        
+        // Fix: We need to select all buttons and assign proper event handlers
+        const buttons = clonedSong.querySelectorAll("button");
+        if (buttons.length >= 3) { // Assuming we have play, BPM, move and delete buttons
+          // Move button (third button)
+          buttons[2].onclick = (event) => {
+            event.stopPropagation();
+            showMoveModal(currentTrackToMove);
+          };
+          
+          // Delete button (fourth button)
+          buttons[3].onclick = (event) => {
+            event.stopPropagation();
+            deleteTrack(currentTrackToMove);
+          };
+        }
+        
+        // Find the track in temasBuscados
+        const tema = temasBuscados.find(
+          (item) => item.id_spotify === currentTrackToMove
+        );
+        
+        if (tema) {
+          guardarDatosBd(tema, folderId);
+        } else {
+          console.error("Track not found in temasBuscados:", currentTrackToMove);
+        }
+        
+        updateFolderCount(`custom-folder-${folderId}`);
+      } else {
+        console.error("Target folder not found:", `custom-folder-${folderId}`);
+      }
+    }
+  }
+  closeMoveModal();
+}
+
+function guardarTemaUsuario() {
+  // Guarda cada tema del usuario en su carpeta correspondiente
+  if (!customFolders || !listaTemas) {
+    console.error("customFolders or listaTemas is not initialized");
+    return;
+  }
+  
+  customFolders.forEach((folder) => {
+    if (folder && folder.id) {
+      const temasEnCarpeta = listaTemas.filter(tema => tema.id_carpeta === folder.id);
+      
+      if (temasEnCarpeta.length > 0) {
+        folder.songs = folder.songs || [];
+        
+        temasEnCarpeta.forEach((tema) => {
+          if (!folder.songs.includes(tema.id)) {
+            folder.songs.push(tema.id);
+            mostrarTemaUsuario(tema);
+          }
+        });
+      }
+    }
   });
 }
-///////////
+
 function mostrarTemaUsuario(track) {
-  console.log("temausuario", track);
+  if (!track || !track.id_carpeta) {
+    console.error("Invalid track data:", track);
+    return;
+  }
+  
   const idCarpeta = "custom-folder-" + track.id_carpeta;
-  console.log("idCarpeta", idCarpeta);
+  const targetFolder = document.getElementById(idCarpeta);
+  
+  if (!targetFolder) {
+    console.error("Target folder element not found:", idCarpeta);
+    return;
+  }
 
   const songElement = document.createElement("div");
   songElement.className = "song-item";
   songElement.setAttribute("data-track-id", track.id);
 
+  // Use AudioPlayer for consistent audio playback
   songElement.innerHTML = `
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-      <span>${track.titulo} - ${track.artista}</span>
+      <span>${track.titulo || 'Unknown'} - ${track.artista || 'Unknown'}</span>
       <div>
-        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+        <button onclick="event.stopPropagation(); AudioPlayer.toggle('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
           <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
         </button>
         <button onclick="event.stopPropagation(); showBPM('${track.tempo}')" style="margin-left: 10px;">
           <span class="material-icons">info</span>
           BPM
         </button>
-        <button onclick="event.stopPropagation(); moveTrack('${track.id}')" style="margin-left: 10px;">
+        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
           <span class="material-icons">move_to_inbox</span>
           Mover
         </button>
@@ -256,10 +268,10 @@ function mostrarTemaUsuario(track) {
     </div>
   `;
 
-  document.getElementById(idCarpeta).appendChild(songElement);
+  targetFolder.appendChild(songElement);
   updateFolderCount(idCarpeta);
 }
-// incorporación bolt/////////////////////abajo
+
 // Single source of truth for audio playback
 const AudioPlayer = {
   player: null,
@@ -267,18 +279,25 @@ const AudioPlayer = {
 
   play(trackId, previewUrl) {
     if (!previewUrl) {
-      alert("No preview available for this track");
+      alert("No hay vista previa disponible para esta canción");
       return;
     }
 
     if (this.player) {
       this.player.pause();
+      this.updateIcon(this.currentTrackId, false);
     }
 
     this.player = new Audio(previewUrl);
     this.player.play();
     this.currentTrackId = trackId;
     this.updateIcon(trackId, true);
+    
+    // Add ended event to reset icon when playback completes
+    this.player.addEventListener('ended', () => {
+      this.updateIcon(this.currentTrackId, false);
+      this.currentTrackId = null;
+    });
   },
 
   pause() {
@@ -312,7 +331,7 @@ const AudioPlayer = {
     this.currentTrackId = null;
   }
 };
-/////////////también bolt  mejorar errores api abjj//
+
 class APIClient {
   static async request(url, options = {}) {
     try {
@@ -328,8 +347,14 @@ class APIClient {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      return data;
+      // Try to parse as JSON, but handle text responses too
+      const text = await response.text();
+      try {
+        return JSON.parse(text);
+      } catch (e) {
+        console.warn("Response is not valid JSON:", text);
+        return { message: text };
+      }
     } catch (error) {
       console.error('API Error:', error);
       throw error;
@@ -350,7 +375,7 @@ class APIClient {
     });
   }
 }
-////////bolt mejorar ventana modal  abj
+
 const ModalManager = {
   show(modalId) {
     const modal = document.getElementById(modalId);
@@ -372,11 +397,14 @@ const ModalManager = {
 
   init() {
     // Close modals when clicking outside
-    document.getElementById('modalBackdrop')?.addEventListener('click', () => {
-      document.querySelectorAll('.modales').forEach(modal => {
-        this.hide(modal.id);
+    const backdrop = document.getElementById('modalBackdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', () => {
+        document.querySelectorAll('.modales').forEach(modal => {
+          this.hide(modal.id);
+        });
       });
-    });
+    }
 
     // Close modals with escape key
     document.addEventListener('keydown', (e) => {
@@ -389,56 +417,45 @@ const ModalManager = {
   }
 };
 
+// Initialize ModalManager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  ModalManager.init();
+  
+  // Use AudioPlayer for all audio playback
+  window.togglePlayPause = (trackId, previewUrl) => {
+    AudioPlayer.toggle(trackId, previewUrl);
+  };
+  
+  // Clean up audio when page unloads
+  window.addEventListener('beforeunload', () => {
+    AudioPlayer.cleanup();
+  });
+});
 
 
-////////////////////////////fin de bolt    dia 17 marzo 25
+
+
+
+// Use AudioPlayer instead of duplicating audio functionality
 function togglePlayPause(trackId, previewUrl) {
-  if (currentlyPlayingTrackId === trackId) {
-    // Si la canción ya está sonando, pausamos
-    if (player) {
-      player.pause();
-      currentlyPlayingTrackId = null;
-      document.getElementById(`playPauseIcon-${trackId}`).innerText =
-        "play_arrow"; // Cambiar icono a play
-    }
-  } else {
-    // Si hay otra canción sonando, la pausamos
-    if (player) {
-      player.pause();
-      document.getElementById(
-        `playPauseIcon-${currentlyPlayingTrackId}`
-      ).innerText = "play_arrow"; // Cambiar icono de la canción anterior a play
-    }
-
-    // Reproducimos la nueva canción
-    player = new Audio(previewUrl);
-    player.play();
-    currentlyPlayingTrackId = trackId;
-    document.getElementById(`playPauseIcon-${trackId}`).innerText = "pause"; // Cambiar icono a pause
-  }
+  AudioPlayer.toggle(trackId, previewUrl);
 }
+
 function moveTrack(trackId) {
-  // Lógica para mover la canción a otra carpeta
-  alert(`Mover la canción con ID: ${trackId}`);
-  // Aquí puedes agregar el código para mover la canción a otra carpeta.
+  // Use the existing showMoveModal function
+  showMoveModal(trackId);
 }
-
-// function deleteTrack(trackId) {
-
-//   const songElement = document.querySelector(`.song-item[data-track-id='${trackId}']`);
-//   if (songElement) {
-//     songElement.remove();
-//     alert(`Canción con ID: ${trackId} eliminada.`);
-//   }
-// }
-/////////
-
-///////////////
 
 async function deleteTrack(trackId) {
-
-  tema = listaTemas.find(tema => tema.id == trackId)
-  idCarpeta = tema.id_carpeta
+  // Find the track in listaTemas
+  const tema = listaTemas.find(tema => tema.id == trackId);
+  if (!tema) {
+    console.error("Track not found:", trackId);
+    mostrarNotificacion("Error: Canción no encontrada", "error");
+    return;
+  }
+  
+  const idCarpeta = tema.id_carpeta;
 
   try {
     // Mostrar un diálogo de confirmación
@@ -457,23 +474,26 @@ async function deleteTrack(trackId) {
         method: "POST",
       }
     );
+    
     // Si la eliminación en el servidor fue exitosa, eliminar de la UI
     const songElement = document.querySelector(
       `.song-item[data-track-id='${trackId}']`
     );
+    
     if (songElement) {
-      // Si la canción estaba reproduciéndose, detenerla
-      if (currentlyPlayingTrackId === trackId && player) {
-        player.pause();
-        currentlyPlayingTrackId = null;
+      // Si la canción estaba reproduciéndose, detenerla usando AudioPlayer
+      if (AudioPlayer.currentTrackId === trackId) {
+        AudioPlayer.pause();
       }
 
       // Eliminar el elemento del DOM
       songElement.remove();
 
       // Actualizar el contador de la carpeta
-      const folderId = songElement.closest(`[id="custom-folder-${idCarpeta}"]`);
-      updateFolderCount(folderId);
+      const folderId = songElement.closest(`.song-list`).id;
+      if (folderId) {
+        updateFolderCount(folderId);
+      }
 
       // Mostrar mensaje de éxito
       mostrarNotificacion("Canción eliminada correctamente", "success");
@@ -484,54 +504,46 @@ async function deleteTrack(trackId) {
   }
 }
 
-function moveTrack(trackId) {
-  // Implementar lógica para mover la canción
-  alert(`Mover la canción con ID: ${trackId}`);
-}
-
-function showBPM(bpm) {
-  alert(`El BPM de esta canción es: ${bpm}`);
-}
+// Eliminar función duplicada
+// function moveTrack(trackId) {
+//   // Implementar lógica para mover la canción
+//   alert(`Mover la canción con ID: ${trackId}`);
+// }
 
 // Función auxiliar para mostrar notificaciones
 function mostrarNotificacion(mensaje, tipo) {
-  // Implementar según el sistema de notificaciones que uses
-  // Por ejemplo, podrías usar una librería como toastr o una implementación propia
-  if (tipo === "error") {
-    alert("Error: " + mensaje);
-  } else {
-    alert(mensaje);
+  const container = document.getElementById('notificaciones-container');
+  
+  if (!container) {
+    // Fallback a alert si no existe el contenedor
+    if (tipo === "error") {
+      alert("Error: " + mensaje);
+    } else {
+      alert(mensaje);
+    }
+    return;
   }
+  
+  const notificacion = document.createElement('div');
+  notificacion.className = `notificacion ${tipo}`;
+  notificacion.textContent = mensaje;
+  
+  container.appendChild(notificacion);
+  
+  // Auto-eliminar después de 3 segundos
+  setTimeout(() => {
+    notificacion.classList.add('fadeOut');
+    setTimeout(() => {
+      container.removeChild(notificacion);
+    }, 500);
+  }, 3000);
 }
 
-function showBPM(bpm) {
-  alert(`El BPM de esta canción es: ${bpm}`);
-}
-// function mostrarTemaUsuario(track){
-//   console.log('temausuario', track)
-//   const idCarpeta = 'custom-folder-' + track.id_carpeta;
-//   console.log('idCarpeta',idCarpeta)
-//   const songElement = document.createElement("div");
-//   songElement.className = "song-item";
-//   songElement.setAttribute("data-track-id", track.id);
-//   songElement.innerHTML = `
-//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-//       <span>${track.titulo} - ${track.artista}</span>
-//       <div>
-//         <button onclick="event.stopPropagation(); playTrack('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
-//           <span class="material-icons playPause">play_arrow</span>
-//         </button>
-//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-//           <span class="material-icons">play_arrow</span>
-//           Mover
-//         </button>
-//       </div>
-//     </div>
-//   `;
-//   document.getElementById(idCarpeta).appendChild(songElement);
-//   updateFolderCount(idCarpeta);
-
+// Eliminar función duplicada
+// function showBPM(bpm) {
+//   alert(`El BPM de esta canción es: ${bpm}`);
 // }
+
 function createSongElement(track) {
   const div = document.createElement("div");
   div.className = "song-item";
@@ -540,213 +552,228 @@ function createSongElement(track) {
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
       <span>${track.name} - ${track.artists[0].name}</span>
       <div>
-        <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
+        <button onclick="event.stopPropagation(); AudioPlayer.toggle('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
           <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
         </button>
         <button onclick="event.stopPropagation(); showBPM('${track.tempo}')" style="margin-left: 10px;">
           <span class="material-icons">info</span>
           BPM
         </button>
-          <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-        <span class="material-icons">drive_file_move</span>
-         Mover
-       </button>
+        <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
+          <span class="material-icons">drive_file_move</span>
+          Mover
+        </button>
       </div>
     </div>
   `;
   return div;
-}
-// function createSongElement(track) {
-//   const div = document.createElement("div");
-//   div.className = "song-item";
-//   div.setAttribute("data-track-id", track.id);
-//   div.innerHTML = `
-//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-//       <span>${track.name} - ${track.artists[0].name}</span>
-//       <div>
-//         <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
-//           <span class="material-icons playPause" id="playPauseIcon-${track.id}">play_arrow</span>
-//         </button>
-//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-//           <span class="material-icons">drive_file_move</span>
-//           Mover
-//         </button>
-//       </div>
-//     </div>
-//   `;
-
-//   return div;
-// }
-
-async function getTrackAudioFeatures(trackId) {
-  const response = await fetch(
-    `https://api.spotify.com/v1/audio-features/${trackId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  );
-  return await response.json();
-}
-
-function sortSongByBPM(track, bpm) {
-  temasBuscados.push({
-    id: 0,
-    titulo: track.name,
-    artista: track.artists[0].name,
-    id_spotify: track.id,
-    preview_url: track.preview_url,
-    tempo: bpm,
-  });
-
-  id_carpeta = 1;
-  const songElement = createSongElement(track);
-  if (bpm >= 85 && bpm < 105) {
-    document.getElementById("folder-85-105").appendChild(songElement);
-    updateFolderCount("folder-85-105");
-  } else if (bpm >= 105 && bpm < 120) {
-    id_carpeta = 2;
-    document.getElementById("folder-105-120").appendChild(songElement);
-    updateFolderCount("folder-105-120");
-  } else if (bpm >= 120 && bpm < 135) {
-    id_carpeta = 3;
-    document.getElementById("folder-120-135").appendChild(songElement);
-    updateFolderCount("folder-120-135");
-  } else if (bpm >= 135 && bpm < 148) {
-    id_carpeta = 4;
-    document.getElementById("folder-135-148").appendChild(songElement);
-    updateFolderCount("folder-135-148");
-  } else if (bpm >= 148) {
-    id_carpeta = 5;
-    document.getElementById("folder-148-plus").appendChild(songElement);
-    updateFolderCount("folder-148-plus");
+}// guardar temas en bd
+async function guardarDatosBd(track, id_carpeta) {
+  if (!track || !id_carpeta) {
+    console.error("Datos inválidos para guardar:", { track, id_carpeta });
+    mostrarNotificacion("Error: Datos incompletos para guardar", "error");
+    return;
   }
-}
 
-// guardar temas en bd
-function guardarDatosBd(track, id_carpeta) {
-  fetch(`${API_URL_TEMAS}?metodo=nuevo`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      titulo: track.titulo,
-      artista: track.artista,
-      id_spotify: track.id_spotify,
-      preview_url: track.preview_url,
-      tempo: track.tempo,
-      id_carpeta,
-    }),
-  })
-    .then((response) => {
-      // Primero vemos la respuesta completa como texto
-      return response.text().then((text) => {
-        console.log("Respuesta del servidor:", text);
-        // Si la respuesta no es OK, lanzamos un error
-        if (!response.ok) {
-          throw new Error(`Error HTTP ${response.status}: ${text}`);
-        }
-        // Si llegamos aquí, intentamos parsear como JSON
-        try {
-          return JSON.parse(text);
-        } catch (e) {
-          throw new Error(`Error al parsear JSON: ${text}`);
-        }
-      });
-    })
-    .then((result) => {
-      track.id = result.id;
-    })
-    .catch((error) => {
-      console.error("Error completo:", error);
-      console.error("Mensaje:", error.message);
+  try {
+    const response = await fetch(`${API_URL_TEMAS}?metodo=nuevo`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        titulo: track.titulo,
+        artista: track.artista,
+        id_spotify: track.id_spotify,
+        preview_url: track.preview_url,
+        tempo: track.tempo,
+        id_carpeta,
+      }),
     });
+
+    // Obtener la respuesta como texto primero
+    const text = await response.text();
+    console.log("Respuesta del servidor:", text);
+    
+    if (!response.ok) {
+      throw new Error(`Error HTTP ${response.status}: ${text}`);
+    }
+    
+    // Intentar parsear como JSON
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch (e) {
+      throw new Error(`Error al parsear JSON: ${text}`);
+    }
+    
+    // Actualizar el ID del track y mostrar notificación de éxito
+    if (result && result.id) {
+      track.id = result.id;
+      mostrarNotificacion("Canción guardada correctamente", "success");
+      return result;
+    } else {
+      throw new Error("No se recibió un ID válido del servidor");
+    }
+  } catch (error) {
+    console.error("Error al guardar tema:", error);
+    mostrarNotificacion("Error al guardar la canción", "error");
+    throw error;
+  }
 }
 
 function updateFolderCount(id, resetear = false) {
   const songList = document.getElementById(id);
-  const songCount = songList.closest(".folder").querySelector(".song-count");
-  let contador = parseInt(songCount.textContent);
+  if (!songList) {
+    console.error("No se encontró el elemento con ID:", id);
+    return;
+  }
+  
+  const folderElement = songList.closest(".folder");
+  if (!folderElement) {
+    console.error("No se encontró el contenedor de carpeta para:", id);
+    return;
+  }
+  
+  const songCount = folderElement.querySelector(".song-count");
+  if (!songCount) {
+    console.error("No se encontró el contador de canciones para:", id);
+    return;
+  }
+  
+  // Extraer solo el número del texto actual
+  const currentText = songCount.textContent;
+  let contador = 0;
+  
+  try {
+    contador = parseInt(currentText) || 0;
+  } catch (e) {
+    // Si hay error al parsear, asumimos 0
+    contador = 0;
+  }
+  
   if (resetear) {
     contador = 0;
   } else {
     contador = contador + 1;
   }
+  
   songCount.textContent = contador + " songs";
 }
 
 function createCustomFolder() {
-  document.getElementById("modalBackdrop").style.display = "block";
-  document.getElementById("customFolderModal").style.display = "block";
+  ModalManager.show("customFolderModal");
 }
 
 function closeModal() {
-  document.getElementById("modalBackdrop").style.display = "none";
-  document.getElementById("customFolderModal").style.display = "none";
-  document.getElementById("moveSongModal").style.display = "none";
+  ModalManager.hide("customFolderModal");
+  ModalManager.hide("moveSongModal");
   document.getElementById("folderNameInput").value = "";
 }
 
-function saveCustomFolder() {
-  const folderName = document.getElementById("folderNameInput").value;
+async function saveCustomFolder() {
+  const folderNameInput = document.getElementById("folderNameInput");
+  if (!folderNameInput) {
+    console.error("No se encontró el elemento de entrada para el nombre de la carpeta");
+    return;
+  }
+  
+  const folderName = folderNameInput.value.trim();
+  if (!folderName) {
+    mostrarNotificacion("Por favor ingrese un nombre para la carpeta", "error");
+    return;
+  }
+  
   const fecha = new Date(Date.now());
   const fechaFormateada = fecha.toISOString().slice(0, 10);
-  if (folderName.trim()) {
-    const folder = {
-      fecha: fechaFormateada,
-      name: folderName,
-      songs: [],
-    };
+  
+  const folder = {
+    fecha: fechaFormateada,
+    name: folderName,
+    songs: [],
+  };
 
-    const name = folder.name;
-    const fecha = folder.fecha;
-    console.log(folder);
-    fetch(`${API_URL_CARPETAS}?metodo=nuevo`, {
+  try {
+    const response = await fetch(`${API_URL_CARPETAS}?metodo=nuevo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, fecha }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        folder.id = result.id;
-        customFolders.push(folder);
-        createCustomFolderElement(folder);
-        closeModal();
-        document.getElementById("folderNameInput").value = "";
-        if (!parseInt(result["id"])) {
-          erroresApi = Object.values(result["id"]);
-        }
-      })
-      .catch((error) => {
-        console.log("Error: ", JSON.stringify(error));
-      });
+      body: JSON.stringify({ 
+        name: folder.name, 
+        fecha: folder.fecha 
+      }),
+    });
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Error HTTP ${response.status}: ${errorText}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result && result.id) {
+      folder.id = result.id;
+      customFolders.push(folder);
+      createCustomFolderElement(folder);
+      closeModal();
+      folderNameInput.value = "";
+      mostrarNotificacion("Carpeta creada correctamente", "success");
+    } else {
+      if (result && result.id && !parseInt(result.id)) {
+        const erroresApi = Object.values(result.id);
+        mostrarNotificacion(`Error: ${erroresApi.join(", ")}`, "error");
+      } else {
+        throw new Error("No se recibió un ID válido del servidor");
+      }
+    }
+  } catch (error) {
+    console.error("Error al crear carpeta:", error);
+    mostrarNotificacion("Error al crear la carpeta", "error");
   }
 }
 
-function eliminarCarpetabd(id) {
-  fetch(`${API_URL_CARPETAS}?metodo=eliminar&id=${id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      if (!parseInt(result["id"])) {
-        erroresApi = Object.values(result["id"]);
-      }
-    })
-    .catch((error) => {
-      console.log("Error: ", JSON.stringify(error));
+async function eliminarCarpetabd(id) {
+  if (!id) {
+    console.error("ID de carpeta inválido");
+    return;
+  }
+  
+  try {
+    const response = await fetch(`${API_URL_CARPETAS}?metodo=eliminar&id=${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-}
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Error HTTP ${response.status}: ${errorText}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result && result.success) {
+      mostrarNotificacion("Carpeta eliminada correctamente", "success");
+    } else {
+      if (result && result.id && !parseInt(result.id)) {
+        const erroresApi = Object.values(result.id);
+        mostrarNotificacion(`Error: ${erroresApi.join(", ")}`, "error");
+      } else {
+        console.warn("Respuesta inesperada al eliminar carpeta:", result);
+      }
+    }
+  } catch (error) {
+    console.error("Error al eliminar carpeta:", error);
+    mostrarNotificacion("Error al eliminar la carpeta", "error");
+  }
+}function createCustomFolderElement(folder) {
+  if (!folder || !folder.id || !folder.name) {
+    console.error("Invalid folder data:", folder);
+    return;
+  }
 
-function createCustomFolderElement(folder) {
   const div = document.createElement("div");
   div.className = "folder";
   div.id = `folder-container-${folder.id}`;
@@ -761,11 +788,22 @@ function createCustomFolderElement(folder) {
     </h3>
     <div class="song-list" id="custom-folder-${folder.id}" style="display: none;"></div>
   `;
-  document.getElementById("custom-folders").appendChild(div);
+  
+  const customFoldersContainer = document.getElementById("custom-folders");
+  if (customFoldersContainer) {
+    customFoldersContainer.appendChild(div);
+  } else {
+    console.error("Custom folders container not found");
+  }
 }
 
 function toggleFolder(folderId) {
   const folderContent = document.getElementById(`custom-folder-${folderId}`);
+  if (!folderContent) {
+    console.error("Folder content not found:", folderId);
+    return;
+  }
+  
   if (folderContent.style.display === "none") {
     folderContent.style.display = "block";
   } else {
@@ -779,192 +817,88 @@ function deleteFolder(folderId) {
     const folderElement = document.getElementById(
       `folder-container-${folderId}`
     );
+    
     if (folderElement) {
-      folderElement.remove();
+      // Check if folder has songs
+      const songList = document.getElementById(`custom-folder-${folderId}`);
+      if (songList && songList.children.length > 0) {
+        if (!confirm("Esta carpeta contiene canciones. ¿Estás seguro de eliminarla?")) {
+          return;
+        }
+        
+        // Stop any playing songs from this folder
+        if (AudioPlayer.currentTrackId) {
+          const songInFolder = songList.querySelector(`[data-track-id="${AudioPlayer.currentTrackId}"]`);
+          if (songInFolder) {
+            AudioPlayer.pause();
+          }
+        }
+      }
+      
+      // Remove from DOM and database
+  folderElement.remove();
+eliminarCarpetabd(folderId);
 
-      eliminarCarpetabd(folderId);
-    }
-    customFolders = customFolders.filter((f) => f.id !== folderId);
-    //saveCustomFoldersToStorage();
-  }
-}
-///////////////////////////////login abajo
+// Update customFolders array
+customFolders = customFolders.filter((f) => f.id !== folderId);
 
-// let isLoggedIn = false;
-// let currentUser = null;
-
-// function showLoginModal() {
-//   document.getElementById("loginModal").style.display = "block";
-//   document.getElementById("modalBackdrop").style.display = "block";
-// }
-
-// function closeLoginModal() {
-//   document.getElementById("loginModal").style.display = "none";
-//   document.getElementById("modalBackdrop").style.display = "none";
-//   document.getElementById("loginForm").reset();
-// }
-
-// async function handleLogin(event) {
-//   event.preventDefault();
-//   const email = document.getElementById("emailInput").value;
-//   const password = document.getElementById("passwordInput").value;
-//   try {
-//     const user = {
-//       email: email,
-//       name: email.split("@")[0],
-//     };
-//     isLoggedIn = true;
-//     currentUser = user;
-//     const loginBtn = document.getElementById("loginBtn");
-//     loginBtn.innerHTML = `
-//       <span class="material-icons">account_circle</span>
-//       ${user.name}
-//     `;
-//     loginBtn.onclick = handleLogout;
-//     closeLoginModal();
-//     localStorage.setItem("user", JSON.stringify(user));
-//   } catch (error) {
-//     console.error("Login error:", error);
-//     alert("Error logging in. Please try again.");
-//   }
-// }
-
-// function handleLogout() {
-//   isLoggedIn = false;
-//   currentUser = null;
-//   const loginBtn = document.getElementById("loginBtn");
-//   loginBtn.innerHTML = `
-//     <span class="material-icons">account_circle</span>
-//     Login
-//   `;
-//   loginBtn.onclick = showLoginModal;
-//   localStorage.removeItem("user");
-// }
-
-// window.onload = async () => {
-//   await getSpotifyToken();
-//   loadCustomFolders();
-//   const savedUser = localStorage.getItem("user");
-//   if (savedUser) {
-//     currentUser = JSON.parse(savedUser);
-//     isLoggedIn = true;
-//     const loginBtn = document.getElementById("loginBtn");
-//     loginBtn.innerHTML = `
-//       <span class="material-icons">account_circle</span>
-//       ${currentUser.name}
-//     `;
-//     loginBtn.onclick = handleLogout;
-//   }
-// };
-
-// document.addEventListener("keydown", function (event) {
-//   if (event.key === "Escape") {
-//     closeModal();
-//   }
-// });
-
-// document.getElementById("modalBackdrop").addEventListener("click", closeModal);
-
-// document
-//   .getElementById("customFolderModal")
-//   .addEventListener("click", function (e) {
-//     e.stopPropagation();
-//   });
-
-// document
-//   .getElementById("moveSongModal")
-//   .addEventListener("click", function (e) {
-//     e.stopPropagation();
-//   });
-///          abajo  boton pausa//
-let play = null;
-let currentlyPlayingTrackId = null;
-
-//Está duplicada la función
-// function createSongElement(track) {
-//   const div = document.createElement("div");
-//   div.className = "song-item";
-//   div.setAttribute("data-track-id", track.id);
-//   div.innerHTML = `
-//     <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px;">
-//       <span>${track.name} - ${track.artists[0].name}</span>
-//       <div>
-//         <button onclick="event.stopPropagation(); togglePlayPause('${track.id}', '${track.preview_url}')" style="margin-right: 10px;">
-//           <span class="material-icons" id="playPauseIcon-${track.id}">play_arrow</span>
-//         </button>
-//         <button onclick="event.stopPropagation(); showMoveModal('${track.id}')" style="margin-left: 10px;">
-//           <span class="material-icons">drive_file_move</span>
-//           Mover
-//         </button>
-//       </div>
-//     </div>
-//   `;
-//   return div;
-// }
-
+mostrarNotificacion("Carpeta eliminada correctamente", "success");
+// Use AudioPlayer instead of duplicating audio functionality
 function togglePlayPause(trackId, previewUrl) {
-  if (currentlyPlayingTrackId === trackId && player && !player.paused) {
-    pauseTrack();
-  } else {
-    playTrack(trackId, previewUrl);
-  }
-}
-///////////////////////////funcion playTrack
-
-function playTrack(trackId, previewUrl) {
-  if (player) {
-    player.pause();
-  }
-  if (previewUrl) {
-    player = new Audio(previewUrl);
-    player.play();
-    currentlyPlayingTrackId = trackId;
-    updatePlayPauseIcon(trackId, true);
-  } else {
-    alert("Lo siento, no hay una vista previa disponible para esta canción.");
-  }
+  AudioPlayer.toggle(trackId, previewUrl);
 }
 
-function pauseTrack() {
-  if (player) {
-    player.pause();
-    updatePlayPauseIcon(currentlyPlayingTrackId, false);
-    currentlyPlayingTrackId = null;
-  }
-}
 
-function updatePlayPauseIcon(trackId, isPlaying) {
-  const iconos = document.querySelectorAll(".material-icons.playPause");
-  iconos.forEach((icono) => {
-    icono.textContent = "play_arrow";
-  });
-  const icon = document.getElementById(`playPauseIcon-${trackId}`);
-  if (icon) {
-    icon.textContent = isPlaying ? "pause" : "play_arrow";
-  }
-}
-
-// Asegúrate de que esta función se llame cuando se cambie de página o se cierre la aplicación
 function cleanupAudio() {
-  if (player) {
-    player.pause();
-    player = null;
-  }
-  currentlyPlayingTrackId = null;
+  AudioPlayer.cleanup();
 }
 
-// Añade este evento al final del archivo
+// Keep this event listener
 window.addEventListener("beforeunload", cleanupAudio);
-/**
- * abajo añadir carpetas creadas
- */
-//
 
-// Asegúrate de llamar a esta función cuando la página se cargue
-//window.addEventListener("load", loadCustomFolders);
-////////////////////////////////////////////////////////////////login abajo  /////////////////////
+// Initialize AudioPlayer and ModalManager when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  ModalManager.init();
+});// Initialize ModalManager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  ModalManager.init();
+  
+  // Use AudioPlayer for all audio playback
+  window.togglePlayPause = (trackId, previewUrl) => {
+    AudioPlayer.toggle(trackId, previewUrl);
+  };
+  
+  // Clean up audio when page unloads
+  window.addEventListener('beforeunload', () => {
+    AudioPlayer.cleanup();
+  });
+});
 
-/////////////////////////////////////////////
+// Remove the duplicate ModalManager declaration here
+// const ModalManager = {...}
+
+// Use AudioPlayer instead of duplicating audio functionality
+function togglePlayPause(trackId, previewUrl) {
+  AudioPlayer.toggle(trackId, previewUrl);
+}// Initialize AudioPlayer and ModalManager when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  ModalManager.init();
+  
+  // Use AudioPlayer for all audio playback
+  window.togglePlayPause = (trackId, previewUrl) => {
+    AudioPlayer.toggle(trackId, previewUrl);
+  };
+  
+  // Clean up audio when page unloads
+  window.addEventListener('beforeunload', () => {
+    AudioPlayer.cleanup();
+  });
+  
+  // Initialize table
+  llenarTabla();
+});
+
+
 // Top 10 DJs más conocidos
 const djsData = [
   {
@@ -1460,4 +1394,4 @@ document.addEventListener('DOMContentLoaded', function() {
 //   });
 
 //   return false;
-// }
+// };
