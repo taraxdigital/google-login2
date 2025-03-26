@@ -2,14 +2,22 @@
 include_once 'config.php';
 include_once("vistas/header.php");
 include_once("vistas/header2.php");
-<<<<<<< HEAD
 require_once 'data/usuariobd.php';
-=======
 
 
->>>>>>> parent of 36ba184 (miercoles)
+// if(isset($_SESSION['session_id'])){
+//   $usuarioBD = new UsuarioBD();
+//   $sesion = $usuarioBD->verificarSesion($_SESSION['session_id']);
+//   $usuario = $sesion['usuario'];
+// }
+  
+
+// if (isset($sesion['success']) && !$sesion['success']) {
+//     session_destroy();
+// }
+
+
 ?>
-<<<<<<< Updated upstream
 <link rel="stylesheet" href="music.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -39,109 +47,47 @@ require_once 'data/usuariobd.php';
     </button>
 
     <!-- Modal de Login -->
-    <div id="loginModal" class="modalLogin">
-        <div class="modal-content-login">
-            <span class="modal-close-login" onclick="closeModal()">&times;</span>
-            
-            <div id="emailError" class="error-message"></div>
-            <div id="message" class="error-message"></div>
-
-            <form id="loginForm" onsubmit="login(event)">
-                <h2 class="btn-login">Iniciar Sesión</h2>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="tu-email@ejemplo.com"
-                        required
-                    >
+    <div id="loginModal" class="modales">
+        <div class="modales-contenido">
+            <span class="modales-cerrar" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form method="POST" action="controllers/usuarioController.php">
+                <input type="email" name="email" required placeholder="Correo electrónico">
+                <input type="password" name="password" required placeholder="Contraseña">
+                <div class="modales-form-links">
+                    <a href="#" onclick="showRecoveryModal()">Recuperar Contraseña</a>
+                    <a href="#" onclick="showRegisterModal()">Registrarse</a>
                 </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="Contraseña"
-                        required
-                    >
-                    <div id="passwordError" class="error-message"></div>
-                </div>
-                <button type="submit" class="login-submit">Iniciar Sesión</button>
-                
-                <div class="switch-form">
-                    <a href="#" onclick="showRegistro()">¿No tienes cuenta? Regístrate</a>
-                    <br>
-                    <a href="#" onclick="showRecuperacion()">Olvidé mi contraseña</a>
-                </div>
+                <input type="submit" name="login" value="Iniciar Sesión">
             </form>
-
-            <div id="registroForm" style="display:none;">
-                <h2 class="btn-login">Registro</h2>
-                <div class="form-group">
-                    <label for="registroNombre">Nombre</label>
-                    <input 
-                        type="text" 
-                        id="registroNombre" 
-                        name="registroNombre" 
-                        placeholder="Tu nombre"
-                        required
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="registroEmail">Email</label>
-                    <input 
-                        type="email" 
-                        id="registroEmail" 
-                        name="registroEmail" 
-                        placeholder="tu-email@ejemplo.com"
-                        required
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="registroPassword">Contraseña</label>
-                    <input 
-                        type="password" 
-                        id="registroPassword" 
-                        name="registroPassword" 
-                        placeholder="Contraseña"
-                        required
-                    >
-                </div>
-                <button class="login-submit" onclick="registro()">Registrarse</button>
-                
-                <div class="switch-form">
-                    <a href="#" onclick="showLogin()">¿Ya tienes cuenta? Iniciar Sesión</a>
-                </div>
-            </div>
-
-            <div id="recuperacionForm" style="display:none;">
-                <h2 class="btn-login" >Recuperar Contraseña</h2>
-                <div class="form-group">
-                    <label for="recuperacionEmail">Email</label>
-                    <input 
-                        type="email" 
-                        id="recuperacionEmail" 
-                        name="recuperacionEmail" 
-                        placeholder="tu-email@ejemplo.com"
-                        required
-                    >
-                </div>
-                <button class="login-submit" onclick="recuperarContrasena()">Recuperar Contraseña</button>
-                
-                <div class="switch-form">
-                    <a href="#" onclick="showLogin()">Volver a Iniciar Sesión</a>
-                </div>
-            </div>
         </div>
     </div>
-    
 
+    <!-- Modal de Recuperación -->
+    <div id="recoveryModal" class="modales">
+        <div class="modales-contenido">
+            <span class="modales-cerrar" onclick="closeModal('recoveryModal')">&times;</span>
+            <h2>Recuperar Contraseña</h2>
+            <form method="POST" action="controllers/usuarioController.php">
+                <input type="email" name="email" required placeholder="Correo Electrónico">
+                <input type="submit" name="recuperar" value="Recuperar Contraseña">
+            </form>
+        </div>
+    </div>
 
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modales">
+        <div class="modales-contenido">
+            <span class="modales-cerrar" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Registro</h2>
+            <form method="POST" action="controllers/usuarioController.php">
+                <input type="email" name="email" required placeholder="Correo Electrónico">
+                <input type="password" name="password" required placeholder="Contraseña">
+                <input type="submit" name="registro" value="Registrarse">
+            </form>
+        </div>
+    </div>
 
-<<<<<<< Updated upstream
   <div class="main-content">
     
     <div class="header">
