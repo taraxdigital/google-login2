@@ -67,32 +67,6 @@ include_once("vistas/header2.php");
                
                 </div>
         </section>
-        <div class="accordion">
-  <div class="accordion-item">
-  <button class="accordion-button" onclick="playSound()">
-  <span>Recursos destacados.</span>
-  <i class="arrow"></i>
-  <audio src="img2/vine.mp3" type="audio/mp3" id="sonido"></audio>
-</button>
-    <div class="accordion-content">
-      <div class="accordion-body">
-        <p><strong>Anakin:</strong>  Todo en uno, imprescindible.</p>
-        <p><strong>Pika art:</strong>  Movimiento de imágenes increíbles.</p>
-        <p><strong>Visbug:</strong>  Extensión de Crome, para modificar cualquier web.</p>
-        <p><strong>blackbox.ai:</strong> Generación de código.</p>
-        <p><strong>Noise:</strong>  Crea videos, con música de otra plataforma.</p>
-        <p><strong>Issuu:</strong>  Crea tu propio libro.</p>
-        <p><strong>Rezi.AI:</strong> Crea tu cv.</p>
-        <p><strong>Pfpmaker:</strong>  Foto de perfil, para tu cv.</p>
-        <p><strong>Bento:</strong>  Crea tu portfolio.</p>
-        <p><strong>Animista:</strong>  Aplica movimiento en tu css.</p>
-        <p><strong>Retatube:</strong>  Descarga vídeos, de cualquier plataforma.</p>
-        <p><strong>Deepblank:</strong>  Identidad de marca.</p>
-        <p><strong> Myinstants:</strong>   Repositorio de sonidos cortos y memes sonoros..</p>
-      </div>
-    </div>
-  </div>
-</div>
         <section id="testimonios" class="testimonials">
             <h2 class="section-title">Tu Portal al Futuro</h2>
             <div class="testimonials-grid">
@@ -228,7 +202,31 @@ include_once("vistas/header2.php");
                 <a href="#" class="cta-button">Explora Más</a>
             </div>
         </section>
-
+        <div class="accordion">
+  <div class="accordion-item">
+  <button class="accordion-button" onclick="playSound()">
+  <span>Recursos destacados.</span>
+  <i class="arrow"></i>
+  <audio src="img2/vine.mp3" type="audio/mp3" id="sonido"></audio>
+</button>
+    <div class="accordion-content">
+      <div class="accordion-body">
+        <p><strong>Anakin:</strong>  Todo en uno, imprescindible.</p>
+        <p><strong>Visbug:</strong>  Extensión de Crome, para modificar cualquier web.</p>
+        <p><strong>Pika art:</strong>  Movimiento de imágenes increíbles.</p>
+        <p><strong>Noise:</strong>  Crea videos, con música de otra plataforma.</p>
+        <p><strong>Issuu:</strong>  Crea tu propio libro.</p>
+        <p><strong>Rezi.AI:</strong> Crea tu cv.</p>
+        <p><strong>Pfpmaker:</strong>  Foto de perfil, para tu cv.</p>
+        <p><strong>Bento:</strong>  Crea tu portfolio.</p>
+        <p><strong>Animista:</strong>  Aplica movimiento en tu css.</p>
+        <p><strong>Retatube:</strong>  Descarga vídeos, de cualquier plataforma.</p>
+        <p><strong>Deepblank:</strong>  Identidad de marca.</p>
+        <p><strong> Myinstants:</strong>   Repositorio de sonidos cortos y memes sonoros..</p>
+      </div>
+    </div>
+  </div>
+</div>
 <!--  -->
 <div class="vitamina">
 <h2>Gente Vitamina</h2>

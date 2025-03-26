@@ -439,7 +439,7 @@ include_once("vistas/header2.php");
                 </tr>
                 <tr>
                     <td class="platform-cell">Napkin.ai</td>
-                    <td class="functionality-cell"> Creación de contenido,infografías.</td>
+                    <td class="functionality-cell"> Creación de contenido, investigación y asistencia de escritura</td>
                     <td class="use-case-cell">Escritores, editores y contenido creativo.</td>
                 </tr>
                 <tr>
