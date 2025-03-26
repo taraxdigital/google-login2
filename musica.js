@@ -1338,6 +1338,7 @@ function openModal(src) {
 }
 
 // boton login abajo-//////////////
+<<<<<<< HEAD
 
 
 ////////////////////////////////
@@ -1398,6 +1399,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+=======
+>>>>>>> parent of 36ba184 (miercoles)
 // function showLoginModal() {
 //   document.getElementById("loginModal").style.display = "block";
 // }
